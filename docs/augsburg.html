@@ -9,14 +9,14 @@
         :root { --primary: #2563eb; --primary-dark: #1d4ed8; --success: #16a34a; --warning: #f59e0b; --bg: #f8fafc; --card-bg: #ffffff; --text: #1e293b; --text-muted: #64748b; }
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
-        .container { max-width: 1200px; margin: 0 auto; padding: 2rem; }
+        .container { max-width: 1400px; margin: 0 auto; padding: 2rem; }
         header { background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); color: white; padding: 2rem; }
         header h1 { font-size: 2rem; }
         .breadcrumb { margin-bottom: 0.5rem; opacity: 0.8; }
         .breadcrumb a { color: white; text-decoration: none; }
         table { width: 100%; border-collapse: collapse; background: var(--card-bg); border-radius: 12px; overflow: hidden; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
-        th, td { padding: 1rem; text-align: left; border-bottom: 1px solid var(--bg); }
-        th { background: var(--primary); color: white; }
+        th, td { padding: 0.8rem; text-align: left; border-bottom: 1px solid var(--bg); vertical-align: top; }
+        th { background: var(--primary); color: white; font-size: 0.9rem; }
         tr:hover { background: #f0f9ff; }
         .score { background: var(--success); color: white; padding: 0.25rem 0.5rem; border-radius: 999px; font-weight: 600; font-size: 0.8rem; }
         .score.medium { background: var(--warning); }
@@ -25,12 +25,40 @@
         .btn:hover { background: var(--primary-dark); }
         .top-banner { background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%); padding: 1.5rem; border-radius: 12px; margin-bottom: 2rem; }
         .top-banner h3 { color: #92400e; margin-bottom: 0.5rem; }
+        .property-image { width: 80px; height: 60px; object-fit: cover; border-radius: 6px; border: 2px solid #e2e8f0; }
+        .image-placeholder { width: 80px; height: 60px; background: #f1f5f9; border: 2px solid #e2e8f0; border-radius: 6px; display: flex; align-items: center; justify-content: center; color: var(--text-muted); font-size: 0.7rem; text-align: center; }
+        .pros-cons { margin-top: 0.5rem; }
+        .pros { color: #16a34a; font-size: 0.8rem; }
+        .cons { color: #dc2626; font-size: 0.8rem; }
+        .pros::before { content: "✓ "; }
+        .cons::before { content: "✗ "; }
+        .title-with-details { max-width: 220px; }
+        .property-title { font-weight: 600; margin-bottom: 0.3rem; }
+        .details-toggle { background: none; border: none; color: var(--primary); cursor: pointer; font-size: 0.8rem; margin-top: 0.3rem; }
+        .details-toggle:hover { text-decoration: underline; }
+        .pros-cons-details { margin-top: 0.5rem; padding-top: 0.5rem; border-top: 1px solid #e2e8f0; display: none; }
+        .pros-cons-details.show { display: block; }
+        .id-cell { font-weight: 600; color: var(--primary); }
     </style>
+    <script>
+        function toggleDetails(id) {
+            const details = document.getElementById('details-' + id);
+            const toggle = document.getElementById('toggle-' + id);
+            if (details.classList.contains('show')) {
+                details.classList.remove('show');
+                toggle.textContent = 'Pro/Contra zeigen';
+            } else {
+                details.classList.add('show');
+                toggle.textContent = 'Pro/Contra verstecken';
+            }
+        }
+    </script>
 </head>
 <body>
     <header>
         <div class="breadcrumb"><a href="index.html">← Zurück zur Übersicht</a></div>
         <h1>🏰 Augsburg - 10 Kandidaten</h1>
+        <p style="margin-top: 0.5rem; opacity: 0.9;">7 Kandidaten mit Fotos • 3 ohne Fotos (Immowelt blockiert)</p>
     </header>
     <div class="container">
         <div class="top-banner">
@@ -39,19 +67,171 @@
         </div>
         <table>
             <thead>
-                <tr><th>ID</th><th>Titel</th><th>Lage</th><th>Preis</th><th>Größe</th><th>Zimmer</th><th>Score</th><th>Link</th></tr>
+                <tr><th>ID</th><th>Foto</th><th>Titel & Details</th><th>Lage</th><th>Preis</th><th>Größe</th><th>Zimmer</th><th>Score</th><th>Link</th></tr>
             </thead>
             <tbody>
-                <tr><td>AU002</td><td>Zweifamilienhaus 305m² - Rohdiamant</td><td>Meitingen (20km)</td><td>€650.000</td><td>305 m²</td><td>11</td><td><span class="score">10</span></td><td><a href="https://www.kleinanzeigen.de/s-anzeige/zweifamilienhaus-305m/3331002860-208-7049" class="btn">→</a></td></tr>
-                <tr><td>AU010</td><td>Familienfreundliches ZFH Haunstetten</td><td>Augsburg-Haunstetten</td><td>€665.000</td><td>175 m²</td><td>7</td><td><span class="score">10</span></td><td><a href="https://www.immowelt.de/expose/2n5mp9q" class="btn">→</a></td></tr>
-                <tr><td>AU001</td><td>Wohnhaus mit 2 Einheiten</td><td>Emersacker (20km)</td><td>€649.000</td><td>170 m²</td><td>6</td><td><span class="score">9</span></td><td><a href="https://www.kleinanzeigen.de/s-anzeige/wohnhaus-mit-2-einheiten/3297598231-208-7057" class="btn">→</a></td></tr>
-                <tr><td>AU008</td><td>Großzügiges MFH mit 3 Einheiten</td><td>Augsburg-Kriegshaber</td><td>€795.000</td><td>260 m²</td><td>10</td><td><span class="score">9</span></td><td><a href="https://www.immowelt.de/expose/2n5jf5h" class="btn">→</a></td></tr>
-                <tr><td>AU009</td><td>Stadthaus mit Einliegerwohnung</td><td>Augsburg-Göggingen</td><td>€720.000</td><td>185 m²</td><td>7</td><td><span class="score">9</span></td><td><a href="https://www.immowelt.de/expose/2n5kl8m" class="btn">→</a></td></tr>
-                <tr><td>AU005</td><td>Exklusive DHH Hammerschmiede</td><td>Augsburg-Hammerschmiede</td><td>€709.000</td><td>140 m²</td><td>8</td><td><span class="score medium">8</span></td><td><a href="https://www.kleinanzeigen.de/s-anzeige/exklusive-dhh/3232233789-208-7524" class="btn">→</a></td></tr>
-                <tr><td>AU007</td><td>Charmantes Doppelhaus für 2 WE</td><td>Augsburg-Ost</td><td>€555.000</td><td>126 m²</td><td>6</td><td><span class="score medium">8</span></td><td><a href="https://www.kleinanzeigen.de/s-anzeige/charmantes-doppelhaus/3284095531-208-7521" class="btn">→</a></td></tr>
-                <tr><td>AU003</td><td>Modernisiertes EFH mit 2 WE</td><td>Gablingen (15km)</td><td>€589.000</td><td>125 m²</td><td>6</td><td><span class="score medium">7</span></td><td><a href="https://www.kleinanzeigen.de/s-anzeige/modernisiertes-efh/3274190634-208-10434" class="btn">→</a></td></tr>
-                <tr><td>AU004</td><td>Schlüsselfertige DHH Bärenkeller</td><td>Augsburg-Bärenkeller</td><td>€853.410</td><td>125 m²</td><td>5</td><td><span class="score low">6</span></td><td><a href="https://www.kleinanzeigen.de/s-anzeige/schluesselfertige-dhh/3331526583-208-7529" class="btn">→</a></td></tr>
-                <tr><td>AU006</td><td>Charmante DHH mit Garten</td><td>Augsburg-Lechhausen</td><td>€549.000</td><td>122 m²</td><td>5</td><td><span class="score low">6</span></td><td><a href="https://www.kleinanzeigen.de/s-anzeige/charmante-dhh/3315553204-208-7523" class="btn">→</a></td></tr>
+                <tr>
+                    <td class="id-cell">AU002</td>
+                    <td><img src="assets/augsburg/photos/AU002.jpg" alt="AU002" class="property-image"></td>
+                    <td class="title-with-details">
+                        <div class="property-title">Zweifamilienhaus 305m² - Rohdiamant</div>
+                        <button class="details-toggle" id="toggle-AU002" onclick="toggleDetails('AU002')">Pro/Contra zeigen</button>
+                        <div class="pros-cons-details" id="details-AU002">
+                            <div class="pros">Very large (305m²)</div>
+                            <div class="pros">11 rooms - plenty of space</div>
+                            <div class="pros">Already two-family</div>
+                            <div class="pros">Best price-size ratio</div>
+                            <div class="cons">Needs renovation</div>
+                            <div class="cons">20km from center</div>
+                        </div>
+                    </td>
+                    <td>Meitingen (20km)</td><td>€650.000</td><td>305 m²</td><td>11</td><td><span class="score">10</span></td><td><a href="https://www.kleinanzeigen.de/s-anzeige/zweifamilienhaus-305m/3331002860-208-7049" class="btn">→</a></td>
+                </tr>
+                <tr>
+                    <td class="id-cell">AU010</td>
+                    <td><div class="image-placeholder">Kein Foto<br/>(403 Error)</div></td>
+                    <td class="title-with-details">
+                        <div class="property-title">Familienfreundliches ZFH Haunstetten</div>
+                        <button class="details-toggle" id="toggle-AU010" onclick="toggleDetails('AU010')">Pro/Contra zeigen</button>
+                        <div class="pros-cons-details" id="details-AU010">
+                            <div class="pros">Already ZFH</div>
+                            <div class="pros">Good size 175m²</div>
+                            <div class="pros">Garden</div>
+                            <div class="pros">Family-friendly area</div>
+                            <div class="pros">Great price</div>
+                            <div class="cons">May need some updates</div>
+                        </div>
+                    </td>
+                    <td>Augsburg-Haunstetten</td><td>€665.000</td><td>175 m²</td><td>7</td><td><span class="score">10</span></td><td><a href="https://www.immowelt.de/expose/2n5mp9q" class="btn">→</a></td>
+                </tr>
+                <tr>
+                    <td class="id-cell">AU001</td>
+                    <td><img src="assets/augsburg/photos/AU001.jpg" alt="AU001" class="property-image"></td>
+                    <td class="title-with-details">
+                        <div class="property-title">Wohnhaus mit 2 Einheiten</div>
+                        <button class="details-toggle" id="toggle-AU001" onclick="toggleDetails('AU001')">Pro/Contra zeigen</button>
+                        <div class="pros-cons-details" id="details-AU001">
+                            <div class="pros">Already 2 units</div>
+                            <div class="pros">New heating system</div>
+                            <div class="pros">Large plot</div>
+                            <div class="pros">Good price</div>
+                            <div class="cons">20km from Augsburg center</div>
+                            <div class="cons">Rural location</div>
+                        </div>
+                    </td>
+                    <td>Emersacker (20km)</td><td>€649.000</td><td>170 m²</td><td>6</td><td><span class="score">9</span></td><td><a href="https://www.kleinanzeigen.de/s-anzeige/wohnhaus-mit-2-einheiten/3297598231-208-7057" class="btn">→</a></td>
+                </tr>
+                <tr>
+                    <td class="id-cell">AU008</td>
+                    <td><div class="image-placeholder">Kein Foto<br/>(403 Error)</div></td>
+                    <td class="title-with-details">
+                        <div class="property-title">Großzügiges MFH mit 3 Einheiten</div>
+                        <button class="details-toggle" id="toggle-AU008" onclick="toggleDetails('AU008')">Pro/Contra zeigen</button>
+                        <div class="pros-cons-details" id="details-AU008">
+                            <div class="pros">3 units - flexible</div>
+                            <div class="pros">260m² total</div>
+                            <div class="pros">Good rental potential</div>
+                            <div class="pros">Urban location</div>
+                            <div class="cons">Higher price</div>
+                        </div>
+                    </td>
+                    <td>Augsburg-Kriegshaber</td><td>€795.000</td><td>260 m²</td><td>10</td><td><span class="score">9</span></td><td><a href="https://www.immowelt.de/expose/2n5jf5h" class="btn">→</a></td>
+                </tr>
+                <tr>
+                    <td class="id-cell">AU009</td>
+                    <td><div class="image-placeholder">Kein Foto<br/>(403 Error)</div></td>
+                    <td class="title-with-details">
+                        <div class="property-title">Stadthaus mit Einliegerwohnung</div>
+                        <button class="details-toggle" id="toggle-AU009" onclick="toggleDetails('AU009')">Pro/Contra zeigen</button>
+                        <div class="pros-cons-details" id="details-AU009">
+                            <div class="pros">Has Einliegerwohnung</div>
+                            <div class="pros">Good size (185m²)</div>
+                            <div class="pros">Garden + garage</div>
+                            <div class="pros">Popular area</div>
+                            <div class="cons">Price slightly higher</div>
+                        </div>
+                    </td>
+                    <td>Augsburg-Göggingen</td><td>€720.000</td><td>185 m²</td><td>7</td><td><span class="score">9</span></td><td><a href="https://www.immowelt.de/expose/2n5kl8m" class="btn">→</a></td>
+                </tr>
+                <tr>
+                    <td class="id-cell">AU005</td>
+                    <td><img src="assets/augsburg/photos/AU005.jpg" alt="AU005" class="property-image"></td>
+                    <td class="title-with-details">
+                        <div class="property-title">Exklusive DHH Hammerschmiede</div>
+                        <button class="details-toggle" id="toggle-AU005" onclick="toggleDetails('AU005')">Pro/Contra zeigen</button>
+                        <div class="pros-cons-details" id="details-AU005">
+                            <div class="pros">8 rooms - good distribution</div>
+                            <div class="pros">In Augsburg city</div>
+                            <div class="pros">5 bedrooms</div>
+                            <div class="cons">140m² could be tighter</div>
+                            <div class="cons">Doppelhaus</div>
+                        </div>
+                    </td>
+                    <td>Augsburg-Hammerschmiede</td><td>€709.000</td><td>140 m²</td><td>8</td><td><span class="score medium">8</span></td><td><a href="https://www.kleinanzeigen.de/s-anzeige/exklusive-dhh/3232233789-208-7524" class="btn">→</a></td>
+                </tr>
+                <tr>
+                    <td class="id-cell">AU007</td>
+                    <td><img src="assets/augsburg/photos/AU007.jpg" alt="AU007" class="property-image"></td>
+                    <td class="title-with-details">
+                        <div class="property-title">Charmantes Doppelhaus für 2 WE</div>
+                        <button class="details-toggle" id="toggle-AU007" onclick="toggleDetails('AU007')">Pro/Contra zeigen</button>
+                        <div class="pros-cons-details" id="details-AU007">
+                            <div class="pros">Two units possible</div>
+                            <div class="pros">Bright and friendly</div>
+                            <div class="pros">Good location</div>
+                            <div class="pros">Reasonable price</div>
+                            <div class="cons">126m² on smaller side</div>
+                        </div>
+                    </td>
+                    <td>Augsburg-Ost</td><td>€555.000</td><td>126 m²</td><td>6</td><td><span class="score medium">8</span></td><td><a href="https://www.kleinanzeigen.de/s-anzeige/charmantes-doppelhaus/3284095531-208-7521" class="btn">→</a></td>
+                </tr>
+                <tr>
+                    <td class="id-cell">AU003</td>
+                    <td><img src="assets/augsburg/photos/AU003.jpg" alt="AU003" class="property-image"></td>
+                    <td class="title-with-details">
+                        <div class="property-title">Modernisiertes EFH mit 2 WE</div>
+                        <button class="details-toggle" id="toggle-AU003" onclick="toggleDetails('AU003')">Pro/Contra zeigen</button>
+                        <div class="pros-cons-details" id="details-AU003">
+                            <div class="pros">Already 2 units</div>
+                            <div class="pros">Modernized</div>
+                            <div class="pros">Large plot (611m²)</div>
+                            <div class="cons">125m² may be compact for 2 families</div>
+                        </div>
+                    </td>
+                    <td>Gablingen (15km)</td><td>€589.000</td><td>125 m²</td><td>6</td><td><span class="score medium">7</span></td><td><a href="https://www.kleinanzeigen.de/s-anzeige/modernisiertes-efh/3274190634-208-10434" class="btn">→</a></td>
+                </tr>
+                <tr>
+                    <td class="id-cell">AU004</td>
+                    <td><img src="assets/augsburg/photos/AU004.jpg" alt="AU004" class="property-image"></td>
+                    <td class="title-with-details">
+                        <div class="property-title">Schlüsselfertige DHH Bärenkeller</div>
+                        <button class="details-toggle" id="toggle-AU004" onclick="toggleDetails('AU004')">Pro/Contra zeigen</button>
+                        <div class="pros-cons-details" id="details-AU004">
+                            <div class="pros">New construction</div>
+                            <div class="pros">Turnkey ready</div>
+                            <div class="pros">In Augsburg city</div>
+                            <div class="pros">Good tram connection</div>
+                            <div class="cons">Only 125m² - tight for 2 families</div>
+                            <div class="cons">Higher price</div>
+                        </div>
+                    </td>
+                    <td>Augsburg-Bärenkeller</td><td>€853.410</td><td>125 m²</td><td>5</td><td><span class="score low">6</span></td><td><a href="https://www.kleinanzeigen.de/s-anzeige/schluesselfertige-dhh/3331526583-208-7529" class="btn">→</a></td>
+                </tr>
+                <tr>
+                    <td class="id-cell">AU006</td>
+                    <td><img src="assets/augsburg/photos/AU006.jpg" alt="AU006" class="property-image"></td>
+                    <td class="title-with-details">
+                        <div class="property-title">Charmante DHH mit Garten</div>
+                        <button class="details-toggle" id="toggle-AU006" onclick="toggleDetails('AU006')">Pro/Contra zeigen</button>
+                        <div class="pros-cons-details" id="details-AU006">
+                            <div class="pros">Has garden</div>
+                            <div class="pros">Good price</div>
+                            <div class="pros">Central location</div>
+                            <div class="cons">122m² compact for 2 families</div>
+                        </div>
+                    </td>
+                    <td>Augsburg-Lechhausen</td><td>€549.000</td><td>122 m²</td><td>5</td><td><span class="score low">6</span></td><td><a href="https://www.kleinanzeigen.de/s-anzeige/charmante-dhh/3315553204-208-7523" class="btn">→</a></td>
+                </tr>
             </tbody>
         </table>
     </div>
