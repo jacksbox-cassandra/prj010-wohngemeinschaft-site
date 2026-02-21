@@ -4,395 +4,347 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Magdeburg - Wohngemeinschaft Kandidaten</title>
-    <style>
-        :root { --primary: #2563eb; --primary-dark: #1d4ed8; --success: #16a34a; --warning: #f59e0b; --bg: #f8fafc; --card-bg: #ffffff; --text: #1e293b; --text-muted: #64748b; }
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
-        .container { max-width: 1400px; margin: 0 auto; padding: 2rem; }
-        header { background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); color: white; padding: 2rem; }
-        header h1 { font-size: 2rem; }
-        .breadcrumb { margin-bottom: 0.5rem; opacity: 0.8; }
-        .breadcrumb a { color: white; text-decoration: none; }
-        table { width: 100%; border-collapse: collapse; background: var(--card-bg); border-radius: 12px; overflow: hidden; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
-        th, td { padding: 1rem; text-align: left; border-bottom: 1px solid var(--bg); vertical-align: top; }
-        th { background: var(--primary); color: white; font-size: 0.9rem; }
-        tr:hover { background: #f0f9ff; }
-        .score { background: var(--success); color: white; padding: 0.25rem 0.5rem; border-radius: 999px; font-weight: 600; font-size: 0.8rem; }
-        .score.medium { background: var(--warning); }
-        .score.low { background: #ef4444; }
-        .btn { display: inline-block; background: var(--primary); color: white; padding: 0.4rem 0.8rem; border-radius: 6px; text-decoration: none; font-size: 0.85rem; }
-        .btn:hover { background: var(--primary-dark); }
-        .top-banner { background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%); padding: 1.5rem; border-radius: 12px; margin-bottom: 2rem; }
-        .top-banner h3 { color: #92400e; margin-bottom: 0.5rem; }
-        
-        /* Image and Details Styles */
-        .property-image { width: 120px; height: 90px; object-fit: cover; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
-        .no-image { width: 120px; height: 90px; background: #f1f5f9; border: 2px dashed #cbd5e1; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 0.8rem; color: var(--text-muted); }
-        .blocked-image { background: #fef2f2; border-color: #fca5a5; color: #dc2626; }
-        
-        .property-details { font-size: 0.9rem; }
-        .property-title { font-weight: 600; margin-bottom: 0.5rem; color: var(--text); }
-        .property-location { color: var(--text-muted); margin-bottom: 0.25rem; }
-        
-        .details-toggle { cursor: pointer; color: var(--primary); font-size: 0.8rem; margin-top: 0.5rem; user-select: none; }
-        .details-toggle:hover { text-decoration: underline; }
-        .pros-cons { margin-top: 0.5rem; display: none; font-size: 0.85rem; }
-        .pros-cons.show { display: block; }
-        .pros-cons h4 { margin-bottom: 0.25rem; font-size: 0.8rem; font-weight: 600; }
-        .pros { color: #16a34a; margin-bottom: 0.5rem; }
-        .cons { color: #dc2626; }
-        .pros ul, .cons ul { margin-left: 1rem; }
-        .pros li::marker, .cons li::marker { font-size: 0.7rem; }
-    </style>
+    <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
     <header>
         <div class="breadcrumb"><a href="index.html">← Zurück zur Übersicht</a></div>
-        <h1>⛪ Magdeburg - 10 Kandidaten</h1>
+        <h1>🌊 Magdeburg - 10 Kandidaten</h1>
+        <p class="header-meta">7 mit Foto • 3 ohne Foto</p>
     </header>
+
     <div class="container">
+        
         <div class="top-banner">
             <h3>🌟 Top-Empfehlungen für Magdeburg</h3>
-            <p><strong>MD008</strong> - ZFH Stadtfeld Ost (€495k, 195m², Score 10/10) | <strong>MD007</strong> - Luxus-Stadtvilla 2 Einheiten (€870k, Score 9/10)</p>
+            <p><strong>MD007</strong> - Moderne Stadtvilla mit 2 Wohneinheiten (€870,000) | <strong>MD008</strong> - Großzügiges ZFH Stadtfeld Ost (€495,000) | <strong>MD009</strong> - Familienhaus mit Einliegerwohnung Cracau (€425,000)</p>
         </div>
-        <table>
-            <thead>
-                <tr><th>Bild</th><th>Details</th><th>Preis & Größe</th><th>Score</th><th>Link</th></tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td><div class="blocked-image no-image">🏠<br>Bild blockiert</div></td>
-                    <td>
-                        <div class="property-details">
-                            <div class="property-title">Großzügiges ZFH Stadtfeld Ost</div>
-                            <div class="property-location">Magdeburg-Stadtfeld Ost</div>
-                            <div>195 m² • 8 Zimmer</div>
-                            <div class="details-toggle" onclick="toggleDetails('MD008')">▼ Pros/Cons anzeigen</div>
-                            <div id="details-MD008" class="pros-cons">
-                                <div class="pros">
-                                    <h4>✓ Pros:</h4>
-                                    <ul>
-                                        <li>Already ZFH</li>
-                                        <li>195m²</li>
-                                        <li>8 rooms</li>
-                                        <li>Premium location</li>
-                                        <li>Garden</li>
-                                    </ul>
-                                </div>
-                                <div class="cons">
-                                    <h4>✗ Cons:</h4>
-                                    <ul>
-                                        <li>Price moderate</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </td>
-                    <td>€495.000</td>
-                    <td><span class="score">10</span></td>
-                    <td><a href="https://www.immowelt.de/expose/2n6bq5t" class="btn">→</a></td>
-                </tr>
-                <tr>
-                    <td><img src="assets/magdeburg/photos/MD007.jpg" class="property-image" alt="MD007"></td>
-                    <td>
-                        <div class="property-details">
-                            <div class="property-title">Moderne Stadtvilla 2 Einheiten</div>
-                            <div class="property-location">39130 Magdeburg</div>
-                            <div>218 m² • 8 Zimmer</div>
-                            <div class="details-toggle" onclick="toggleDetails('MD007')">▼ Pros/Cons anzeigen</div>
-                            <div id="details-MD007" class="pros-cons">
-                                <div class="pros">
-                                    <h4>✓ Pros:</h4>
-                                    <ul>
-                                        <li>Already 2 units!</li>
-                                        <li>218m²</li>
-                                        <li>High-end quality</li>
-                                        <li>8 rooms</li>
-                                        <li>Modern</li>
-                                    </ul>
-                                </div>
-                                <div class="cons">
-                                    <h4>✗ Cons:</h4>
-                                    <ul>
-                                        <li>Higher price</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </td>
-                    <td>€870.000</td>
-                    <td><span class="score">9</span></td>
-                    <td><a href="https://www.kleinanzeigen.de/s-anzeige/stadtvilla/3212345996-208-2236" class="btn">→</a></td>
-                </tr>
-                <tr>
-                    <td><div class="blocked-image no-image">🏠<br>Bild blockiert</div></td>
-                    <td>
-                        <div class="property-details">
-                            <div class="property-title">Familienhaus mit Einliegerwohnung</div>
-                            <div class="property-location">Magdeburg-Cracau</div>
-                            <div>180 m² • 7 Zimmer</div>
-                            <div class="details-toggle" onclick="toggleDetails('MD009')">▼ Pros/Cons anzeigen</div>
-                            <div id="details-MD009" class="pros-cons">
-                                <div class="pros">
-                                    <h4>✓ Pros:</h4>
-                                    <ul>
-                                        <li>Has Einliegerwohnung</li>
-                                        <li>180m²</li>
-                                        <li>Near Elbe river</li>
-                                        <li>Good price</li>
-                                    </ul>
-                                </div>
-                                <div class="cons">
-                                    <h4>✗ Cons:</h4>
-                                    <ul>
-                                        <li>May need some updates</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </td>
-                    <td>€425.000</td>
-                    <td><span class="score">9</span></td>
-                    <td><a href="https://www.immowelt.de/expose/2n6cr4u" class="btn">→</a></td>
-                </tr>
-                <tr>
-                    <td><div class="blocked-image no-image">🏠<br>Bild blockiert</div></td>
-                    <td>
-                        <div class="property-details">
-                            <div class="property-title">Großes Wohnhaus Sudenburg</div>
-                            <div class="property-location">Magdeburg-Sudenburg</div>
-                            <div>200 m² • 8 Zimmer</div>
-                            <div class="details-toggle" onclick="toggleDetails('MD010')">▼ Pros/Cons anzeigen</div>
-                            <div id="details-MD010" class="pros-cons">
-                                <div class="pros">
-                                    <h4>✓ Pros:</h4>
-                                    <ul>
-                                        <li>200m²</li>
-                                        <li>8 rooms</li>
-                                        <li>Well divisible</li>
-                                        <li>Good price</li>
-                                        <li>2 full floors</li>
-                                    </ul>
-                                </div>
-                                <div class="cons">
-                                    <h4>✗ Cons:</h4>
-                                    <ul>
-                                        <li>Sudenburg is working-class area</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </td>
-                    <td>€385.000</td>
-                    <td><span class="score">9</span></td>
-                    <td><a href="https://www.immowelt.de/expose/2n6ds3v" class="btn">→</a></td>
-                </tr>
-                <tr>
-                    <td><img src="assets/magdeburg/photos/MD003.jpg" class="property-image" alt="MD003"></td>
-                    <td>
-                        <div class="property-details">
-                            <div class="property-title">Naturnah - MFH 384m² 7 Einheiten</div>
-                            <div class="property-location">39122 Magdeburg</div>
-                            <div>384 m² • 14 Zimmer</div>
-                            <div class="details-toggle" onclick="toggleDetails('MD003')">▼ Pros/Cons anzeigen</div>
-                            <div id="details-MD003" class="pros-cons">
-                                <div class="pros">
-                                    <h4>✓ Pros:</h4>
-                                    <ul>
-                                        <li>384m² - huge!</li>
-                                        <li>14 rooms</li>
-                                        <li>Already multi-unit</li>
-                                        <li>Near nature</li>
-                                        <li>Excellent price</li>
-                                    </ul>
-                                </div>
-                                <div class="cons">
-                                    <h4>✗ Cons:</h4>
-                                    <ul>
-                                        <li>7 units may be too much</li>
-                                        <li>Currently rented?</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </td>
-                    <td>€400.000</td>
-                    <td><span class="score medium">8</span></td>
-                    <td><a href="https://www.kleinanzeigen.de/s-anzeige/mfh-natur/3153642029-208-2238" class="btn">→</a></td>
-                </tr>
-                <tr>
-                    <td><img src="assets/magdeburg/photos/MD001.jpg" class="property-image" alt="MD001"></td>
-                    <td>
-                        <div class="property-details">
-                            <div class="property-title">Attraktives MFH voll vermietet</div>
-                            <div class="property-location">39116 Magdeburg</div>
-                            <div>262 m² • 9 Zimmer</div>
-                            <div class="details-toggle" onclick="toggleDetails('MD001')">▼ Pros/Cons anzeigen</div>
-                            <div id="details-MD001" class="pros-cons">
-                                <div class="pros">
-                                    <h4>✓ Pros:</h4>
-                                    <ul>
-                                        <li>262m² - good size</li>
-                                        <li>9 rooms</li>
-                                        <li>Very affordable</li>
-                                        <li>Multi-family</li>
-                                    </ul>
-                                </div>
-                                <div class="cons">
-                                    <h4>✗ Cons:</h4>
-                                    <ul>
-                                        <li>Currently rented - need to wait for tenants</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </td>
-                    <td>€355.000</td>
-                    <td><span class="score medium">7</span></td>
-                    <td><a href="https://www.kleinanzeigen.de/s-anzeige/mfh/3135760324-208-2234" class="btn">→</a></td>
-                </tr>
-                <tr>
-                    <td><img src="assets/magdeburg/photos/MD002.jpg" class="property-image" alt="MD002"></td>
-                    <td>
-                        <div class="property-details">
-                            <div class="property-title">Sanierungsobjekt Ottersleben</div>
-                            <div class="property-location">Magdeburg-Ottersleben</div>
-                            <div>105 m² • 5 Zimmer</div>
-                            <div class="details-toggle" onclick="toggleDetails('MD002')">▼ Pros/Cons anzeigen</div>
-                            <div id="details-MD002" class="pros-cons">
-                                <div class="pros">
-                                    <h4>✓ Pros:</h4>
-                                    <ul>
-                                        <li>Very affordable</li>
-                                        <li>5 rooms</li>
-                                        <li>Good area</li>
-                                    </ul>
-                                </div>
-                                <div class="cons">
-                                    <h4>✗ Cons:</h4>
-                                    <ul>
-                                        <li>Only 105m² - too small</li>
-                                        <li>Needs major renovation</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </td>
-                    <td>€209.000</td>
-                    <td><span class="score low">5</span></td>
-                    <td><a href="https://www.kleinanzeigen.de/s-anzeige/sanierung/3322750966-208-2234" class="btn">→</a></td>
-                </tr>
-                <tr>
-                    <td><img src="assets/magdeburg/photos/MD004.jpg" class="property-image" alt="MD004"></td>
-                    <td>
-                        <div class="property-details">
-                            <div class="property-title">Moderne Neubau DHH Lemsdorf</div>
-                            <div class="property-location">Magdeburg-Lemsdorf</div>
-                            <div>119 m² • 4 Zimmer</div>
-                            <div class="details-toggle" onclick="toggleDetails('MD004')">▼ Pros/Cons anzeigen</div>
-                            <div id="details-MD004" class="pros-cons">
-                                <div class="pros">
-                                    <h4>✓ Pros:</h4>
-                                    <ul>
-                                        <li>New construction</li>
-                                        <li>Includes land</li>
-                                        <li>Modern</li>
-                                    </ul>
-                                </div>
-                                <div class="cons">
-                                    <h4>✗ Cons:</h4>
-                                    <ul>
-                                        <li>119m² too small for 2 families</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </td>
-                    <td>€399.560</td>
-                    <td><span class="score low">5</span></td>
-                    <td><a href="https://www.kleinanzeigen.de/s-anzeige/dhh-lemsdorf/3295872115-208-2235" class="btn">→</a></td>
-                </tr>
-                <tr>
-                    <td><img src="assets/magdeburg/photos/MD006.jpg" class="property-image" alt="MD006"></td>
-                    <td>
-                        <div class="property-details">
-                            <div class="property-title">Charmantes Reihenhaus Wellen</div>
-                            <div class="property-location">Wellen (5km)</div>
-                            <div>110 m² • 4 Zimmer</div>
-                            <div class="details-toggle" onclick="toggleDetails('MD006')">▼ Pros/Cons anzeigen</div>
-                            <div id="details-MD006" class="pros-cons">
-                                <div class="pros">
-                                    <h4>✓ Pros:</h4>
-                                    <ul>
-                                        <li>Affordable</li>
-                                        <li>Quiet location</li>
-                                    </ul>
-                                </div>
-                                <div class="cons">
-                                    <h4>✗ Cons:</h4>
-                                    <ul>
-                                        <li>110m² too small</li>
-                                        <li>Reihenhaus</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </td>
-                    <td>€249.000</td>
-                    <td><span class="score low">5</span></td>
-                    <td><a href="https://www.kleinanzeigen.de/s-anzeige/wellen/2996432151-208-2245" class="btn">→</a></td>
-                </tr>
-                <tr>
-                    <td><img src="assets/magdeburg/photos/MD005.jpg" class="property-image" alt="MD005"></td>
-                    <td>
-                        <div class="property-details">
-                            <div class="property-title">Freistehender Bungalow</div>
-                            <div class="property-location">Magdeburg-Zipkeleben</div>
-                            <div>95 m² • 4 Zimmer</div>
-                            <div class="details-toggle" onclick="toggleDetails('MD005')">▼ Pros/Cons anzeigen</div>
-                            <div id="details-MD005" class="pros-cons">
-                                <div class="pros">
-                                    <h4>✓ Pros:</h4>
-                                    <ul>
-                                        <li>Extremely affordable</li>
-                                        <li>Detached</li>
-                                    </ul>
-                                </div>
-                                <div class="cons">
-                                    <h4>✗ Cons:</h4>
-                                    <ul>
-                                        <li>Only 95m² - far too small</li>
-                                        <li>Would need major expansion</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </td>
-                    <td>€120.000</td>
-                    <td><span class="score low">4</span></td>
-                    <td><a href="https://www.kleinanzeigen.de/s-anzeige/bungalow/3184442387-208-2233" class="btn">→</a></td>
-                </tr>
-            </tbody>
-        </table>
-        <div style="margin-top: 2rem; padding: 1rem; background: #f8fafc; border-radius: 8px; font-size: 0.9rem; color: var(--text-muted);">
-            <p><strong>📊 Verarbeitungsstatistik:</strong> 10 Kandidaten verarbeitet | 7 Bilder heruntergeladen | 3 durch Bot-Schutz blockiert (Immowelt.de)</p>
-            <p>🏆 Magdeburg ist der günstigste Markt! Hervorragendes Preis-Leistungs-Verhältnis für Familien.</p>
+        <div class="candidates-grid">
+            
+        <div class="candidate-card">
+            <div class="candidate-image">
+                <a href="assets/magdeburg/photos/MD001.jpg" target="_blank"><img src="assets/magdeburg/photos/MD001.jpg" alt="MD001" onerror="this.parentElement.innerHTML='🏠'"></a>
+            </div>
+            <div class="candidate-body">
+                <div class="candidate-header">
+                    <span class="candidate-id">MD001</span>
+                    <span class="candidate-score medium">7/10</span>
+                </div>
+                <h3 class="candidate-title">Attraktives Mehrfamilienhaus voll vermietet</h3>
+                <p class="candidate-location">📍 39116 Magdeburg</p>
+                <p class="candidate-price">€355.000</p>
+                <div class="candidate-meta"><span>262.27 m²</span><span>9 Zimmer</span><span>6 Schlafzimmer</span></div>
+                <p class="candidate-description">Attraktives Mehrfamilienhaus in ruhiger Lage. Voll vermietet.</p>
+                <div class="candidate-pros-cons">
+                    <div class="pros"><h4>Vorteile</h4><ul><li>262m² - good size</li><li>9 rooms</li><li>Very affordable</li><li>Multi-family</li></ul></div>
+                    <div class="cons"><h4>Nachteile</h4><ul><li>Currently rented - need to wait for tenants</li></ul></div>
+                </div>
+                <div class="candidate-info-grid">
+                    <div class="info-box">
+                        <div class="info-label">🚌 Innenstadt</div>
+                        <div class="info-value">15 min</div>
+                    </div>
+                    <div class="info-box education">
+                        <div class="info-label">🏫 Kindergarten / Schule</div>
+                        <div class="info-value">~5 min / ~8 min</div>
+                    </div>
+                </div>
+                <a href="https://www.kleinanzeigen.de/s-anzeige/mfh/3135760324-208-2234" class="btn" target="_blank">Inserat ansehen →</a>
+            </div>
+        </div>
+
+        <div class="candidate-card">
+            <div class="candidate-image">
+                <a href="assets/magdeburg/photos/MD002.jpg" target="_blank"><img src="assets/magdeburg/photos/MD002.jpg" alt="MD002" onerror="this.parentElement.innerHTML='🏠'"></a>
+            </div>
+            <div class="candidate-body">
+                <div class="candidate-header">
+                    <span class="candidate-id">MD002</span>
+                    <span class="candidate-score low">5/10</span>
+                </div>
+                <h3 class="candidate-title">Sanierungsobjekt für Familien - Ottersleben</h3>
+                <p class="candidate-location">📍 39116 Magdeburg (Ottersleben)</p>
+                <p class="candidate-price">€209.000</p>
+                <div class="candidate-meta"><span>105.01 m²</span><span>5 Zimmer</span><span>3 Schlafzimmer</span></div>
+                <p class="candidate-description">Reihenmittelhaus mit Potenzial in Magdeburg Ottersleben.</p>
+                <div class="candidate-pros-cons">
+                    <div class="pros"><h4>Vorteile</h4><ul><li>Very affordable</li><li>5 rooms</li><li>Good area</li></ul></div>
+                    <div class="cons"><h4>Nachteile</h4><ul><li>Only 105m² - too small</li><li>Needs major renovation</li></ul></div>
+                </div>
+                <div class="candidate-info-grid">
+                    <div class="info-box">
+                        <div class="info-label">🚌 Innenstadt</div>
+                        <div class="info-value">18 min</div>
+                    </div>
+                    <div class="info-box education">
+                        <div class="info-label">🏫 Kindergarten / Schule</div>
+                        <div class="info-value">~4 min / ~7 min</div>
+                    </div>
+                </div>
+                <a href="https://www.kleinanzeigen.de/s-anzeige/sanierung/3322750966-208-2234" class="btn" target="_blank">Inserat ansehen →</a>
+            </div>
+        </div>
+
+        <div class="candidate-card">
+            <div class="candidate-image">
+                <a href="assets/magdeburg/photos/MD003.jpg" target="_blank"><img src="assets/magdeburg/photos/MD003.jpg" alt="MD003" onerror="this.parentElement.innerHTML='🏠'"></a>
+            </div>
+            <div class="candidate-body">
+                <div class="candidate-header">
+                    <span class="candidate-id">MD003</span>
+                    <span class="candidate-score ">8/10</span>
+                </div>
+                <h3 class="candidate-title">Naturnah und städtisch verbunden - MFH 384m²</h3>
+                <p class="candidate-location">📍 39122 Magdeburg</p>
+                <p class="candidate-price">€400.000</p>
+                <div class="candidate-meta"><span>384 m²</span><span>14 Zimmer</span><span>10 Schlafzimmer</span></div>
+                <p class="candidate-description">Gepflegtes Mehrfamilienhaus mit insgesamt 7 Wohneinheiten.</p>
+                <div class="candidate-pros-cons">
+                    <div class="pros"><h4>Vorteile</h4><ul><li>384m² - huge!</li><li>14 rooms</li><li>Already multi-unit</li><li>Near nature</li></ul></div>
+                    <div class="cons"><h4>Nachteile</h4><ul><li>7 units may be too much</li><li>Currently rented?</li></ul></div>
+                </div>
+                <div class="candidate-info-grid">
+                    <div class="info-box">
+                        <div class="info-label">🚌 Innenstadt</div>
+                        <div class="info-value">20 min</div>
+                    </div>
+                    <div class="info-box education">
+                        <div class="info-label">🏫 Kindergarten / Schule</div>
+                        <div class="info-value">~8 min / ~12 min</div>
+                    </div>
+                </div>
+                <a href="https://www.kleinanzeigen.de/s-anzeige/mfh-natur/3153642029-208-2238" class="btn" target="_blank">Inserat ansehen →</a>
+            </div>
+        </div>
+
+        <div class="candidate-card">
+            <div class="candidate-image">
+                <a href="assets/magdeburg/photos/MD004.jpg" target="_blank"><img src="assets/magdeburg/photos/MD004.jpg" alt="MD004" onerror="this.parentElement.innerHTML='🏠'"></a>
+            </div>
+            <div class="candidate-body">
+                <div class="candidate-header">
+                    <span class="candidate-id">MD004</span>
+                    <span class="candidate-score low">5/10</span>
+                </div>
+                <h3 class="candidate-title">Moderne Neubau Doppelhaushälfte Lemsdorf</h3>
+                <p class="candidate-location">📍 39118 Magdeburg (Lemsdorf)</p>
+                <p class="candidate-price">€399.560</p>
+                <div class="candidate-meta"><span>119 m²</span><span>4 Zimmer</span><span>3 Schlafzimmer</span></div>
+                <p class="candidate-description">Moderne Doppelhaushälfte in Magdeburg-Lemsdorf.</p>
+                <div class="candidate-pros-cons">
+                    <div class="pros"><h4>Vorteile</h4><ul><li>New construction</li><li>Includes land</li><li>Modern</li></ul></div>
+                    <div class="cons"><h4>Nachteile</h4><ul><li>119m² too small for 2 families</li></ul></div>
+                </div>
+                <div class="candidate-info-grid">
+                    <div class="info-box">
+                        <div class="info-label">🚌 Innenstadt</div>
+                        <div class="info-value">15 min</div>
+                    </div>
+                    <div class="info-box education">
+                        <div class="info-label">🏫 Kindergarten / Schule</div>
+                        <div class="info-value">~5 min / ~8 min</div>
+                    </div>
+                </div>
+                <a href="https://www.kleinanzeigen.de/s-anzeige/dhh-lemsdorf/3295872115-208-2235" class="btn" target="_blank">Inserat ansehen →</a>
+            </div>
+        </div>
+
+        <div class="candidate-card">
+            <div class="candidate-image">
+                <a href="assets/magdeburg/photos/MD005.jpg" target="_blank"><img src="assets/magdeburg/photos/MD005.jpg" alt="MD005" onerror="this.parentElement.innerHTML='🏠'"></a>
+            </div>
+            <div class="candidate-body">
+                <div class="candidate-header">
+                    <span class="candidate-id">MD005</span>
+                    <span class="candidate-score low">4/10</span>
+                </div>
+                <h3 class="candidate-title">Freistehender Bungalow Zipkeleben</h3>
+                <p class="candidate-location">📍 39114 Magdeburg (Zipkeleben)</p>
+                <p class="candidate-price">€120.000</p>
+                <div class="candidate-meta"><span>95 m²</span><span>4 Zimmer</span><span>3 Schlafzimmer</span></div>
+                <p class="candidate-description">Freistehender Bungalow in Zipkeleben bei Magdeburg.</p>
+                <div class="candidate-pros-cons">
+                    <div class="pros"><h4>Vorteile</h4><ul><li>Extremely affordable</li><li>Detached</li></ul></div>
+                    <div class="cons"><h4>Nachteile</h4><ul><li>Only 95m² - far too small</li><li>Would need major expansion</li></ul></div>
+                </div>
+                <div class="candidate-info-grid">
+                    <div class="info-box">
+                        <div class="info-label">🚌 Innenstadt</div>
+                        <div class="info-value">25 min</div>
+                    </div>
+                    <div class="info-box education">
+                        <div class="info-label">🏫 Kindergarten / Schule</div>
+                        <div class="info-value">~10 min / ~15 min</div>
+                    </div>
+                </div>
+                <a href="https://www.kleinanzeigen.de/s-anzeige/bungalow/3184442387-208-2233" class="btn" target="_blank">Inserat ansehen →</a>
+            </div>
+        </div>
+
+        <div class="candidate-card">
+            <div class="candidate-image">
+                <a href="assets/magdeburg/photos/MD006.jpg" target="_blank"><img src="assets/magdeburg/photos/MD006.jpg" alt="MD006" onerror="this.parentElement.innerHTML='🏠'"></a>
+            </div>
+            <div class="candidate-body">
+                <div class="candidate-header">
+                    <span class="candidate-id">MD006</span>
+                    <span class="candidate-score low">5/10</span>
+                </div>
+                <h3 class="candidate-title">Charmantes Reihenhaus Wellen bei Magdeburg</h3>
+                <p class="candidate-location">📍 39167 Wellen (5km from Magdeburg)</p>
+                <p class="candidate-price">€249.000</p>
+                <div class="candidate-meta"><span>110 m²</span><span>4 Zimmer</span><span>3 Schlafzimmer</span></div>
+                <p class="candidate-description">Charmantes Reihenhaus in ruhiger Lage von Wellen bei Magdeburg.</p>
+                <div class="candidate-pros-cons">
+                    <div class="pros"><h4>Vorteile</h4><ul><li>Affordable</li><li>Quiet location</li></ul></div>
+                    <div class="cons"><h4>Nachteile</h4><ul><li>110m² too small</li><li>Reihenhaus</li></ul></div>
+                </div>
+                <div class="candidate-info-grid">
+                    <div class="info-box">
+                        <div class="info-label">🚌 Innenstadt</div>
+                        <div class="info-value">15 min</div>
+                    </div>
+                    <div class="info-box education">
+                        <div class="info-label">🏫 Kindergarten / Schule</div>
+                        <div class="info-value">~5 min / ~10 min</div>
+                    </div>
+                </div>
+                <a href="https://www.kleinanzeigen.de/s-anzeige/wellen/2996432151-208-2245" class="btn" target="_blank">Inserat ansehen →</a>
+            </div>
+        </div>
+
+        <div class="candidate-card">
+            <div class="candidate-image">
+                <a href="assets/magdeburg/photos/MD007.jpg" target="_blank"><img src="assets/magdeburg/photos/MD007.jpg" alt="MD007" onerror="this.parentElement.innerHTML='🏠'"></a>
+            </div>
+            <div class="candidate-body">
+                <div class="candidate-header">
+                    <span class="candidate-id">MD007</span>
+                    <span class="candidate-score ">9/10</span>
+                </div>
+                <h3 class="candidate-title">Moderne Stadtvilla mit 2 Wohneinheiten</h3>
+                <p class="candidate-location">📍 39130 Magdeburg</p>
+                <p class="candidate-price">€870.000</p>
+                <div class="candidate-meta"><span>218.06 m²</span><span>8 Zimmer</span><span>5 Schlafzimmer</span></div>
+                <p class="candidate-description">High-End-Stadtvilla mit zwei Wohneinheiten und purem Luxusgefühl.</p>
+                <div class="candidate-pros-cons">
+                    <div class="pros"><h4>Vorteile</h4><ul><li>Already 2 units!</li><li>218m²</li><li>High-end quality</li><li>8 rooms</li></ul></div>
+                    <div class="cons"><h4>Nachteile</h4><ul><li>Higher price</li></ul></div>
+                </div>
+                <div class="candidate-info-grid">
+                    <div class="info-box">
+                        <div class="info-label">🚌 Innenstadt</div>
+                        <div class="info-value">12 min</div>
+                    </div>
+                    <div class="info-box education">
+                        <div class="info-label">🏫 Kindergarten / Schule</div>
+                        <div class="info-value">~4 min / ~6 min</div>
+                    </div>
+                </div>
+                <a href="https://www.kleinanzeigen.de/s-anzeige/stadtvilla/3212345996-208-2236" class="btn" target="_blank">Inserat ansehen →</a>
+            </div>
+        </div>
+
+        <div class="candidate-card">
+            <div class="candidate-image">
+                <div class="image-placeholder">🏠</div>
+            </div>
+            <div class="candidate-body">
+                <div class="candidate-header">
+                    <span class="candidate-id">MD008</span>
+                    <span class="candidate-score ">10/10</span>
+                </div>
+                <h3 class="candidate-title">Großzügiges ZFH Stadtfeld Ost</h3>
+                <p class="candidate-location">📍 39108 Magdeburg-Stadtfeld Ost</p>
+                <p class="candidate-price">€495.000</p>
+                <div class="candidate-meta"><span>195 m²</span><span>8 Zimmer</span><span>5 Schlafzimmer</span><span class="highlight">🌳 Garten/Outdoor</span></div>
+                <p class="candidate-description">Geräumiges Zweifamilienhaus in beliebtem Stadtfeld Ost.</p>
+                <div class="candidate-pros-cons">
+                    <div class="pros"><h4>Vorteile</h4><ul><li>Already ZFH</li><li>195m²</li><li>8 rooms</li><li>Premium location</li></ul></div>
+                    <div class="cons"><h4>Nachteile</h4><ul><li>Price moderate</li></ul></div>
+                </div>
+                <div class="candidate-info-grid">
+                    <div class="info-box">
+                        <div class="info-label">🚌 Innenstadt</div>
+                        <div class="info-value">10 min</div>
+                    </div>
+                    <div class="info-box education">
+                        <div class="info-label">🏫 Kindergarten / Schule</div>
+                        <div class="info-value">~3 min / ~5 min</div>
+                    </div>
+                </div>
+                <a href="https://www.immowelt.de/expose/2n6bq5t" class="btn" target="_blank">Inserat ansehen →</a>
+            </div>
+        </div>
+
+        <div class="candidate-card">
+            <div class="candidate-image">
+                <div class="image-placeholder">🏠</div>
+            </div>
+            <div class="candidate-body">
+                <div class="candidate-header">
+                    <span class="candidate-id">MD009</span>
+                    <span class="candidate-score ">9/10</span>
+                </div>
+                <h3 class="candidate-title">Familienhaus mit Einliegerwohnung Cracau</h3>
+                <p class="candidate-location">📍 39114 Magdeburg-Cracau</p>
+                <p class="candidate-price">€425.000</p>
+                <div class="candidate-meta"><span>180 m²</span><span>7 Zimmer</span><span>5 Schlafzimmer</span><span class="highlight">🌳 Garten/Outdoor</span></div>
+                <p class="candidate-description">Geräumiges Familienhaus mit Einliegerwohnung nahe der Elbe in Cracau.</p>
+                <div class="candidate-pros-cons">
+                    <div class="pros"><h4>Vorteile</h4><ul><li>Has Einliegerwohnung</li><li>180m²</li><li>Near Elbe river</li><li>Good price</li></ul></div>
+                    <div class="cons"><h4>Nachteile</h4><ul><li>May need some updates</li></ul></div>
+                </div>
+                <div class="candidate-info-grid">
+                    <div class="info-box">
+                        <div class="info-label">🚌 Innenstadt</div>
+                        <div class="info-value">12 min</div>
+                    </div>
+                    <div class="info-box education">
+                        <div class="info-label">🏫 Kindergarten / Schule</div>
+                        <div class="info-value">~4 min / ~8 min</div>
+                    </div>
+                </div>
+                <a href="https://www.immowelt.de/expose/2n6cr4u" class="btn" target="_blank">Inserat ansehen →</a>
+            </div>
+        </div>
+
+        <div class="candidate-card">
+            <div class="candidate-image">
+                <div class="image-placeholder">🏠</div>
+            </div>
+            <div class="candidate-body">
+                <div class="candidate-header">
+                    <span class="candidate-id">MD010</span>
+                    <span class="candidate-score ">9/10</span>
+                </div>
+                <h3 class="candidate-title">Großes Wohnhaus Sudenburg - 2 Etagen</h3>
+                <p class="candidate-location">📍 39112 Magdeburg-Sudenburg</p>
+                <p class="candidate-price">€385.000</p>
+                <div class="candidate-meta"><span>200 m²</span><span>8 Zimmer</span><span>5 Schlafzimmer</span></div>
+                <p class="candidate-description">Großzügiges Wohnhaus auf 2 Etagen in Sudenburg. Gut teilbar für 2 Familien.</p>
+                <div class="candidate-pros-cons">
+                    <div class="pros"><h4>Vorteile</h4><ul><li>200m²</li><li>8 rooms</li><li>Well divisible</li><li>Good price</li></ul></div>
+                    <div class="cons"><h4>Nachteile</h4><ul><li>Sudenburg is working-class area</li></ul></div>
+                </div>
+                <div class="candidate-info-grid">
+                    <div class="info-box">
+                        <div class="info-label">🚌 Innenstadt</div>
+                        <div class="info-value">10 min</div>
+                    </div>
+                    <div class="info-box education">
+                        <div class="info-label">🏫 Kindergarten / Schule</div>
+                        <div class="info-value">~4 min / ~6 min</div>
+                    </div>
+                </div>
+                <a href="https://www.immowelt.de/expose/2n6ds3v" class="btn" target="_blank">Inserat ansehen →</a>
+            </div>
+        </div>
         </div>
     </div>
 
-    <script>
-        function toggleDetails(candidateId) {
-            const details = document.getElementById('details-' + candidateId);
-            const toggle = details.previousElementSibling;
-            
-            if (details.classList.contains('show')) {
-                details.classList.remove('show');
-                toggle.textContent = '▼ Pros/Cons anzeigen';
-            } else {
-                details.classList.add('show');
-                toggle.textContent = '▲ Pros/Cons verbergen';
-            }
-        }
-    </script>
+    <footer class="page-footer">
+        <p>Generiert am 2026-02-21 22:55 • Daten aus candidates_enriched.json</p>
+    </footer>
 </body>
 </html>

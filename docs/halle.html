@@ -4,264 +4,347 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Halle (Saale) - Wohngemeinschaft Kandidaten</title>
-    <style>
-        :root { --primary: #2563eb; --primary-dark: #1d4ed8; --success: #16a34a; --warning: #f59e0b; --bg: #f8fafc; --card-bg: #ffffff; --text: #1e293b; --text-muted: #64748b; }
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
-        .container { max-width: 1400px; margin: 0 auto; padding: 2rem; }
-        header { background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); color: white; padding: 2rem; }
-        header h1 { font-size: 2rem; }
-        .breadcrumb { margin-bottom: 0.5rem; opacity: 0.8; }
-        .breadcrumb a { color: white; text-decoration: none; }
-        table { width: 100%; border-collapse: collapse; background: var(--card-bg); border-radius: 12px; overflow: hidden; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
-        th, td { padding: 1rem; text-align: left; border-bottom: 1px solid var(--bg); vertical-align: top; }
-        th { background: var(--primary); color: white; }
-        tr:hover { background: #f0f9ff; }
-        .score { background: var(--success); color: white; padding: 0.25rem 0.5rem; border-radius: 999px; font-weight: 600; font-size: 0.8rem; }
-        .score.medium { background: var(--warning); }
-        .score.low { background: #ef4444; }
-        .btn { display: inline-block; background: var(--primary); color: white; padding: 0.4rem 0.8rem; border-radius: 6px; text-decoration: none; font-size: 0.85rem; }
-        .btn:hover { background: var(--primary-dark); }
-        .top-banner { background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%); padding: 1.5rem; border-radius: 12px; margin-bottom: 2rem; }
-        .top-banner h3 { color: #92400e; margin-bottom: 0.5rem; }
-        .property-img { width: 120px; height: 80px; object-fit: cover; border-radius: 6px; cursor: pointer; }
-        .property-img:hover { opacity: 0.8; }
-        .pros-cons { font-size: 0.85rem; max-width: 300px; }
-        .pros { color: #059669; margin-bottom: 0.25rem; }
-        .cons { color: #dc2626; }
-        .pros::before { content: "✓ "; font-weight: bold; }
-        .cons::before { content: "✗ "; font-weight: bold; }
-        .title-cell { max-width: 200px; }
-        .location-cell { max-width: 150px; font-size: 0.9rem; }
-        .price-cell { font-weight: 600; white-space: nowrap; }
-        .image-modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.8); }
-        .modal-content { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); max-width: 90%; max-height: 90%; }
-        .modal-content img { width: 100%; height: auto; border-radius: 8px; }
-        .close-modal { position: absolute; top: 15px; right: 35px; color: white; font-size: 40px; font-weight: bold; cursor: pointer; }
-        .close-modal:hover { opacity: 0.7; }
-    </style>
+    <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
     <header>
         <div class="breadcrumb"><a href="index.html">← Zurück zur Übersicht</a></div>
-        <h1>🧂 Halle (Saale) - 10 Kandidaten</h1>
-        <p style="margin-top: 0.5rem; opacity: 0.9;">Mit Bildern und detaillierten Bewertungen</p>
+        <h1>🏛️ Halle (Saale) - 10 Kandidaten</h1>
+        <p class="header-meta">10 mit Foto • 0 ohne Foto</p>
     </header>
+
     <div class="container">
+        
         <div class="top-banner">
-            <h3>🌟 Top-Empfehlungen für Halle</h3>
-            <p><strong>HA003</strong> - Herrschaftliche Villa/ZFH (€715k, 280m², Score 10/10) | <strong>HA005</strong> - MFH 303m² (€475k, Score 9/10)</p>
+            <h3>🌟 Top-Empfehlungen für Halle (Saale)</h3>
+            <p><strong>HA003</strong> - Herrschaftliche Villa - Zweifamilienhaus (€715,000) | <strong>HA005</strong> - Charmantes Mehrfamilienhaus 303m² (€475,000) | <strong>HA007</strong> - Großzügiges Zweifamilienhaus Ammendorf (€425,000)</p>
         </div>
-        <table>
-            <thead>
-                <tr><th>Bild</th><th>ID & Titel</th><th>Lage</th><th>Preis</th><th>Größe/Zimmer</th><th>Score</th><th>Vor- & Nachteile</th><th>Link</th></tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td><img src="assets/halle/photos/HA003.jpg" alt="HA003" class="property-img" onclick="openModal('assets/halle/photos/HA003.jpg')"></td>
-                    <td class="title-cell"><strong>HA003</strong><br>Herrschaftliche Villa - Zweifamilienhaus</td>
-                    <td class="location-cell">06128 Halle (Saale)</td>
-                    <td class="price-cell">€715.000</td>
-                    <td>280 m²<br>9 Zimmer</td>
-                    <td><span class="score">10</span></td>
-                    <td class="pros-cons">
-                        <div class="pros">BEREITS Zweifamilienhaus</div>
-                        <div class="pros">280m² - huge</div>
-                        <div class="pros">9 rooms</div>
-                        <div class="pros">Detached villa</div>
-                        <div class="pros">Quiet location</div>
-                        <div class="cons">Higher price point</div>
-                    </td>
-                    <td><a href="https://www.kleinanzeigen.de/s-anzeige/villa-halle/3216552159-208-2422" class="btn">→</a></td>
-                </tr>
-                <tr>
-                    <td><img src="assets/halle/photos/HA005.jpg" alt="HA005" class="property-img" onclick="openModal('assets/halle/photos/HA005.jpg')"></td>
-                    <td class="title-cell"><strong>HA005</strong><br>Charmantes Mehrfamilienhaus 303m²</td>
-                    <td class="location-cell">06132 Halle (Saale)</td>
-                    <td class="price-cell">€475.000</td>
-                    <td>303 m²<br>10 Zimmer</td>
-                    <td><span class="score">9</span></td>
-                    <td class="pros-cons">
-                        <div class="pros">303m² - very large</div>
-                        <div class="pros">10 rooms</div>
-                        <div class="pros">Already multi-family</div>
-                        <div class="pros">Good price</div>
-                        <div class="cons">May be currently rented out</div>
-                    </td>
-                    <td><a href="https://www.kleinanzeigen.de/s-anzeige/mfh-halle/3190620938-208-2416" class="btn">→</a></td>
-                </tr>
-                <tr>
-                    <td><img src="assets/halle/photos/HA007.jpg" alt="HA007" class="property-img" onclick="openModal('assets/halle/photos/HA007.jpg')"></td>
-                    <td class="title-cell"><strong>HA007</strong><br>Großzügiges Zweifamilienhaus Ammendorf</td>
-                    <td class="location-cell">06132 Halle-Ammendorf</td>
-                    <td class="price-cell">€425.000</td>
-                    <td>200 m²<br>8 Zimmer</td>
-                    <td><span class="score">9</span></td>
-                    <td class="pros-cons">
-                        <div class="pros">Already ZFH</div>
-                        <div class="pros">200m²</div>
-                        <div class="pros">8 rooms</div>
-                        <div class="pros">Garden + garage</div>
-                        <div class="pros">Great price</div>
-                        <div class="cons">Ammendorf is outer district</div>
-                    </td>
-                    <td><a href="https://www.immowelt.de/expose/2n5xl9p" class="btn">→</a></td>
-                </tr>
-                <tr>
-                    <td><img src="assets/halle/photos/HA008.jpg" alt="HA008" class="property-img" onclick="openModal('assets/halle/photos/HA008.jpg')"></td>
-                    <td class="title-cell"><strong>HA008</strong><br>Stadthaus mit Einliegerwohnung Kröllwitz</td>
-                    <td class="location-cell">06120 Halle-Kröllwitz</td>
-                    <td class="price-cell">€520.000</td>
-                    <td>185 m²<br>7 Zimmer</td>
-                    <td><span class="score">9</span></td>
-                    <td class="pros-cons">
-                        <div class="pros">Has Einliegerwohnung</div>
-                        <div class="pros">185m²</div>
-                        <div class="pros">Premium Kröllwitz location</div>
-                        <div class="pros">Garden</div>
-                        <div class="cons">Higher price for area</div>
-                    </td>
-                    <td><a href="https://www.immowelt.de/expose/2n5ym8q" class="btn">→</a></td>
-                </tr>
-                <tr>
-                    <td><img src="assets/halle/photos/HA009.jpg" alt="HA009" class="property-img" onclick="openModal('assets/halle/photos/HA009.jpg')"></td>
-                    <td class="title-cell"><strong>HA009</strong><br>Doppelhaus Landsberg - 2 separate Einheiten</td>
-                    <td class="location-cell">06188 Landsberg (15km W of Halle)</td>
-                    <td class="price-cell">€385.000</td>
-                    <td>195 m²<br>8 Zimmer</td>
-                    <td><span class="score">9</span></td>
-                    <td class="pros-cons">
-                        <div class="pros">2 separate units!</div>
-                        <div class="pros">195m²</div>
-                        <div class="pros">8 rooms</div>
-                        <div class="pros">Garden</div>
-                        <div class="pros">Good price</div>
-                        <div class="cons">15km from Halle</div>
-                    </td>
-                    <td><a href="https://www.immowelt.de/expose/2n5zn7r" class="btn">→</a></td>
-                </tr>
-                <tr>
-                    <td><img src="assets/halle/photos/HA010.jpg" alt="HA010" class="property-img" onclick="openModal('assets/halle/photos/HA010.jpg')"></td>
-                    <td class="title-cell"><strong>HA010</strong><br>Großes MFH Südstadt - Eigennutz möglich</td>
-                    <td class="location-cell">06128 Halle-Südstadt</td>
-                    <td class="price-cell">€495.000</td>
-                    <td>320 m²<br>12 Zimmer</td>
-                    <td><span class="score">9</span></td>
-                    <td class="pros-cons">
-                        <div class="pros">320m² - huge</div>
-                        <div class="pros">12 rooms</div>
-                        <div class="pros">Self-use possible</div>
-                        <div class="pros">Garden + garage</div>
-                        <div class="cons">Partly tenanted</div>
-                    </td>
-                    <td><a href="https://www.immowelt.de/expose/2n6ap6s" class="btn">→</a></td>
-                </tr>
-                <tr>
-                    <td><img src="assets/halle/photos/HA001.jpg" alt="HA001" class="property-img" onclick="openModal('assets/halle/photos/HA001.jpg')"></td>
-                    <td class="title-cell"><strong>HA001</strong><br>Traum-Einfamilienhaus individuell und hochwertig</td>
-                    <td class="location-cell">06120 Halle (Saale)</td>
-                    <td class="price-cell">€457.449</td>
-                    <td>197 m²<br>5 Zimmer</td>
-                    <td><span class="score medium">8</span></td>
-                    <td class="pros-cons">
-                        <div class="pros">Nearly 200m²</div>
-                        <div class="pros">High quality</div>
-                        <div class="pros">5 rooms</div>
-                        <div class="pros">Good price</div>
-                        <div class="cons">Would need internal division</div>
-                    </td>
-                    <td><a href="https://www.kleinanzeigen.de/s-anzeige/efh-halle/3329337623-208-20383" class="btn">→</a></td>
-                </tr>
-                <tr>
-                    <td><img src="assets/halle/photos/HA002.jpg" alt="HA002" class="property-img" onclick="openModal('assets/halle/photos/HA002.jpg')"></td>
-                    <td class="title-cell"><strong>HA002</strong><br>Einfamilienhaus mit Tiefgarage und Außenpool</td>
-                    <td class="location-cell">06112 Halle (Saale) Süd-Ost</td>
-                    <td class="price-cell">€398.000</td>
-                    <td>150 m²<br>7 Zimmer</td>
-                    <td><span class="score medium">8</span></td>
-                    <td class="pros-cons">
-                        <div class="pros">7 rooms / 5 bedrooms</div>
-                        <div class="pros">Pool!</div>
-                        <div class="pros">Garage</div>
-                        <div class="pros">Excellent price</div>
-                        <div class="cons">150m² moderate size</div>
-                        <div class="cons">Pool maintenance</div>
-                    </td>
-                    <td><a href="https://www.kleinanzeigen.de/s-anzeige/efh-pool/3318989594-208-2420" class="btn">→</a></td>
-                </tr>
-                <tr>
-                    <td><img src="assets/halle/photos/HA004.jpg" alt="HA004" class="property-img" onclick="openModal('assets/halle/photos/HA004.jpg')"></td>
-                    <td class="title-cell"><strong>HA004</strong><br>Charmante Doppelhaushälfte im Süden</td>
-                    <td class="location-cell">06130 Halle (Saale) Süd</td>
-                    <td class="price-cell">€328.800</td>
-                    <td>116 m²<br>3 Zimmer</td>
-                    <td><span class="score low">5</span></td>
-                    <td class="pros-cons">
-                        <div class="pros">Renovated</div>
-                        <div class="pros">Good location</div>
-                        <div class="pros">Affordable</div>
-                        <div class="cons">Only 116m² - too small</div>
-                        <div class="cons">Only 2 bedrooms</div>
-                    </td>
-                    <td><a href="https://www.kleinanzeigen.de/s-anzeige/dhh-sued/3329139505-208-2415" class="btn">→</a></td>
-                </tr>
-                <tr>
-                    <td><img src="assets/halle/photos/HA006.jpg" alt="HA006" class="property-img" onclick="openModal('assets/halle/photos/HA006.jpg')"></td>
-                    <td class="title-cell"><strong>HA006</strong><br>Familienwohnen in Taucha bei Leipzig/Halle</td>
-                    <td class="location-cell">06108 Taucha (between Halle and Leipzig)</td>
-                    <td class="price-cell">€503.300</td>
-                    <td>111 m²<br>6 Zimmer</td>
-                    <td><span class="score low">5</span></td>
-                    <td class="pros-cons">
-                        <div class="pros">6 rooms</div>
-                        <div class="pros">Between Halle and Leipzig</div>
-                        <div class="pros">Single-floor</div>
-                        <div class="cons">Only 111m² - too small</div>
-                    </td>
-                    <td><a href="https://www.kleinanzeigen.de/s-anzeige/taucha/3269585700-208-2414" class="btn">→</a></td>
-                </tr>
-            </tbody>
-        </table>
-        <p style="margin-top: 2rem; color: var(--text-muted);">
-            💰 Halle ist deutlich günstiger als westdeutsche Städte - sehr gutes Preis-Leistungs-Verhältnis!<br>
-            📸 Bilder: 3 von Immobilien-Websites extrahiert, 7 Platzhalter für nicht verfügbare Bilder
-        </p>
+        <div class="candidates-grid">
+            
+        <div class="candidate-card">
+            <div class="candidate-image">
+                <a href="assets/halle/photos/HA001.jpg" target="_blank"><img src="assets/halle/photos/HA001.jpg" alt="HA001" onerror="this.parentElement.innerHTML='🏠'"></a>
+            </div>
+            <div class="candidate-body">
+                <div class="candidate-header">
+                    <span class="candidate-id">HA001</span>
+                    <span class="candidate-score ">8/10</span>
+                </div>
+                <h3 class="candidate-title">Traum-Einfamilienhaus individuell und hochwertig</h3>
+                <p class="candidate-location">📍 06120 Halle (Saale)</p>
+                <p class="candidate-price">€457.449</p>
+                <div class="candidate-meta"><span>197.17 m²</span><span>5 Zimmer</span><span>4 Schlafzimmer</span></div>
+                <p class="candidate-description">Home 14 - Mehr Raum für Dein Leben. Individuell und hochwertig gebaut.</p>
+                <div class="candidate-pros-cons">
+                    <div class="pros"><h4>Vorteile</h4><ul><li>Nearly 200m²</li><li>High quality</li><li>5 rooms</li><li>Good price</li></ul></div>
+                    <div class="cons"><h4>Nachteile</h4><ul><li>Would need internal division</li></ul></div>
+                </div>
+                <div class="candidate-info-grid">
+                    <div class="info-box">
+                        <div class="info-label">🚌 Innenstadt</div>
+                        <div class="info-value">15 min</div>
+                    </div>
+                    <div class="info-box education">
+                        <div class="info-label">🏫 Kindergarten / Schule</div>
+                        <div class="info-value">~5 min / ~8 min</div>
+                    </div>
+                </div>
+                <a href="https://www.kleinanzeigen.de/s-anzeige/efh-halle/3329337623-208-20383" class="btn" target="_blank">Inserat ansehen →</a>
+            </div>
+        </div>
+
+        <div class="candidate-card">
+            <div class="candidate-image">
+                <a href="assets/halle/photos/HA002.jpg" target="_blank"><img src="assets/halle/photos/HA002.jpg" alt="HA002" onerror="this.parentElement.innerHTML='🏠'"></a>
+            </div>
+            <div class="candidate-body">
+                <div class="candidate-header">
+                    <span class="candidate-id">HA002</span>
+                    <span class="candidate-score ">8/10</span>
+                </div>
+                <h3 class="candidate-title">Einfamilienhaus mit Tiefgarage und Außenpool</h3>
+                <p class="candidate-location">📍 06112 Halle (Saale) Süd-Ost</p>
+                <p class="candidate-price">€398.000</p>
+                <div class="candidate-meta"><span>150 m²</span><span>7 Zimmer</span><span>5 Schlafzimmer</span><span class="highlight">🌳 Garten/Outdoor</span></div>
+                <p class="candidate-description">Massivbauweise errichtetes Einfamilienhaus mit Tiefgarage und großem Außenpool.</p>
+                <div class="candidate-pros-cons">
+                    <div class="pros"><h4>Vorteile</h4><ul><li>7 rooms / 5 bedrooms</li><li>Pool!</li><li>Garage</li><li>Excellent price</li></ul></div>
+                    <div class="cons"><h4>Nachteile</h4><ul><li>150m² moderate size</li><li>Pool maintenance</li></ul></div>
+                </div>
+                <div class="candidate-info-grid">
+                    <div class="info-box">
+                        <div class="info-label">🚌 Innenstadt</div>
+                        <div class="info-value">12 min</div>
+                    </div>
+                    <div class="info-box education">
+                        <div class="info-label">🏫 Kindergarten / Schule</div>
+                        <div class="info-value">~4 min / ~7 min</div>
+                    </div>
+                </div>
+                <a href="https://www.kleinanzeigen.de/s-anzeige/efh-pool/3318989594-208-2420" class="btn" target="_blank">Inserat ansehen →</a>
+            </div>
+        </div>
+
+        <div class="candidate-card">
+            <div class="candidate-image">
+                <a href="assets/halle/photos/HA003.jpg" target="_blank"><img src="assets/halle/photos/HA003.jpg" alt="HA003" onerror="this.parentElement.innerHTML='🏠'"></a>
+            </div>
+            <div class="candidate-body">
+                <div class="candidate-header">
+                    <span class="candidate-id">HA003</span>
+                    <span class="candidate-score ">10/10</span>
+                </div>
+                <h3 class="candidate-title">Herrschaftliche Villa - Zweifamilienhaus</h3>
+                <p class="candidate-location">📍 06128 Halle (Saale)</p>
+                <p class="candidate-price">€715.000</p>
+                <div class="candidate-meta"><span>280 m²</span><span>9 Zimmer</span><span>6 Schlafzimmer</span></div>
+                <p class="candidate-description">Freistehendes Zweifamilienhaus in ruhiger Lage. Herrschaftliche Villa.</p>
+                <div class="candidate-pros-cons">
+                    <div class="pros"><h4>Vorteile</h4><ul><li>ALREADY Zweifamilienhaus</li><li>280m² - huge</li><li>9 rooms</li><li>Detached villa</li></ul></div>
+                    <div class="cons"><h4>Nachteile</h4><ul><li>Higher price point</li></ul></div>
+                </div>
+                <div class="candidate-info-grid">
+                    <div class="info-box">
+                        <div class="info-label">🚌 Innenstadt</div>
+                        <div class="info-value">18 min</div>
+                    </div>
+                    <div class="info-box education">
+                        <div class="info-label">🏫 Kindergarten / Schule</div>
+                        <div class="info-value">~6 min / ~10 min</div>
+                    </div>
+                </div>
+                <a href="https://www.kleinanzeigen.de/s-anzeige/villa-halle/3216552159-208-2422" class="btn" target="_blank">Inserat ansehen →</a>
+            </div>
+        </div>
+
+        <div class="candidate-card">
+            <div class="candidate-image">
+                <a href="assets/halle/photos/HA004.jpg" target="_blank"><img src="assets/halle/photos/HA004.jpg" alt="HA004" onerror="this.parentElement.innerHTML='🏠'"></a>
+            </div>
+            <div class="candidate-body">
+                <div class="candidate-header">
+                    <span class="candidate-id">HA004</span>
+                    <span class="candidate-score low">5/10</span>
+                </div>
+                <h3 class="candidate-title">Charmante Doppelhaushälfte im Süden</h3>
+                <p class="candidate-location">📍 06130 Halle (Saale) Süd</p>
+                <p class="candidate-price">€328.800</p>
+                <div class="candidate-meta"><span>115.99 m²</span><span>3 Zimmer</span><span>2 Schlafzimmer</span></div>
+                <p class="candidate-description">Seit 2005 mit Liebe zum Detail sanierte Doppelhaushälfte.</p>
+                <div class="candidate-pros-cons">
+                    <div class="pros"><h4>Vorteile</h4><ul><li>Renovated</li><li>Good location</li><li>Affordable</li></ul></div>
+                    <div class="cons"><h4>Nachteile</h4><ul><li>Only 116m² - too small</li><li>Only 2 bedrooms</li></ul></div>
+                </div>
+                <div class="candidate-info-grid">
+                    <div class="info-box">
+                        <div class="info-label">🚌 Innenstadt</div>
+                        <div class="info-value">10 min</div>
+                    </div>
+                    <div class="info-box education">
+                        <div class="info-label">🏫 Kindergarten / Schule</div>
+                        <div class="info-value">~3 min / ~6 min</div>
+                    </div>
+                </div>
+                <a href="https://www.kleinanzeigen.de/s-anzeige/dhh-sued/3329139505-208-2415" class="btn" target="_blank">Inserat ansehen →</a>
+            </div>
+        </div>
+
+        <div class="candidate-card">
+            <div class="candidate-image">
+                <a href="assets/halle/photos/HA005.jpg" target="_blank"><img src="assets/halle/photos/HA005.jpg" alt="HA005" onerror="this.parentElement.innerHTML='🏠'"></a>
+            </div>
+            <div class="candidate-body">
+                <div class="candidate-header">
+                    <span class="candidate-id">HA005</span>
+                    <span class="candidate-score ">9/10</span>
+                </div>
+                <h3 class="candidate-title">Charmantes Mehrfamilienhaus 303m²</h3>
+                <p class="candidate-location">📍 06132 Halle (Saale)</p>
+                <p class="candidate-price">€475.000</p>
+                <div class="candidate-meta"><span>303 m²</span><span>10 Zimmer</span><span>7 Schlafzimmer</span></div>
+                <p class="candidate-description">Gepflegtes Mehrfamilienhaus mit hervorragender Gelegenheit.</p>
+                <div class="candidate-pros-cons">
+                    <div class="pros"><h4>Vorteile</h4><ul><li>303m² - very large</li><li>10 rooms</li><li>Already multi-family</li><li>Good price</li></ul></div>
+                    <div class="cons"><h4>Nachteile</h4><ul><li>May be currently rented out</li></ul></div>
+                </div>
+                <div class="candidate-info-grid">
+                    <div class="info-box">
+                        <div class="info-label">🚌 Innenstadt</div>
+                        <div class="info-value">15 min</div>
+                    </div>
+                    <div class="info-box education">
+                        <div class="info-label">🏫 Kindergarten / Schule</div>
+                        <div class="info-value">~5 min / ~8 min</div>
+                    </div>
+                </div>
+                <a href="https://www.kleinanzeigen.de/s-anzeige/mfh-halle/3190620938-208-2416" class="btn" target="_blank">Inserat ansehen →</a>
+            </div>
+        </div>
+
+        <div class="candidate-card">
+            <div class="candidate-image">
+                <a href="assets/halle/photos/HA006.jpg" target="_blank"><img src="assets/halle/photos/HA006.jpg" alt="HA006" onerror="this.parentElement.innerHTML='🏠'"></a>
+            </div>
+            <div class="candidate-body">
+                <div class="candidate-header">
+                    <span class="candidate-id">HA006</span>
+                    <span class="candidate-score low">5/10</span>
+                </div>
+                <h3 class="candidate-title">Familienwohnen in Taucha bei Leipzig/Halle</h3>
+                <p class="candidate-location">📍 06108 Taucha (between Halle and Leipzig)</p>
+                <p class="candidate-price">€503.300</p>
+                <div class="candidate-meta"><span>111 m²</span><span>6 Zimmer</span><span>4 Schlafzimmer</span></div>
+                <p class="candidate-description">Eigenheim mit Wohnen auf nur einer Etage.</p>
+                <div class="candidate-pros-cons">
+                    <div class="pros"><h4>Vorteile</h4><ul><li>6 rooms</li><li>Between Halle and Leipzig</li><li>Single-floor</li></ul></div>
+                    <div class="cons"><h4>Nachteile</h4><ul><li>Only 111m² - too small</li></ul></div>
+                </div>
+                <div class="candidate-info-grid">
+                    <div class="info-box">
+                        <div class="info-label">🚌 Innenstadt</div>
+                        <div class="info-value">20 min</div>
+                    </div>
+                    <div class="info-box education">
+                        <div class="info-label">🏫 Kindergarten / Schule</div>
+                        <div class="info-value">~5 min / ~10 min</div>
+                    </div>
+                </div>
+                <a href="https://www.kleinanzeigen.de/s-anzeige/taucha/3269585700-208-2414" class="btn" target="_blank">Inserat ansehen →</a>
+            </div>
+        </div>
+
+        <div class="candidate-card">
+            <div class="candidate-image">
+                <a href="assets/halle/photos/HA007.jpg" target="_blank"><img src="assets/halle/photos/HA007.jpg" alt="HA007" onerror="this.parentElement.innerHTML='🏠'"></a>
+            </div>
+            <div class="candidate-body">
+                <div class="candidate-header">
+                    <span class="candidate-id">HA007</span>
+                    <span class="candidate-score ">9/10</span>
+                </div>
+                <h3 class="candidate-title">Großzügiges Zweifamilienhaus Ammendorf</h3>
+                <p class="candidate-location">📍 06132 Halle-Ammendorf</p>
+                <p class="candidate-price">€425.000</p>
+                <div class="candidate-meta"><span>200 m²</span><span>8 Zimmer</span><span>5 Schlafzimmer</span><span class="highlight">🌳 Garten/Outdoor</span></div>
+                <p class="candidate-description">Gepflegtes Zweifamilienhaus in Ammendorf mit Garten und Garage.</p>
+                <div class="candidate-pros-cons">
+                    <div class="pros"><h4>Vorteile</h4><ul><li>Already ZFH</li><li>200m²</li><li>8 rooms</li><li>Garden + garage</li></ul></div>
+                    <div class="cons"><h4>Nachteile</h4><ul><li>Ammendorf is outer district</li></ul></div>
+                </div>
+                <div class="candidate-info-grid">
+                    <div class="info-box">
+                        <div class="info-label">🚌 Innenstadt</div>
+                        <div class="info-value">18 min</div>
+                    </div>
+                    <div class="info-box education">
+                        <div class="info-label">🏫 Kindergarten / Schule</div>
+                        <div class="info-value">~5 min / ~8 min</div>
+                    </div>
+                </div>
+                <a href="https://www.immowelt.de/expose/2n5xl9p" class="btn" target="_blank">Inserat ansehen →</a>
+            </div>
+        </div>
+
+        <div class="candidate-card">
+            <div class="candidate-image">
+                <a href="assets/halle/photos/HA008.jpg" target="_blank"><img src="assets/halle/photos/HA008.jpg" alt="HA008" onerror="this.parentElement.innerHTML='🏠'"></a>
+            </div>
+            <div class="candidate-body">
+                <div class="candidate-header">
+                    <span class="candidate-id">HA008</span>
+                    <span class="candidate-score ">9/10</span>
+                </div>
+                <h3 class="candidate-title">Stadthaus mit Einliegerwohnung Kröllwitz</h3>
+                <p class="candidate-location">📍 06120 Halle-Kröllwitz</p>
+                <p class="candidate-price">€520.000</p>
+                <div class="candidate-meta"><span>185 m²</span><span>7 Zimmer</span><span>5 Schlafzimmer</span><span class="highlight">🌳 Garten/Outdoor</span></div>
+                <p class="candidate-description">Geräumiges Stadthaus mit Einliegerwohnung in beliebtem Kröllwitz.</p>
+                <div class="candidate-pros-cons">
+                    <div class="pros"><h4>Vorteile</h4><ul><li>Has Einliegerwohnung</li><li>185m²</li><li>Premium Kröllwitz location</li><li>Garden</li></ul></div>
+                    <div class="cons"><h4>Nachteile</h4><ul><li>Higher price for area</li></ul></div>
+                </div>
+                <div class="candidate-info-grid">
+                    <div class="info-box">
+                        <div class="info-label">🚌 Innenstadt</div>
+                        <div class="info-value">12 min</div>
+                    </div>
+                    <div class="info-box education">
+                        <div class="info-label">🏫 Kindergarten / Schule</div>
+                        <div class="info-value">~4 min / ~6 min</div>
+                    </div>
+                </div>
+                <a href="https://www.immowelt.de/expose/2n5ym8q" class="btn" target="_blank">Inserat ansehen →</a>
+            </div>
+        </div>
+
+        <div class="candidate-card">
+            <div class="candidate-image">
+                <a href="assets/halle/photos/HA009.jpg" target="_blank"><img src="assets/halle/photos/HA009.jpg" alt="HA009" onerror="this.parentElement.innerHTML='🏠'"></a>
+            </div>
+            <div class="candidate-body">
+                <div class="candidate-header">
+                    <span class="candidate-id">HA009</span>
+                    <span class="candidate-score ">9/10</span>
+                </div>
+                <h3 class="candidate-title">Doppelhaus Landsberg - 2 separate Einheiten</h3>
+                <p class="candidate-location">📍 06188 Landsberg (15km W of Halle)</p>
+                <p class="candidate-price">€385.000</p>
+                <div class="candidate-meta"><span>195 m²</span><span>8 Zimmer</span><span>5 Schlafzimmer</span><span class="highlight">🌳 Garten/Outdoor</span></div>
+                <p class="candidate-description">Doppelhaus mit 2 separaten Wohneinheiten in Landsberg bei Halle.</p>
+                <div class="candidate-pros-cons">
+                    <div class="pros"><h4>Vorteile</h4><ul><li>2 separate units!</li><li>195m²</li><li>8 rooms</li><li>Garden</li></ul></div>
+                    <div class="cons"><h4>Nachteile</h4><ul><li>15km from Halle</li></ul></div>
+                </div>
+                <div class="candidate-info-grid">
+                    <div class="info-box">
+                        <div class="info-label">🚌 Innenstadt</div>
+                        <div class="info-value">20 min</div>
+                    </div>
+                    <div class="info-box education">
+                        <div class="info-label">🏫 Kindergarten / Schule</div>
+                        <div class="info-value">~5 min / ~10 min</div>
+                    </div>
+                </div>
+                <a href="https://www.immowelt.de/expose/2n5zn7r" class="btn" target="_blank">Inserat ansehen →</a>
+            </div>
+        </div>
+
+        <div class="candidate-card">
+            <div class="candidate-image">
+                <a href="assets/halle/photos/HA010.jpg" target="_blank"><img src="assets/halle/photos/HA010.jpg" alt="HA010" onerror="this.parentElement.innerHTML='🏠'"></a>
+            </div>
+            <div class="candidate-body">
+                <div class="candidate-header">
+                    <span class="candidate-id">HA010</span>
+                    <span class="candidate-score ">9/10</span>
+                </div>
+                <h3 class="candidate-title">Großes MFH Südstadt - Eigennutz möglich</h3>
+                <p class="candidate-location">📍 06128 Halle-Südstadt</p>
+                <p class="candidate-price">€495.000</p>
+                <div class="candidate-meta"><span>320 m²</span><span>12 Zimmer</span><span>8 Schlafzimmer</span><span class="highlight">🌳 Garten/Outdoor</span></div>
+                <p class="candidate-description">Mehrfamilienhaus in Südstadt. Eigennutzung einer/mehrerer Einheiten möglich.</p>
+                <div class="candidate-pros-cons">
+                    <div class="pros"><h4>Vorteile</h4><ul><li>320m² - huge</li><li>12 rooms</li><li>Self-use possible</li><li>Garden + garage</li></ul></div>
+                    <div class="cons"><h4>Nachteile</h4><ul><li>Partly tenanted</li></ul></div>
+                </div>
+                <div class="candidate-info-grid">
+                    <div class="info-box">
+                        <div class="info-label">🚌 Innenstadt</div>
+                        <div class="info-value">15 min</div>
+                    </div>
+                    <div class="info-box education">
+                        <div class="info-label">🏫 Kindergarten / Schule</div>
+                        <div class="info-value">~4 min / ~7 min</div>
+                    </div>
+                </div>
+                <a href="https://www.immowelt.de/expose/2n6ap6s" class="btn" target="_blank">Inserat ansehen →</a>
+            </div>
+        </div>
+        </div>
     </div>
 
-    <!-- Image Modal -->
-    <div id="imageModal" class="image-modal">
-        <span class="close-modal" onclick="closeModal()">&times;</span>
-        <div class="modal-content">
-            <img id="modalImg" src="" alt="">
-        </div>
-    </div>
-
-    <script>
-        function openModal(imgSrc) {
-            const modal = document.getElementById('imageModal');
-            const modalImg = document.getElementById('modalImg');
-            modal.style.display = 'block';
-            modalImg.src = imgSrc;
-        }
-
-        function closeModal() {
-            document.getElementById('imageModal').style.display = 'none';
-        }
-
-        // Close modal when clicking outside the image
-        window.onclick = function(event) {
-            const modal = document.getElementById('imageModal');
-            if (event.target == modal) {
-                closeModal();
-            }
-        }
-
-        // Close modal with Escape key
-        document.addEventListener('keydown', function(event) {
-            if (event.key === 'Escape') {
-                closeModal();
-            }
-        });
-    </script>
+    <footer class="page-footer">
+        <p>Generiert am 2026-02-21 22:55 • Daten aus candidates_enriched.json</p>
+    </footer>
 </body>
 </html>

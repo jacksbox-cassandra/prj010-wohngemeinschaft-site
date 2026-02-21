@@ -1,0 +1,290 @@
+/* Wohngemeinschaft Site - Unified Stylesheet */
+:root {
+    --primary: #2563eb;
+    --primary-dark: #1d4ed8;
+    --success: #16a34a;
+    --warning: #f59e0b;
+    --danger: #ef4444;
+    --bg: #f8fafc;
+    --card-bg: #ffffff;
+    --text: #1e293b;
+    --text-muted: #64748b;
+    --border: #e2e8f0;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+/* Header */
+header {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+    color: white;
+    padding: 2rem;
+}
+
+header h1 { font-size: 2rem; }
+
+.breadcrumb { margin-bottom: 0.5rem; opacity: 0.8; }
+.breadcrumb a { color: white; text-decoration: none; }
+.breadcrumb a:hover { text-decoration: underline; }
+
+.header-meta {
+    margin-top: 0.5rem;
+    opacity: 0.9;
+    font-size: 0.95rem;
+}
+
+/* Top Picks Banner */
+.top-banner {
+    background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+    padding: 1.5rem;
+    border-radius: 12px;
+    margin-bottom: 2rem;
+}
+
+.top-banner h3 { color: #92400e; margin-bottom: 0.5rem; }
+.top-banner p { color: #78350f; }
+
+/* Candidates Grid */
+.candidates-grid {
+    display: grid;
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+/* Candidate Card */
+.candidate-card {
+    background: var(--card-bg);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+@media (min-width: 768px) {
+    .candidate-card { grid-template-columns: 180px 1fr; }
+}
+
+/* Image Section */
+.candidate-image {
+    background: linear-gradient(135deg, #e2e8f0 0%, #cbd5e1 100%);
+    min-height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    position: relative;
+}
+
+.candidate-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.candidate-image a {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.image-placeholder {
+    width: 100%;
+    height: 100%;
+    min-height: 150px;
+    background: #f1f5f9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-muted);
+    font-size: 2.5rem;
+}
+
+/* Card Body */
+.candidate-body { padding: 1.25rem; }
+
+.candidate-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 0.75rem;
+}
+
+.candidate-id {
+    background: var(--primary);
+    color: white;
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.candidate-score {
+    background: var(--success);
+    color: white;
+    padding: 0.2rem 0.6rem;
+    border-radius: 999px;
+    font-weight: 600;
+    font-size: 0.85rem;
+}
+.candidate-score.medium { background: var(--warning); }
+.candidate-score.low { background: var(--danger); }
+
+.candidate-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 0.4rem;
+    line-height: 1.3;
+}
+
+.candidate-location {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    margin-bottom: 0.4rem;
+}
+
+.candidate-price {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 0.75rem;
+}
+
+/* Property Meta */
+.candidate-meta {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    margin-bottom: 0.75rem;
+    font-size: 0.85rem;
+}
+
+.candidate-meta span {
+    background: var(--bg);
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+    border: 1px solid var(--border);
+}
+
+.candidate-meta .highlight {
+    background: #dcfce7;
+    border-color: #86efac;
+    color: #166534;
+}
+
+/* Description */
+.candidate-description {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin-bottom: 0.75rem;
+    line-height: 1.5;
+}
+
+/* Pros/Cons */
+.candidate-pros-cons {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+    margin-bottom: 0.75rem;
+    font-size: 0.85rem;
+}
+
+@media (max-width: 640px) {
+    .candidate-pros-cons { grid-template-columns: 1fr; }
+}
+
+.pros h4 { color: var(--success); margin-bottom: 0.3rem; font-size: 0.9rem; }
+.cons h4 { color: var(--danger); margin-bottom: 0.3rem; font-size: 0.9rem; }
+.pros ul, .cons ul { list-style: none; }
+.pros li { margin-bottom: 0.2rem; }
+.cons li { margin-bottom: 0.2rem; }
+.pros li::before { content: "✓ "; color: var(--success); font-weight: 600; }
+.cons li::before { content: "✗ "; color: var(--danger); font-weight: 600; }
+
+/* Transport & Education */
+.candidate-info-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
+    margin-bottom: 0.75rem;
+    font-size: 0.85rem;
+}
+
+@media (max-width: 640px) {
+    .candidate-info-grid { grid-template-columns: 1fr; }
+}
+
+.info-box {
+    background: #f0f9ff;
+    padding: 0.5rem 0.75rem;
+    border-radius: 6px;
+    border-left: 3px solid var(--primary);
+}
+
+.info-box.education {
+    background: #fef3c7;
+    border-left-color: var(--warning);
+}
+
+.info-label {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.info-value {
+    font-weight: 500;
+    color: var(--text);
+}
+
+/* Suitability Note */
+.suitability-note {
+    background: #f0fdf4;
+    border: 1px solid #86efac;
+    border-radius: 6px;
+    padding: 0.5rem 0.75rem;
+    font-size: 0.85rem;
+    margin-bottom: 0.75rem;
+    color: #166534;
+}
+
+/* Button */
+.btn {
+    display: inline-block;
+    background: var(--primary);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.9rem;
+    transition: background 0.2s;
+}
+
+.btn:hover { background: var(--primary-dark); }
+
+/* Footer */
+.page-footer {
+    margin-top: 3rem;
+    padding: 2rem;
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    border-top: 1px solid var(--border);
+}

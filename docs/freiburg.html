@@ -4,554 +4,347 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Freiburg - Wohngemeinschaft Kandidaten</title>
-    <style>
-        :root {
-            --primary: #2563eb;
-            --primary-dark: #1d4ed8;
-            --success: #16a34a;
-            --warning: #f59e0b;
-            --bg: #f8fafc;
-            --card-bg: #ffffff;
-            --text: #1e293b;
-            --text-muted: #64748b;
-            --border: #e2e8f0;
-        }
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: var(--bg);
-            color: var(--text);
-            line-height: 1.6;
-        }
-        .container { max-width: 1200px; margin: 0 auto; padding: 2rem; }
-        header {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-            color: white;
-            padding: 2rem;
-        }
-        header h1 { font-size: 2rem; }
-        .breadcrumb { margin-bottom: 0.5rem; opacity: 0.8; }
-        .breadcrumb a { color: white; text-decoration: none; }
-        .breadcrumb a:hover { text-decoration: underline; }
-        .candidates-grid {
-            display: grid;
-            gap: 1.5rem;
-            margin: 2rem 0;
-        }
-        .candidate-card {
-            background: var(--card-bg);
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-            display: grid;
-            grid-template-columns: 1fr;
-        }
-        @media (min-width: 768px) {
-            .candidate-card { grid-template-columns: 200px 1fr; }
-        }
-        .candidate-image {
-            background: linear-gradient(135deg, #e2e8f0 0%, #cbd5e1 100%);
-            min-height: 150px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 3rem;
-        }
-        .candidate-image img { width: 100%; height: 100%; object-fit: cover; }
-        .candidate-body { padding: 1.5rem; }
-        .candidate-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-bottom: 1rem;
-        }
-        .candidate-id {
-            background: var(--primary);
-            color: white;
-            padding: 0.25rem 0.5rem;
-            border-radius: 4px;
-            font-size: 0.8rem;
-            font-weight: 600;
-        }
-        .candidate-score {
-            background: var(--success);
-            color: white;
-            padding: 0.25rem 0.75rem;
-            border-radius: 999px;
-            font-weight: 600;
-        }
-        .candidate-score.medium { background: var(--warning); }
-        .candidate-score.low { background: #ef4444; }
-        .candidate-title { font-size: 1.2rem; font-weight: 600; margin-bottom: 0.5rem; }
-        .candidate-location { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 0.5rem; }
-        .candidate-price { font-size: 1.5rem; font-weight: 700; color: var(--primary); margin-bottom: 1rem; }
-        .candidate-meta {
-            display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
-            margin-bottom: 1rem;
-            font-size: 0.9rem;
-        }
-        .candidate-meta span {
-            background: var(--bg);
-            padding: 0.25rem 0.5rem;
-            border-radius: 4px;
-        }
-        .candidate-pros-cons {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1rem;
-            margin-bottom: 1rem;
-            font-size: 0.9rem;
-        }
-        @media (max-width: 640px) {
-            .candidate-pros-cons { grid-template-columns: 1fr; }
-        }
-        .pros h4 { color: var(--success); margin-bottom: 0.5rem; }
-        .cons h4 { color: #ef4444; margin-bottom: 0.5rem; }
-        .pros ul, .cons ul { list-style: none; }
-        .pros li::before { content: "✓ "; color: var(--success); }
-        .cons li::before { content: "✗ "; color: #ef4444; }
-        .candidate-transport {
-            background: #f0f9ff;
-            padding: 0.75rem;
-            border-radius: 8px;
-            font-size: 0.9rem;
-            margin-bottom: 1rem;
-        }
-        .btn {
-            display: inline-block;
-            background: var(--primary);
-            color: white;
-            padding: 0.5rem 1rem;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 0.9rem;
-        }
-        .btn:hover { background: var(--primary-dark); }
-        .back-link { display: block; margin-bottom: 1rem; }
-        .back-link a { color: var(--primary); text-decoration: none; }
-        .back-link a:hover { text-decoration: underline; }
-    </style>
+    <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
     <header>
         <div class="breadcrumb"><a href="index.html">← Zurück zur Übersicht</a></div>
         <h1>🏔️ Freiburg - 10 Kandidaten</h1>
+        <p class="header-meta">0 mit Foto • 10 ohne Foto</p>
     </header>
 
     <div class="container">
+        
+        <div class="top-banner">
+            <h3>🌟 Top-Empfehlungen für Freiburg</h3>
+            <p><strong>FR002</strong> - Einfamilienhaus/Zweifamilienhaus mit… (€795,000) | <strong>FR004</strong> - Großes Einfamilienhaus Freiburg-Herdern (€890,000) | <strong>FR005</strong> - Zweifamilienhaus mit Einliegerwohnung… (€680,000)</p>
+        </div>
         <div class="candidates-grid">
-            <!-- FR006 - Top Pick -->
-            <div class="candidate-card">
-                <div class="candidate-image">
-                    <img src="assets/freiburg/screenshots/IS24_165074195.jpg" alt="FR006" onerror="this.parentElement.innerHTML='🏠'">
-                </div>
-                <div class="candidate-body">
-                    <div class="candidate-header">
-                        <span class="candidate-id">FR006</span>
-                        <span class="candidate-score">10/10</span>
-                    </div>
-                    <h3 class="candidate-title">Einfamilienhaus Littenweiler - auch als Zweifamilienhaus möglich</h3>
-                    <p class="candidate-location">📍 79117 Freiburg Littenweiler</p>
-                    <p class="candidate-price">€1.390.000</p>
-                    <div class="candidate-meta">
-                        <span>187,6 m²</span>
-                        <span>11 Zimmer</span>
-                        <span>4 Schlafzimmer</span>
-                        <span>700 m² Grundstück</span>
-                    </div>
-                    <div class="candidate-pros-cons">
-                        <div class="pros">
-                            <h4>Vorteile</h4>
-                            <ul>
-                                <li>Explizit als Zweifamilienhaus geeignet</li>
-                                <li>Großer Garten + Gartenhaus</li>
-                                <li>Ruhige, grüne Lage</li>
-                                <li>Gute ÖPNV-Anbindung</li>
-                            </ul>
-                        </div>
-                        <div class="cons">
-                            <h4>Nachteile</h4>
-                            <ul>
-                                <li>Höherer Preis (€1.39M)</li>
-                                <li>Ölheizung modernisierungsbedürftig</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="candidate-transport">
-                        🚌 <strong>15 min</strong> zur Innenstadt (Bus) • 🏫 ~5 min zum Kindergarten
-                    </div>
-                    <a href="https://www.immobilienscout24.de/expose/165074195" class="btn" target="_blank">Auf ImmoScout24 ansehen →</a>
-                </div>
+            
+        <div class="candidate-card">
+            <div class="candidate-image">
+                <div class="image-placeholder">🏠</div>
             </div>
-
-            <!-- FR005 -->
-            <div class="candidate-card">
-                <div class="candidate-image">🏠</div>
-                <div class="candidate-body">
-                    <div class="candidate-header">
-                        <span class="candidate-id">FR005</span>
-                        <span class="candidate-score">10/10</span>
-                    </div>
-                    <h3 class="candidate-title">Zweifamilienhaus mit Einliegerwohnung Gundelfingen</h3>
-                    <p class="candidate-location">📍 79194 Gundelfingen (10km von Freiburg)</p>
-                    <p class="candidate-price">€680.000</p>
-                    <div class="candidate-meta">
-                        <span>220 m²</span>
-                        <span>9 Zimmer</span>
-                        <span>6 Schlafzimmer</span>
-                    </div>
-                    <div class="candidate-pros-cons">
-                        <div class="pros">
-                            <h4>Vorteile</h4>
-                            <ul>
-                                <li>Bereits in 2 Einheiten aufgeteilt</li>
-                                <li>Mit Einliegerwohnung</li>
-                                <li>Sehr gutes Preis-Größen-Verhältnis</li>
-                            </ul>
-                        </div>
-                        <div class="cons">
-                            <h4>Nachteile</h4>
-                            <ul>
-                                <li>10km vom Zentrum</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="candidate-transport">
-                        🚆 <strong>25 min</strong> zur Innenstadt (S-Bahn) • 🏫 ~5 min zum Kindergarten
-                    </div>
-                    <a href="https://www.immowelt.de/liste/freiburg-im-breisgau/haeuser/kaufen?r=30" class="btn" target="_blank">Auf Immowelt ansehen →</a>
+            <div class="candidate-body">
+                <div class="candidate-header">
+                    <span class="candidate-id">FR001</span>
+                    <span class="candidate-score medium">7/10</span>
                 </div>
-            </div>
-
-            <!-- FR008 -->
-            <div class="candidate-card">
-                <div class="candidate-image">🏠</div>
-                <div class="candidate-body">
-                    <div class="candidate-header">
-                        <span class="candidate-id">FR008</span>
-                        <span class="candidate-score">9/10</span>
-                    </div>
-                    <h3 class="candidate-title">Großzügiges Wohnhaus Freiburg-Munzingen</h3>
-                    <p class="candidate-location">📍 79112 Freiburg Munzingen</p>
-                    <p class="candidate-price">€780.000</p>
-                    <div class="candidate-meta">
-                        <span>210,88 m²</span>
-                        <span>8 Zimmer</span>
-                        <span>5 Schlafzimmer</span>
-                        <span>Energieklasse B</span>
-                    </div>
-                    <div class="candidate-pros-cons">
-                        <div class="pros">
-                            <h4>Vorteile</h4>
-                            <ul>
-                                <li>Hervorragende Größe (210m²)</li>
-                                <li>8 Zimmer für 2 Familien</li>
-                                <li>Energieeffizient (Klasse B)</li>
-                                <li>Gutes Preis-Größen-Verhältnis</li>
-                            </ul>
-                        </div>
-                        <div class="cons">
-                            <h4>Nachteile</h4>
-                            <ul>
-                                <li>Munzingen ist 10km vom Zentrum</li>
-                                <li>Vorstädtische Lage</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="candidate-transport">
-                        🚌 <strong>20 min</strong> zur Innenstadt (Bus/Tram) • 🏫 ~5 min zum Kindergarten
-                    </div>
-                    <a href="https://www.immobilienscout24.de/expose/161398300" class="btn" target="_blank">Auf ImmoScout24 ansehen →</a>
+                <h3 class="candidate-title">Gepflegtes Reihenmittelhaus mit Charme und Potenzial</h3>
+                <p class="candidate-location">📍 79102 Freiburg im Breisgau</p>
+                <p class="candidate-price">€549.000</p>
+                <div class="candidate-meta"><span>120 m²</span><span>5 Zimmer</span><span>4 Schlafzimmer</span><span class="highlight">🌳 Garten/Outdoor</span></div>
+                <p class="candidate-description">Gepflegtes Reihenmittelhaus in beliebter Lage. Garten und Terrasse vorhanden.</p>
+                <div class="candidate-pros-cons">
+                    <div class="pros"><h4>Vorteile</h4><ul><li>Good size for 2 families</li><li>Garden available</li><li>Central location</li></ul></div>
+                    <div class="cons"><h4>Nachteile</h4><ul><li>May need some renovation</li><li>Shared walls (Reihenhaus)</li></ul></div>
                 </div>
-            </div>
-
-            <!-- FR004 -->
-            <div class="candidate-card">
-                <div class="candidate-image">🏠</div>
-                <div class="candidate-body">
-                    <div class="candidate-header">
-                        <span class="candidate-id">FR004</span>
-                        <span class="candidate-score">9/10</span>
+                <div class="candidate-info-grid">
+                    <div class="info-box">
+                        <div class="info-label">🚌 Innenstadt</div>
+                        <div class="info-value">15 min</div>
                     </div>
-                    <h3 class="candidate-title">Großes Einfamilienhaus Freiburg-Herdern</h3>
-                    <p class="candidate-location">📍 79104 Freiburg-Herdern</p>
-                    <p class="candidate-price">€890.000</p>
-                    <div class="candidate-meta">
-                        <span>200 m²</span>
-                        <span>8 Zimmer</span>
-                        <span>6 Schlafzimmer</span>
+                    <div class="info-box education">
+                        <div class="info-label">🏫 Kindergarten / Schule</div>
+                        <div class="info-value">~10 min / ~12 min</div>
                     </div>
-                    <div class="candidate-pros-cons">
-                        <div class="pros">
-                            <h4>Vorteile</h4>
-                            <ul>
-                                <li>Hervorragende Größe</li>
-                                <li>Premium-Lage (Herdern)</li>
-                                <li>Bereits renoviert</li>
-                                <li>6 Schlafzimmer - perfekt für 2 Familien</li>
-                            </ul>
-                        </div>
-                        <div class="cons">
-                            <h4>Nachteile</h4>
-                            <ul>
-                                <li>Hoher Preis</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="candidate-transport">
-                        🚊 <strong>12 min</strong> zur Innenstadt (Tram) • 🏫 ~7 min zum Kindergarten
-                    </div>
-                    <a href="https://www.immowelt.de/liste/freiburg-im-breisgau/haeuser/kaufen" class="btn" target="_blank">Auf Immowelt ansehen →</a>
                 </div>
-            </div>
-
-            <!-- More candidates abbreviated for space -->
-            <div class="candidate-card">
-                <div class="candidate-image">🏠</div>
-                <div class="candidate-body">
-                    <div class="candidate-header">
-                        <span class="candidate-id">FR002</span>
-                        <span class="candidate-score">9/10</span>
-                    </div>
-                    <h3 class="candidate-title">Einfamilienhaus/Zweifamilienhaus mit großem Garten (Ebnet)</h3>
-                    <p class="candidate-location">📍 79117 Freiburg im Breisgau (Ebnet)</p>
-                    <p class="candidate-price">€795.000</p>
-                    <div class="candidate-meta">
-                        <span>180 m²</span>
-                        <span>7 Zimmer</span>
-                        <span>5 Schlafzimmer</span>
-                    </div>
-                    <div class="candidate-pros-cons">
-                        <div class="pros">
-                            <h4>Vorteile</h4>
-                            <ul>
-                                <li>Große Größe perfekt für 2 Familien</li>
-                                <li>Großer Garten</li>
-                                <li>Naturnahe Lage</li>
-                                <li>Ruhige Gegend</li>
-                            </ul>
-                        </div>
-                        <div class="cons">
-                            <h4>Nachteile</h4>
-                            <ul>
-                                <li>Höherer Preis</li>
-                                <li>Renovierungsbedarf möglich</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="candidate-transport">
-                        🚌 <strong>20 min</strong> zur Innenstadt • 🏫 ~8 min zum Kindergarten
-                    </div>
-                    <a href="https://www.kleinanzeigen.de/s-haus-kaufen/freiburg/k0c208l9354" class="btn" target="_blank">Auf Kleinanzeigen ansehen →</a>
-                </div>
-            </div>
-
-            <div class="candidate-card">
-                <div class="candidate-image">🏠</div>
-                <div class="candidate-body">
-                    <div class="candidate-header">
-                        <span class="candidate-id">FR009</span>
-                        <span class="candidate-score">8/10</span>
-                    </div>
-                    <h3 class="candidate-title">Luxuriöses Reihenendhaus mit Sauna, Pool - Tiengen</h3>
-                    <p class="candidate-location">📍 79112 Freiburg Tiengen</p>
-                    <p class="candidate-price">€848.000</p>
-                    <div class="candidate-meta">
-                        <span>155 m²</span>
-                        <span>8 Zimmer</span>
-                        <span>Sauna + Pool</span>
-                        <span>PV-Anlage</span>
-                    </div>
-                    <div class="candidate-pros-cons">
-                        <div class="pros">
-                            <h4>Vorteile</h4>
-                            <ul>
-                                <li>Luxusausstattung (Sauna, Pool)</li>
-                                <li>PV-Solaranlage</li>
-                                <li>8 Zimmer</li>
-                                <li>Energieeffizient (Klasse C)</li>
-                                <li>Privatverkauf</li>
-                            </ul>
-                        </div>
-                        <div class="cons">
-                            <h4>Nachteile</h4>
-                            <ul>
-                                <li>Reihenhaus (angebaut)</li>
-                                <li>155m² eventuell knapp für 2 Familien</li>
-                                <li>Vorstädtische Lage Tiengen</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="candidate-transport">
-                        🚌 <strong>18 min</strong> zur Innenstadt • 🏫 ~5 min zum Kindergarten
-                    </div>
-                    <a href="https://www.immobilienscout24.de/expose/162836550" class="btn" target="_blank">Auf ImmoScout24 ansehen →</a>
-                </div>
-            </div>
-
-            <div class="candidate-card">
-                <div class="candidate-image">🏠</div>
-                <div class="candidate-body">
-                    <div class="candidate-header">
-                        <span class="candidate-id">FR010</span>
-                        <span class="candidate-score">8/10</span>
-                    </div>
-                    <h3 class="candidate-title">Gepflegte Doppelhaushälfte FR-Mooswald</h3>
-                    <p class="candidate-location">📍 79110 Freiburg Mooswald-West</p>
-                    <p class="candidate-price">€870.000</p>
-                    <div class="candidate-meta">
-                        <span>156 m²</span>
-                        <span>6 Zimmer</span>
-                        <span>4 Schlafzimmer</span>
-                    </div>
-                    <div class="candidate-pros-cons">
-                        <div class="pros">
-                            <h4>Vorteile</h4>
-                            <ul>
-                                <li>Gut gepflegt</li>
-                                <li>Beliebte Lage Mooswald</li>
-                                <li>6 Zimmer</li>
-                                <li>Gute Größe (156m²)</li>
-                            </ul>
-                        </div>
-                        <div class="cons">
-                            <h4>Nachteile</h4>
-                            <ul>
-                                <li>Doppelhaus (halb frei stehend)</li>
-                                <li>Eventuell knapp für 2 große Familien</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="candidate-transport">
-                        🚊 <strong>12 min</strong> zur Innenstadt (Tram) • 🏫 ~5 min zum Kindergarten
-                    </div>
-                    <a href="https://www.immobilienscout24.de/expose/163828254" class="btn" target="_blank">Auf ImmoScout24 ansehen →</a>
-                </div>
-            </div>
-
-            <div class="candidate-card">
-                <div class="candidate-image">🏠</div>
-                <div class="candidate-body">
-                    <div class="candidate-header">
-                        <span class="candidate-id">FR001</span>
-                        <span class="candidate-score medium">7/10</span>
-                    </div>
-                    <h3 class="candidate-title">Gepflegtes Reihenmittelhaus mit Charme</h3>
-                    <p class="candidate-location">📍 79102 Freiburg im Breisgau</p>
-                    <p class="candidate-price">€549.000</p>
-                    <div class="candidate-meta">
-                        <span>120 m²</span>
-                        <span>5 Zimmer</span>
-                    </div>
-                    <div class="candidate-pros-cons">
-                        <div class="pros">
-                            <h4>Vorteile</h4>
-                            <ul>
-                                <li>Gute Größe für 2 Familien</li>
-                                <li>Garten verfügbar</li>
-                                <li>Zentrale Lage</li>
-                            </ul>
-                        </div>
-                        <div class="cons">
-                            <h4>Nachteile</h4>
-                            <ul>
-                                <li>Renovierungsbedarf möglich</li>
-                                <li>Gemeinsame Wände (Reihenhaus)</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="candidate-transport">
-                        🚊 <strong>15 min</strong> zur Innenstadt • 🏫 ~10 min zum Kindergarten
-                    </div>
-                    <a href="https://www.kleinanzeigen.de/s-haus-kaufen/freiburg/k0c208l9354" class="btn" target="_blank">Auf Kleinanzeigen ansehen →</a>
-                </div>
-            </div>
-
-            <div class="candidate-card">
-                <div class="candidate-image">
-                    <img src="assets/freiburg/screenshots/IS24_165829100.jpg" alt="FR007" onerror="this.parentElement.innerHTML='🏠'">
-                </div>
-                <div class="candidate-body">
-                    <div class="candidate-header">
-                        <span class="candidate-id">FR007</span>
-                        <span class="candidate-score medium">6/10</span>
-                    </div>
-                    <h3 class="candidate-title">MFH mit 6 Wohneinheiten am Hauptbahnhof</h3>
-                    <p class="candidate-location">📍 79106 Freiburg Alt-Stühlinger</p>
-                    <p class="candidate-price">€1.049.000</p>
-                    <div class="candidate-meta">
-                        <span>226,81 m²</span>
-                        <span>9 Zimmer</span>
-                        <span>6 Einheiten</span>
-                        <span>Denkmalschutz</span>
-                    </div>
-                    <div class="candidate-pros-cons">
-                        <div class="pros">
-                            <h4>Vorteile</h4>
-                            <ul>
-                                <li>Zentrale Lage am Hauptbahnhof</li>
-                                <li>Stabile Mieteinnahmen</li>
-                                <li>Historischer Charme</li>
-                            </ul>
-                        </div>
-                        <div class="cons">
-                            <h4>Nachteile</h4>
-                            <ul>
-                                <li>Aktuell vermietet - nicht bezugsfrei</li>
-                                <li>Investmentobjekt-Fokus</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="candidate-transport">
-                        🚶 <strong>2 min</strong> zum Hauptbahnhof • 🏫 ~8 min zum Kindergarten
-                    </div>
-                    <a href="https://www.immobilienscout24.de/expose/165829100" class="btn" target="_blank">Auf ImmoScout24 ansehen →</a>
-                </div>
-            </div>
-
-            <div class="candidate-card">
-                <div class="candidate-image">🏠</div>
-                <div class="candidate-body">
-                    <div class="candidate-header">
-                        <span class="candidate-id">FR003</span>
-                        <span class="candidate-score low">5/10</span>
-                    </div>
-                    <h3 class="candidate-title">Haus in 79104 Freiburg Provisionsfrei</h3>
-                    <p class="candidate-location">📍 79104 Freiburg im Breisgau</p>
-                    <p class="candidate-price">€640.000</p>
-                    <div class="candidate-meta">
-                        <span>86 m²</span>
-                        <span>4 Zimmer</span>
-                        <span>Provisionsfrei</span>
-                    </div>
-                    <div class="candidate-pros-cons">
-                        <div class="pros">
-                            <h4>Vorteile</h4>
-                            <ul>
-                                <li>Keine Provision</li>
-                                <li>Gute Lage</li>
-                            </ul>
-                        </div>
-                        <div class="cons">
-                            <h4>Nachteile</h4>
-                            <ul>
-                                <li>Zu klein für 2 Familien (86m²)</li>
-                                <li>Nur 3 Schlafzimmer</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="candidate-transport">
-                        🚊 <strong>10 min</strong> zur Innenstadt • 🏫 ~5 min zum Kindergarten
-                    </div>
-                    <a href="https://www.kleinanzeigen.de/s-anzeige/haus-in-79104-freiburg-provisionsfrei-schnell-sein-/3305506328-208-9363" class="btn" target="_blank">Auf Kleinanzeigen ansehen →</a>
-                </div>
+                <a href="https://www.kleinanzeigen.de/s-haus-kaufen/freiburg/k0c208l9354" class="btn" target="_blank">Inserat ansehen →</a>
             </div>
         </div>
+
+        <div class="candidate-card">
+            <div class="candidate-image">
+                <div class="image-placeholder">🏠</div>
+            </div>
+            <div class="candidate-body">
+                <div class="candidate-header">
+                    <span class="candidate-id">FR002</span>
+                    <span class="candidate-score ">9/10</span>
+                </div>
+                <h3 class="candidate-title">Einfamilienhaus/Zweifamilienhaus mit großem Garten</h3>
+                <p class="candidate-location">📍 79117 Freiburg im Breisgau (Ebnet)</p>
+                <p class="candidate-price">€795.000</p>
+                <div class="candidate-meta"><span>180 m²</span><span>7 Zimmer</span><span>5 Schlafzimmer</span><span class="highlight">🌳 Garten/Outdoor</span></div>
+                <p class="candidate-description">Geräumiges Haus mit großem Garten in naturnaher Lage. Ideal für zwei Familien mit separaten Etagen.</p>
+                <div class="candidate-pros-cons">
+                    <div class="pros"><h4>Vorteile</h4><ul><li>Large size perfect for 2 families</li><li>Big garden</li><li>Near nature</li><li>Quiet area</li></ul></div>
+                    <div class="cons"><h4>Nachteile</h4><ul><li>Higher price point</li><li>May need updating</li></ul></div>
+                </div>
+                <div class="candidate-info-grid">
+                    <div class="info-box">
+                        <div class="info-label">🚌 Innenstadt</div>
+                        <div class="info-value">20 min</div>
+                    </div>
+                    <div class="info-box education">
+                        <div class="info-label">🏫 Kindergarten / Schule</div>
+                        <div class="info-value">~8 min / ~15 min</div>
+                    </div>
+                </div>
+                <a href="https://www.kleinanzeigen.de/s-haus-kaufen/freiburg/k0c208l9354" class="btn" target="_blank">Inserat ansehen →</a>
+            </div>
+        </div>
+
+        <div class="candidate-card">
+            <div class="candidate-image">
+                <div class="image-placeholder">🏠</div>
+            </div>
+            <div class="candidate-body">
+                <div class="candidate-header">
+                    <span class="candidate-id">FR003</span>
+                    <span class="candidate-score low">5/10</span>
+                </div>
+                <h3 class="candidate-title">Haus in 79104 Freiburg Provisionsfrei</h3>
+                <p class="candidate-location">📍 79104 Freiburg im Breisgau</p>
+                <p class="candidate-price">€640.000</p>
+                <div class="candidate-meta"><span>86 m²</span><span>4 Zimmer</span><span>3 Schlafzimmer</span></div>
+                <p class="candidate-description">Haus in zentraler Lage, provisionsfrei zu verkaufen.</p>
+                <div class="candidate-pros-cons">
+                    <div class="pros"><h4>Vorteile</h4><ul><li>No commission</li><li>Good location</li><li>Available quickly</li></ul></div>
+                    <div class="cons"><h4>Nachteile</h4><ul><li>Too small for 2 families (86m²)</li><li>Only 3 bedrooms</li></ul></div>
+                </div>
+                <div class="candidate-info-grid">
+                    <div class="info-box">
+                        <div class="info-label">🚌 Innenstadt</div>
+                        <div class="info-value">10 min</div>
+                    </div>
+                    <div class="info-box education">
+                        <div class="info-label">🏫 Kindergarten / Schule</div>
+                        <div class="info-value">~5 min / ~8 min</div>
+                    </div>
+                </div>
+                <a href="https://www.kleinanzeigen.de/s-anzeige/haus-in-79104-freiburg-provisionsfrei-schnell-sein-/3305506328-208-9363" class="btn" target="_blank">Inserat ansehen →</a>
+            </div>
+        </div>
+
+        <div class="candidate-card">
+            <div class="candidate-image">
+                <div class="image-placeholder">🏠</div>
+            </div>
+            <div class="candidate-body">
+                <div class="candidate-header">
+                    <span class="candidate-id">FR004</span>
+                    <span class="candidate-score ">9/10</span>
+                </div>
+                <h3 class="candidate-title">Großes Einfamilienhaus Freiburg-Herdern</h3>
+                <p class="candidate-location">📍 79104 Freiburg-Herdern</p>
+                <p class="candidate-price">€890.000</p>
+                <div class="candidate-meta"><span>200 m²</span><span>8 Zimmer</span><span>6 Schlafzimmer</span><span class="highlight">🌳 Garten/Outdoor</span></div>
+                <p class="candidate-description">Großzügiges Einfamilienhaus in begehrter Lage Freiburg-Herdern. Renoviert, mit Garten und Garage.</p>
+                <div class="candidate-pros-cons">
+                    <div class="pros"><h4>Vorteile</h4><ul><li>Excellent size</li><li>Premium location (Herdern)</li><li>Already renovated</li><li>6 bedrooms - perfect for 2 families</li></ul></div>
+                    <div class="cons"><h4>Nachteile</h4><ul><li>High price</li><li>Competitive area</li></ul></div>
+                </div>
+                <div class="candidate-info-grid">
+                    <div class="info-box">
+                        <div class="info-label">🚌 Innenstadt</div>
+                        <div class="info-value">12 min</div>
+                    </div>
+                    <div class="info-box education">
+                        <div class="info-label">🏫 Kindergarten / Schule</div>
+                        <div class="info-value">~7 min / ~10 min</div>
+                    </div>
+                </div>
+                <a href="https://www.immowelt.de/liste/freiburg-im-breisgau/haeuser/kaufen" class="btn" target="_blank">Inserat ansehen →</a>
+            </div>
+        </div>
+
+        <div class="candidate-card">
+            <div class="candidate-image">
+                <div class="image-placeholder">🏠</div>
+            </div>
+            <div class="candidate-body">
+                <div class="candidate-header">
+                    <span class="candidate-id">FR005</span>
+                    <span class="candidate-score ">10/10</span>
+                </div>
+                <h3 class="candidate-title">Zweifamilienhaus mit Einliegerwohnung Gundelfingen</h3>
+                <p class="candidate-location">📍 79194 Gundelfingen (10km from Freiburg)</p>
+                <p class="candidate-price">€680.000</p>
+                <div class="candidate-meta"><span>220 m²</span><span>9 Zimmer</span><span>6 Schlafzimmer</span><span class="highlight">🌳 Garten/Outdoor</span></div>
+                <p class="candidate-description">Zweifamilienhaus mit Einliegerwohnung. Perfekt für Mehrgenerationenwohnen oder zwei Familien.</p>
+                <div class="candidate-pros-cons">
+                    <div class="pros"><h4>Vorteile</h4><ul><li>Already divided into 2 units</li><li>Large garden</li><li>Good public transport to Freiburg</li><li>Excellent price-size ratio</li></ul></div>
+                    <div class="cons"><h4>Nachteile</h4><ul><li>10km from city center</li><li>Suburban location</li></ul></div>
+                </div>
+                <div class="candidate-info-grid">
+                    <div class="info-box">
+                        <div class="info-label">🚌 Innenstadt</div>
+                        <div class="info-value">25 min</div>
+                    </div>
+                    <div class="info-box education">
+                        <div class="info-label">🏫 Kindergarten / Schule</div>
+                        <div class="info-value">~5 min / ~10 min</div>
+                    </div>
+                </div>
+                <a href="https://www.immowelt.de/liste/freiburg-im-breisgau/haeuser/kaufen?r=30" class="btn" target="_blank">Inserat ansehen →</a>
+            </div>
+        </div>
+
+        <div class="candidate-card">
+            <div class="candidate-image">
+                <div class="image-placeholder">🏠</div>
+            </div>
+            <div class="candidate-body">
+                <div class="candidate-header">
+                    <span class="candidate-id">FR006</span>
+                    <span class="candidate-score ">10/10</span>
+                </div>
+                <h3 class="candidate-title">Einfamilienhaus Littenweiler - auch als Zweifamilienhaus möglich</h3>
+                <p class="candidate-location">📍 79117 Freiburg Littenweiler</p>
+                <p class="candidate-price">€1.390.000</p>
+                <div class="candidate-meta"><span>187.6 m²</span><span>11 Zimmer</span><span>4 Schlafzimmer</span><span class="highlight">🌳 Garten/Outdoor</span></div>
+                <p class="candidate-description">Zweigeschossiges Wohnhaus mit außergewöhnlichem Entwicklungspotenzial. 187m² Wohnfläche + 69m² Nutzfläche im Keller. Klassische Bauweise mit klarer Grundrissstruktur. Ideal für…</p>
+                <div class="candidate-pros-cons">
+                    <div class="pros"><h4>Vorteile</h4><ul><li>Explicitly suitable for 2 families</li><li>11 rooms on 2 floors</li><li>Large 700m² garden</li><li>Separate hobby room in basement</li></ul></div>
+                    <div class="cons"><h4>Nachteile</h4><ul><li>Higher price (€1.39M)</li><li>Oil heating (1997) needs modernization</li><li>Energy class H</li></ul></div>
+                </div>
+                <div class="candidate-info-grid">
+                    <div class="info-box">
+                        <div class="info-label">🚌 Innenstadt</div>
+                        <div class="info-value">15 min</div>
+                    </div>
+                    <div class="info-box education">
+                        <div class="info-label">🏫 Kindergarten / Schule</div>
+                        <div class="info-value">~5 min / ~8 min</div>
+                    </div>
+                </div>
+                <a href="https://www.immobilienscout24.de/expose/165074195" class="btn" target="_blank">Inserat ansehen →</a>
+            </div>
+        </div>
+
+        <div class="candidate-card">
+            <div class="candidate-image">
+                <div class="image-placeholder">🏠</div>
+            </div>
+            <div class="candidate-body">
+                <div class="candidate-header">
+                    <span class="candidate-id">FR007</span>
+                    <span class="candidate-score medium">6/10</span>
+                </div>
+                <h3 class="candidate-title">MFH mit 6 Wohneinheiten direkt am Hauptbahnhof</h3>
+                <p class="candidate-location">📍 79106 Freiburg Alt-Stühlinger</p>
+                <p class="candidate-price">€1.049.000</p>
+                <div class="candidate-meta"><span>226.81 m²</span><span>9 Zimmer</span><span>6 Schlafzimmer</span><span class="highlight">🌳 Garten/Outdoor</span></div>
+                <p class="candidate-description">Gepflegtes Mehrfamilienhaus aus 1900 mit 6 Wohneinheiten (3x 1-Zimmer, 3x 2-Zimmer). Vollständig vermietet. 4 Geschosse, Massivbau, Gas-Zentralheizung. Denkmalschutzobjekt mit…</p>
+                <div class="candidate-pros-cons">
+                    <div class="pros"><h4>Vorteile</h4><ul><li>Central location at Hauptbahnhof</li><li>Stable rental income</li><li>6 separate units</li><li>Good public transport</li></ul></div>
+                    <div class="cons"><h4>Nachteile</h4><ul><li>Currently tenanted - not move-in ready</li><li>Investment property focus</li><li>Small individual units</li></ul></div>
+                </div>
+                <div class="candidate-info-grid">
+                    <div class="info-box">
+                        <div class="info-label">🚌 Innenstadt</div>
+                        <div class="info-value">2 min</div>
+                    </div>
+                    <div class="info-box education">
+                        <div class="info-label">🏫 Kindergarten / Schule</div>
+                        <div class="info-value">~8 min / ~10 min</div>
+                    </div>
+                </div>
+                <a href="https://www.immobilienscout24.de/expose/165829100" class="btn" target="_blank">Inserat ansehen →</a>
+            </div>
+        </div>
+
+        <div class="candidate-card">
+            <div class="candidate-image">
+                <div class="image-placeholder">🏠</div>
+            </div>
+            <div class="candidate-body">
+                <div class="candidate-header">
+                    <span class="candidate-id">FR008</span>
+                    <span class="candidate-score ">9/10</span>
+                </div>
+                <h3 class="candidate-title">Großzügiges Wohnhaus Freiburg-Munzingen</h3>
+                <p class="candidate-location">📍 79112 Freiburg Munzingen</p>
+                <p class="candidate-price">€780.000</p>
+                <div class="candidate-meta"><span>210.88 m²</span><span>8 Zimmer</span><span>5 Schlafzimmer</span></div>
+                <p class="candidate-description">IMMORath.de - Großzügiges Wohnhaus in Freiburg-Munzingen mit 8 Zimmern und über 210m² Wohnfläche.</p>
+                <div class="candidate-pros-cons">
+                    <div class="pros"><h4>Vorteile</h4><ul><li>Excellent size (210m²)</li><li>8 rooms for 2 families</li><li>Energy efficient (Class B)</li><li>Good price-size ratio</li></ul></div>
+                    <div class="cons"><h4>Nachteile</h4><ul><li>Munzingen is 10km from center</li><li>Suburban location</li></ul></div>
+                </div>
+                <div class="candidate-info-grid">
+                    <div class="info-box">
+                        <div class="info-label">🚌 Innenstadt</div>
+                        <div class="info-value">20 min</div>
+                    </div>
+                    <div class="info-box education">
+                        <div class="info-label">🏫 Kindergarten / Schule</div>
+                        <div class="info-value">~5 min / ~10 min</div>
+                    </div>
+                </div>
+                <a href="https://www.immobilienscout24.de/expose/161398300" class="btn" target="_blank">Inserat ansehen →</a>
+            </div>
+        </div>
+
+        <div class="candidate-card">
+            <div class="candidate-image">
+                <div class="image-placeholder">🏠</div>
+            </div>
+            <div class="candidate-body">
+                <div class="candidate-header">
+                    <span class="candidate-id">FR009</span>
+                    <span class="candidate-score ">8/10</span>
+                </div>
+                <h3 class="candidate-title">Luxuriöses Reihenendhaus mit Sauna, Pool - Freiburg-Tiengen</h3>
+                <p class="candidate-location">📍 79112 Freiburg Tiengen, Arlesheimer Straße 25</p>
+                <p class="candidate-price">€848.000</p>
+                <div class="candidate-meta"><span>155 m²</span><span>8 Zimmer</span><span>5 Schlafzimmer</span><span class="highlight">🌳 Garten/Outdoor</span></div>
+                <p class="candidate-description">Luxuriöses Reihenendhaus mit Sauna, PV Anlage, Pool in Freiburg-Tiengen. 8 Zimmer auf 155m². Energieklasse C.</p>
+                <div class="candidate-pros-cons">
+                    <div class="pros"><h4>Vorteile</h4><ul><li>Luxury features (sauna, pool)</li><li>PV solar system</li><li>8 rooms</li><li>Energy efficient (C)</li></ul></div>
+                    <div class="cons"><h4>Nachteile</h4><ul><li>Reihenhaus (attached)</li><li>155m² may be tight for 2 families</li><li>Suburban Tiengen location</li></ul></div>
+                </div>
+                <div class="candidate-info-grid">
+                    <div class="info-box">
+                        <div class="info-label">🚌 Innenstadt</div>
+                        <div class="info-value">18 min</div>
+                    </div>
+                    <div class="info-box education">
+                        <div class="info-label">🏫 Kindergarten / Schule</div>
+                        <div class="info-value">~5 min / ~8 min</div>
+                    </div>
+                </div>
+                <a href="https://www.immobilienscout24.de/expose/162836550" class="btn" target="_blank">Inserat ansehen →</a>
+            </div>
+        </div>
+
+        <div class="candidate-card">
+            <div class="candidate-image">
+                <div class="image-placeholder">🏠</div>
+            </div>
+            <div class="candidate-body">
+                <div class="candidate-header">
+                    <span class="candidate-id">FR010</span>
+                    <span class="candidate-score ">8/10</span>
+                </div>
+                <h3 class="candidate-title">Gepflegte Doppelhaushälfte FR-Mooswald</h3>
+                <p class="candidate-location">📍 79110 Freiburg Mooswald-West</p>
+                <p class="candidate-price">€870.000</p>
+                <div class="candidate-meta"><span>156 m²</span><span>6 Zimmer</span><span>4 Schlafzimmer</span></div>
+                <p class="candidate-description">Gepflegte Doppelhaushälfte in begehrter Lage von FR-Mooswald. 6 Zimmer, 156m², Energieklasse D.</p>
+                <div class="candidate-pros-cons">
+                    <div class="pros"><h4>Vorteile</h4><ul><li>Well-maintained</li><li>Popular Mooswald location</li><li>6 rooms</li><li>Good size (156m²)</li></ul></div>
+                    <div class="cons"><h4>Nachteile</h4><ul><li>Doppelhaus (semi-detached)</li><li>May be tight for 2 large families</li></ul></div>
+                </div>
+                <div class="candidate-info-grid">
+                    <div class="info-box">
+                        <div class="info-label">🚌 Innenstadt</div>
+                        <div class="info-value">12 min</div>
+                    </div>
+                    <div class="info-box education">
+                        <div class="info-label">🏫 Kindergarten / Schule</div>
+                        <div class="info-value">~5 min / ~8 min</div>
+                    </div>
+                </div>
+                <a href="https://www.immobilienscout24.de/expose/163828254" class="btn" target="_blank">Inserat ansehen →</a>
+            </div>
+        </div>
+        </div>
     </div>
+
+    <footer class="page-footer">
+        <p>Generiert am 2026-02-21 22:55 • Daten aus candidates_enriched.json</p>
+    </footer>
 </body>
 </html>

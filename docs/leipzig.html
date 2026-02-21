@@ -1,600 +1,350 @@
 <!DOCTYPE html>
 <html lang="de">
- <head>
-  <meta charset="utf-8"/>
-  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-  <title>
-   Leipzig - Wohngemeinschaft Kandidaten
-  </title>
-  <style>
-   :root { --primary: #2563eb; --primary-dark: #1d4ed8; --success: #16a34a; --warning: #f59e0b; --bg: #f8fafc; --card-bg: #ffffff; --text: #1e293b; --text-muted: #64748b; }
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
-        .container { max-width: 1200px; margin: 0 auto; padding: 2rem; }
-        header { background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); color: white; padding: 2rem; }
-        header h1 { font-size: 2rem; }
-        .breadcrumb { margin-bottom: 0.5rem; opacity: 0.8; }
-        .breadcrumb a { color: white; text-decoration: none; }
-        table { width: 100%; border-collapse: collapse; background: var(--card-bg); border-radius: 12px; overflow: hidden; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
-        th, td { padding: 1rem; text-align: left; border-bottom: 1px solid var(--bg); }
-        th { background: var(--primary); color: white; }
-        tr:hover { background: #f0f9ff; }
-        .score { background: var(--success); color: white; padding: 0.25rem 0.5rem; border-radius: 999px; font-weight: 600; font-size: 0.8rem; }
-        .score.medium { background: var(--warning); }
-        .score.low { background: #ef4444; }
-        .btn { display: inline-block; background: var(--primary); color: white; padding: 0.4rem 0.8rem; border-radius: 6px; text-decoration: none; font-size: 0.85rem; }
-        .btn:hover { background: var(--primary-dark); }
-        .top-banner { background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%); padding: 1.5rem; border-radius: 12px; margin-bottom: 2rem; }
-        .top-banner h3 { color: #92400e; margin-bottom: 0.5rem; }
-    
-        table { width: 100%; table-layout: fixed; }
-        td:nth-child(1) { width: 90px; } /* Image */
-        td:nth-child(2) { width: 60px; } /* ID */
-        td:nth-child(3) { width: 200px; } /* Title */
-        td:nth-child(4) { width: 120px; } /* Location */
-        td:nth-child(5) { width: 80px; } /* Price */
-        td:nth-child(6) { width: 60px; } /* Size */
-        td:nth-child(7) { width: 50px; } /* Rooms */
-        td:nth-child(8) { width: 50px; } /* Score */
-        td:nth-child(9) { width: 200px; } /* Pros/Cons */
-        td:nth-child(10) { width: 50px; } /* Link */
-        th, td { padding: 0.8rem; vertical-align: top; }
-  </style>
- </head>
- <body>
-  <header>
-   <div class="breadcrumb">
-    <a href="index.html">
-     ← Zurück zur Übersicht
-    </a>
-   </div>
-   <h1>
-    🎵 Leipzig - 10 Kandidaten
-   </h1>
-  </header>
-  <div class="container">
-   <div class="top-banner">
-    <h3>
-     🌟 Top-Empfehlung für Leipzig
-    </h3>
-    <p>
-     <strong>
-      LE004
-     </strong>
-     - Mehrgenerationenhaus Burghausen (€680k, 240m², 1630m² Grundstück, Score 10/10) - PERFEKT für 2 Familien!
-    </p>
-   </div>
-   <table>
-    <thead>
-     <tr>
-      <th>
-       Bild
-      </th>
-      <th>
-       ID
-      </th>
-      <th>
-       Titel
-      </th>
-      <th>
-       Lage
-      </th>
-      <th>
-       Preis
-      </th>
-      <th>
-       Größe
-      </th>
-      <th>
-       Zimmer
-      </th>
-      <th>
-       Score
-      </th>
-      <th>
-       Pros/Cons
-      </th>
-      <th>
-       Link
-      </th>
-     </tr>
-    </thead>
-    <tbody>
-     <tr>
-      <td>
-       <img alt="Mehrfamilienhaus für Mehrgenerationen" src="assets/leipzig/photos/LE004.jpg" style="width:80px;height:60px;object-fit:cover;border-radius:4px;"/>
-      </td>
-      <td>
-       LE004
-      </td>
-      <td>
-       Mehrfamilienhaus für Mehrgenerationen
-      </td>
-      <td>
-       Burghausen-Rückmarsdorf
-      </td>
-      <td>
-       €680.000
-      </td>
-      <td>
-       240 m²
-      </td>
-      <td>
-       9
-      </td>
-      <td>
-       <span class="score">
-        10
-       </span>
-      </td>
-      <td>
-       <div style="font-size:0.8rem;">
-        <div style="color:#16a34a;">
-         ✓ PERFECT for 2 families
-         <br/>
-         ✓ Huge plot (1630m²)
-         <br/>
-         ✓ 9 rooms/6 bedrooms
-         <br/>
-         ✓ Already multi-unit
-         <br/>
-         ✓ Quiet location
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leipzig - Wohngemeinschaft Kandidaten</title>
+    <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+    <header>
+        <div class="breadcrumb"><a href="index.html">← Zurück zur Übersicht</a></div>
+        <h1>🎵 Leipzig - 10 Kandidaten</h1>
+        <p class="header-meta">10 mit Foto • 0 ohne Foto</p>
+    </header>
+
+    <div class="container">
+        
+        <div class="top-banner">
+            <h3>🌟 Top-Empfehlungen für Leipzig</h3>
+            <p><strong>LE002</strong> - Einfamilienhaus Seehausen - 6 Zimmer… (€695,000) | <strong>LE004</strong> - Mehrfamilienhaus für Mehrgenerationen (€680,000) | <strong>LE006</strong> - Großer Dreiseitenhof vor den Toren… (€429,000)</p>
         </div>
-        <div style="color:#ef4444;margin-top:4px;">
-         ✗ Available July 2026
-         <br/>
-         ✗ Outer district
+        <div class="candidates-grid">
+            
+        <div class="candidate-card">
+            <div class="candidate-image">
+                <a href="assets/leipzig/photos/LE001.jpg" target="_blank"><img src="assets/leipzig/photos/LE001.jpg" alt="LE001" onerror="this.parentElement.innerHTML='🏠'"></a>
+            </div>
+            <div class="candidate-body">
+                <div class="candidate-header">
+                    <span class="candidate-id">LE001</span>
+                    <span class="candidate-score ">8/10</span>
+                </div>
+                <h3 class="candidate-title">Stadthaus Stötteritz - 6 Zimmer</h3>
+                <p class="candidate-location">📍 04299 Leipzig (Stötteritz)</p>
+                <p class="candidate-price">€750.000</p>
+                <div class="candidate-meta"><span>181 m²</span><span>6 Zimmer</span><span>5 Schlafzimmer</span></div>
+                <p class="candidate-description">Gepflegtes Einfamilienhaus in geschlossener Bauweise mit großzügigem Raumangebot.</p>
+                <div class="candidate-pros-cons">
+                    <div class="pros"><h4>Vorteile</h4><ul><li>6 rooms - good for 2 families</li><li>Large plot (472m²)</li><li>Well maintained</li></ul></div>
+                    <div class="cons"><h4>Nachteile</h4><ul><li>Single unit - would need division</li></ul></div>
+                </div>
+                <div class="candidate-info-grid">
+                    <div class="info-box">
+                        <div class="info-label">🚌 Innenstadt</div>
+                        <div class="info-value">15 min</div>
+                    </div>
+                    <div class="info-box education">
+                        <div class="info-label">🏫 Kindergarten / Schule</div>
+                        <div class="info-value">~5 min / ~8 min</div>
+                    </div>
+                </div>
+                <a href="https://www.immowelt.de/expose/10cf0dec-1ae2-4434-a6b0-1f37cce680ce" class="btn" target="_blank">Inserat ansehen →</a>
+            </div>
         </div>
-       </div>
-      </td>
-      <td>
-       <a class="btn" href="https://www.immowelt.de/expose/072a9531-6b8f-426c-b620-36ab315bbc9a">
-        →
-       </a>
-      </td>
-     </tr>
-     <tr>
-      <td>
-       <img alt="Einfamilienhaus Seehausen - 6 Zimmer A-Energie" src="assets/leipzig/photos/LE002.jpg" style="width:80px;height:60px;object-fit:cover;border-radius:4px;"/>
-      </td>
-      <td>
-       LE002
-      </td>
-      <td>
-       EFH Seehausen - A-Energie 270m²
-      </td>
-      <td>
-       Leipzig-Seehausen
-      </td>
-      <td>
-       €695.000
-      </td>
-      <td>
-       270 m²
-      </td>
-      <td>
-       6
-      </td>
-      <td>
-       <span class="score">
-        9
-       </span>
-      </td>
-      <td>
-       <div style="font-size:0.8rem;">
-        <div style="color:#16a34a;">
-         ✓ Very large (270m²)
-         <br/>
-         ✓ Excellent energy A
-         <br/>
-         ✓ Fully renovated
-         <br/>
-         ✓ Historic character
+
+        <div class="candidate-card">
+            <div class="candidate-image">
+                <a href="assets/leipzig/photos/LE002.jpg" target="_blank"><img src="assets/leipzig/photos/LE002.jpg" alt="LE002" onerror="this.parentElement.innerHTML='🏠'"></a>
+            </div>
+            <div class="candidate-body">
+                <div class="candidate-header">
+                    <span class="candidate-id">LE002</span>
+                    <span class="candidate-score ">9/10</span>
+                </div>
+                <h3 class="candidate-title">Einfamilienhaus Seehausen - 6 Zimmer A-Energie</h3>
+                <p class="candidate-location">📍 04356 Leipzig (Seehausen)</p>
+                <p class="candidate-price">€695.000</p>
+                <div class="candidate-meta"><span>270 m²</span><span>6 Zimmer</span><span>5 Schlafzimmer</span></div>
+                <p class="candidate-description">Außergewöhnliches Einfamilienhaus aus 1901, umfassend erneuert 2008-2023.</p>
+                <div class="candidate-pros-cons">
+                    <div class="pros"><h4>Vorteile</h4><ul><li>Very large (270m²)</li><li>Excellent energy A</li><li>Fully renovated</li><li>Historic character</li></ul></div>
+                    <div class="cons"><h4>Nachteile</h4><ul><li>Would need internal reorganization</li></ul></div>
+                </div>
+                <div class="candidate-info-grid">
+                    <div class="info-box">
+                        <div class="info-label">🚌 Innenstadt</div>
+                        <div class="info-value">25 min</div>
+                    </div>
+                    <div class="info-box education">
+                        <div class="info-label">🏫 Kindergarten / Schule</div>
+                        <div class="info-value">~8 min / ~12 min</div>
+                    </div>
+                </div>
+                <a href="https://www.immowelt.de/expose/b736d84f-cfd7-414b-9db9-ceaa15d843df" class="btn" target="_blank">Inserat ansehen →</a>
+            </div>
         </div>
-        <div style="color:#ef4444;margin-top:4px;">
-         ✗ Would need internal reorganization
+
+        <div class="candidate-card">
+            <div class="candidate-image">
+                <a href="assets/leipzig/photos/LE003.jpg" target="_blank"><img src="assets/leipzig/photos/LE003.jpg" alt="LE003" onerror="this.parentElement.innerHTML='🏠'"></a>
+            </div>
+            <div class="candidate-body">
+                <div class="candidate-header">
+                    <span class="candidate-id">LE003</span>
+                    <span class="candidate-score medium">7/10</span>
+                </div>
+                <h3 class="candidate-title">Einfamilienhaus Knauthain - 4 Zimmer mit Anbau</h3>
+                <p class="candidate-location">📍 04249 Leipzig (Knautkleeberg-Knauthain)</p>
+                <p class="candidate-price">€369.000</p>
+                <div class="candidate-meta"><span>135 m²</span><span>4 Zimmer</span><span>3 Schlafzimmer</span></div>
+                <p class="candidate-description">Charmantes Einfamilienhaus mit zwei Vollgeschossen und Anbau.</p>
+                <div class="candidate-pros-cons">
+                    <div class="pros"><h4>Vorteile</h4><ul><li>Affordable</li><li>Large plot (636m²)</li><li>Anbau = extra space</li></ul></div>
+                    <div class="cons"><h4>Nachteile</h4><ul><li>135m² might be tight</li><li>Only 3 bedrooms</li></ul></div>
+                </div>
+                <div class="candidate-info-grid">
+                    <div class="info-box">
+                        <div class="info-label">🚌 Innenstadt</div>
+                        <div class="info-value">20 min</div>
+                    </div>
+                    <div class="info-box education">
+                        <div class="info-label">🏫 Kindergarten / Schule</div>
+                        <div class="info-value">~5 min / ~10 min</div>
+                    </div>
+                </div>
+                <a href="https://www.immowelt.de/expose/f1f89b90-101a-4843-9737-d057d3763d7d" class="btn" target="_blank">Inserat ansehen →</a>
+            </div>
         </div>
-       </div>
-      </td>
-      <td>
-       <a class="btn" href="https://www.immowelt.de/expose/b736d84f-cfd7-414b-9db9-ceaa15d843df">
-        →
-       </a>
-      </td>
-     </tr>
-     <tr>
-      <td>
-       <img alt="Großer Dreiseitenhof vor den Toren Leipzigs" src="assets/leipzig/photos/LE006.jpg" style="width:80px;height:60px;object-fit:cover;border-radius:4px;"/>
-      </td>
-      <td>
-       LE006
-      </td>
-      <td>
-       Großer Dreiseitenhof
-      </td>
-      <td>
-       Lützen (25km)
-      </td>
-      <td>
-       €429.000
-      </td>
-      <td>
-       240 m²
-      </td>
-      <td>
-       10
-      </td>
-      <td>
-       <span class="score">
-        9
-       </span>
-      </td>
-      <td>
-       <div style="font-size:0.8rem;">
-        <div style="color:#16a34a;">
-         ✓ Huge space (240m², 10 rooms)
-         <br/>
-         ✓ Traditional Dreiseitenhof
-         <br/>
-         ✓ Excellent price
+
+        <div class="candidate-card">
+            <div class="candidate-image">
+                <a href="assets/leipzig/photos/LE004.jpg" target="_blank"><img src="assets/leipzig/photos/LE004.jpg" alt="LE004" onerror="this.parentElement.innerHTML='🏠'"></a>
+            </div>
+            <div class="candidate-body">
+                <div class="candidate-header">
+                    <span class="candidate-id">LE004</span>
+                    <span class="candidate-score ">10/10</span>
+                </div>
+                <h3 class="candidate-title">Mehrfamilienhaus für Mehrgenerationen</h3>
+                <p class="candidate-location">📍 04178 Leipzig (Burghausen-Rückmarsdorf)</p>
+                <p class="candidate-price">€680.000</p>
+                <div class="candidate-meta"><span>240 m²</span><span>9 Zimmer</span><span>6 Schlafzimmer</span></div>
+                <p class="candidate-description">Auf einem 1.630m² großen Grundstück in ruhiger Sackgassenlage. Ideal für Mehrgenerationenwohnen.</p>
+                <div class="candidate-pros-cons">
+                    <div class="pros"><h4>Vorteile</h4><ul><li>PERFECT for 2 families</li><li>Huge plot (1630m²)</li><li>9 rooms/6 bedrooms</li><li>Already multi-unit</li></ul></div>
+                    <div class="cons"><h4>Nachteile</h4><ul><li>Available July 2026</li><li>Outer district</li></ul></div>
+                </div>
+                <div class="candidate-info-grid">
+                    <div class="info-box">
+                        <div class="info-label">🚌 Innenstadt</div>
+                        <div class="info-value">25 min</div>
+                    </div>
+                    <div class="info-box education">
+                        <div class="info-label">🏫 Kindergarten / Schule</div>
+                        <div class="info-value">~10 min / ~15 min</div>
+                    </div>
+                </div>
+                <a href="https://www.immowelt.de/expose/072a9531-6b8f-426c-b620-36ab315bbc9a" class="btn" target="_blank">Inserat ansehen →</a>
+            </div>
         </div>
-        <div style="color:#ef4444;margin-top:4px;">
-         ✗ 25km from Leipzig
-         <br/>
-         ✗ Rural location
+
+        <div class="candidate-card">
+            <div class="candidate-image">
+                <a href="assets/leipzig/photos/LE005.jpg" target="_blank"><img src="assets/leipzig/photos/LE005.jpg" alt="LE005" onerror="this.parentElement.innerHTML='🏠'"></a>
+            </div>
+            <div class="candidate-body">
+                <div class="candidate-header">
+                    <span class="candidate-id">LE005</span>
+                    <span class="candidate-score ">8/10</span>
+                </div>
+                <h3 class="candidate-title">Einfamilienhaus Seehausen - 6 Zimmer 163m²</h3>
+                <p class="candidate-location">📍 04356 Leipzig (Seehausen)</p>
+                <p class="candidate-price">€550.000</p>
+                <div class="candidate-meta"><span>163 m²</span><span>6 Zimmer</span><span>5 Schlafzimmer</span></div>
+                <p class="candidate-description">Home 10 präsentiert sich innen deutlich großzügiger als von außen.</p>
+                <div class="candidate-pros-cons">
+                    <div class="pros"><h4>Vorteile</h4><ul><li>Good size (163m²)</li><li>6 rooms</li><li>Modern design</li><li>Good price</li></ul></div>
+                    <div class="cons"><h4>Nachteile</h4><ul><li>Single unit structure</li></ul></div>
+                </div>
+                <div class="candidate-info-grid">
+                    <div class="info-box">
+                        <div class="info-label">🚌 Innenstadt</div>
+                        <div class="info-value">25 min</div>
+                    </div>
+                    <div class="info-box education">
+                        <div class="info-label">🏫 Kindergarten / Schule</div>
+                        <div class="info-value">~7 min / ~10 min</div>
+                    </div>
+                </div>
+                <a href="https://www.immowelt.de/expose/6da57caa-01ba-4ff8-a09e-b60964f350c8" class="btn" target="_blank">Inserat ansehen →</a>
+            </div>
         </div>
-       </div>
-      </td>
-      <td>
-       <a class="btn" href="https://www.kleinanzeigen.de/s-anzeige/dreiseitenhof/3306859452-208-21640">
-        →
-       </a>
-      </td>
-     </tr>
-     <tr>
-      <td>
-       <img alt="Stadthaus Stötteritz - 6 Zimmer" src="assets/leipzig/photos/LE001.jpg" style="width:80px;height:60px;object-fit:cover;border-radius:4px;"/>
-      </td>
-      <td>
-       LE001
-      </td>
-      <td>
-       Stadthaus Stötteritz
-      </td>
-      <td>
-       Leipzig-Stötteritz
-      </td>
-      <td>
-       €750.000
-      </td>
-      <td>
-       181 m²
-      </td>
-      <td>
-       6
-      </td>
-      <td>
-       <span class="score medium">
-        8
-       </span>
-      </td>
-      <td>
-       <div style="font-size:0.8rem;">
-        <div style="color:#16a34a;">
-         ✓ 6 rooms - good for 2 families
-         <br/>
-         ✓ Large plot (472m²)
-         <br/>
-         ✓ Well maintained
+
+        <div class="candidate-card">
+            <div class="candidate-image">
+                <a href="assets/leipzig/photos/LE006.jpg" target="_blank"><img src="assets/leipzig/photos/LE006.jpg" alt="LE006" onerror="this.parentElement.innerHTML='🏠'"></a>
+            </div>
+            <div class="candidate-body">
+                <div class="candidate-header">
+                    <span class="candidate-id">LE006</span>
+                    <span class="candidate-score ">9/10</span>
+                </div>
+                <h3 class="candidate-title">Großer Dreiseitenhof vor den Toren Leipzigs</h3>
+                <p class="candidate-location">📍 06686 Lützen (25km W of Leipzig)</p>
+                <p class="candidate-price">€429.000</p>
+                <div class="candidate-meta"><span>240 m²</span><span>10 Zimmer</span><span>7 Schlafzimmer</span><span class="highlight">🌳 Garten/Outdoor</span></div>
+                <p class="candidate-description">Traumhafter Dreiseitenhof. Ein Paradies für Familien, Selbstständige, Künstler.</p>
+                <div class="candidate-pros-cons">
+                    <div class="pros"><h4>Vorteile</h4><ul><li>Huge space (240m², 10 rooms)</li><li>Traditional Dreiseitenhof</li><li>Excellent price</li></ul></div>
+                    <div class="cons"><h4>Nachteile</h4><ul><li>25km from Leipzig</li><li>Rural location</li></ul></div>
+                </div>
+                <div class="candidate-info-grid">
+                    <div class="info-box">
+                        <div class="info-label">🚌 Innenstadt</div>
+                        <div class="info-value">35 min</div>
+                    </div>
+                    <div class="info-box education">
+                        <div class="info-label">🏫 Kindergarten / Schule</div>
+                        <div class="info-value">~10 min / ~12 min</div>
+                    </div>
+                </div>
+                <a href="https://www.kleinanzeigen.de/s-anzeige/dreiseitenhof/3306859452-208-21640" class="btn" target="_blank">Inserat ansehen →</a>
+            </div>
         </div>
-        <div style="color:#ef4444;margin-top:4px;">
-         ✗ Single unit - would need division
+
+        <div class="candidate-card">
+            <div class="candidate-image">
+                <a href="assets/leipzig/photos/LE007.jpg" target="_blank"><img src="assets/leipzig/photos/LE007.jpg" alt="LE007" onerror="this.parentElement.innerHTML='🏠'"></a>
+            </div>
+            <div class="candidate-body">
+                <div class="candidate-header">
+                    <span class="candidate-id">LE007</span>
+                    <span class="candidate-score medium">7/10</span>
+                </div>
+                <h3 class="candidate-title">Urbanes Stadthaus im Leipziger Osten</h3>
+                <p class="candidate-location">📍 04318 Leipzig (Anger-Crottendorf)</p>
+                <p class="candidate-price">€743.000</p>
+                <div class="candidate-meta"><span>149.73 m²</span><span>6 Zimmer</span><span>4 Schlafzimmer</span></div>
+                <p class="candidate-description">Großzügiges Stadthaus mit hochwertiger, moderner Ausstattung.</p>
+                <div class="candidate-pros-cons">
+                    <div class="pros"><h4>Vorteile</h4><ul><li>High quality</li><li>Modern</li><li>Urban location</li></ul></div>
+                    <div class="cons"><h4>Nachteile</h4><ul><li>150m² on smaller side</li><li>Less outdoor space</li></ul></div>
+                </div>
+                <div class="candidate-info-grid">
+                    <div class="info-box">
+                        <div class="info-label">🚌 Innenstadt</div>
+                        <div class="info-value">12 min</div>
+                    </div>
+                    <div class="info-box education">
+                        <div class="info-label">🏫 Kindergarten / Schule</div>
+                        <div class="info-value">~4 min / ~6 min</div>
+                    </div>
+                </div>
+                <a href="https://www.kleinanzeigen.de/s-anzeige/urbanes-stadthaus/3091563369-208-30111" class="btn" target="_blank">Inserat ansehen →</a>
+            </div>
         </div>
-       </div>
-      </td>
-      <td>
-       <a class="btn" href="https://www.immowelt.de/expose/10cf0dec-1ae2-4434-a6b0-1f37cce680ce">
-        →
-       </a>
-      </td>
-     </tr>
-     <tr>
-      <td>
-       <img alt="Einfamilienhaus Seehausen - 6 Zimmer 163m²" src="assets/leipzig/photos/LE005.jpg" style="width:80px;height:60px;object-fit:cover;border-radius:4px;"/>
-      </td>
-      <td>
-       LE005
-      </td>
-      <td>
-       EFH Seehausen - Modern 163m²
-      </td>
-      <td>
-       Leipzig-Seehausen
-      </td>
-      <td>
-       €550.000
-      </td>
-      <td>
-       163 m²
-      </td>
-      <td>
-       6
-      </td>
-      <td>
-       <span class="score medium">
-        8
-       </span>
-      </td>
-      <td>
-       <div style="font-size:0.8rem;">
-        <div style="color:#16a34a;">
-         ✓ Good size (163m²)
-         <br/>
-         ✓ 6 rooms
-         <br/>
-         ✓ Modern design
-         <br/>
-         ✓ Good price
+
+        <div class="candidate-card">
+            <div class="candidate-image">
+                <a href="assets/leipzig/photos/LE008.jpg" target="_blank"><img src="assets/leipzig/photos/LE008.jpg" alt="LE008" onerror="this.parentElement.innerHTML='🏠'"></a>
+            </div>
+            <div class="candidate-body">
+                <div class="candidate-header">
+                    <span class="candidate-id">LE008</span>
+                    <span class="candidate-score medium">6/10</span>
+                </div>
+                <h3 class="candidate-title">Reihenhaus Probstheida - 5.5 Zimmer Neubau</h3>
+                <p class="candidate-location">📍 04289 Leipzig (Probstheida)</p>
+                <p class="candidate-price">€484.900</p>
+                <div class="candidate-meta"><span>136 m²</span><span>5.5 Zimmer</span><span>4 Schlafzimmer</span></div>
+                <p class="candidate-description">Familienfreundliches Reihenendhaus in Leipzig-Probstheida.</p>
+                <div class="candidate-pros-cons">
+                    <div class="pros"><h4>Vorteile</h4><ul><li>New construction</li><li>Good energy class</li><li>Family-friendly</li></ul></div>
+                    <div class="cons"><h4>Nachteile</h4><ul><li>136m² tight for 2 families</li><li>Reihenhaus</li></ul></div>
+                </div>
+                <div class="candidate-info-grid">
+                    <div class="info-box">
+                        <div class="info-label">🚌 Innenstadt</div>
+                        <div class="info-value">15 min</div>
+                    </div>
+                    <div class="info-box education">
+                        <div class="info-label">🏫 Kindergarten / Schule</div>
+                        <div class="info-value">~3 min / ~5 min</div>
+                    </div>
+                </div>
+                <a href="https://www.kleinanzeigen.de/s-anzeige/reihenhaus/2900646220-208-30098" class="btn" target="_blank">Inserat ansehen →</a>
+            </div>
         </div>
-        <div style="color:#ef4444;margin-top:4px;">
-         ✗ Single unit structure
+
+        <div class="candidate-card">
+            <div class="candidate-image">
+                <a href="assets/leipzig/photos/LE009.jpg" target="_blank"><img src="assets/leipzig/photos/LE009.jpg" alt="LE009" onerror="this.parentElement.innerHTML='🏠'"></a>
+            </div>
+            <div class="candidate-body">
+                <div class="candidate-header">
+                    <span class="candidate-id">LE009</span>
+                    <span class="candidate-score low">5/10</span>
+                </div>
+                <h3 class="candidate-title">Doppelhaushälfte Großpösna - 4 Zimmer Neubau</h3>
+                <p class="candidate-location">📍 04463 Großpösna (Störmthal, 15km SE)</p>
+                <p class="candidate-price">€627.400</p>
+                <div class="candidate-meta"><span>113 m²</span><span>4 Zimmer</span><span>3 Schlafzimmer</span></div>
+                <p class="candidate-description">Clevere Raumaufteilung. Near Störmthal lake area.</p>
+                <div class="candidate-pros-cons">
+                    <div class="pros"><h4>Vorteile</h4><ul><li>New construction</li><li>Near nature/lake</li></ul></div>
+                    <div class="cons"><h4>Nachteile</h4><ul><li>113m² too small</li><li>Only 3 bedrooms</li></ul></div>
+                </div>
+                <div class="candidate-info-grid">
+                    <div class="info-box">
+                        <div class="info-label">🚌 Innenstadt</div>
+                        <div class="info-value">25 min</div>
+                    </div>
+                    <div class="info-box education">
+                        <div class="info-label">🏫 Kindergarten / Schule</div>
+                        <div class="info-value">~8 min / ~12 min</div>
+                    </div>
+                </div>
+                <a href="https://www.immowelt.de/projekte/expose/k26x532" class="btn" target="_blank">Inserat ansehen →</a>
+            </div>
         </div>
-       </div>
-      </td>
-      <td>
-       <a class="btn" href="https://www.immowelt.de/expose/6da57caa-01ba-4ff8-a09e-b60964f350c8">
-        →
-       </a>
-      </td>
-     </tr>
-     <tr>
-      <td>
-       <img alt="Einfamilienhaus Knauthain - 4 Zimmer mit Anbau" src="assets/leipzig/photos/LE003.jpg" style="width:80px;height:60px;object-fit:cover;border-radius:4px;"/>
-      </td>
-      <td>
-       LE003
-      </td>
-      <td>
-       EFH Knauthain mit Anbau
-      </td>
-      <td>
-       Knautkleeberg-Knauthain
-      </td>
-      <td>
-       €369.000
-      </td>
-      <td>
-       135 m²
-      </td>
-      <td>
-       4
-      </td>
-      <td>
-       <span class="score medium">
-        7
-       </span>
-      </td>
-      <td>
-       <div style="font-size:0.8rem;">
-        <div style="color:#16a34a;">
-         ✓ Affordable
-         <br/>
-         ✓ Large plot (636m²)
-         <br/>
-         ✓ Anbau = extra space
+
+        <div class="candidate-card">
+            <div class="candidate-image">
+                <a href="assets/leipzig/photos/LE010.jpg" target="_blank"><img src="assets/leipzig/photos/LE010.jpg" alt="LE010" onerror="this.parentElement.innerHTML='🏠'"></a>
+            </div>
+            <div class="candidate-body">
+                <div class="candidate-header">
+                    <span class="candidate-id">LE010</span>
+                    <span class="candidate-score medium">6/10</span>
+                </div>
+                <h3 class="candidate-title">Leipzig DHH mit 866m² Grundstück - Projekt</h3>
+                <p class="candidate-location">📍 04288 Liebertwolkwitz (15km SE)</p>
+                <p class="candidate-price">€199.000</p>
+                <div class="candidate-meta"><span>60.17 m²</span><span>3 Zimmer</span><span>2 Schlafzimmer</span></div>
+                <p class="candidate-description">DHH mit ca. 866m² Grundstück – viel Potenzial. Sanierungsbedürftig.</p>
+                <div class="candidate-pros-cons">
+                    <div class="pros"><h4>Vorteile</h4><ul><li>Huge plot (866m²)</li><li>Extremely low price</li><li>Could expand/build</li></ul></div>
+                    <div class="cons"><h4>Nachteile</h4><ul><li>Only 60m² current</li><li>Major renovation needed</li></ul></div>
+                </div>
+                <div class="candidate-info-grid">
+                    <div class="info-box">
+                        <div class="info-label">🚌 Innenstadt</div>
+                        <div class="info-value">25 min</div>
+                    </div>
+                    <div class="info-box education">
+                        <div class="info-label">🏫 Kindergarten / Schule</div>
+                        <div class="info-value">~10 min / ~15 min</div>
+                    </div>
+                </div>
+                <a href="https://www.kleinanzeigen.de/s-anzeige/dhh-866m/3317757176-208-4263" class="btn" target="_blank">Inserat ansehen →</a>
+            </div>
         </div>
-        <div style="color:#ef4444;margin-top:4px;">
-         ✗ 135m² might be tight
-         <br/>
-         ✗ Only 3 bedrooms
         </div>
-       </div>
-      </td>
-      <td>
-       <a class="btn" href="https://www.immowelt.de/expose/f1f89b90-101a-4843-9737-d057d3763d7d">
-        →
-       </a>
-      </td>
-     </tr>
-     <tr>
-      <td>
-       <img alt="Urbanes Stadthaus im Leipziger Osten" src="assets/leipzig/photos/LE007.jpg" style="width:80px;height:60px;object-fit:cover;border-radius:4px;"/>
-      </td>
-      <td>
-       LE007
-      </td>
-      <td>
-       Urbanes Stadthaus Osten
-      </td>
-      <td>
-       Anger-Crottendorf
-      </td>
-      <td>
-       €743.000
-      </td>
-      <td>
-       150 m²
-      </td>
-      <td>
-       6
-      </td>
-      <td>
-       <span class="score medium">
-        7
-       </span>
-      </td>
-      <td>
-       <div style="font-size:0.8rem;">
-        <div style="color:#16a34a;">
-         ✓ High quality
-         <br/>
-         ✓ Modern
-         <br/>
-         ✓ Urban location
-        </div>
-        <div style="color:#ef4444;margin-top:4px;">
-         ✗ 150m² on smaller side
-         <br/>
-         ✗ Less outdoor space
-        </div>
-       </div>
-      </td>
-      <td>
-       <a class="btn" href="https://www.kleinanzeigen.de/s-anzeige/urbanes-stadthaus/3091563369-208-30111">
-        →
-       </a>
-      </td>
-     </tr>
-     <tr>
-      <td>
-       <img alt="Reihenhaus Probstheida - 5.5 Zimmer Neubau" src="assets/leipzig/photos/LE008.jpg" style="width:80px;height:60px;object-fit:cover;border-radius:4px;"/>
-      </td>
-      <td>
-       LE008
-      </td>
-      <td>
-       Reihenhaus Probstheida Neubau
-      </td>
-      <td>
-       Leipzig-Probstheida
-      </td>
-      <td>
-       €484.900
-      </td>
-      <td>
-       136 m²
-      </td>
-      <td>
-       5,5
-      </td>
-      <td>
-       <span class="score low">
-        6
-       </span>
-      </td>
-      <td>
-       <div style="font-size:0.8rem;">
-        <div style="color:#16a34a;">
-         ✓ New construction
-         <br/>
-         ✓ Good energy class
-         <br/>
-         ✓ Family-friendly
-        </div>
-        <div style="color:#ef4444;margin-top:4px;">
-         ✗ 136m² tight for 2 families
-         <br/>
-         ✗ Reihenhaus
-        </div>
-       </div>
-      </td>
-      <td>
-       <a class="btn" href="https://www.kleinanzeigen.de/s-anzeige/reihenhaus/2900646220-208-30098">
-        →
-       </a>
-      </td>
-     </tr>
-     <tr>
-      <td>
-       <img alt="Leipzig DHH mit 866m² Grundstück - Projekt" src="assets/leipzig/photos/LE010.jpg" style="width:80px;height:60px;object-fit:cover;border-radius:4px;"/>
-      </td>
-      <td>
-       LE010
-      </td>
-      <td>
-       DHH mit 866m² Grundstück - Projekt
-      </td>
-      <td>
-       Liebertwolkwitz
-      </td>
-      <td>
-       €199.000
-      </td>
-      <td>
-       60 m²
-      </td>
-      <td>
-       3
-      </td>
-      <td>
-       <span class="score low">
-        6
-       </span>
-      </td>
-      <td>
-       <div style="font-size:0.8rem;">
-        <div style="color:#16a34a;">
-         ✓ Huge plot (866m²)
-         <br/>
-         ✓ Extremely low price
-         <br/>
-         ✓ Could expand/build
-        </div>
-        <div style="color:#ef4444;margin-top:4px;">
-         ✗ Only 60m² current
-         <br/>
-         ✗ Major renovation needed
-        </div>
-       </div>
-      </td>
-      <td>
-       <a class="btn" href="https://www.kleinanzeigen.de/s-anzeige/dhh-866m/3317757176-208-4263">
-        →
-       </a>
-      </td>
-     </tr>
-     <tr>
-      <td>
-       <img alt="Doppelhaushälfte Großpösna - 4 Zimmer Neubau" src="assets/leipzig/photos/LE009.jpg" style="width:80px;height:60px;object-fit:cover;border-radius:4px;"/>
-      </td>
-      <td>
-       LE009
-      </td>
-      <td>
-       DHH Großpösna Neubau
-      </td>
-      <td>
-       Großpösna (15km)
-      </td>
-      <td>
-       €627.400
-      </td>
-      <td>
-       113 m²
-      </td>
-      <td>
-       4
-      </td>
-      <td>
-       <span class="score low">
-        5
-       </span>
-      </td>
-      <td>
-       <div style="font-size:0.8rem;">
-        <div style="color:#16a34a;">
-         ✓ New construction
-         <br/>
-         ✓ Near nature/lake
-        </div>
-        <div style="color:#ef4444;margin-top:4px;">
-         ✗ 113m² too small
-         <br/>
-         ✗ Only 3 bedrooms
-        </div>
-       </div>
-      </td>
-      <td>
-       <a class="btn" href="https://www.immowelt.de/projekte/expose/k26x532">
-        →
-       </a>
-      </td>
-     </tr>
-    </tbody>
-   </table>
-   <p style="margin-top: 2rem; color: var(--text-muted);">
-    🏠 Leipzig hat über 388 Listings im Markt - große Auswahl vorhanden!
-   </p>
-  </div>
- </body>
+    </div>
+
+    <footer class="page-footer">
+        <p>Generiert am 2026-02-21 22:55 • Daten aus candidates_enriched.json</p>
+    </footer>
+</body>
 </html>
