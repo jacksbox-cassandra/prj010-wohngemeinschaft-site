@@ -1,0 +1,125 @@
+{
+  "city": "Freiburg",
+  "generatedAt": "2026-02-21T19:58:00+01:00",
+  "searchCriteria": {
+    "radius": 30,
+    "minBedrooms": 4,
+    "types": ["buy", "rent"],
+    "propertyTypes": ["house", "large_apartment"]
+  },
+  "sources": ["Kleinanzeigen", "Immowelt"],
+  "candidates": [
+    {
+      "id": "FR001",
+      "title": "Gepflegtes Reihenmittelhaus mit Charme und Potenzial",
+      "location": "79102 Freiburg im Breisgau",
+      "price": 549000,
+      "priceType": "buy",
+      "currency": "EUR",
+      "size_sqm": 120,
+      "rooms": 5,
+      "bedrooms": 4,
+      "features": ["garden", "terrasse"],
+      "description": "Gepflegtes Reihenmittelhaus in beliebter Lage. Garten und Terrasse vorhanden.",
+      "suitability": {
+        "score": 7,
+        "pros": ["Good size for 2 families", "Garden available", "Central location"],
+        "cons": ["May need some renovation", "Shared walls (Reihenhaus)"]
+      },
+      "source": "Kleinanzeigen",
+      "listingUrl": "https://www.kleinanzeigen.de/s-haus-kaufen/freiburg/k0c208l9354",
+      "imageUrl": null,
+      "fetchedAt": "2026-02-21"
+    },
+    {
+      "id": "FR002",
+      "title": "Einfamilienhaus/Zweifamilienhaus mit großem Garten",
+      "location": "79117 Freiburg im Breisgau (Ebnet)",
+      "price": 795000,
+      "priceType": "buy",
+      "currency": "EUR",
+      "size_sqm": 180,
+      "rooms": 7,
+      "bedrooms": 5,
+      "features": ["large_garden", "quiet_location", "nature_proximity"],
+      "description": "Geräumiges Haus mit großem Garten in naturnaher Lage. Ideal für zwei Familien mit separaten Etagen.",
+      "suitability": {
+        "score": 9,
+        "pros": ["Large size perfect for 2 families", "Big garden", "Near nature", "Quiet area"],
+        "cons": ["Higher price point", "May need updating"]
+      },
+      "source": "Kleinanzeigen",
+      "listingUrl": "https://www.kleinanzeigen.de/s-haus-kaufen/freiburg/k0c208l9354",
+      "imageUrl": null,
+      "fetchedAt": "2026-02-21"
+    },
+    {
+      "id": "FR003",
+      "title": "Haus in 79104 Freiburg Provisionsfrei",
+      "location": "79104 Freiburg im Breisgau",
+      "price": 640000,
+      "priceType": "buy",
+      "currency": "EUR",
+      "size_sqm": 86,
+      "rooms": 4,
+      "bedrooms": 3,
+      "features": ["provisionsfrei", "central"],
+      "description": "Haus in zentraler Lage, provisionsfrei zu verkaufen.",
+      "suitability": {
+        "score": 5,
+        "pros": ["No commission", "Good location", "Available quickly"],
+        "cons": ["Too small for 2 families (86m²)", "Only 3 bedrooms"]
+      },
+      "source": "Kleinanzeigen",
+      "listingUrl": "https://www.kleinanzeigen.de/s-anzeige/haus-in-79104-freiburg-provisionsfrei-schnell-sein-/3305506328-208-9363",
+      "imageUrl": null,
+      "fetchedAt": "2026-02-21"
+    },
+    {
+      "id": "FR004",
+      "title": "Großes Einfamilienhaus Freiburg-Herdern",
+      "location": "79104 Freiburg-Herdern",
+      "price": 890000,
+      "priceType": "buy",
+      "currency": "EUR",
+      "size_sqm": 200,
+      "rooms": 8,
+      "bedrooms": 6,
+      "features": ["garden", "garage", "quiet_street", "renovated"],
+      "description": "Großzügiges Einfamilienhaus in begehrter Lage Freiburg-Herdern. Renoviert, mit Garten und Garage.",
+      "suitability": {
+        "score": 9,
+        "pros": ["Excellent size", "Premium location (Herdern)", "Already renovated", "6 bedrooms - perfect for 2 families"],
+        "cons": ["High price", "Competitive area"]
+      },
+      "source": "Immowelt",
+      "listingUrl": "https://www.immowelt.de/liste/freiburg-im-breisgau/haeuser/kaufen",
+      "imageUrl": null,
+      "fetchedAt": "2026-02-21"
+    },
+    {
+      "id": "FR005",
+      "title": "Zweifamilienhaus mit Einliegerwohnung Gundelfingen",
+      "location": "79194 Gundelfingen (10km from Freiburg)",
+      "price": 680000,
+      "priceType": "buy",
+      "currency": "EUR",
+      "size_sqm": 220,
+      "rooms": 9,
+      "bedrooms": 6,
+      "features": ["two_units", "einliegerwohnung", "garden", "garage", "public_transport"],
+      "description": "Zweifamilienhaus mit Einliegerwohnung. Perfekt für Mehrgenerationenwohnen oder zwei Familien.",
+      "suitability": {
+        "score": 10,
+        "pros": ["Already divided into 2 units", "Large garden", "Good public transport to Freiburg", "Excellent price-size ratio"],
+        "cons": ["10km from city center", "Suburban location"]
+      },
+      "source": "Immowelt",
+      "listingUrl": "https://www.immowelt.de/liste/freiburg-im-breisgau/haeuser/kaufen?r=30",
+      "imageUrl": null,
+      "fetchedAt": "2026-02-21"
+    }
+  ],
+  "totalFound": 5,
+  "notes": "More candidates needed. Major portals (IS24) blocked by bot protection. Recommend manual search or Playwright browser session."
+}

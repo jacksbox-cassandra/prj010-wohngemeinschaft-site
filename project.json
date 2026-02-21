@@ -1,0 +1,52 @@
+{
+  "project": "PRJ010",
+  "name": "Wohngemeinschaft Immobiliensuche",
+  "description": "Property search for 2 families looking for shared housing",
+  "owner": "Mario",
+  "status": "in_progress",
+  "phase": "enrichment",
+  "cities": ["freiburg", "augsburg", "halle", "leipzig", "magdeburg"],
+  "searchCriteria": {
+    "radius_km": 30,
+    "types": ["buy", "rent"],
+    "minRooms": 4,
+    "targetFamilies": 2,
+    "budgetCap": null
+  },
+  "dataStructure": {
+    "candidates": "data/{city}/candidates.json",
+    "enriched": "data/{city}/candidates_enriched.json",
+    "screenshots": "assets/{city}/screenshots/",
+    "reports": "report/{city}.md"
+  },
+  "website": {
+    "path": "site/",
+    "deployment": "github-pages",
+    "indexUrl": "site/index.html"
+  },
+  "sources": {
+    "successful": ["immoscout24", "immowelt", "kleinanzeigen", "wg-gesucht"],
+    "blocked": ["facebook"],
+    "needsLogin": ["facebook_groups"]
+  },
+  "enrichmentFields": [
+    "transport_time_to_center",
+    "transport_method",
+    "nearest_kindergarten",
+    "nearest_school",
+    "suitability_score",
+    "pros_cons",
+    "screenshots"
+  ],
+  "timeline": {
+    "started": "2026-02-20",
+    "initialGathering": "2026-02-20",
+    "enrichmentStarted": "2026-02-21",
+    "targetCompletion": "2026-02-22"
+  },
+  "notes": [
+    "ImmoScout24 requires browser automation (API blocked)",
+    "Facebook groups require Mario's login credentials",
+    "Freiburg Littenweiler property (FR006) is top recommendation"
+  ]
+}

@@ -1,0 +1,191 @@
+{
+  "city": "Magdeburg",
+  "generatedAt": "2026-02-21T19:58:00+01:00",
+  "searchCriteria": {
+    "radius": 30,
+    "minBedrooms": 4,
+    "types": ["buy", "rent"],
+    "propertyTypes": ["house", "large_apartment"]
+  },
+  "sources": ["Kleinanzeigen", "Immowelt"],
+  "candidates": [
+    {
+      "id": "MD001",
+      "title": "Attraktives Mehrfamilienhaus voll vermietet",
+      "location": "39116 Magdeburg",
+      "price": 355000,
+      "priceType": "buy",
+      "currency": "EUR",
+      "size_sqm": 262.27,
+      "rooms": 9,
+      "bedrooms": 6,
+      "features": ["multi_family", "fully_rented", "quiet_location"],
+      "description": "Attraktives Mehrfamilienhaus in ruhiger Lage. Voll vermietet.",
+      "suitability": {
+        "score": 7,
+        "pros": ["262m² - good size", "9 rooms", "Very affordable", "Multi-family structure"],
+        "cons": ["Currently rented - need to wait for tenants to leave", "Investment property focus"]
+      },
+      "source": "Kleinanzeigen",
+      "listingUrl": "https://www.kleinanzeigen.de/s-anzeige/voll-vermietet-attraktives-mehrfamilienhaus-in-magdeburg-zu-verkaufen/3135760324-208-2234",
+      "imageUrl": null,
+      "fetchedAt": "2026-02-21"
+    },
+    {
+      "id": "MD002",
+      "title": "Sanierungsobjekt für Familien - Ottersleben",
+      "location": "39116 Magdeburg (Ottersleben)",
+      "price": 209000,
+      "priceType": "buy",
+      "currency": "EUR",
+      "size_sqm": 105.01,
+      "rooms": 5,
+      "bedrooms": 3,
+      "features": ["renovation_needed", "potential", "family_friendly_area"],
+      "description": "Reihenmittelhaus mit Potenzial – Familienfreundliches Zuhause in Magdeburg Ottersleben.",
+      "suitability": {
+        "score": 5,
+        "pros": ["Very affordable", "5 rooms", "Good area"],
+        "cons": ["Only 105m² - too small", "Needs major renovation", "3 bedrooms only"]
+      },
+      "source": "Kleinanzeigen",
+      "listingUrl": "https://www.kleinanzeigen.de/s-anzeige/sanierungsobjekt-fuer-familien-mit-vision-und-tatkraft-magdeburg-ottersleben/3322750966-208-2234",
+      "imageUrl": null,
+      "fetchedAt": "2026-02-21"
+    },
+    {
+      "id": "MD003",
+      "title": "Naturnah und städtisch verbunden - MFH",
+      "location": "39122 Magdeburg",
+      "price": 400000,
+      "priceType": "buy",
+      "currency": "EUR",
+      "size_sqm": 384,
+      "rooms": 14,
+      "bedrooms": 10,
+      "features": ["multi_family", "7_units", "nature_close", "city_connected"],
+      "description": "Gepflegtes Mehrfamilienhaus mit insgesamt 7 Wohneinheiten. Naturnah und städtisch verbunden.",
+      "suitability": {
+        "score": 8,
+        "pros": ["384m² - huge!", "14 rooms", "Already multi-unit", "Near nature", "Good price"],
+        "cons": ["7 units may be too much", "Currently rented?"]
+      },
+      "source": "Kleinanzeigen",
+      "listingUrl": "https://www.kleinanzeigen.de/s-anzeige/naturnah-und-staedtisch-verbunden-mfh-in-magdeburg/3153642029-208-2238",
+      "imageUrl": null,
+      "fetchedAt": "2026-02-21"
+    },
+    {
+      "id": "MD004",
+      "title": "Moderne Neubau Doppelhaushälfte Lemsdorf",
+      "location": "39118 Magdeburg (Lemsdorf)",
+      "price": 399560,
+      "priceType": "buy",
+      "currency": "EUR",
+      "size_sqm": 119,
+      "rooms": 4,
+      "bedrooms": 3,
+      "features": ["new_construction", "incl_land", "planned"],
+      "description": "Moderne Doppelhaushälfte in Magdeburg-Lemsdorf. Fertig geplant, inkl. Grundstück.",
+      "suitability": {
+        "score": 5,
+        "pros": ["New construction", "Includes land", "Modern design"],
+        "cons": ["119m² too small for 2 families", "Only 3 bedrooms"]
+      },
+      "source": "Kleinanzeigen",
+      "listingUrl": "https://www.kleinanzeigen.de/s-anzeige/moderne-neubau-doppelhaushaelfte-in-magdeburg-lemsdorf-inkl-grundstueck/3295872115-208-2235",
+      "imageUrl": null,
+      "fetchedAt": "2026-02-21"
+    },
+    {
+      "id": "MD005",
+      "title": "Freistehender Bungalow Zipkeleben",
+      "location": "39114 Magdeburg (Zipkeleben)",
+      "price": 120000,
+      "priceType": "buy",
+      "currency": "EUR",
+      "size_sqm": 95,
+      "rooms": 4,
+      "bedrooms": 3,
+      "features": ["bungalow", "detached", "potential"],
+      "description": "Freistehender Bungalow in Zipkeleben bei Magdeburg. Gepflegtes Einfamilienhaus mit Potenzial.",
+      "suitability": {
+        "score": 4,
+        "pros": ["Extremely affordable", "Detached", "Potential"],
+        "cons": ["Only 95m² - far too small", "Would need major expansion", "Bungalow style"]
+      },
+      "source": "Kleinanzeigen",
+      "listingUrl": "https://www.kleinanzeigen.de/s-anzeige/freistehender-bungalow-in-zipkeleben-bei-magdeburg-gepflegtes-einfamilienhaus-mit-potenzial/3184442387-208-2233",
+      "imageUrl": null,
+      "fetchedAt": "2026-02-21"
+    },
+    {
+      "id": "MD006",
+      "title": "Charmantes Reihenhaus Wellen bei Magdeburg",
+      "location": "39167 Wellen (5km from Magdeburg)",
+      "price": 249000,
+      "priceType": "buy",
+      "currency": "EUR",
+      "size_sqm": 110,
+      "rooms": 4,
+      "bedrooms": 3,
+      "features": ["quiet", "near_magdeburg"],
+      "description": "Charmantes Reihenhaus in ruhiger Lage von Wellen bei Magdeburg.",
+      "suitability": {
+        "score": 5,
+        "pros": ["Affordable", "Quiet location", "Near Magdeburg"],
+        "cons": ["110m² too small", "Reihenhaus = shared walls", "Only 3 bedrooms"]
+      },
+      "source": "Kleinanzeigen",
+      "listingUrl": "https://www.kleinanzeigen.de/s-anzeige/charmantes-reihenhaus-in-ruhiger-lage-bei-magdeburg/2996432151-208-2245",
+      "imageUrl": null,
+      "fetchedAt": "2026-02-21"
+    },
+    {
+      "id": "MD007",
+      "title": "Moderne Stadtvilla mit Luxusgefühl",
+      "location": "39130 Magdeburg",
+      "price": 870000,
+      "priceType": "buy",
+      "currency": "EUR",
+      "size_sqm": 218.06,
+      "rooms": 8,
+      "bedrooms": 5,
+      "features": ["stadtvilla", "two_units", "high_end", "luxury"],
+      "description": "High-End-Stadtvilla mit zwei Wohneinheiten und purem Luxusgefühl.",
+      "suitability": {
+        "score": 9,
+        "pros": ["Already 2 units!", "218m² - good size", "High-end quality", "8 rooms", "Modern"],
+        "cons": ["Higher price", "Luxury may be beyond needs"]
+      },
+      "source": "Kleinanzeigen",
+      "listingUrl": "https://www.kleinanzeigen.de/s-anzeige/moderne-stadtvilla-mit-hohem-komfort-und-vielen-extras-in-magdeburg/3212345996-208-2236",
+      "imageUrl": null,
+      "fetchedAt": "2026-02-21"
+    },
+    {
+      "id": "MD008",
+      "title": "Einfamilienhaus Biederitz mit großem Grundstück",
+      "location": "39175 Biederitz (2km from Magdeburg)",
+      "price": 94000,
+      "priceType": "buy",
+      "currency": "EUR",
+      "size_sqm": 80,
+      "rooms": 4,
+      "bedrooms": 3,
+      "features": ["large_plot", "garage", "renovation_project"],
+      "description": "Einfamilienhaus mit großem Grundstück und Garage. 2km von Magdeburg.",
+      "suitability": {
+        "score": 4,
+        "pros": ["Extremely cheap", "Large plot", "Garage", "Very close to Magdeburg"],
+        "cons": ["Only 80m²", "Major project needed", "RESERVED"]
+      },
+      "source": "Kleinanzeigen",
+      "listingUrl": "https://www.kleinanzeigen.de/s-anzeige/-reserviert-einfamilienhaus-mit-grossem-grundstueck-garage-2-km-von-magdeburg/3103396970-208-19540",
+      "imageUrl": null,
+      "fetchedAt": "2026-02-21"
+    }
+  ],
+  "totalFound": 8,
+  "notes": "Magdeburg has very affordable options. MD007 (Stadtvilla with 2 units) and MD003 (MFH 384m²) are top picks. Eastern Germany significantly cheaper than west."
+}

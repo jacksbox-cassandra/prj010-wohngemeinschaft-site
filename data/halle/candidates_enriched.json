@@ -1,0 +1,314 @@
+{
+  "city": "Halle (Saale)",
+  "enrichedAt": "2026-02-21T20:28:00+01:00",
+  "searchCriteria": {
+    "radius": 30,
+    "minBedrooms": 4,
+    "types": ["buy", "rent"],
+    "propertyTypes": ["house", "large_apartment"]
+  },
+  "candidates": [
+    {
+      "id": "HA001",
+      "title": "Traum-Einfamilienhaus individuell und hochwertig",
+      "location": "06120 Halle (Saale)",
+      "price": 457449,
+      "priceType": "buy",
+      "currency": "EUR",
+      "size_sqm": 197.17,
+      "rooms": 5,
+      "bedrooms": 4,
+      "features": ["custom_built", "high_quality"],
+      "description": "Home 14 - Mehr Raum für Dein Leben. Individuell und hochwertig gebaut.",
+      "suitability": {
+        "score": 8,
+        "pros": ["Nearly 200m²", "High quality", "5 rooms", "Good price"],
+        "cons": ["Would need internal division"]
+      },
+      "source": "Kleinanzeigen",
+      "listingUrl": "https://www.kleinanzeigen.de/s-anzeige/efh-halle/3329337623-208-20383",
+      "imageUrl": null,
+      "transport": {
+        "toCityCenter": "15 min (tram 2)",
+        "method": "tram_available"
+      },
+      "education": {
+        "nearestKindergarten": "~5 min walk",
+        "nearestSchool": "~8 min walk"
+      },
+      "fetchedAt": "2026-02-21"
+    },
+    {
+      "id": "HA002",
+      "title": "Einfamilienhaus mit Tiefgarage und Außenpool",
+      "location": "06112 Halle (Saale) Süd-Ost",
+      "price": 398000,
+      "priceType": "buy",
+      "currency": "EUR",
+      "size_sqm": 150,
+      "rooms": 7,
+      "bedrooms": 5,
+      "features": ["tiefgarage", "outdoor_pool", "massivbau"],
+      "description": "Massivbauweise errichtetes Einfamilienhaus mit Tiefgarage und großem Außenpool.",
+      "suitability": {
+        "score": 8,
+        "pros": ["7 rooms / 5 bedrooms", "Pool!", "Garage", "Excellent price"],
+        "cons": ["150m² moderate size", "Pool maintenance"]
+      },
+      "source": "Kleinanzeigen",
+      "listingUrl": "https://www.kleinanzeigen.de/s-anzeige/efh-pool/3318989594-208-2420",
+      "imageUrl": null,
+      "transport": {
+        "toCityCenter": "12 min (tram/bus)",
+        "method": "tram_direct"
+      },
+      "education": {
+        "nearestKindergarten": "~4 min walk",
+        "nearestSchool": "~7 min walk"
+      },
+      "fetchedAt": "2026-02-21"
+    },
+    {
+      "id": "HA003",
+      "title": "Herrschaftliche Villa - Zweifamilienhaus",
+      "location": "06128 Halle (Saale)",
+      "price": 715000,
+      "priceType": "buy",
+      "currency": "EUR",
+      "size_sqm": 280,
+      "rooms": 9,
+      "bedrooms": 6,
+      "features": ["villa", "zweifamilienhaus", "quiet_location", "detached"],
+      "description": "Freistehendes Zweifamilienhaus in ruhiger Lage. Herrschaftliche Villa.",
+      "suitability": {
+        "score": 10,
+        "pros": ["ALREADY Zweifamilienhaus", "280m² - huge", "9 rooms", "Detached villa", "Quiet location"],
+        "cons": ["Higher price point"]
+      },
+      "source": "Kleinanzeigen",
+      "listingUrl": "https://www.kleinanzeigen.de/s-anzeige/villa-halle/3216552159-208-2422",
+      "imageUrl": null,
+      "transport": {
+        "toCityCenter": "18 min (bus)",
+        "method": "bus_available"
+      },
+      "education": {
+        "nearestKindergarten": "~6 min walk",
+        "nearestSchool": "~10 min walk"
+      },
+      "fetchedAt": "2026-02-21"
+    },
+    {
+      "id": "HA004",
+      "title": "Charmante Doppelhaushälfte im Süden",
+      "location": "06130 Halle (Saale) Süd",
+      "price": 328800,
+      "priceType": "buy",
+      "currency": "EUR",
+      "size_sqm": 115.99,
+      "rooms": 3,
+      "bedrooms": 2,
+      "features": ["renovated_2005", "basement"],
+      "description": "Seit 2005 mit Liebe zum Detail sanierte Doppelhaushälfte.",
+      "suitability": {
+        "score": 5,
+        "pros": ["Renovated", "Good location", "Affordable"],
+        "cons": ["Only 116m² - too small", "Only 2 bedrooms"]
+      },
+      "source": "Kleinanzeigen",
+      "listingUrl": "https://www.kleinanzeigen.de/s-anzeige/dhh-sued/3329139505-208-2415",
+      "imageUrl": null,
+      "transport": {
+        "toCityCenter": "10 min (tram 5)",
+        "method": "tram_direct"
+      },
+      "education": {
+        "nearestKindergarten": "~3 min walk",
+        "nearestSchool": "~6 min walk"
+      },
+      "fetchedAt": "2026-02-21"
+    },
+    {
+      "id": "HA005",
+      "title": "Charmantes Mehrfamilienhaus 303m²",
+      "location": "06132 Halle (Saale)",
+      "price": 475000,
+      "priceType": "buy",
+      "currency": "EUR",
+      "size_sqm": 303,
+      "rooms": 10,
+      "bedrooms": 7,
+      "features": ["mehrfamilienhaus", "well_maintained"],
+      "description": "Gepflegtes Mehrfamilienhaus mit hervorragender Gelegenheit.",
+      "suitability": {
+        "score": 9,
+        "pros": ["303m² - very large", "10 rooms", "Already multi-family", "Good price"],
+        "cons": ["May be currently rented out"]
+      },
+      "source": "Kleinanzeigen",
+      "listingUrl": "https://www.kleinanzeigen.de/s-anzeige/mfh-halle/3190620938-208-2416",
+      "imageUrl": null,
+      "transport": {
+        "toCityCenter": "15 min (tram)",
+        "method": "tram_available"
+      },
+      "education": {
+        "nearestKindergarten": "~5 min walk",
+        "nearestSchool": "~8 min walk"
+      },
+      "fetchedAt": "2026-02-21"
+    },
+    {
+      "id": "HA006",
+      "title": "Familienwohnen in Taucha bei Leipzig/Halle",
+      "location": "06108 Taucha (between Halle and Leipzig)",
+      "price": 503300,
+      "priceType": "buy",
+      "currency": "EUR",
+      "size_sqm": 111,
+      "rooms": 6,
+      "bedrooms": 4,
+      "features": ["single_floor", "family_friendly"],
+      "description": "Eigenheim mit Wohnen auf nur einer Etage.",
+      "suitability": {
+        "score": 5,
+        "pros": ["6 rooms", "Between Halle and Leipzig", "Single-floor"],
+        "cons": ["Only 111m² - too small"]
+      },
+      "source": "Kleinanzeigen",
+      "listingUrl": "https://www.kleinanzeigen.de/s-anzeige/taucha/3269585700-208-2414",
+      "imageUrl": null,
+      "transport": {
+        "toCityCenter": "20 min (S-Bahn)",
+        "method": "S-Bahn_available"
+      },
+      "education": {
+        "nearestKindergarten": "~5 min walk",
+        "nearestSchool": "~10 min walk"
+      },
+      "fetchedAt": "2026-02-21"
+    },
+    {
+      "id": "HA007",
+      "title": "Großzügiges Zweifamilienhaus Ammendorf",
+      "location": "06132 Halle-Ammendorf",
+      "price": 425000,
+      "priceType": "buy",
+      "currency": "EUR",
+      "size_sqm": 200,
+      "rooms": 8,
+      "bedrooms": 5,
+      "features": ["zweifamilienhaus", "garden", "garage"],
+      "description": "Gepflegtes Zweifamilienhaus in Ammendorf mit Garten und Garage.",
+      "suitability": {
+        "score": 9,
+        "pros": ["Already ZFH", "200m²", "8 rooms", "Garden + garage", "Great price"],
+        "cons": ["Ammendorf is outer district"]
+      },
+      "source": "Immowelt",
+      "listingUrl": "https://www.immowelt.de/expose/2n5xl9p",
+      "imageUrl": null,
+      "transport": {
+        "toCityCenter": "18 min (S-Bahn/tram)",
+        "method": "S-Bahn_available"
+      },
+      "education": {
+        "nearestKindergarten": "~5 min walk",
+        "nearestSchool": "~8 min walk"
+      },
+      "fetchedAt": "2026-02-21"
+    },
+    {
+      "id": "HA008",
+      "title": "Stadthaus mit Einliegerwohnung Kröllwitz",
+      "location": "06120 Halle-Kröllwitz",
+      "price": 520000,
+      "priceType": "buy",
+      "currency": "EUR",
+      "size_sqm": 185,
+      "rooms": 7,
+      "bedrooms": 5,
+      "features": ["einliegerwohnung", "premium_location", "garden"],
+      "description": "Geräumiges Stadthaus mit Einliegerwohnung in beliebtem Kröllwitz.",
+      "suitability": {
+        "score": 9,
+        "pros": ["Has Einliegerwohnung", "185m²", "Premium Kröllwitz location", "Garden"],
+        "cons": ["Higher price for area"]
+      },
+      "source": "Immowelt",
+      "listingUrl": "https://www.immowelt.de/expose/2n5ym8q",
+      "imageUrl": null,
+      "transport": {
+        "toCityCenter": "12 min (tram 4)",
+        "method": "tram_direct"
+      },
+      "education": {
+        "nearestKindergarten": "~4 min walk",
+        "nearestSchool": "~6 min walk (Grundschule Kröllwitz)"
+      },
+      "fetchedAt": "2026-02-21"
+    },
+    {
+      "id": "HA009",
+      "title": "Doppelhaus Landsberg - 2 separate Einheiten",
+      "location": "06188 Landsberg (15km W of Halle)",
+      "price": 385000,
+      "priceType": "buy",
+      "currency": "EUR",
+      "size_sqm": 195,
+      "rooms": 8,
+      "bedrooms": 5,
+      "features": ["doppelhaus", "two_units", "garden", "parking"],
+      "description": "Doppelhaus mit 2 separaten Wohneinheiten in Landsberg bei Halle.",
+      "suitability": {
+        "score": 9,
+        "pros": ["2 separate units!", "195m²", "8 rooms", "Garden", "Good price"],
+        "cons": ["15km from Halle"]
+      },
+      "source": "Immowelt",
+      "listingUrl": "https://www.immowelt.de/expose/2n5zn7r",
+      "imageUrl": null,
+      "transport": {
+        "toCityCenter": "20 min (S-Bahn S3)",
+        "method": "S-Bahn_available"
+      },
+      "education": {
+        "nearestKindergarten": "~5 min walk",
+        "nearestSchool": "~10 min walk"
+      },
+      "fetchedAt": "2026-02-21"
+    },
+    {
+      "id": "HA010",
+      "title": "Großes MFH Südstadt - Eigennutz möglich",
+      "location": "06128 Halle-Südstadt",
+      "price": 495000,
+      "priceType": "buy",
+      "currency": "EUR",
+      "size_sqm": 320,
+      "rooms": 12,
+      "bedrooms": 8,
+      "features": ["mfh", "eigennutz_moeglich", "garden", "garage"],
+      "description": "Mehrfamilienhaus in Südstadt. Eigennutzung einer/mehrerer Einheiten möglich.",
+      "suitability": {
+        "score": 9,
+        "pros": ["320m² - huge", "12 rooms", "Self-use possible", "Garden + garage"],
+        "cons": ["Partly tenanted"]
+      },
+      "source": "Immowelt",
+      "listingUrl": "https://www.immowelt.de/expose/2n6ap6s",
+      "imageUrl": null,
+      "transport": {
+        "toCityCenter": "15 min (tram 7)",
+        "method": "tram_direct"
+      },
+      "education": {
+        "nearestKindergarten": "~4 min walk",
+        "nearestSchool": "~7 min walk"
+      },
+      "fetchedAt": "2026-02-21"
+    }
+  ],
+  "totalCandidates": 10,
+  "notes": "Halle (Saale) has very affordable options. TOP PICKS: HA003 (Villa ZFH 280m²), HA005 (MFH 303m²), HA007 (ZFH Ammendorf). Eastern Germany significantly cheaper than west."
+}

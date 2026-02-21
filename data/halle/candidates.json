@@ -1,0 +1,147 @@
+{
+  "city": "Halle (Saale)",
+  "generatedAt": "2026-02-21T19:58:00+01:00",
+  "searchCriteria": {
+    "radius": 30,
+    "minBedrooms": 4,
+    "types": ["buy", "rent"],
+    "propertyTypes": ["house", "large_apartment"]
+  },
+  "sources": ["Kleinanzeigen", "Immowelt"],
+  "candidates": [
+    {
+      "id": "HA001",
+      "title": "Traum-Einfamilienhaus individuell und hochwertig",
+      "location": "06120 Halle (Saale)",
+      "price": 457449,
+      "priceType": "buy",
+      "currency": "EUR",
+      "size_sqm": 197.17,
+      "rooms": 5,
+      "bedrooms": 4,
+      "features": ["custom_built", "high_quality", "home_14"],
+      "description": "Home 14 - Mehr Raum für Dein Leben. Individuell und hochwertig gebaut.",
+      "suitability": {
+        "score": 8,
+        "pros": ["Nearly 200m²", "High quality", "5 rooms", "Good price"],
+        "cons": ["Single family design", "Would need internal division"]
+      },
+      "source": "Kleinanzeigen",
+      "listingUrl": "https://www.kleinanzeigen.de/s-anzeige/ihr-traum-einfamilienhaus-in-halle-saale-individuell-und-hochwertig/3329337623-208-20383",
+      "imageUrl": null,
+      "fetchedAt": "2026-02-21"
+    },
+    {
+      "id": "HA002",
+      "title": "Einfamilienhaus mit Tiefgarage und Außenpool",
+      "location": "06112 Halle (Saale) Süd-Ost",
+      "price": 398000,
+      "priceType": "buy",
+      "currency": "EUR",
+      "size_sqm": 150,
+      "rooms": 7,
+      "bedrooms": 5,
+      "features": ["tiefgarage", "outdoor_pool", "massivbau"],
+      "description": "Massivbauweise errichtetes Einfamilienhaus mit Tiefgarage und großem Außenpool.",
+      "suitability": {
+        "score": 8,
+        "pros": ["7 rooms / 5 bedrooms", "Pool!", "Garage", "Good price", "Solid construction"],
+        "cons": ["150m² moderate size", "Pool maintenance"]
+      },
+      "source": "Kleinanzeigen",
+      "listingUrl": "https://www.kleinanzeigen.de/s-anzeige/einfamilienhaus-mit-tiefgarage-und-grossem-aussenpool-im-sued-osten-von-halle-saale-/3318989594-208-2420",
+      "imageUrl": null,
+      "fetchedAt": "2026-02-21"
+    },
+    {
+      "id": "HA003",
+      "title": "Herrschaftliche Villa in Halle Saale",
+      "location": "06128 Halle (Saale)",
+      "price": 715000,
+      "priceType": "buy",
+      "currency": "EUR",
+      "size_sqm": 280,
+      "rooms": 9,
+      "bedrooms": 6,
+      "features": ["villa", "zweifamilienhaus", "quiet_location", "detached"],
+      "description": "Freistehendes Zweifamilienhaus in ruhiger Lage. Herrschaftliche Villa.",
+      "suitability": {
+        "score": 10,
+        "pros": ["ALREADY Zweifamilienhaus", "280m² - huge", "9 rooms", "Detached villa", "Quiet location"],
+        "cons": ["Higher price point"]
+      },
+      "source": "Kleinanzeigen",
+      "listingUrl": "https://www.kleinanzeigen.de/s-anzeige/herrschaftliche-villa-in-halle-saale/3216552159-208-2422",
+      "imageUrl": null,
+      "fetchedAt": "2026-02-21"
+    },
+    {
+      "id": "HA004",
+      "title": "Charmante Doppelhaushälfte im Süden",
+      "location": "06130 Halle (Saale) Süd",
+      "price": 328800,
+      "priceType": "buy",
+      "currency": "EUR",
+      "size_sqm": 115.99,
+      "rooms": 3,
+      "bedrooms": 2,
+      "features": ["renovated_2005", "basement", "sought_after_location"],
+      "description": "Seit 2005 mit Liebe zum Detail sanierte, unterkellerte Doppelhaushälfte in gefragter Lage.",
+      "suitability": {
+        "score": 5,
+        "pros": ["Renovated", "Good location", "Affordable"],
+        "cons": ["Only 116m² - too small", "Only 2 bedrooms"]
+      },
+      "source": "Kleinanzeigen",
+      "listingUrl": "https://www.kleinanzeigen.de/s-anzeige/charmante-doppelhaushaelfte-in-gefragter-lage-im-sueden-der-saalestadt-halle/3329139505-208-2415",
+      "imageUrl": null,
+      "fetchedAt": "2026-02-21"
+    },
+    {
+      "id": "HA005",
+      "title": "Charmantes Wohnhaus in beliebter Lage",
+      "location": "06132 Halle (Saale)",
+      "price": 475000,
+      "priceType": "buy",
+      "currency": "EUR",
+      "size_sqm": 303,
+      "rooms": 10,
+      "bedrooms": 7,
+      "features": ["mehrfamilienhaus", "well_maintained"],
+      "description": "Gepflegtes Mehrfamilienhaus mit hervorragender Gelegenheit.",
+      "suitability": {
+        "score": 9,
+        "pros": ["303m² - very large", "10 rooms", "Already multi-family", "Good price for size"],
+        "cons": ["May be currently rented out"]
+      },
+      "source": "Kleinanzeigen",
+      "listingUrl": "https://www.kleinanzeigen.de/s-anzeige/charmantes-wohnhaus-in-beliebter-lage-in-halle-saale-/3190620938-208-2416",
+      "imageUrl": null,
+      "fetchedAt": "2026-02-21"
+    },
+    {
+      "id": "HA006",
+      "title": "Familienwohnen in Taucha bei Leipzig/Halle",
+      "location": "06108 Taucha (between Halle and Leipzig)",
+      "price": 503300,
+      "priceType": "buy",
+      "currency": "EUR",
+      "size_sqm": 111,
+      "rooms": 6,
+      "bedrooms": 4,
+      "features": ["single_floor", "family_friendly"],
+      "description": "Eigenheim mit Wohnen auf nur einer Etage. Ideal für Familien.",
+      "suitability": {
+        "score": 5,
+        "pros": ["6 rooms", "Between Halle and Leipzig", "Single-floor living"],
+        "cons": ["Only 111m² - too small", "Would need significant expansion"]
+      },
+      "source": "Kleinanzeigen",
+      "listingUrl": "https://www.kleinanzeigen.de/s-anzeige/familienwohnen-in-taucha-leipzig/3269585700-208-2414",
+      "imageUrl": null,
+      "fetchedAt": "2026-02-21"
+    }
+  ],
+  "totalFound": 6,
+  "notes": "HA003 (Villa) and HA005 (Mehrfamilienhaus 303m²) are excellent picks. Market generally more affordable than western cities."
+}

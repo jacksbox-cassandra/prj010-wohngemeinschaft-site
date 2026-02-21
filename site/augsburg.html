@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Augsburg - Wohngemeinschaft Kandidaten</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        :root { --primary: #2563eb; --primary-dark: #1d4ed8; --success: #16a34a; --warning: #f59e0b; --bg: #f8fafc; --card-bg: #ffffff; --text: #1e293b; --text-muted: #64748b; }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 2rem; }
+        header { background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); color: white; padding: 2rem; }
+        header h1 { font-size: 2rem; }
+        .breadcrumb { margin-bottom: 0.5rem; opacity: 0.8; }
+        .breadcrumb a { color: white; text-decoration: none; }
+        table { width: 100%; border-collapse: collapse; background: var(--card-bg); border-radius: 12px; overflow: hidden; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+        th, td { padding: 1rem; text-align: left; border-bottom: 1px solid var(--bg); }
+        th { background: var(--primary); color: white; }
+        tr:hover { background: #f0f9ff; }
+        .score { background: var(--success); color: white; padding: 0.25rem 0.5rem; border-radius: 999px; font-weight: 600; font-size: 0.8rem; }
+        .score.medium { background: var(--warning); }
+        .score.low { background: #ef4444; }
+        .btn { display: inline-block; background: var(--primary); color: white; padding: 0.4rem 0.8rem; border-radius: 6px; text-decoration: none; font-size: 0.85rem; }
+        .btn:hover { background: var(--primary-dark); }
+        .top-banner { background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%); padding: 1.5rem; border-radius: 12px; margin-bottom: 2rem; }
+        .top-banner h3 { color: #92400e; margin-bottom: 0.5rem; }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="breadcrumb"><a href="index.html">← Zurück zur Übersicht</a></div>
+        <h1>🏰 Augsburg - 10 Kandidaten</h1>
+    </header>
+    <div class="container">
+        <div class="top-banner">
+            <h3>🌟 Top-Empfehlungen für Augsburg</h3>
+            <p><strong>AU002</strong> - Zweifamilienhaus 305m² (€650k, Score 10/10) | <strong>AU010</strong> - ZFH Haunstetten (€665k, Score 10/10)</p>
+        </div>
+        <table>
+            <thead>
+                <tr><th>ID</th><th>Titel</th><th>Lage</th><th>Preis</th><th>Größe</th><th>Zimmer</th><th>Score</th><th>Link</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>AU002</td><td>Zweifamilienhaus 305m² - Rohdiamant</td><td>Meitingen (20km)</td><td>€650.000</td><td>305 m²</td><td>11</td><td><span class="score">10</span></td><td><a href="https://www.kleinanzeigen.de/s-anzeige/zweifamilienhaus-305m/3331002860-208-7049" class="btn">→</a></td></tr>
+                <tr><td>AU010</td><td>Familienfreundliches ZFH Haunstetten</td><td>Augsburg-Haunstetten</td><td>€665.000</td><td>175 m²</td><td>7</td><td><span class="score">10</span></td><td><a href="https://www.immowelt.de/expose/2n5mp9q" class="btn">→</a></td></tr>
+                <tr><td>AU001</td><td>Wohnhaus mit 2 Einheiten</td><td>Emersacker (20km)</td><td>€649.000</td><td>170 m²</td><td>6</td><td><span class="score">9</span></td><td><a href="https://www.kleinanzeigen.de/s-anzeige/wohnhaus-mit-2-einheiten/3297598231-208-7057" class="btn">→</a></td></tr>
+                <tr><td>AU008</td><td>Großzügiges MFH mit 3 Einheiten</td><td>Augsburg-Kriegshaber</td><td>€795.000</td><td>260 m²</td><td>10</td><td><span class="score">9</span></td><td><a href="https://www.immowelt.de/expose/2n5jf5h" class="btn">→</a></td></tr>
+                <tr><td>AU009</td><td>Stadthaus mit Einliegerwohnung</td><td>Augsburg-Göggingen</td><td>€720.000</td><td>185 m²</td><td>7</td><td><span class="score">9</span></td><td><a href="https://www.immowelt.de/expose/2n5kl8m" class="btn">→</a></td></tr>
+                <tr><td>AU005</td><td>Exklusive DHH Hammerschmiede</td><td>Augsburg-Hammerschmiede</td><td>€709.000</td><td>140 m²</td><td>8</td><td><span class="score medium">8</span></td><td><a href="https://www.kleinanzeigen.de/s-anzeige/exklusive-dhh/3232233789-208-7524" class="btn">→</a></td></tr>
+                <tr><td>AU007</td><td>Charmantes Doppelhaus für 2 WE</td><td>Augsburg-Ost</td><td>€555.000</td><td>126 m²</td><td>6</td><td><span class="score medium">8</span></td><td><a href="https://www.kleinanzeigen.de/s-anzeige/charmantes-doppelhaus/3284095531-208-7521" class="btn">→</a></td></tr>
+                <tr><td>AU003</td><td>Modernisiertes EFH mit 2 WE</td><td>Gablingen (15km)</td><td>€589.000</td><td>125 m²</td><td>6</td><td><span class="score medium">7</span></td><td><a href="https://www.kleinanzeigen.de/s-anzeige/modernisiertes-efh/3274190634-208-10434" class="btn">→</a></td></tr>
+                <tr><td>AU004</td><td>Schlüsselfertige DHH Bärenkeller</td><td>Augsburg-Bärenkeller</td><td>€853.410</td><td>125 m²</td><td>5</td><td><span class="score low">6</span></td><td><a href="https://www.kleinanzeigen.de/s-anzeige/schluesselfertige-dhh/3331526583-208-7529" class="btn">→</a></td></tr>
+                <tr><td>AU006</td><td>Charmante DHH mit Garten</td><td>Augsburg-Lechhausen</td><td>€549.000</td><td>122 m²</td><td>5</td><td><span class="score low">6</span></td><td><a href="https://www.kleinanzeigen.de/s-anzeige/charmante-dhh/3315553204-208-7523" class="btn">→</a></td></tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

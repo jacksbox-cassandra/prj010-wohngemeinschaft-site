@@ -1,0 +1,314 @@
+{
+  "city": "Augsburg",
+  "enrichedAt": "2026-02-21T20:22:00+01:00",
+  "searchCriteria": {
+    "radius": 30,
+    "minBedrooms": 4,
+    "types": ["buy", "rent"],
+    "propertyTypes": ["house", "large_apartment"]
+  },
+  "candidates": [
+    {
+      "id": "AU001",
+      "title": "Wohnhaus mit 2 Einheiten und großem Grundstück",
+      "location": "86494 Emersacker (20km NW of Augsburg)",
+      "price": 649000,
+      "priceType": "buy",
+      "currency": "EUR",
+      "size_sqm": 170,
+      "rooms": 6,
+      "bedrooms": 4,
+      "features": ["two_units", "large_plot", "new_heating_2024"],
+      "description": "Gepflegtes ZFH mit nahezu neuwertiger Zentralheizung (Nov.2024). Zwei Wohneinheiten, großes Grundstück.",
+      "suitability": {
+        "score": 9,
+        "pros": ["Already 2 units", "New heating system", "Large plot", "Good price"],
+        "cons": ["20km from Augsburg center", "Rural location"]
+      },
+      "source": "Kleinanzeigen",
+      "listingUrl": "https://www.kleinanzeigen.de/s-anzeige/wohnhaus-mit-2-einheiten/3297598231-208-7057",
+      "imageUrl": null,
+      "transport": {
+        "toCityCenter": "30 min (car/bus)",
+        "method": "car_recommended"
+      },
+      "education": {
+        "nearestKindergarten": "~8 min walk",
+        "nearestSchool": "~10 min walk"
+      },
+      "fetchedAt": "2026-02-21"
+    },
+    {
+      "id": "AU002",
+      "title": "Zweifamilienhaus 305m² - Rohdiamant mit Potenzial",
+      "location": "86405 Meitingen (20km N of Augsburg)",
+      "price": 650000,
+      "priceType": "buy",
+      "currency": "EUR",
+      "size_sqm": 305,
+      "rooms": 11,
+      "bedrooms": 7,
+      "features": ["renovation_needed", "two_family", "large_space"],
+      "description": "Renovierungsbedürftiges Zweifamilienhaus in Meitingen-Herbertshofen. Viel Platz und Potenzial.",
+      "suitability": {
+        "score": 10,
+        "pros": ["Very large (305m²)", "11 rooms - plenty of space", "Already two-family", "Best price-size ratio"],
+        "cons": ["Needs renovation", "20km from center"]
+      },
+      "source": "Kleinanzeigen",
+      "listingUrl": "https://www.kleinanzeigen.de/s-anzeige/zweifamilienhaus-305m/3331002860-208-7049",
+      "imageUrl": null,
+      "transport": {
+        "toCityCenter": "25 min (train/car)",
+        "method": "S-Bahn available"
+      },
+      "education": {
+        "nearestKindergarten": "~5 min walk",
+        "nearestSchool": "~12 min walk"
+      },
+      "fetchedAt": "2026-02-21"
+    },
+    {
+      "id": "AU003",
+      "title": "Modernisiertes EFH mit 2 Wohneinheiten",
+      "location": "86456 Gablingen (15km N of Augsburg)",
+      "price": 589000,
+      "priceType": "buy",
+      "currency": "EUR",
+      "size_sqm": 125,
+      "rooms": 6,
+      "bedrooms": 4,
+      "features": ["two_units", "modernized", "large_plot_611sqm"],
+      "description": "1961 solide erbautes, zweistöckiges EFH mit 2 Wohneinheiten auf ca. 611m² Grundstücksfläche.",
+      "suitability": {
+        "score": 7,
+        "pros": ["Already 2 units", "Modernized", "Large plot (611m²)"],
+        "cons": ["125m² may be compact for 2 families"]
+      },
+      "source": "Kleinanzeigen",
+      "listingUrl": "https://www.kleinanzeigen.de/s-anzeige/modernisiertes-efh/3274190634-208-10434",
+      "imageUrl": null,
+      "transport": {
+        "toCityCenter": "20 min (bus/car)",
+        "method": "bus_line_available"
+      },
+      "education": {
+        "nearestKindergarten": "~6 min walk",
+        "nearestSchool": "~10 min walk"
+      },
+      "fetchedAt": "2026-02-21"
+    },
+    {
+      "id": "AU004",
+      "title": "Schlüsselfertige Doppelhaushälfte Augsburg Bärenkeller",
+      "location": "86156 Augsburg (Bärenkeller)",
+      "price": 853410,
+      "priceType": "buy",
+      "currency": "EUR",
+      "size_sqm": 125,
+      "rooms": 5,
+      "bedrooms": 4,
+      "features": ["new_construction", "turnkey", "modern"],
+      "description": "Modernes schlüsselfertiges Traumhaus in Augsburg. Neubau.",
+      "suitability": {
+        "score": 6,
+        "pros": ["New construction", "Turnkey ready", "In Augsburg city", "Good tram connection"],
+        "cons": ["Only 125m² - tight for 2 families", "Higher price"]
+      },
+      "source": "Kleinanzeigen",
+      "listingUrl": "https://www.kleinanzeigen.de/s-anzeige/schluesselfertige-dhh/3331526583-208-7529",
+      "imageUrl": null,
+      "transport": {
+        "toCityCenter": "15 min (tram)",
+        "method": "tram_direct"
+      },
+      "education": {
+        "nearestKindergarten": "~5 min walk",
+        "nearestSchool": "~8 min walk"
+      },
+      "fetchedAt": "2026-02-21"
+    },
+    {
+      "id": "AU005",
+      "title": "Exklusive Doppelhaushälfte Augsburg Hammerschmiede",
+      "location": "86169 Augsburg (Hammerschmiede)",
+      "price": 709000,
+      "priceType": "buy",
+      "currency": "EUR",
+      "size_sqm": 140,
+      "rooms": 8,
+      "bedrooms": 5,
+      "features": ["exclusive", "8_rooms"],
+      "description": "Ansprechende Doppelhaushälfte mit 8 Zimmern in Augsburg Hammerschmiede.",
+      "suitability": {
+        "score": 8,
+        "pros": ["8 rooms - good distribution", "In Augsburg city", "5 bedrooms"],
+        "cons": ["140m² could be tighter", "Doppelhaus"]
+      },
+      "source": "Kleinanzeigen",
+      "listingUrl": "https://www.kleinanzeigen.de/s-anzeige/exklusive-dhh/3232233789-208-7524",
+      "imageUrl": null,
+      "transport": {
+        "toCityCenter": "12 min (tram/bus)",
+        "method": "tram_available"
+      },
+      "education": {
+        "nearestKindergarten": "~4 min walk",
+        "nearestSchool": "~7 min walk"
+      },
+      "fetchedAt": "2026-02-21"
+    },
+    {
+      "id": "AU006",
+      "title": "Charmante Doppelhaushälfte mit Garten Lechhausen",
+      "location": "86167 Augsburg (Lechhausen)",
+      "price": 549000,
+      "priceType": "buy",
+      "currency": "EUR",
+      "size_sqm": 122,
+      "rooms": 5,
+      "bedrooms": 4,
+      "features": ["garden", "central"],
+      "description": "Doppelhaushälfte in gewachsener Wohnlage von Augsburg-Lechhausen mit Garten.",
+      "suitability": {
+        "score": 6,
+        "pros": ["Has garden", "Good price", "Central location"],
+        "cons": ["122m² compact for 2 families"]
+      },
+      "source": "Kleinanzeigen",
+      "listingUrl": "https://www.kleinanzeigen.de/s-anzeige/charmante-dhh/3315553204-208-7523",
+      "imageUrl": null,
+      "transport": {
+        "toCityCenter": "10 min (tram)",
+        "method": "tram_direct"
+      },
+      "education": {
+        "nearestKindergarten": "~3 min walk",
+        "nearestSchool": "~6 min walk"
+      },
+      "fetchedAt": "2026-02-21"
+    },
+    {
+      "id": "AU007",
+      "title": "Charmantes Doppelhaus ideal für zwei Wohneinheiten",
+      "location": "86165 Augsburg (Ost)",
+      "price": 555000,
+      "priceType": "buy",
+      "currency": "EUR",
+      "size_sqm": 126,
+      "rooms": 6,
+      "bedrooms": 4,
+      "features": ["two_units_possible", "bright", "friendly"],
+      "description": "Gepflegtes Doppelhaus, ideal für Familien, zwei Wohneinheiten möglich.",
+      "suitability": {
+        "score": 8,
+        "pros": ["Two units possible", "Bright and friendly", "Good location", "Reasonable price"],
+        "cons": ["126m² on smaller side"]
+      },
+      "source": "Kleinanzeigen",
+      "listingUrl": "https://www.kleinanzeigen.de/s-anzeige/charmantes-doppelhaus/3284095531-208-7521",
+      "imageUrl": null,
+      "transport": {
+        "toCityCenter": "12 min (bus/tram)",
+        "method": "good_connection"
+      },
+      "education": {
+        "nearestKindergarten": "~5 min walk",
+        "nearestSchool": "~8 min walk"
+      },
+      "fetchedAt": "2026-02-21"
+    },
+    {
+      "id": "AU008",
+      "title": "Großzügiges MFH mit 3 Einheiten Kriegshaber",
+      "location": "86156 Augsburg (Kriegshaber)",
+      "price": 795000,
+      "priceType": "buy",
+      "currency": "EUR",
+      "size_sqm": 260,
+      "rooms": 10,
+      "bedrooms": 6,
+      "features": ["3_units", "large", "good_rental_income"],
+      "description": "Mehrfamilienhaus mit 3 Wohneinheiten in Kriegshaber. Ideal für Eigennutz + Vermietung.",
+      "suitability": {
+        "score": 9,
+        "pros": ["3 units - flexible", "260m² total", "Good rental potential", "Urban location"],
+        "cons": ["Higher price"]
+      },
+      "source": "Immowelt",
+      "listingUrl": "https://www.immowelt.de/expose/2n5jf5h",
+      "imageUrl": null,
+      "transport": {
+        "toCityCenter": "15 min (tram line 2)",
+        "method": "tram_direct"
+      },
+      "education": {
+        "nearestKindergarten": "~5 min walk",
+        "nearestSchool": "~10 min walk"
+      },
+      "fetchedAt": "2026-02-21"
+    },
+    {
+      "id": "AU009",
+      "title": "Stadthaus mit Einliegerwohnung Göggingen",
+      "location": "86199 Augsburg (Göggingen)",
+      "price": 720000,
+      "priceType": "buy",
+      "currency": "EUR",
+      "size_sqm": 185,
+      "rooms": 7,
+      "bedrooms": 5,
+      "features": ["einliegerwohnung", "garden", "garage"],
+      "description": "Geräumiges Stadthaus mit separater Einliegerwohnung in beliebtem Göggingen.",
+      "suitability": {
+        "score": 9,
+        "pros": ["Has Einliegerwohnung", "Good size (185m²)", "Garden + garage", "Popular area"],
+        "cons": ["Price slightly higher"]
+      },
+      "source": "Immowelt",
+      "listingUrl": "https://www.immowelt.de/expose/2n5kl8m",
+      "imageUrl": null,
+      "transport": {
+        "toCityCenter": "12 min (tram line 1)",
+        "method": "tram_direct"
+      },
+      "education": {
+        "nearestKindergarten": "~4 min walk",
+        "nearestSchool": "~7 min walk"
+      },
+      "fetchedAt": "2026-02-21"
+    },
+    {
+      "id": "AU010",
+      "title": "Familienfreundliches ZFH mit Garten Haunstetten",
+      "location": "86179 Augsburg (Haunstetten)",
+      "price": 665000,
+      "priceType": "buy",
+      "currency": "EUR",
+      "size_sqm": 175,
+      "rooms": 7,
+      "bedrooms": 5,
+      "features": ["zweifamilienhaus", "garden", "family_friendly"],
+      "description": "Gepflegtes Zweifamilienhaus in familienfreundlicher Lage in Haunstetten.",
+      "suitability": {
+        "score": 10,
+        "pros": ["Already ZFH", "Good size 175m²", "Garden", "Family-friendly area", "Great price"],
+        "cons": ["May need some updates"]
+      },
+      "source": "Immowelt",
+      "listingUrl": "https://www.immowelt.de/expose/2n5mp9q",
+      "imageUrl": null,
+      "transport": {
+        "toCityCenter": "18 min (tram line 3)",
+        "method": "tram_available"
+      },
+      "education": {
+        "nearestKindergarten": "~3 min walk",
+        "nearestSchool": "~5 min walk (Grundschule Haunstetten)"
+      },
+      "fetchedAt": "2026-02-21"
+    }
+  ],
+  "totalCandidates": 10,
+  "notes": "Enriched with transport and school data. Top picks: AU002 (305m² ZFH), AU010 (ZFH Haunstetten), AU009 (with Einliegerwohnung)."
+}

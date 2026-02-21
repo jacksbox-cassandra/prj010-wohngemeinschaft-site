@@ -1,0 +1,175 @@
+{
+  "city": "Augsburg",
+  "generatedAt": "2026-02-21T19:58:00+01:00",
+  "searchCriteria": {
+    "radius": 30,
+    "minBedrooms": 4,
+    "types": ["buy", "rent"],
+    "propertyTypes": ["house", "large_apartment"]
+  },
+  "sources": ["Kleinanzeigen", "Immowelt"],
+  "marketInfo": {
+    "avgPricePerSqm_houses": 4764,
+    "avgPricePerSqm_apartments": 4515,
+    "trend_5y": "+3.7%",
+    "trend_1y": "+4.3%"
+  },
+  "candidates": [
+    {
+      "id": "AU001",
+      "title": "Wohnhaus mit 2 Einheiten und großem Grundstück",
+      "location": "86494 Emersacker (20km NW of Augsburg)",
+      "price": 649000,
+      "priceType": "buy",
+      "currency": "EUR",
+      "size_sqm": 170,
+      "rooms": 6,
+      "bedrooms": 4,
+      "features": ["two_units", "large_plot", "new_heating_2024"],
+      "description": "Gepflegtes ZFH mit nahezu neuwertiger Zentralheizung (Nov.2024). Zwei Wohneinheiten, großes Grundstück.",
+      "suitability": {
+        "score": 9,
+        "pros": ["Already 2 units", "New heating system", "Large plot", "Good price"],
+        "cons": ["20km from Augsburg center", "Rural location"]
+      },
+      "source": "Kleinanzeigen",
+      "listingUrl": "https://www.kleinanzeigen.de/s-anzeige/wohnhaus-mit-2-einheiten-und-grossem-grundstueck-nord-westl-der-fuggerstadt-augsburg-/3297598231-208-7057",
+      "imageUrl": null,
+      "fetchedAt": "2026-02-21"
+    },
+    {
+      "id": "AU002",
+      "title": "Zweifamilienhaus 305m² - Rohdiamant mit Potenzial",
+      "location": "86405 Meitingen (20km N of Augsburg)",
+      "price": 650000,
+      "priceType": "buy",
+      "currency": "EUR",
+      "size_sqm": 305,
+      "rooms": 11,
+      "bedrooms": 7,
+      "features": ["renovation_needed", "two_family", "large_space"],
+      "description": "Renovierungsbedürftiges Zweifamilienhaus in Meitingen-Herbertshofen. Viel Platz und Potenzial.",
+      "suitability": {
+        "score": 8,
+        "pros": ["Very large (305m²)", "11 rooms - plenty of space", "Already two-family", "Good price for size"],
+        "cons": ["Needs renovation", "20km from center"]
+      },
+      "source": "Kleinanzeigen",
+      "listingUrl": "https://www.kleinanzeigen.de/s-anzeige/zweifamilienhaus-mit-305-m-rohdiamant-mit-ausbau-und-renditepotenzial-nahe-augsburg/3331002860-208-7049",
+      "imageUrl": null,
+      "fetchedAt": "2026-02-21"
+    },
+    {
+      "id": "AU003",
+      "title": "Modernisiertes EFH mit 2 Wohneinheiten",
+      "location": "86456 Gablingen (15km N of Augsburg)",
+      "price": 589000,
+      "priceType": "buy",
+      "currency": "EUR",
+      "size_sqm": 125,
+      "rooms": 6,
+      "bedrooms": 4,
+      "features": ["two_units", "modernized", "large_plot_611sqm"],
+      "description": "1961 solide erbautes, zweistöckiges EFH mit 2 Wohneinheiten auf ca. 611m² Grundstücksfläche.",
+      "suitability": {
+        "score": 8,
+        "pros": ["Already 2 units", "Modernized", "Large plot (611m²)", "Reasonable price"],
+        "cons": ["125m² may be compact for 2 families", "15km from center"]
+      },
+      "source": "Kleinanzeigen",
+      "listingUrl": "https://www.kleinanzeigen.de/s-anzeige/modernisiertes-zweistoeckiges-efh-mit-2-we-auf-ca-611m-gf-im-landkreis-augsburg-/3274190634-208-10434",
+      "imageUrl": null,
+      "fetchedAt": "2026-02-21"
+    },
+    {
+      "id": "AU004",
+      "title": "Schlüsselfertige Doppelhaushälfte Augsburg Bärenkeller",
+      "location": "86156 Augsburg (Bärenkeller)",
+      "price": 853410,
+      "priceType": "buy",
+      "currency": "EUR",
+      "size_sqm": 125,
+      "rooms": 5,
+      "bedrooms": 4,
+      "features": ["new_construction", "turnkey", "modern"],
+      "description": "Modernes schlüsselfertiges Traumhaus in Augsburg. Neubau.",
+      "suitability": {
+        "score": 6,
+        "pros": ["New construction", "Turnkey ready", "In Augsburg city"],
+        "cons": ["Only 125m² - may be tight for 2 families", "Higher price", "Single unit"]
+      },
+      "source": "Kleinanzeigen",
+      "listingUrl": "https://www.kleinanzeigen.de/s-anzeige/schluesselfertige-doppelhaushaelfte-in-augsburg-baerenkeller/3331526583-208-7529",
+      "imageUrl": null,
+      "fetchedAt": "2026-02-21"
+    },
+    {
+      "id": "AU005",
+      "title": "Exklusive Doppelhaushälfte Augsburg Hammerschmiede",
+      "location": "86169 Augsburg (Hammerschmiede)",
+      "price": 709000,
+      "priceType": "buy",
+      "currency": "EUR",
+      "size_sqm": 140,
+      "rooms": 8,
+      "bedrooms": 5,
+      "features": ["exclusive", "8_rooms"],
+      "description": "Ansprechende Doppelhaushälfte mit 8 Zimmern in Augsburg Hammerschmiede.",
+      "suitability": {
+        "score": 7,
+        "pros": ["8 rooms - good distribution possible", "In Augsburg city", "5 bedrooms"],
+        "cons": ["140m² could be tighter", "Doppelhaus = shared wall"]
+      },
+      "source": "Kleinanzeigen",
+      "listingUrl": "https://www.kleinanzeigen.de/s-anzeige/katip-exklusive-doppelhaushaelfte-in-augsburg-hammerschmiede-ihr-neues-zuhause-wartet-auf-sie-/3232233789-208-7524",
+      "imageUrl": null,
+      "fetchedAt": "2026-02-21"
+    },
+    {
+      "id": "AU006",
+      "title": "Charmante Doppelhaushälfte mit Garten Lechhausen",
+      "location": "86167 Augsburg (Lechhausen)",
+      "price": 549000,
+      "priceType": "buy",
+      "currency": "EUR",
+      "size_sqm": 122,
+      "rooms": 5,
+      "bedrooms": 4,
+      "features": ["garden", "central"],
+      "description": "Doppelhaushälfte in gewachsener Wohnlage von Augsburg-Lechhausen mit Garten.",
+      "suitability": {
+        "score": 6,
+        "pros": ["Has garden", "Good price", "Central location"],
+        "cons": ["122m² compact for 2 families", "Only 4 bedrooms"]
+      },
+      "source": "Kleinanzeigen",
+      "listingUrl": "https://www.kleinanzeigen.de/s-anzeige/charmante-doppelhaushaelfte-mit-garten-in-zentraler-lage-von-augsburg-lechhausen/3315553204-208-7523",
+      "imageUrl": null,
+      "fetchedAt": "2026-02-21"
+    },
+    {
+      "id": "AU007",
+      "title": "Charmantes Doppelhaus ideal für zwei Wohneinheiten",
+      "location": "86165 Augsburg (Ost)",
+      "price": 555000,
+      "priceType": "buy",
+      "currency": "EUR",
+      "size_sqm": 126,
+      "rooms": 6,
+      "bedrooms": 4,
+      "features": ["two_units_possible", "bright", "friendly"],
+      "description": "Gepflegtes Doppelhaus, ideal für Familien, zwei Wohneinheiten möglich.",
+      "suitability": {
+        "score": 8,
+        "pros": ["Two units possible", "Bright and friendly", "Good location", "Reasonable price"],
+        "cons": ["126m² on smaller side"]
+      },
+      "source": "Kleinanzeigen",
+      "listingUrl": "https://www.kleinanzeigen.de/s-anzeige/katip-charmantes-doppelhaus-in-augsburg-ost-ideal-fuer-familien-zwei-wohneinheiten-moeglich/3284095531-208-7521",
+      "imageUrl": null,
+      "fetchedAt": "2026-02-21"
+    }
+  ],
+  "totalFound": 7,
+  "notes": "Good selection of properties with 2-unit potential. Market prices ~4764€/m² for houses."
+}

@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PRJ010 - Wohngemeinschaft Immobiliensuche</title>
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --success: #16a34a;
+            --bg: #f8fafc;
+            --card-bg: #ffffff;
+            --text: #1e293b;
+            --text-muted: #64748b;
+            --border: #e2e8f0;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+        }
+        .container { max-width: 1200px; margin: 0 auto; padding: 2rem; }
+        header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+        header h1 { font-size: 2.5rem; margin-bottom: 0.5rem; }
+        header p { opacity: 0.9; font-size: 1.2rem; }
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        .stat-card {
+            background: var(--card-bg);
+            padding: 1.5rem;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        .stat-card .number { font-size: 2.5rem; font-weight: 700; color: var(--primary); }
+        .stat-card .label { color: var(--text-muted); font-size: 0.9rem; }
+        .cities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        .city-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .city-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px rgba(0,0,0,0.1);
+        }
+        .city-card-header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+            padding: 1.5rem;
+        }
+        .city-card-header h2 { font-size: 1.5rem; }
+        .city-card-body { padding: 1.5rem; }
+        .city-card-body ul { list-style: none; margin-bottom: 1rem; }
+        .city-card-body li { padding: 0.3rem 0; color: var(--text-muted); }
+        .city-card-body li strong { color: var(--text); }
+        .btn {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background 0.2s;
+        }
+        .btn:hover { background: var(--primary-dark); }
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+        }
+        .btn-outline:hover { background: var(--primary); color: white; }
+        .section-title {
+            font-size: 1.8rem;
+            margin: 2rem 0 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--primary);
+        }
+        .top-picks {
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            border-radius: 12px;
+            padding: 2rem;
+            margin: 2rem 0;
+        }
+        .top-picks h3 { color: #92400e; margin-bottom: 1rem; }
+        .pick-item {
+            background: white;
+            border-radius: 8px;
+            padding: 1rem;
+            margin-bottom: 0.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .pick-item .city { color: var(--text-muted); font-size: 0.9rem; }
+        .pick-item .score { 
+            background: var(--success);
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 999px;
+            font-weight: 600;
+        }
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+        @media (max-width: 640px) {
+            header h1 { font-size: 1.8rem; }
+            .container { padding: 1rem; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>🏠 Wohngemeinschaft Immobiliensuche</h1>
+        <p>Immobilien für 2 Familien in 5 deutschen Städten</p>
+    </header>
+
+    <div class="container">
+        <div class="stats">
+            <div class="stat-card">
+                <div class="number">50</div>
+                <div class="label">Kandidaten gesamt</div>
+            </div>
+            <div class="stat-card">
+                <div class="number">5</div>
+                <div class="label">Städte durchsucht</div>
+            </div>
+            <div class="stat-card">
+                <div class="number">30 km</div>
+                <div class="label">Suchradius</div>
+            </div>
+            <div class="stat-card">
+                <div class="number">4+</div>
+                <div class="label">Min. Schlafzimmer</div>
+            </div>
+        </div>
+
+        <div class="top-picks">
+            <h3>🌟 Top-Empfehlungen (Score 10/10)</h3>
+            <div class="pick-item">
+                <div>
+                    <strong>FR006 - Zweifamilienhaus Littenweiler</strong><br>
+                    <span class="city">Freiburg • €1.390.000 • 187m² • 11 Zimmer</span>
+                </div>
+                <span class="score">10/10</span>
+            </div>
+            <div class="pick-item">
+                <div>
+                    <strong>LE004 - Mehrgenerationenhaus Burghausen</strong><br>
+                    <span class="city">Leipzig • €680.000 • 240m² • 9 Zimmer • 1630m² Grundstück</span>
+                </div>
+                <span class="score">10/10</span>
+            </div>
+            <div class="pick-item">
+                <div>
+                    <strong>HA003 - Herrschaftliche Villa/ZFH</strong><br>
+                    <span class="city">Halle • €715.000 • 280m² • 9 Zimmer</span>
+                </div>
+                <span class="score">10/10</span>
+            </div>
+            <div class="pick-item">
+                <div>
+                    <strong>AU002 - Zweifamilienhaus 305m² (Rohdiamant)</strong><br>
+                    <span class="city">Augsburg • €650.000 • 305m² • 11 Zimmer</span>
+                </div>
+                <span class="score">10/10</span>
+            </div>
+            <div class="pick-item">
+                <div>
+                    <strong>MD008 - Zweifamilienhaus Stadtfeld</strong><br>
+                    <span class="city">Magdeburg • €495.000 • 195m² • 8 Zimmer</span>
+                </div>
+                <span class="score">10/10</span>
+            </div>
+        </div>
+
+        <h2 class="section-title">Städte</h2>
+        <div class="cities-grid">
+            <div class="city-card">
+                <div class="city-card-header">
+                    <h2>🏔️ Freiburg</h2>
+                </div>
+                <div class="city-card-body">
+                    <ul>
+                        <li><strong>10</strong> Kandidaten</li>
+                        <li>Preisspanne: €549.000 - €1.390.000</li>
+                        <li>Top: Littenweiler ZFH (187m², €1.39M)</li>
+                        <li>Quellen: ImmoScout24, Kleinanzeigen, Immowelt</li>
+                    </ul>
+                    <a href="freiburg.html" class="btn">Details ansehen →</a>
+                </div>
+            </div>
+
+            <div class="city-card">
+                <div class="city-card-header">
+                    <h2>🏰 Augsburg</h2>
+                </div>
+                <div class="city-card-body">
+                    <ul>
+                        <li><strong>10</strong> Kandidaten</li>
+                        <li>Preisspanne: €549.000 - €853.000</li>
+                        <li>Top: ZFH 305m² Meitingen (€650k)</li>
+                        <li>Quellen: Kleinanzeigen, Immowelt</li>
+                    </ul>
+                    <a href="augsburg.html" class="btn">Details ansehen →</a>
+                </div>
+            </div>
+
+            <div class="city-card">
+                <div class="city-card-header">
+                    <h2>🎵 Leipzig</h2>
+                </div>
+                <div class="city-card-body">
+                    <ul>
+                        <li><strong>10</strong> Kandidaten</li>
+                        <li>Preisspanne: €199.000 - €750.000</li>
+                        <li>Top: MFH Burghausen (240m², €680k)</li>
+                        <li>388+ Listings im Markt</li>
+                    </ul>
+                    <a href="leipzig.html" class="btn">Details ansehen →</a>
+                </div>
+            </div>
+
+            <div class="city-card">
+                <div class="city-card-header">
+                    <h2>🧂 Halle (Saale)</h2>
+                </div>
+                <div class="city-card-body">
+                    <ul>
+                        <li><strong>10</strong> Kandidaten</li>
+                        <li>Preisspanne: €328.000 - €715.000</li>
+                        <li>Top: Villa ZFH (280m², €715k)</li>
+                        <li>Sehr günstig im Vergleich</li>
+                    </ul>
+                    <a href="halle.html" class="btn">Details ansehen →</a>
+                </div>
+            </div>
+
+            <div class="city-card">
+                <div class="city-card-header">
+                    <h2>⛪ Magdeburg</h2>
+                </div>
+                <div class="city-card-body">
+                    <ul>
+                        <li><strong>10</strong> Kandidaten</li>
+                        <li>Preisspanne: €120.000 - €870.000</li>
+                        <li>Top: ZFH Stadtfeld (195m², €495k)</li>
+                        <li>Günstigster Markt!</li>
+                    </ul>
+                    <a href="magdeburg.html" class="btn">Details ansehen →</a>
+                </div>
+            </div>
+        </div>
+
+        <h2 class="section-title">Suchkriterien</h2>
+        <div class="stat-card" style="text-align: left;">
+            <ul style="list-style: none;">
+                <li>✅ <strong>Geeignet für:</strong> 2 Familien (Wohngemeinschaft)</li>
+                <li>✅ <strong>Typen:</strong> Kauf & Miete</li>
+                <li>✅ <strong>Min. Schlafzimmer:</strong> 4+</li>
+                <li>✅ <strong>Suchradius:</strong> 30 km um Stadtzentrum</li>
+                <li>✅ <strong>Budget:</strong> Keine Obergrenze</li>
+            </ul>
+        </div>
+    </div>
+
+    <footer>
+        <p>PRJ010 - Wohngemeinschaft Immobiliensuche • Erstellt: Februar 2026</p>
+        <p>Datenquellen: ImmoScout24, Immowelt, eBay Kleinanzeigen</p>
+    </footer>
+</body>
+</html>

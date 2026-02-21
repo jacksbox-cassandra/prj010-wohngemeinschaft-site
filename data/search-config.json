@@ -1,0 +1,18 @@
+{
+  "cities": [
+    {"name": "Freiburg", "lat": 47.9990, "lon": 7.8421},
+    {"name": "Augsburg", "lat": 48.3705, "lon": 10.8978},
+    {"name": "Halle", "lat": 51.4969, "lon": 11.9688},
+    {"name": "Leipzig", "lat": 51.3397, "lon": 12.3731},
+    {"name": "Magdeburg", "lat": 52.1205, "lon": 11.6276}
+  ],
+  "searchRadius": 30,
+  "radiusUnit": "km",
+  "propertyTypes": ["house", "apartment"],
+  "minBedrooms": 4,
+  "transactionTypes": ["rent", "buy"],
+  "budgetCap": null,
+  "status": "awaiting_confirmation",
+  "defaults_applied": true,
+  "confirmation_deadline": "2026-02-22T19:54:00+01:00"
+}

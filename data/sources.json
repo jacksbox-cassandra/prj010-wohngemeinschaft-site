@@ -1,0 +1,149 @@
+{
+  "generatedAt": "2026-02-21T19:54:00+01:00",
+  "sources": {
+    "major_portals": [
+      {
+        "name": "ImmobilienScout24",
+        "url": "https://www.immobilienscout24.de",
+        "type": "portal",
+        "coverage": "all_cities",
+        "notes": "Largest German real estate portal"
+      },
+      {
+        "name": "Immowelt",
+        "url": "https://www.immowelt.de",
+        "type": "portal",
+        "coverage": "all_cities"
+      },
+      {
+        "name": "Immonet",
+        "url": "https://www.immonet.de",
+        "type": "portal",
+        "coverage": "all_cities"
+      }
+    ],
+    "kleinanzeigen": [
+      {
+        "name": "Kleinanzeigen (eBay)",
+        "url": "https://www.kleinanzeigen.de",
+        "type": "classifieds",
+        "coverage": "all_cities",
+        "categories": ["wohnung-mieten", "wohnung-kaufen", "haus-kaufen", "haus-mieten"]
+      }
+    ],
+    "municipal_housing": {
+      "freiburg": [
+        {
+          "name": "Freiburger Stadtbau",
+          "url": "https://www.wohneninfreiburg.de",
+          "type": "municipal",
+          "notes": "9500+ apartments, affordable housing focus"
+        },
+        {
+          "name": "Freiburger Stadtbau Main",
+          "url": "https://www.freiburger-stadtbau.de",
+          "type": "municipal"
+        }
+      ],
+      "leipzig": [
+        {
+          "name": "LWB - Leipziger Wohnungs- und Baugesellschaft",
+          "url": "https://www.lwb.de",
+          "type": "municipal",
+          "notes": "36,700+ apartments, major municipal provider"
+        },
+        {
+          "name": "WBG Kontakt Leipzig",
+          "url": "https://www.wbg-kontakt.de",
+          "type": "cooperative"
+        }
+      ],
+      "halle": [
+        {
+          "name": "City of Halle Housing Portal",
+          "url": "https://halle.de/leben-in-halle/bauen-und-wohnen/hinweise-fuer-mieter/wohnungsanbieter-fuer-halle-saale",
+          "type": "municipal_directory"
+        }
+      ],
+      "magdeburg": [
+        {
+          "name": "Heimstaden Magdeburg",
+          "url": "https://heimstaden.com/de/",
+          "type": "large_landlord",
+          "notes": "Large housing provider active in multiple eastern cities"
+        }
+      ],
+      "augsburg": [
+        {
+          "name": "WBG Augsburg (search needed)",
+          "url": "https://www.wbg-augsburg.de",
+          "type": "cooperative"
+        }
+      ]
+    },
+    "local_makler": {
+      "freiburg": [
+        {"name": "Florian Müller Immobilien", "url": "https://www.m-immobilien.de"},
+        {"name": "VON POLL IMMOBILIEN Freiburg", "url": "https://www.von-poll.com/de/immobilienmakler/freiburg"},
+        {"name": "Christian Müller Immobilien", "url": "https://www.cm-immobilien.de"},
+        {"name": "BRUMANI Immobilien", "url": "https://brumani.de"},
+        {"name": "LBS Immobilien Freiburg", "url": "https://freiburg.lbs-immosw.de"}
+      ],
+      "augsburg": [
+        {"name": "Auwald Immobilien", "url": "https://www.auwald-immobilien.de"},
+        {"name": "Martin Bloch Immobilien", "url": "https://martinbloch.de"},
+        {"name": "Lünendonk Immobilien", "url": "https://www.luenendonk-immobilien.de"},
+        {"name": "Knipfer Immobilien", "url": "https://immobilien-knipfer.de"},
+        {"name": "Knirsch Immobilien", "url": "https://www.knirsch-immobilien.de"}
+      ],
+      "leipzig_halle_magdeburg": [
+        {"name": "FOCUS Immobilienmakler", "url": "https://focus-makler.de", "coverage": ["Leipzig", "Halle", "Dresden", "Magdeburg"]},
+        {"name": "immoHAL", "url": "https://immohal.de", "coverage": ["Halle", "Leipzig"]},
+        {"name": "KOENGETER Immobilien", "url": "https://koengeter-immobilien.de", "coverage": ["Leipzig"]},
+        {"name": "Der ImmoTip", "url": "https://www.der-immo-tip.de", "coverage": ["Leipzig", "Halle", "Magdeburg"]}
+      ]
+    },
+    "search_urls": {
+      "freiburg": {
+        "is24_rent": "https://www.immobilienscout24.de/Suche/radius/wohnung-mieten?centerofsearchaddress=Freiburg%20im%20Breisgau;47.9990;7.8421&numberofrooms=4.0-&geocoordinates=47.9990;7.8421;30.0",
+        "is24_buy": "https://www.immobilienscout24.de/Suche/radius/wohnung-kaufen?centerofsearchaddress=Freiburg%20im%20Breisgau;47.9990;7.8421&numberofrooms=4.0-&geocoordinates=47.9990;7.8421;30.0",
+        "is24_house_rent": "https://www.immobilienscout24.de/Suche/radius/haus-mieten?centerofsearchaddress=Freiburg%20im%20Breisgau&geocoordinates=47.9990;7.8421;30.0",
+        "is24_house_buy": "https://www.immobilienscout24.de/Suche/radius/haus-kaufen?centerofsearchaddress=Freiburg%20im%20Breisgau&geocoordinates=47.9990;7.8421;30.0",
+        "kleinanzeigen": "https://www.kleinanzeigen.de/s-freiburg-im-breisgau/haus/k0l9354"
+      },
+      "augsburg": {
+        "is24_rent": "https://www.immobilienscout24.de/Suche/radius/wohnung-mieten?centerofsearchaddress=Augsburg&numberofrooms=4.0-&geocoordinates=48.3705;10.8978;30.0",
+        "is24_buy": "https://www.immobilienscout24.de/Suche/radius/wohnung-kaufen?centerofsearchaddress=Augsburg&numberofrooms=4.0-&geocoordinates=48.3705;10.8978;30.0",
+        "kleinanzeigen": "https://www.kleinanzeigen.de/s-augsburg/haus/k0l9172"
+      },
+      "leipzig": {
+        "is24_rent": "https://www.immobilienscout24.de/Suche/radius/wohnung-mieten?centerofsearchaddress=Leipzig&numberofrooms=4.0-&geocoordinates=51.3397;12.3731;30.0",
+        "is24_buy": "https://www.immobilienscout24.de/Suche/radius/wohnung-kaufen?centerofsearchaddress=Leipzig&numberofrooms=4.0-&geocoordinates=51.3397;12.3731;30.0",
+        "kleinanzeigen": "https://www.kleinanzeigen.de/s-leipzig/haus/k0l9471"
+      },
+      "halle": {
+        "is24_rent": "https://www.immobilienscout24.de/Suche/radius/wohnung-mieten?centerofsearchaddress=Halle&numberofrooms=4.0-&geocoordinates=51.4969;11.9688;30.0",
+        "is24_buy": "https://www.immobilienscout24.de/Suche/radius/wohnung-kaufen?centerofsearchaddress=Halle&numberofrooms=4.0-&geocoordinates=51.4969;11.9688;30.0",
+        "kleinanzeigen": "https://www.kleinanzeigen.de/s-halle-saale/haus/k0l9413"
+      },
+      "magdeburg": {
+        "is24_rent": "https://www.immobilienscout24.de/Suche/radius/wohnung-mieten?centerofsearchaddress=Magdeburg&numberofrooms=4.0-&geocoordinates=52.1205;11.6276;30.0",
+        "is24_buy": "https://www.immobilienscout24.de/Suche/radius/wohnung-kaufen?centerofsearchaddress=Magdeburg&numberofrooms=4.0-&geocoordinates=52.1205;11.6276;30.0",
+        "kleinanzeigen": "https://www.kleinanzeigen.de/s-magdeburg/haus/k0l9387"
+      }
+    },
+    "facebook_groups": {
+      "note": "FB groups require manual access - documenting for reference",
+      "search_terms": [
+        "Wohnung Freiburg",
+        "WG Freiburg",
+        "Wohnung Augsburg",
+        "Wohnung Leipzig",
+        "Wohnung Halle Saale",
+        "Wohnung Magdeburg",
+        "Haus mieten [city]",
+        "Immobilien [city]"
+      ]
+    }
+  }
+}

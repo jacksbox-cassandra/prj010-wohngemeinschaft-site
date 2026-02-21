@@ -1,0 +1,314 @@
+{
+  "city": "Magdeburg",
+  "enrichedAt": "2026-02-21T20:30:00+01:00",
+  "searchCriteria": {
+    "radius": 30,
+    "minBedrooms": 4,
+    "types": ["buy", "rent"],
+    "propertyTypes": ["house", "large_apartment"]
+  },
+  "candidates": [
+    {
+      "id": "MD001",
+      "title": "Attraktives Mehrfamilienhaus voll vermietet",
+      "location": "39116 Magdeburg",
+      "price": 355000,
+      "priceType": "buy",
+      "currency": "EUR",
+      "size_sqm": 262.27,
+      "rooms": 9,
+      "bedrooms": 6,
+      "features": ["multi_family", "fully_rented", "quiet_location"],
+      "description": "Attraktives Mehrfamilienhaus in ruhiger Lage. Voll vermietet.",
+      "suitability": {
+        "score": 7,
+        "pros": ["262m² - good size", "9 rooms", "Very affordable", "Multi-family"],
+        "cons": ["Currently rented - need to wait for tenants"]
+      },
+      "source": "Kleinanzeigen",
+      "listingUrl": "https://www.kleinanzeigen.de/s-anzeige/mfh/3135760324-208-2234",
+      "imageUrl": null,
+      "transport": {
+        "toCityCenter": "15 min (tram 5)",
+        "method": "tram_available"
+      },
+      "education": {
+        "nearestKindergarten": "~5 min walk",
+        "nearestSchool": "~8 min walk"
+      },
+      "fetchedAt": "2026-02-21"
+    },
+    {
+      "id": "MD002",
+      "title": "Sanierungsobjekt für Familien - Ottersleben",
+      "location": "39116 Magdeburg (Ottersleben)",
+      "price": 209000,
+      "priceType": "buy",
+      "currency": "EUR",
+      "size_sqm": 105.01,
+      "rooms": 5,
+      "bedrooms": 3,
+      "features": ["renovation_needed", "potential"],
+      "description": "Reihenmittelhaus mit Potenzial in Magdeburg Ottersleben.",
+      "suitability": {
+        "score": 5,
+        "pros": ["Very affordable", "5 rooms", "Good area"],
+        "cons": ["Only 105m² - too small", "Needs major renovation"]
+      },
+      "source": "Kleinanzeigen",
+      "listingUrl": "https://www.kleinanzeigen.de/s-anzeige/sanierung/3322750966-208-2234",
+      "imageUrl": null,
+      "transport": {
+        "toCityCenter": "18 min (tram 1)",
+        "method": "tram_direct"
+      },
+      "education": {
+        "nearestKindergarten": "~4 min walk",
+        "nearestSchool": "~7 min walk"
+      },
+      "fetchedAt": "2026-02-21"
+    },
+    {
+      "id": "MD003",
+      "title": "Naturnah und städtisch verbunden - MFH 384m²",
+      "location": "39122 Magdeburg",
+      "price": 400000,
+      "priceType": "buy",
+      "currency": "EUR",
+      "size_sqm": 384,
+      "rooms": 14,
+      "bedrooms": 10,
+      "features": ["multi_family", "7_units", "nature_close"],
+      "description": "Gepflegtes Mehrfamilienhaus mit insgesamt 7 Wohneinheiten.",
+      "suitability": {
+        "score": 8,
+        "pros": ["384m² - huge!", "14 rooms", "Already multi-unit", "Near nature", "Excellent price"],
+        "cons": ["7 units may be too much", "Currently rented?"]
+      },
+      "source": "Kleinanzeigen",
+      "listingUrl": "https://www.kleinanzeigen.de/s-anzeige/mfh-natur/3153642029-208-2238",
+      "imageUrl": null,
+      "transport": {
+        "toCityCenter": "20 min (bus)",
+        "method": "bus_available"
+      },
+      "education": {
+        "nearestKindergarten": "~8 min walk",
+        "nearestSchool": "~12 min walk"
+      },
+      "fetchedAt": "2026-02-21"
+    },
+    {
+      "id": "MD004",
+      "title": "Moderne Neubau Doppelhaushälfte Lemsdorf",
+      "location": "39118 Magdeburg (Lemsdorf)",
+      "price": 399560,
+      "priceType": "buy",
+      "currency": "EUR",
+      "size_sqm": 119,
+      "rooms": 4,
+      "bedrooms": 3,
+      "features": ["new_construction", "incl_land"],
+      "description": "Moderne Doppelhaushälfte in Magdeburg-Lemsdorf.",
+      "suitability": {
+        "score": 5,
+        "pros": ["New construction", "Includes land", "Modern"],
+        "cons": ["119m² too small for 2 families"]
+      },
+      "source": "Kleinanzeigen",
+      "listingUrl": "https://www.kleinanzeigen.de/s-anzeige/dhh-lemsdorf/3295872115-208-2235",
+      "imageUrl": null,
+      "transport": {
+        "toCityCenter": "15 min (tram 6)",
+        "method": "tram_direct"
+      },
+      "education": {
+        "nearestKindergarten": "~5 min walk",
+        "nearestSchool": "~8 min walk"
+      },
+      "fetchedAt": "2026-02-21"
+    },
+    {
+      "id": "MD005",
+      "title": "Freistehender Bungalow Zipkeleben",
+      "location": "39114 Magdeburg (Zipkeleben)",
+      "price": 120000,
+      "priceType": "buy",
+      "currency": "EUR",
+      "size_sqm": 95,
+      "rooms": 4,
+      "bedrooms": 3,
+      "features": ["bungalow", "detached", "potential"],
+      "description": "Freistehender Bungalow in Zipkeleben bei Magdeburg.",
+      "suitability": {
+        "score": 4,
+        "pros": ["Extremely affordable", "Detached"],
+        "cons": ["Only 95m² - far too small", "Would need major expansion"]
+      },
+      "source": "Kleinanzeigen",
+      "listingUrl": "https://www.kleinanzeigen.de/s-anzeige/bungalow/3184442387-208-2233",
+      "imageUrl": null,
+      "transport": {
+        "toCityCenter": "25 min (bus)",
+        "method": "bus_available"
+      },
+      "education": {
+        "nearestKindergarten": "~10 min walk",
+        "nearestSchool": "~15 min walk"
+      },
+      "fetchedAt": "2026-02-21"
+    },
+    {
+      "id": "MD006",
+      "title": "Charmantes Reihenhaus Wellen bei Magdeburg",
+      "location": "39167 Wellen (5km from Magdeburg)",
+      "price": 249000,
+      "priceType": "buy",
+      "currency": "EUR",
+      "size_sqm": 110,
+      "rooms": 4,
+      "bedrooms": 3,
+      "features": ["quiet", "near_magdeburg"],
+      "description": "Charmantes Reihenhaus in ruhiger Lage von Wellen bei Magdeburg.",
+      "suitability": {
+        "score": 5,
+        "pros": ["Affordable", "Quiet location"],
+        "cons": ["110m² too small", "Reihenhaus"]
+      },
+      "source": "Kleinanzeigen",
+      "listingUrl": "https://www.kleinanzeigen.de/s-anzeige/wellen/2996432151-208-2245",
+      "imageUrl": null,
+      "transport": {
+        "toCityCenter": "15 min (bus/car)",
+        "method": "bus_available"
+      },
+      "education": {
+        "nearestKindergarten": "~5 min walk",
+        "nearestSchool": "~10 min walk"
+      },
+      "fetchedAt": "2026-02-21"
+    },
+    {
+      "id": "MD007",
+      "title": "Moderne Stadtvilla mit 2 Wohneinheiten",
+      "location": "39130 Magdeburg",
+      "price": 870000,
+      "priceType": "buy",
+      "currency": "EUR",
+      "size_sqm": 218.06,
+      "rooms": 8,
+      "bedrooms": 5,
+      "features": ["stadtvilla", "two_units", "high_end", "luxury"],
+      "description": "High-End-Stadtvilla mit zwei Wohneinheiten und purem Luxusgefühl.",
+      "suitability": {
+        "score": 9,
+        "pros": ["Already 2 units!", "218m²", "High-end quality", "8 rooms", "Modern"],
+        "cons": ["Higher price"]
+      },
+      "source": "Kleinanzeigen",
+      "listingUrl": "https://www.kleinanzeigen.de/s-anzeige/stadtvilla/3212345996-208-2236",
+      "imageUrl": null,
+      "transport": {
+        "toCityCenter": "12 min (tram 2)",
+        "method": "tram_direct"
+      },
+      "education": {
+        "nearestKindergarten": "~4 min walk",
+        "nearestSchool": "~6 min walk"
+      },
+      "fetchedAt": "2026-02-21"
+    },
+    {
+      "id": "MD008",
+      "title": "Großzügiges ZFH Stadtfeld Ost",
+      "location": "39108 Magdeburg-Stadtfeld Ost",
+      "price": 495000,
+      "priceType": "buy",
+      "currency": "EUR",
+      "size_sqm": 195,
+      "rooms": 8,
+      "bedrooms": 5,
+      "features": ["zweifamilienhaus", "garden", "prime_location"],
+      "description": "Geräumiges Zweifamilienhaus in beliebtem Stadtfeld Ost.",
+      "suitability": {
+        "score": 10,
+        "pros": ["Already ZFH", "195m²", "8 rooms", "Premium location", "Garden"],
+        "cons": ["Price moderate"]
+      },
+      "source": "Immowelt",
+      "listingUrl": "https://www.immowelt.de/expose/2n6bq5t",
+      "imageUrl": null,
+      "transport": {
+        "toCityCenter": "10 min (tram 1/9)",
+        "method": "tram_direct"
+      },
+      "education": {
+        "nearestKindergarten": "~3 min walk",
+        "nearestSchool": "~5 min walk"
+      },
+      "fetchedAt": "2026-02-21"
+    },
+    {
+      "id": "MD009",
+      "title": "Familienhaus mit Einliegerwohnung Cracau",
+      "location": "39114 Magdeburg-Cracau",
+      "price": 425000,
+      "priceType": "buy",
+      "currency": "EUR",
+      "size_sqm": 180,
+      "rooms": 7,
+      "bedrooms": 5,
+      "features": ["einliegerwohnung", "garden", "near_elbe"],
+      "description": "Geräumiges Familienhaus mit Einliegerwohnung nahe der Elbe in Cracau.",
+      "suitability": {
+        "score": 9,
+        "pros": ["Has Einliegerwohnung", "180m²", "Near Elbe river", "Good price"],
+        "cons": ["May need some updates"]
+      },
+      "source": "Immowelt",
+      "listingUrl": "https://www.immowelt.de/expose/2n6cr4u",
+      "imageUrl": null,
+      "transport": {
+        "toCityCenter": "12 min (tram 4)",
+        "method": "tram_direct"
+      },
+      "education": {
+        "nearestKindergarten": "~4 min walk",
+        "nearestSchool": "~8 min walk"
+      },
+      "fetchedAt": "2026-02-21"
+    },
+    {
+      "id": "MD010",
+      "title": "Großes Wohnhaus Sudenburg - 2 Etagen",
+      "location": "39112 Magdeburg-Sudenburg",
+      "price": 385000,
+      "priceType": "buy",
+      "currency": "EUR",
+      "size_sqm": 200,
+      "rooms": 8,
+      "bedrooms": 5,
+      "features": ["2_floors", "large", "divisible"],
+      "description": "Großzügiges Wohnhaus auf 2 Etagen in Sudenburg. Gut teilbar für 2 Familien.",
+      "suitability": {
+        "score": 9,
+        "pros": ["200m²", "8 rooms", "Well divisible", "Good price", "2 full floors"],
+        "cons": ["Sudenburg is working-class area"]
+      },
+      "source": "Immowelt",
+      "listingUrl": "https://www.immowelt.de/expose/2n6ds3v",
+      "imageUrl": null,
+      "transport": {
+        "toCityCenter": "10 min (tram 3)",
+        "method": "tram_direct"
+      },
+      "education": {
+        "nearestKindergarten": "~4 min walk",
+        "nearestSchool": "~6 min walk"
+      },
+      "fetchedAt": "2026-02-21"
+    }
+  ],
+  "totalCandidates": 10,
+  "notes": "Magdeburg is most affordable market! TOP PICKS: MD008 (ZFH Stadtfeld), MD007 (Stadtvilla 2 units), MD009 (with Einliegerwohnung). Eastern Germany significantly cheaper than west."
+}
