@@ -325,7 +325,22 @@ class PropertyScraper:
             
             if file_path.exists():
                 with open(file_path, 'r', encoding='utf-8') as f:
-                    return json.load(f)
+                    data = json.load(f)
+                    
+                # Handle different data formats
+                if isinstance(data, list):
+                    return data
+                elif isinstance(data, dict):
+                    if 'listings' in data:
+                        return data['listings']
+                    elif 'candidates' in data:
+                        return data['candidates']
+                    else:
+                        logger.warning(f"Unknown data format in {file_path}")
+                        return []
+                else:
+                    logger.warning(f"Unexpected data type in {file_path}: {type(data)}")
+                    return []
             else:
                 logger.info(f"No existing listings file found: {file_path}")
                 return []

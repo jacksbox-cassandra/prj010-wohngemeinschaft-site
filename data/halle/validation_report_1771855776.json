@@ -1,0 +1,138 @@
+{
+  "scraped_at": "2026-02-23T14:09:36Z",
+  "city": "halle",
+  "total_listings": 10,
+  "valid_listings": 10,
+  "validation_results": [
+    {
+      "listing_id": "https://www.kleinanzeigen.de/s-anzeige/spiegel-badezimmer/3334344494-91-9477",
+      "valid": true,
+      "reasons": [
+        "Valid Kleinanzeigen detail URL",
+        "? Bedroom/room criteria not fully met: insufficient bedrooms (unknown < 4), insufficient rooms (unknown < 4), insufficient size (unknownm² < 120m²) - allowing for review",
+        "✓ Outdoor space check relaxed - allowing for review",
+        "? Size unknown - manual verification needed",
+        "? City center coordinates not configured - skipping location validation",
+        "? Price not specified",
+        "- Missing information: price"
+      ]
+    },
+    {
+      "listing_id": "https://www.kleinanzeigen.de/s-anzeige/spiegel-badezimmer/3334344494-91-9477",
+      "valid": true,
+      "reasons": [
+        "Valid Kleinanzeigen detail URL",
+        "? Bedroom/room criteria not fully met: insufficient bedrooms (unknown < 4), insufficient rooms (unknown < 4), insufficient size (unknownm² < 120m²) - allowing for review",
+        "✓ Outdoor space check relaxed - allowing for review",
+        "? Size unknown - manual verification needed",
+        "? City center coordinates not configured - skipping location validation",
+        "? Price not specified",
+        "- Missing information: price"
+      ]
+    },
+    {
+      "listing_id": "https://www.kleinanzeigen.de/s-anzeige/spiegel-badezimmer/3334344494-91-9477",
+      "valid": true,
+      "reasons": [
+        "Valid Kleinanzeigen detail URL",
+        "? Bedroom/room criteria not fully met: insufficient bedrooms (unknown < 4), insufficient rooms (unknown < 4), insufficient size (unknownm² < 120m²) - allowing for review",
+        "✓ Outdoor space check relaxed - allowing for review",
+        "? Size unknown - manual verification needed",
+        "? City center coordinates not configured - skipping location validation",
+        "? Price not specified",
+        "- Missing information: price"
+      ]
+    },
+    {
+      "listing_id": "https://www.kleinanzeigen.de/s-anzeige/spiegel-badezimmer/3334344494-91-9477",
+      "valid": true,
+      "reasons": [
+        "Valid Kleinanzeigen detail URL",
+        "? Bedroom/room criteria not fully met: insufficient bedrooms (unknown < 4), insufficient rooms (unknown < 4), insufficient size (unknownm² < 120m²) - allowing for review",
+        "✓ Outdoor space check relaxed - allowing for review",
+        "? Size unknown - manual verification needed",
+        "? City center coordinates not configured - skipping location validation",
+        "? Price not specified",
+        "- Missing information: price"
+      ]
+    },
+    {
+      "listing_id": "https://www.kleinanzeigen.de/s-anzeige/spiegel-badezimmer/3334344494-91-9477",
+      "valid": true,
+      "reasons": [
+        "Valid Kleinanzeigen detail URL",
+        "? Bedroom/room criteria not fully met: insufficient bedrooms (unknown < 4), insufficient rooms (unknown < 4), insufficient size (unknownm² < 120m²) - allowing for review",
+        "✓ Outdoor space check relaxed - allowing for review",
+        "? Size unknown - manual verification needed",
+        "? City center coordinates not configured - skipping location validation",
+        "? Price not specified",
+        "- Missing information: price"
+      ]
+    },
+    {
+      "listing_id": "https://www.kleinanzeigen.de/s-anzeige/spiegel-badezimmer/3334344494-91-9477",
+      "valid": true,
+      "reasons": [
+        "Valid Kleinanzeigen detail URL",
+        "? Bedroom/room criteria not fully met: insufficient bedrooms (unknown < 4), insufficient rooms (unknown < 4), insufficient size (unknownm² < 120m²) - allowing for review",
+        "✓ Outdoor space check relaxed - allowing for review",
+        "? Size unknown - manual verification needed",
+        "? City center coordinates not configured - skipping location validation",
+        "? Price not specified",
+        "- Missing information: price"
+      ]
+    },
+    {
+      "listing_id": "https://www.kleinanzeigen.de/s-anzeige/spiegel-badezimmer/3334344494-91-9477",
+      "valid": true,
+      "reasons": [
+        "Valid Kleinanzeigen detail URL",
+        "? Bedroom/room criteria not fully met: insufficient bedrooms (unknown < 4), insufficient rooms (unknown < 4), insufficient size (unknownm² < 120m²) - allowing for review",
+        "✓ Outdoor space check relaxed - allowing for review",
+        "? Size unknown - manual verification needed",
+        "? City center coordinates not configured - skipping location validation",
+        "? Price not specified",
+        "- Missing information: price"
+      ]
+    },
+    {
+      "listing_id": "https://www.kleinanzeigen.de/s-anzeige/spiegel-badezimmer/3334344494-91-9477",
+      "valid": true,
+      "reasons": [
+        "Valid Kleinanzeigen detail URL",
+        "? Bedroom/room criteria not fully met: insufficient bedrooms (unknown < 4), insufficient rooms (unknown < 4), insufficient size (unknownm² < 120m²) - allowing for review",
+        "✓ Outdoor space check relaxed - allowing for review",
+        "? Size unknown - manual verification needed",
+        "? City center coordinates not configured - skipping location validation",
+        "? Price not specified",
+        "- Missing information: price"
+      ]
+    },
+    {
+      "listing_id": "https://www.kleinanzeigen.de/s-anzeige/spiegel-badezimmer/3334344494-91-9477",
+      "valid": true,
+      "reasons": [
+        "Valid Kleinanzeigen detail URL",
+        "? Bedroom/room criteria not fully met: insufficient bedrooms (unknown < 4), insufficient rooms (unknown < 4), insufficient size (unknownm² < 120m²) - allowing for review",
+        "✓ Outdoor space check relaxed - allowing for review",
+        "? Size unknown - manual verification needed",
+        "? City center coordinates not configured - skipping location validation",
+        "? Price not specified",
+        "- Missing information: price"
+      ]
+    },
+    {
+      "listing_id": "https://www.kleinanzeigen.de/s-anzeige/spiegel-badezimmer/3334344494-91-9477",
+      "valid": true,
+      "reasons": [
+        "Valid Kleinanzeigen detail URL",
+        "? Bedroom/room criteria not fully met: insufficient bedrooms (unknown < 4), insufficient rooms (unknown < 4), insufficient size (unknownm² < 120m²) - allowing for review",
+        "✓ Outdoor space check relaxed - allowing for review",
+        "? Size unknown - manual verification needed",
+        "? City center coordinates not configured - skipping location validation",
+        "? Price not specified",
+        "- Missing information: price"
+      ]
+    }
+  ]
+}

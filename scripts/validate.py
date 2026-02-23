@@ -2,6 +2,7 @@
 Validation module for PRJ010 Wohngemeinschaft Property Search
 
 Validates listings against search criteria:
+- STRICT URL validation (property detail pages only)
 - 4+ bedrooms OR (4+ rooms AND size >= 120m²)
 - Has outdoor/garden keywords  
 - Within radius of city center (haversine distance)
@@ -12,8 +13,69 @@ import re
 import math
 import logging
 from typing import List, Dict, Any, Tuple, Optional
+from urllib.parse import urlparse
 
 logger = logging.getLogger(__name__)
+
+
+def is_valid_property_detail_url(url: str) -> Tuple[bool, str]:
+    """
+    Validate that URL is a direct property detail page, not a search result
+    
+    STRICT URL PATTERNS - Only accept direct property detail URLs:
+    - Kleinanzeigen: Must contain `/s-anzeige/` with numeric ID at end
+    - Immowelt: Must contain `/expose/` or `/immobilie/` with UUID/ID
+    - ImmobilienScout24: Must contain `/expose/` with numeric ID
+    
+    Args:
+        url: URL to validate
+        
+    Returns:
+        Tuple of (is_valid, reason)
+    """
+    if not url or not isinstance(url, str):
+        return False, "Empty or invalid URL"
+    
+    try:
+        parsed = urlparse(url)
+        domain = parsed.netloc.lower()
+        path = parsed.path.lower()
+        
+        # Kleinanzeigen validation
+        if 'kleinanzeigen.de' in domain:
+            # Must contain /s-anzeige/ with numeric ID at end
+            if '/s-anzeige/' in path:
+                # Extract ID part after last /
+                path_parts = path.strip('/').split('/')
+                if len(path_parts) >= 2:
+                    last_part = path_parts[-1]
+                    # Check if contains numeric ID (format like: 3329337623-208-20383)
+                    if re.search(r'\d{5,}', last_part):
+                        return True, "Valid Kleinanzeigen detail URL"
+            return False, f"Invalid Kleinanzeigen URL - must contain /s-anzeige/ with numeric ID: {url}"
+            
+        # Immowelt validation  
+        elif 'immowelt.de' in domain:
+            # Must contain /expose/ or /immobilie/ with ID
+            if '/expose/' in path or '/immobilie/' in path:
+                # Extract ID part - should contain UUID or numeric ID
+                if re.search(r'/expose/[a-f0-9\-]{8,}', path) or re.search(r'/immobilie/[a-f0-9\-]{8,}', path):
+                    return True, "Valid Immowelt detail URL"
+            return False, f"Invalid Immowelt URL - must contain /expose/ or /immobilie/ with ID: {url}"
+            
+        # ImmobilienScout24 validation
+        elif 'immobilienscout24.de' in domain:
+            # Must contain /expose/ with numeric ID
+            if '/expose/' in path:
+                if re.search(r'/expose/\d{5,}', path):
+                    return True, "Valid ImmobilienScout24 detail URL"
+            return False, f"Invalid ImmobilienScout24 URL - must contain /expose/ with numeric ID: {url}"
+            
+        else:
+            return False, f"Unknown domain - only accepting Kleinanzeigen, Immowelt, ImmobilienScout24: {domain}"
+            
+    except Exception as e:
+        return False, f"URL parsing error: {e}"
 
 
 class ListingValidator:
@@ -62,6 +124,14 @@ class ListingValidator:
         is_valid = True
         
         try:
+            # FIRST: STRICT URL VALIDATION (HIGHEST PRIORITY)
+            url = listing.get('url') or listing.get('listingUrl')
+            url_valid, url_reason = is_valid_property_detail_url(url)
+            reasons.append(url_reason)
+            if not url_valid:
+                # URL validation failure is fatal - return immediately
+                return False, reasons
+                
             # Check bedroom/room criteria
             bedroom_valid, bedroom_reasons = self._validate_bedrooms_and_rooms(listing)
             reasons.extend(bedroom_reasons)
