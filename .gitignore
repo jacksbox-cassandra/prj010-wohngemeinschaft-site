@@ -1,0 +1,41 @@
+# PRJ010 Property Search - Git Ignore
+
+# Logs
+logs/
+*.log
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.Python
+*.so
+.env
+venv/
+ENV/
+
+# Temporary files
+*.tmp
+*.temp
+.DS_Store
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Test outputs
+test_output/
+.pytest_cache/
+
+# API keys (never commit)
+secrets.yaml
+.env.local
+
+# Large image downloads (if too big)
+# docs/assets/*/photos/*.orig
+
+# Backup files
+*.bak
+*~

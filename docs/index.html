@@ -288,8 +288,12 @@
     </div>
 
     <footer>
-        <p>PRJ010 - Wohngemeinschaft Immobiliensuche • Erstellt: Februar 2026</p>
+        <p>PRJ010 - Wohngemeinschaft Immobiliensuche • Letzte Aktualisierung: <span id="lastUpdate">wird geladen...</span></p>
         <p>Datenquellen: ImmoScout24, Immowelt, eBay Kleinanzeigen</p>
+        <script>
+            // Update timestamp - will be enhanced by update_html_v3.py
+            document.getElementById('lastUpdate').textContent = '23. February 2026, 13:09';
+        </script>
     </footer>
 </body>
 </html>

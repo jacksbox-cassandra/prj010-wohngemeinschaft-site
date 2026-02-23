@@ -1,0 +1,138 @@
+# PRJ010 Property Search Configuration
+# Used by scraper.py and enrich.py
+
+# Target cities with center coordinates
+cities:
+  freiburg:
+    name: "Freiburg im Breisgau"
+    lat: 47.9990
+    lon: 7.8421
+    radius_km: 30
+  augsburg:
+    name: "Augsburg"
+    lat: 48.3705
+    lon: 10.8978
+    radius_km: 30
+  halle:
+    name: "Halle (Saale)"
+    lat: 51.4969
+    lon: 11.9688
+    radius_km: 30
+  leipzig:
+    name: "Leipzig"
+    lat: 51.3397
+    lon: 12.3731
+    radius_km: 30
+  magdeburg:
+    name: "Magdeburg"
+    lat: 52.1205
+    lon: 11.6276
+    radius_km: 30
+
+# Search criteria
+search:
+  min_rooms: 4
+  min_bedrooms: 4
+  min_size_sqm: 120
+  property_types:
+    - house
+    - apartment
+    - zwei_familienhaus
+  transaction_types:
+    - buy
+    - rent
+  features_required:
+    - outdoor  # garden, terrace, or balcony
+
+# Scraper settings
+scraper:
+  rate_limit_seconds: 3
+  max_retries: 3
+  timeout_seconds: 30
+  user_agents:
+    - "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36"
+    - "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"
+    - "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36"
+  respect_robots_txt: true
+  max_pages_per_source: 5
+
+# Sources (enable/disable)
+sources:
+  kleinanzeigen:
+    enabled: true
+    priority: 1
+    base_url: "https://www.kleinanzeigen.de"
+  immowelt:
+    enabled: true
+    priority: 2
+    base_url: "https://www.immowelt.de"
+  immoscout:
+    enabled: true
+    priority: 3
+    base_url: "https://www.immobilienscout24.de"
+    note: "May require browser for anti-bot"
+  immonet:
+    enabled: false  # Often redirects to Immowelt now
+    priority: 4
+    base_url: "https://www.immonet.de"
+
+# Enrichment settings
+enrichment:
+  verify_urls: true
+  download_images: true
+  max_image_size_kb: 500
+  calculate_transport: true
+  find_schools: true
+  
+  # OpenRouteService for transit times (free API)
+  openrouteservice:
+    enabled: false  # Set to true if you have API key
+    api_key: ""
+  
+  # Fallback: estimate based on distance
+  transport_estimate:
+    enabled: true
+    km_per_minute: 0.5  # ~30 km/h average with stops
+
+# Scoring weights (total 10 points)
+scoring:
+  size:  # 2 points max
+    threshold_high: 180  # 2 pts if >= 180m²
+    threshold_low: 150   # 1 pt if >= 150m²
+  bedrooms:  # 2 points max
+    threshold_high: 5  # 2 pts if >= 5 bedrooms
+    threshold_low: 4   # 1 pt if >= 4 bedrooms
+  outdoor:  # 2 points max
+    large_garden: 2  # garden > 100m² or "großer Garten"
+    balcony_terrace: 1
+  transport:  # 2 points max
+    threshold_high: 15  # 2 pts if <= 15 min
+    threshold_low: 25   # 1 pt if <= 25 min
+  education:  # 1 point
+    school_within_minutes: 15
+  nature:  # 1 point
+    keywords:
+      - "waldnähe"
+      - "naturnah"
+      - "grünlage"
+      - "ruhige lage"
+
+# Validation criteria (must pass all)
+validation:
+  min_bedrooms: 4
+  min_size_sqm: 100  # Slightly relaxed from 120 to catch edge cases
+  require_outdoor: true
+  outdoor_keywords:
+    - "garten"
+    - "garden"
+    - "terrasse"
+    - "balkon"
+    - "outdoor"
+    - "grundstück"
+
+# Output paths
+paths:
+  data_dir: "data"
+  docs_dir: "docs"
+  assets_dir: "docs/assets"
+  logs_dir: "logs"

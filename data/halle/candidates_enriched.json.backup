@@ -1,17 +1,11 @@
 {
   "city": "Halle (Saale)",
-  "enrichedAt": "2026-02-23T12:00:48.306189+00:00",
+  "enrichedAt": "2026-02-21T20:28:00+01:00",
   "searchCriteria": {
     "radius": 30,
     "minBedrooms": 4,
-    "types": [
-      "buy",
-      "rent"
-    ],
-    "propertyTypes": [
-      "house",
-      "large_apartment"
-    ]
+    "types": ["buy", "rent"],
+    "propertyTypes": ["house", "large_apartment"]
   },
   "candidates": [
     {
@@ -24,22 +18,12 @@
       "size_sqm": 197.17,
       "rooms": 5,
       "bedrooms": 4,
-      "features": [
-        "custom_built",
-        "high_quality"
-      ],
+      "features": ["custom_built", "high_quality"],
       "description": "Home 14 - Mehr Raum für Dein Leben. Individuell und hochwertig gebaut.",
       "suitability": {
-        "score": 6,
-        "pros": [
-          "Excellent size for 2 families",
-          "Adequate bedroom count",
-          "Excellent price per m²",
-          "Excellent public transport"
-        ],
-        "cons": [
-          "No outdoor space mentioned"
-        ]
+        "score": 8,
+        "pros": ["Nearly 200m²", "High quality", "5 rooms", "Good price"],
+        "cons": ["Would need internal division"]
       },
       "source": "Kleinanzeigen",
       "listingUrl": "https://www.kleinanzeigen.de/s-anzeige/efh-halle/3329337623-208-20383",
@@ -52,9 +36,7 @@
         "nearestKindergarten": "~5 min walk",
         "nearestSchool": "~8 min walk"
       },
-      "fetchedAt": "2026-02-21",
-      "status": "active",
-      "lastVerified": "2026-02-23T12:00:30.742537+00:00"
+      "fetchedAt": "2026-02-21"
     },
     {
       "id": "HA002",
@@ -66,23 +48,12 @@
       "size_sqm": 150,
       "rooms": 7,
       "bedrooms": 5,
-      "features": [
-        "tiefgarage",
-        "outdoor_pool",
-        "massivbau"
-      ],
+      "features": ["tiefgarage", "outdoor_pool", "massivbau"],
       "description": "Massivbauweise errichtetes Einfamilienhaus mit Tiefgarage und großem Außenpool.",
       "suitability": {
-        "score": 5,
-        "pros": [
-          "Good size for shared living",
-          "Plenty of bedrooms",
-          "Excellent price per m²",
-          "Excellent public transport"
-        ],
-        "cons": [
-          "No outdoor space mentioned"
-        ]
+        "score": 8,
+        "pros": ["7 rooms / 5 bedrooms", "Pool!", "Garage", "Excellent price"],
+        "cons": ["150m² moderate size", "Pool maintenance"]
       },
       "source": "Kleinanzeigen",
       "listingUrl": "https://www.kleinanzeigen.de/s-anzeige/efh-pool/3318989594-208-2420",
@@ -95,9 +66,7 @@
         "nearestKindergarten": "~4 min walk",
         "nearestSchool": "~7 min walk"
       },
-      "fetchedAt": "2026-02-21",
-      "status": "active",
-      "lastVerified": "2026-02-23T12:00:32.668679+00:00"
+      "fetchedAt": "2026-02-21"
     },
     {
       "id": "HA003",
@@ -109,24 +78,12 @@
       "size_sqm": 280,
       "rooms": 9,
       "bedrooms": 6,
-      "features": [
-        "villa",
-        "zweifamilienhaus",
-        "quiet_location",
-        "detached"
-      ],
+      "features": ["villa", "zweifamilienhaus", "quiet_location", "detached"],
       "description": "Freistehendes Zweifamilienhaus in ruhiger Lage. Herrschaftliche Villa.",
       "suitability": {
-        "score": 7,
-        "pros": [
-          "Excellent size for 2 families",
-          "Plenty of bedrooms",
-          "Excellent price per m²",
-          "Good transport links"
-        ],
-        "cons": [
-          "No outdoor space mentioned"
-        ]
+        "score": 10,
+        "pros": ["ALREADY Zweifamilienhaus", "280m² - huge", "9 rooms", "Detached villa", "Quiet location"],
+        "cons": ["Higher price point"]
       },
       "source": "Kleinanzeigen",
       "listingUrl": "https://www.kleinanzeigen.de/s-anzeige/villa-halle/3216552159-208-2422",
@@ -139,9 +96,7 @@
         "nearestKindergarten": "~6 min walk",
         "nearestSchool": "~10 min walk"
       },
-      "fetchedAt": "2026-02-21",
-      "status": "active",
-      "lastVerified": "2026-02-23T12:00:34.593317+00:00"
+      "fetchedAt": "2026-02-21"
     },
     {
       "id": "HA004",
@@ -153,22 +108,12 @@
       "size_sqm": 115.99,
       "rooms": 3,
       "bedrooms": 2,
-      "features": [
-        "renovated_2005",
-        "basement"
-      ],
+      "features": ["renovated_2005", "basement"],
       "description": "Seit 2005 mit Liebe zum Detail sanierte Doppelhaushälfte.",
       "suitability": {
-        "score": 2,
-        "pros": [
-          "Excellent price per m²",
-          "Excellent public transport"
-        ],
-        "cons": [
-          "Might feel cramped for 2 families",
-          "Limited bedroom options",
-          "No outdoor space mentioned"
-        ]
+        "score": 5,
+        "pros": ["Renovated", "Good location", "Affordable"],
+        "cons": ["Only 116m² - too small", "Only 2 bedrooms"]
       },
       "source": "Kleinanzeigen",
       "listingUrl": "https://www.kleinanzeigen.de/s-anzeige/dhh-sued/3329139505-208-2415",
@@ -181,9 +126,7 @@
         "nearestKindergarten": "~3 min walk",
         "nearestSchool": "~6 min walk"
       },
-      "fetchedAt": "2026-02-21",
-      "status": "active",
-      "lastVerified": "2026-02-23T12:00:36.531551+00:00"
+      "fetchedAt": "2026-02-21"
     },
     {
       "id": "HA005",
@@ -195,22 +138,12 @@
       "size_sqm": 303,
       "rooms": 10,
       "bedrooms": 7,
-      "features": [
-        "mehrfamilienhaus",
-        "well_maintained"
-      ],
+      "features": ["mehrfamilienhaus", "well_maintained"],
       "description": "Gepflegtes Mehrfamilienhaus mit hervorragender Gelegenheit.",
       "suitability": {
-        "score": 7,
-        "pros": [
-          "Excellent size for 2 families",
-          "Plenty of bedrooms",
-          "Excellent price per m²",
-          "Excellent public transport"
-        ],
-        "cons": [
-          "No outdoor space mentioned"
-        ]
+        "score": 9,
+        "pros": ["303m² - very large", "10 rooms", "Already multi-family", "Good price"],
+        "cons": ["May be currently rented out"]
       },
       "source": "Kleinanzeigen",
       "listingUrl": "https://www.kleinanzeigen.de/s-anzeige/mfh-halle/3190620938-208-2416",
@@ -223,9 +156,7 @@
         "nearestKindergarten": "~5 min walk",
         "nearestSchool": "~8 min walk"
       },
-      "fetchedAt": "2026-02-21",
-      "status": "active",
-      "lastVerified": "2026-02-23T12:00:38.427893+00:00"
+      "fetchedAt": "2026-02-21"
     },
     {
       "id": "HA006",
@@ -237,22 +168,12 @@
       "size_sqm": 111,
       "rooms": 6,
       "bedrooms": 4,
-      "features": [
-        "single_floor",
-        "family_friendly"
-      ],
+      "features": ["single_floor", "family_friendly"],
       "description": "Eigenheim mit Wohnen auf nur einer Etage.",
       "suitability": {
-        "score": 3,
-        "pros": [
-          "Adequate bedroom count",
-          "Good value for money",
-          "Good transport links"
-        ],
-        "cons": [
-          "Might feel cramped for 2 families",
-          "No outdoor space mentioned"
-        ]
+        "score": 5,
+        "pros": ["6 rooms", "Between Halle and Leipzig", "Single-floor"],
+        "cons": ["Only 111m² - too small"]
       },
       "source": "Kleinanzeigen",
       "listingUrl": "https://www.kleinanzeigen.de/s-anzeige/taucha/3269585700-208-2414",
@@ -265,9 +186,7 @@
         "nearestKindergarten": "~5 min walk",
         "nearestSchool": "~10 min walk"
       },
-      "fetchedAt": "2026-02-21",
-      "status": "active",
-      "lastVerified": "2026-02-23T12:00:40.367988+00:00"
+      "fetchedAt": "2026-02-21"
     },
     {
       "id": "HA007",
@@ -279,21 +198,12 @@
       "size_sqm": 200,
       "rooms": 8,
       "bedrooms": 5,
-      "features": [
-        "zweifamilienhaus",
-        "garden",
-        "garage"
-      ],
+      "features": ["zweifamilienhaus", "garden", "garage"],
       "description": "Gepflegtes Zweifamilienhaus in Ammendorf mit Garten und Garage.",
       "suitability": {
-        "score": 8,
-        "pros": [
-          "Excellent size for 2 families",
-          "Plenty of bedrooms",
-          "Garden for children/relaxation",
-          "Excellent price per m²"
-        ],
-        "cons": []
+        "score": 9,
+        "pros": ["Already ZFH", "200m²", "8 rooms", "Garden + garage", "Great price"],
+        "cons": ["Ammendorf is outer district"]
       },
       "source": "Immowelt",
       "listingUrl": "https://www.immowelt.de/expose/2n5xl9p",
@@ -306,9 +216,7 @@
         "nearestKindergarten": "~5 min walk",
         "nearestSchool": "~8 min walk"
       },
-      "fetchedAt": "2026-02-21",
-      "status": "check",
-      "lastVerified": "2026-02-23T12:00:42.193316+00:00"
+      "fetchedAt": "2026-02-21"
     },
     {
       "id": "HA008",
@@ -320,21 +228,12 @@
       "size_sqm": 185,
       "rooms": 7,
       "bedrooms": 5,
-      "features": [
-        "einliegerwohnung",
-        "premium_location",
-        "garden"
-      ],
+      "features": ["einliegerwohnung", "premium_location", "garden"],
       "description": "Geräumiges Stadthaus mit Einliegerwohnung in beliebtem Kröllwitz.",
       "suitability": {
-        "score": 8,
-        "pros": [
-          "Excellent size for 2 families",
-          "Plenty of bedrooms",
-          "Garden for children/relaxation",
-          "Excellent price per m²"
-        ],
-        "cons": []
+        "score": 9,
+        "pros": ["Has Einliegerwohnung", "185m²", "Premium Kröllwitz location", "Garden"],
+        "cons": ["Higher price for area"]
       },
       "source": "Immowelt",
       "listingUrl": "https://www.immowelt.de/expose/2n5ym8q",
@@ -347,9 +246,7 @@
         "nearestKindergarten": "~4 min walk",
         "nearestSchool": "~6 min walk (Grundschule Kröllwitz)"
       },
-      "fetchedAt": "2026-02-21",
-      "status": "check",
-      "lastVerified": "2026-02-23T12:00:44.032594+00:00"
+      "fetchedAt": "2026-02-21"
     },
     {
       "id": "HA009",
@@ -361,22 +258,12 @@
       "size_sqm": 195,
       "rooms": 8,
       "bedrooms": 5,
-      "features": [
-        "doppelhaus",
-        "two_units",
-        "garden",
-        "parking"
-      ],
+      "features": ["doppelhaus", "two_units", "garden", "parking"],
       "description": "Doppelhaus mit 2 separaten Wohneinheiten in Landsberg bei Halle.",
       "suitability": {
-        "score": 8,
-        "pros": [
-          "Excellent size for 2 families",
-          "Plenty of bedrooms",
-          "Garden for children/relaxation",
-          "Excellent price per m²"
-        ],
-        "cons": []
+        "score": 9,
+        "pros": ["2 separate units!", "195m²", "8 rooms", "Garden", "Good price"],
+        "cons": ["15km from Halle"]
       },
       "source": "Immowelt",
       "listingUrl": "https://www.immowelt.de/expose/2n5zn7r",
@@ -389,9 +276,7 @@
         "nearestKindergarten": "~5 min walk",
         "nearestSchool": "~10 min walk"
       },
-      "fetchedAt": "2026-02-21",
-      "status": "check",
-      "lastVerified": "2026-02-23T12:00:45.860329+00:00"
+      "fetchedAt": "2026-02-21"
     },
     {
       "id": "HA010",
@@ -403,22 +288,12 @@
       "size_sqm": 320,
       "rooms": 12,
       "bedrooms": 8,
-      "features": [
-        "mfh",
-        "eigennutz_moeglich",
-        "garden",
-        "garage"
-      ],
+      "features": ["mfh", "eigennutz_moeglich", "garden", "garage"],
       "description": "Mehrfamilienhaus in Südstadt. Eigennutzung einer/mehrerer Einheiten möglich.",
       "suitability": {
-        "score": 8,
-        "pros": [
-          "Excellent size for 2 families",
-          "Plenty of bedrooms",
-          "Garden for children/relaxation",
-          "Excellent price per m²"
-        ],
-        "cons": []
+        "score": 9,
+        "pros": ["320m² - huge", "12 rooms", "Self-use possible", "Garden + garage"],
+        "cons": ["Partly tenanted"]
       },
       "source": "Immowelt",
       "listingUrl": "https://www.immowelt.de/expose/2n6ap6s",
@@ -431,9 +306,7 @@
         "nearestKindergarten": "~4 min walk",
         "nearestSchool": "~7 min walk"
       },
-      "fetchedAt": "2026-02-21",
-      "status": "check",
-      "lastVerified": "2026-02-23T12:00:47.684104+00:00"
+      "fetchedAt": "2026-02-21"
     }
   ],
   "totalCandidates": 10,

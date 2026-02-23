@@ -1,6 +1,6 @@
 {
   "city": "Freiburg",
-  "enrichedAt": "2026-02-23T12:00:10.805555+00:00",
+  "enrichedAt": "2026-02-23T11:59:00.600321+00:00",
   "searchCriteria": {
     "radius": 30,
     "minBedrooms": 4,
@@ -54,7 +54,7 @@
       },
       "fetchedAt": "2026-02-21",
       "status": "active",
-      "lastVerified": "2026-02-23T11:59:53.578101+00:00"
+      "lastVerified": "2026-02-23T11:58:43.010354+00:00"
     },
     {
       "id": "FR002",
@@ -95,7 +95,7 @@
       },
       "fetchedAt": "2026-02-21",
       "status": "active",
-      "lastVerified": "2026-02-23T11:59:55.487652+00:00"
+      "lastVerified": "2026-02-23T11:58:44.963622+00:00"
     },
     {
       "id": "FR003",
@@ -136,7 +136,7 @@
       },
       "fetchedAt": "2026-02-21",
       "status": "active",
-      "lastVerified": "2026-02-23T11:59:57.202422+00:00"
+      "lastVerified": "2026-02-23T11:58:46.821515+00:00"
     },
     {
       "id": "FR004",
@@ -178,7 +178,7 @@
       },
       "fetchedAt": "2026-02-21",
       "status": "check",
-      "lastVerified": "2026-02-23T11:59:59.091436+00:00"
+      "lastVerified": "2026-02-23T11:58:48.837039+00:00"
     },
     {
       "id": "FR005",
@@ -221,7 +221,7 @@
       },
       "fetchedAt": "2026-02-21",
       "status": "check",
-      "lastVerified": "2026-02-23T12:00:00.978977+00:00"
+      "lastVerified": "2026-02-23T11:58:50.771025+00:00"
     },
     {
       "id": "FR006",
@@ -278,7 +278,7 @@
       "fetchedAt": "2026-02-21",
       "screenshotPath": "assets/freiburg/screenshots/IS24_165074195.jpg",
       "status": "active",
-      "lastVerified": "2026-02-23T12:00:02.825008+00:00",
+      "lastVerified": "2026-02-23T11:58:52.702856+00:00",
       "hasLocalImage": false
     },
     {
@@ -334,7 +334,7 @@
       "fetchedAt": "2026-02-21",
       "screenshotPath": "assets/freiburg/screenshots/IS24_165829100.jpg",
       "status": "active",
-      "lastVerified": "2026-02-23T12:00:04.684074+00:00",
+      "lastVerified": "2026-02-23T11:58:54.575706+00:00",
       "hasLocalImage": false
     },
     {
@@ -379,7 +379,7 @@
       },
       "fetchedAt": "2026-02-21",
       "status": "active",
-      "lastVerified": "2026-02-23T12:00:06.492220+00:00"
+      "lastVerified": "2026-02-23T11:58:56.422497+00:00"
     },
     {
       "id": "FR009",
@@ -424,7 +424,7 @@
       },
       "fetchedAt": "2026-02-21",
       "status": "active",
-      "lastVerified": "2026-02-23T12:00:08.354256+00:00"
+      "lastVerified": "2026-02-23T11:58:58.136172+00:00"
     },
     {
       "id": "FR010",
@@ -467,7 +467,7 @@
       },
       "fetchedAt": "2026-02-21",
       "status": "active",
-      "lastVerified": "2026-02-23T12:00:10.155220+00:00"
+      "lastVerified": "2026-02-23T11:58:59.972121+00:00"
     }
   ],
   "totalCandidates": 10,

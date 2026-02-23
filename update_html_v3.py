@@ -2,12 +2,13 @@
 """
 Update HTML v3 - Unified City Page Generator
 Generates consistent HTML pages for all cities from enriched JSON data.
+Enhanced with filtering, status badges, and gallery support.
 """
 
 import json
 import os
 from pathlib import Path
-from datetime import datetime
+from datetime import datetime, timedelta
 from html import escape
 
 # Configuration
@@ -55,6 +56,93 @@ def load_enriched_data(city: str) -> dict:
     
     with open(json_path, 'r', encoding='utf-8') as f:
         return json.load(f)
+
+
+def get_listing_status(candidate: dict, enriched_date: str) -> str:
+    """
+    Determine listing status based on fetch date and data.
+    Returns: 'new', 'updated', 'inactive', or 'active'
+    """
+    fetch_date_str = candidate.get("fetchedAt", "")
+    if not fetch_date_str:
+        return "active"
+    
+    try:
+        # Parse enriched date
+        if enriched_date.endswith('+01:00'):
+            enriched_datetime = datetime.fromisoformat(enriched_date.replace('+01:00', ''))
+        else:
+            enriched_datetime = datetime.fromisoformat(enriched_date)
+        
+        # Check if listing is new (last 48h)
+        two_days_ago = enriched_datetime - timedelta(days=2)
+        
+        # Parse fetch date 
+        try:
+            fetch_datetime = datetime.fromisoformat(fetch_date_str)
+        except:
+            # Try alternative date format
+            fetch_datetime = datetime.strptime(fetch_date_str, "%Y-%m-%d")
+        
+        if fetch_datetime >= two_days_ago:
+            return "new"
+        
+        # Check if marked as inactive
+        if candidate.get("status") == "inactive":
+            return "inactive"
+        
+        # Check if data was updated (price change, etc)
+        if candidate.get("updated"):
+            return "updated"
+        
+        return "active"
+        
+    except Exception as e:
+        return "active"
+
+
+def get_status_badge_html(status: str) -> str:
+    """Get HTML for status badge."""
+    badges = {
+        "new": '<span class="status-badge status-new">🆕 NEW</span>',
+        "updated": '<span class="status-badge status-updated">🔄 UPDATED</span>',
+        "inactive": '<span class="status-badge status-inactive">⚠️ INACTIVE</span>',
+        "active": ""
+    }
+    return badges.get(status, "")
+
+
+def find_image_paths(city: str, candidate_id: str) -> list:
+    """
+    Find all images for a candidate. Returns list of (path, exists) tuples.
+    Checks photos/{id}.jpg first, then screenshots folder, supports multiple images.
+    """
+    images = []
+    
+    # Check photos folder first
+    photos_dir = ASSETS_DIR / city / "photos"
+    photo_path = photos_dir / f"{candidate_id}.jpg"
+    if photo_path.exists():
+        images.append((f"assets/{city}/photos/{candidate_id}.jpg", True))
+    
+    # Check for additional numbered images  
+    for i in range(2, 6):  # Check for {id}_2.jpg, {id}_3.jpg, etc.
+        photo_path = photos_dir / f"{candidate_id}_{i}.jpg"
+        if photo_path.exists():
+            images.append((f"assets/{city}/photos/{candidate_id}_{i}.jpg", True))
+    
+    # Check screenshots folder (for Freiburg ImmoScout captures)
+    screenshots_dir = ASSETS_DIR / city / "screenshots"
+    if screenshots_dir.exists():
+        for f in screenshots_dir.iterdir():
+            if f.suffix.lower() in ['.jpg', '.jpeg', '.png'] and candidate_id in f.stem:
+                images.append((f"assets/{city}/screenshots/{f.name}", True))
+    
+    # If no images found, return placeholder
+    if not images:
+        images.append(("assets/placeholder.jpg", False))
+    
+    return images
 
 
 def find_image_path(city: str, candidate_id: str) -> tuple:
@@ -137,11 +225,17 @@ def has_garden_or_outdoor(candidate: dict) -> bool:
     return False
 
 
-def format_price(price: float, currency: str = "EUR") -> str:
-    """Format price for display."""
+def format_price(price: float, price_type: str = "buy") -> str:
+    """Format price for display with type indication."""
     if not price:
         return "—"
-    return f"€{price:,.0f}".replace(",", ".")
+    
+    formatted = f"€{price:,.0f}".replace(",", ".")
+    
+    if price_type == "rent":
+        return f"{formatted}/Monat"
+    else:  # buy
+        return formatted
 
 
 def truncate_text(text: str, max_len: int = 150) -> str:
@@ -153,16 +247,21 @@ def truncate_text(text: str, max_len: int = 150) -> str:
     return text[:max_len].rsplit(' ', 1)[0] + "…"
 
 
-def render_candidate_card(candidate: dict, city: str) -> str:
-    """Render a single candidate card HTML."""
+def render_candidate_card(candidate: dict, city: str, enriched_date: str) -> str:
+    """Render a single candidate card HTML with enhanced features."""
     cid = candidate.get("id", "???")
     title = escape(candidate.get("title", "Untitled"))
     location = escape(candidate.get("location", "—"))
     price = candidate.get("price", 0)
+    price_type = candidate.get("priceType", "buy")
     rooms = candidate.get("rooms", 0)
     size_sqm = candidate.get("size_sqm", 0)
     bedrooms = candidate.get("bedrooms")
     description = escape(truncate_text(candidate.get("description", ""), 180))
+    
+    # Status
+    status = get_listing_status(candidate, enriched_date)
+    status_badge = get_status_badge_html(status)
     
     # Suitability
     suitability = candidate.get("suitability", {})
@@ -178,21 +277,37 @@ def render_candidate_card(candidate: dict, city: str) -> str:
     kinder_time = parse_education_minutes(education, "nearestKindergarten")
     school_time = parse_education_minutes(education, "nearestSchool")
     
-    # Image
-    img_path, img_exists = find_image_path(city, cid)
+    # Images
+    images = find_image_paths(city, cid)
+    primary_img = images[0]
+    has_gallery = len(images) > 1
+    
     listing_url = candidate.get("listingUrl", "#")
     
     # Garden/outdoor
     has_garden = has_garden_or_outdoor(candidate)
     
+    # Data attributes for filtering
+    data_attrs = f'data-type="{price_type}" data-score="{score}" data-price="{price}" data-size="{size_sqm}" data-id="{cid}"'
+    if status != "active":
+        data_attrs += f' data-status="{status}"'
+    
     # Build HTML
     score_class = get_score_class(score)
     
-    # Image section
-    if img_exists:
-        img_html = f'''<a href="{img_path}" target="_blank"><img src="{img_path}" alt="{cid}" onerror="this.parentElement.innerHTML='🏠'"></a>'''
+    # Image section with gallery support
+    if primary_img[1]:  # Image exists
+        gallery_class = " has-gallery" if has_gallery else ""
+        img_html = f'''<div class="candidate-image{gallery_class}" onclick="openGallery('{cid}')">
+            <img src="{primary_img[0]}" alt="{cid}" onerror="this.parentElement.innerHTML='🏠'">
+            {f'<div class="gallery-badge">📷 {len(images)}</div>' if has_gallery else ''}
+        </div>'''
+        
+        # Hidden gallery images for lightbox
+        gallery_data = json.dumps([img[0] for img in images if img[1]])
+        img_html += f'<script>window.galleries = window.galleries || {{}}; window.galleries["{cid}"] = {gallery_data};</script>'
     else:
-        img_html = '''<div class="image-placeholder">🏠</div>'''
+        img_html = '''<div class="candidate-image"><div class="image-placeholder">🏠</div></div>'''
     
     # Pros HTML
     pros_html = ""
@@ -220,18 +335,17 @@ def render_candidate_card(candidate: dict, city: str) -> str:
     meta_html = "".join(meta_items)
     
     return f'''
-        <div class="candidate-card">
-            <div class="candidate-image">
-                {img_html}
-            </div>
+        <div class="candidate-card" {data_attrs}>
+            {img_html}
             <div class="candidate-body">
                 <div class="candidate-header">
                     <span class="candidate-id">{cid}</span>
+                    {status_badge}
                     <span class="candidate-score {score_class}">{score}/10</span>
                 </div>
                 <h3 class="candidate-title">{title}</h3>
                 <p class="candidate-location">📍 {location}</p>
-                <p class="candidate-price">{format_price(price)}</p>
+                <p class="candidate-price">{format_price(price, price_type)}</p>
                 <div class="candidate-meta">{meta_html}</div>
                 {f'<p class="candidate-description">{description}</p>' if description else ''}
                 <div class="candidate-pros-cons">
@@ -258,16 +372,21 @@ def generate_city_page(city: str, data: dict, missing_fields: dict) -> str:
     candidates = data.get("candidates", [])
     city_name = CITY_DISPLAY_NAMES.get(city, city.title())
     emoji = CITY_EMOJIS.get(city, "🏠")
+    enriched_date = data.get("enrichedAt", "")
     
     # Count images
     images_found = 0
     images_missing = 0
     for c in candidates:
-        _, exists = find_image_path(city, c.get("id", ""))
-        if exists:
+        images = find_image_paths(city, c.get("id", ""))
+        if any(img[1] for img in images):
             images_found += 1
         else:
             images_missing += 1
+    
+    # Count by type
+    buy_count = len([c for c in candidates if c.get("priceType") == "buy"])
+    rent_count = len([c for c in candidates if c.get("priceType") == "rent"])
     
     # Find top picks (score >= 9)
     top_picks = [c for c in candidates if c.get("suitability", {}).get("score", 0) >= 9]
@@ -302,10 +421,36 @@ def generate_city_page(city: str, data: dict, missing_fields: dict) -> str:
     missing_fields[city] = city_missing
     
     # Render candidate cards
-    cards_html = "\n".join([render_candidate_card(c, city) for c in candidates])
+    cards_html = "\n".join([render_candidate_card(c, city, enriched_date) for c in candidates])
     
     # Generate page
     generated_at = datetime.now().strftime("%Y-%m-%d %H:%M")
+    
+    # Filter bar HTML
+    filter_bar_html = f'''
+    <div class="filter-bar" id="filterBar">
+        <div class="filter-group">
+            <label>Typ:</label>
+            <button class="filter-btn active" data-filter="all">Alle ({len(candidates)})</button>
+            <button class="filter-btn" data-filter="buy">Kauf ({buy_count})</button>
+            <button class="filter-btn" data-filter="rent">Miete ({rent_count})</button>
+        </div>
+        <div class="filter-group">
+            <label>Sortieren:</label>
+            <select class="sort-select" id="sortSelect">
+                <option value="score">Bewertung (hoch → niedrig)</option>
+                <option value="price-asc">Preis (niedrig → hoch)</option>
+                <option value="price-desc">Preis (hoch → niedrig)</option>
+                <option value="size">Größe (groß → klein)</option>
+                <option value="id">ID (A → Z)</option>
+            </select>
+        </div>
+        <div class="filter-group search-group">
+            <label>Suche:</label>
+            <input type="text" class="search-input" id="searchInput" placeholder="Titel oder Ort...">
+            <button class="clear-btn" id="clearSearch">✕</button>
+        </div>
+    </div>'''
     
     return f'''<!DOCTYPE html>
 <html lang="de">
@@ -319,19 +464,26 @@ def generate_city_page(city: str, data: dict, missing_fields: dict) -> str:
     <header>
         <div class="breadcrumb"><a href="index.html">← Zurück zur Übersicht</a></div>
         <h1>{emoji} {city_name} - {len(candidates)} Kandidaten</h1>
-        <p class="header-meta">{images_found} mit Foto • {images_missing} ohne Foto</p>
+        <p class="header-meta">{images_found} mit Foto • {images_missing} ohne Foto • {buy_count} Kauf • {rent_count} Miete</p>
     </header>
 
     <div class="container">
         {top_picks_html}
-        <div class="candidates-grid">
+        {filter_bar_html}
+        <div class="candidates-grid" id="candidatesGrid">
             {cards_html}
+        </div>
+        <div class="no-results" id="noResults" style="display: none;">
+            <p>Keine Immobilien gefunden, die den Filterkriterien entsprechen.</p>
         </div>
     </div>
 
     <footer class="page-footer">
         <p>Generiert am {generated_at} • Daten aus candidates_enriched.json</p>
     </footer>
+    
+    <script src="js/filters.js"></script>
+    <script src="js/gallery.js"></script>
 </body>
 </html>'''
 
@@ -356,6 +508,60 @@ def validate_html_links(city: str) -> list:
             issues.append(f"Missing image: {src}")
     
     return issues
+
+
+def update_index_page():
+    """Update the index.html with current data and timestamp."""
+    # Read current index.html
+    index_path = DOCS_DIR / "index.html"
+    if not index_path.exists():
+        print(f"Warning: {index_path} not found")
+        return
+        
+    with open(index_path, 'r', encoding='utf-8') as f:
+        content = f.read()
+    
+    # Calculate total statistics
+    total_candidates = 0
+    total_buy = 0
+    total_rent = 0
+    
+    for city in CITIES:
+        data = load_enriched_data(city)
+        candidates = data.get("candidates", [])
+        total_candidates += len(candidates)
+        
+        for candidate in candidates:
+            if candidate.get("priceType") == "rent":
+                total_rent += 1
+            else:
+                total_buy += 1
+    
+    # Update the stats
+    import re
+    
+    # Update total candidates
+    content = re.sub(
+        r'<div class="number">\d+</div>\s*<div class="label">Kandidaten gesamt</div>',
+        f'<div class="number">{total_candidates}</div>\n                <div class="label">Kandidaten gesamt</div>',
+        content
+    )
+    
+    # Update timestamp in footer script (more robust pattern)
+    generated_at = datetime.now().strftime("%d. %B %Y, %H:%M")
+    content = re.sub(
+        r"document\.getElementById\('lastUpdate'\)\.textContent = .*?;",
+        f"document.getElementById('lastUpdate').textContent = '{generated_at}';",
+        content,
+        flags=re.DOTALL
+    )
+    
+    # Write back to file
+    with open(index_path, 'w', encoding='utf-8') as f:
+        f.write(content)
+    
+    print(f"✓ Updated index.html - {total_candidates} total ({total_buy} buy, {total_rent} rent)")
+    print(f"   Updated timestamp: {generated_at}")
 
 
 def main():
@@ -411,6 +617,11 @@ def main():
         json.dump(missing_summary, f, indent=2)
     files_changed.append(str(missing_fields_path.relative_to(PROJECT_DIR)))
     print(f"\n📋 Missing fields report: {missing_fields_path}")
+    
+    # Update index page with current stats
+    print(f"\n🏠 Updating index page...")
+    update_index_page()
+    files_changed.append("docs/index.html")
     
     # Summary
     print("\n" + "=" * 60)

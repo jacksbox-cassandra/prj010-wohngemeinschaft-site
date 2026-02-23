@@ -10,25 +10,51 @@
     <header>
         <div class="breadcrumb"><a href="index.html">← Zurück zur Übersicht</a></div>
         <h1>🌊 Magdeburg - 10 Kandidaten</h1>
-        <p class="header-meta">7 mit Foto • 3 ohne Foto</p>
+        <p class="header-meta">7 mit Foto • 3 ohne Foto • 10 Kauf • 0 Miete</p>
     </header>
 
     <div class="container">
         
         <div class="top-banner">
             <h3>🌟 Top-Empfehlungen für Magdeburg</h3>
-            <p><strong>MD007</strong> - Moderne Stadtvilla mit 2 Wohneinheiten (€870,000) | <strong>MD008</strong> - Großzügiges ZFH Stadtfeld Ost (€495,000) | <strong>MD009</strong> - Familienhaus mit Einliegerwohnung Cracau (€425,000)</p>
+            <p><strong>MD009</strong> - Familienhaus mit Einliegerwohnung Cracau (€425,000)</p>
         </div>
-        <div class="candidates-grid">
+        
+    <div class="filter-bar" id="filterBar">
+        <div class="filter-group">
+            <label>Typ:</label>
+            <button class="filter-btn active" data-filter="all">Alle (10)</button>
+            <button class="filter-btn" data-filter="buy">Kauf (10)</button>
+            <button class="filter-btn" data-filter="rent">Miete (0)</button>
+        </div>
+        <div class="filter-group">
+            <label>Sortieren:</label>
+            <select class="sort-select" id="sortSelect">
+                <option value="score">Bewertung (hoch → niedrig)</option>
+                <option value="price-asc">Preis (niedrig → hoch)</option>
+                <option value="price-desc">Preis (hoch → niedrig)</option>
+                <option value="size">Größe (groß → klein)</option>
+                <option value="id">ID (A → Z)</option>
+            </select>
+        </div>
+        <div class="filter-group search-group">
+            <label>Suche:</label>
+            <input type="text" class="search-input" id="searchInput" placeholder="Titel oder Ort...">
+            <button class="clear-btn" id="clearSearch">✕</button>
+        </div>
+    </div>
+        <div class="candidates-grid" id="candidatesGrid">
             
-        <div class="candidate-card">
-            <div class="candidate-image">
-                <a href="assets/magdeburg/photos/MD001.jpg" target="_blank"><img src="assets/magdeburg/photos/MD001.jpg" alt="MD001" onerror="this.parentElement.innerHTML='🏠'"></a>
-            </div>
+        <div class="candidate-card" data-type="buy" data-score="8" data-price="355000" data-size="262.27" data-id="MD001">
+            <div class="candidate-image" onclick="openGallery('MD001')">
+            <img src="assets/magdeburg/photos/MD001.jpg" alt="MD001" onerror="this.parentElement.innerHTML='🏠'">
+            
+        </div><script>window.galleries = window.galleries || {}; window.galleries["MD001"] = ["assets/magdeburg/photos/MD001.jpg"];</script>
             <div class="candidate-body">
                 <div class="candidate-header">
                     <span class="candidate-id">MD001</span>
-                    <span class="candidate-score medium">7/10</span>
+                    
+                    <span class="candidate-score ">8/10</span>
                 </div>
                 <h3 class="candidate-title">Attraktives Mehrfamilienhaus voll vermietet</h3>
                 <p class="candidate-location">📍 39116 Magdeburg</p>
@@ -36,8 +62,8 @@
                 <div class="candidate-meta"><span>262.27 m²</span><span>9 Zimmer</span><span>6 Schlafzimmer</span></div>
                 <p class="candidate-description">Attraktives Mehrfamilienhaus in ruhiger Lage. Voll vermietet.</p>
                 <div class="candidate-pros-cons">
-                    <div class="pros"><h4>Vorteile</h4><ul><li>262m² - good size</li><li>9 rooms</li><li>Very affordable</li><li>Multi-family</li></ul></div>
-                    <div class="cons"><h4>Nachteile</h4><ul><li>Currently rented - need to wait for tenants</li></ul></div>
+                    <div class="pros"><h4>Vorteile</h4><ul><li>Excellent size for 2 families</li><li>Plenty of bedrooms</li><li>Excellent price per m²</li><li>Excellent public transport</li></ul></div>
+                    <div class="cons"><h4>Nachteile</h4><ul><li>No outdoor space mentioned</li></ul></div>
                 </div>
                 <div class="candidate-info-grid">
                     <div class="info-box">
@@ -53,14 +79,16 @@
             </div>
         </div>
 
-        <div class="candidate-card">
-            <div class="candidate-image">
-                <a href="assets/magdeburg/photos/MD002.jpg" target="_blank"><img src="assets/magdeburg/photos/MD002.jpg" alt="MD002" onerror="this.parentElement.innerHTML='🏠'"></a>
-            </div>
+        <div class="candidate-card" data-type="buy" data-score="1" data-price="209000" data-size="105.01" data-id="MD002">
+            <div class="candidate-image" onclick="openGallery('MD002')">
+            <img src="assets/magdeburg/photos/MD002.jpg" alt="MD002" onerror="this.parentElement.innerHTML='🏠'">
+            
+        </div><script>window.galleries = window.galleries || {}; window.galleries["MD002"] = ["assets/magdeburg/photos/MD002.jpg"];</script>
             <div class="candidate-body">
                 <div class="candidate-header">
                     <span class="candidate-id">MD002</span>
-                    <span class="candidate-score low">5/10</span>
+                    
+                    <span class="candidate-score low">1/10</span>
                 </div>
                 <h3 class="candidate-title">Sanierungsobjekt für Familien - Ottersleben</h3>
                 <p class="candidate-location">📍 39116 Magdeburg (Ottersleben)</p>
@@ -68,8 +96,8 @@
                 <div class="candidate-meta"><span>105.01 m²</span><span>5 Zimmer</span><span>3 Schlafzimmer</span></div>
                 <p class="candidate-description">Reihenmittelhaus mit Potenzial in Magdeburg Ottersleben.</p>
                 <div class="candidate-pros-cons">
-                    <div class="pros"><h4>Vorteile</h4><ul><li>Very affordable</li><li>5 rooms</li><li>Good area</li></ul></div>
-                    <div class="cons"><h4>Nachteile</h4><ul><li>Only 105m² - too small</li><li>Needs major renovation</li></ul></div>
+                    <div class="pros"><h4>Vorteile</h4><ul><li>Excellent price per m²</li><li>Good transport links</li></ul></div>
+                    <div class="cons"><h4>Nachteile</h4><ul><li>Might feel cramped for 2 families</li><li>Limited bedroom options</li><li>No outdoor space mentioned</li></ul></div>
                 </div>
                 <div class="candidate-info-grid">
                     <div class="info-box">
@@ -85,14 +113,16 @@
             </div>
         </div>
 
-        <div class="candidate-card">
-            <div class="candidate-image">
-                <a href="assets/magdeburg/photos/MD003.jpg" target="_blank"><img src="assets/magdeburg/photos/MD003.jpg" alt="MD003" onerror="this.parentElement.innerHTML='🏠'"></a>
-            </div>
+        <div class="candidate-card" data-type="buy" data-score="5" data-price="400000" data-size="384" data-id="MD003">
+            <div class="candidate-image" onclick="openGallery('MD003')">
+            <img src="assets/magdeburg/photos/MD003.jpg" alt="MD003" onerror="this.parentElement.innerHTML='🏠'">
+            
+        </div><script>window.galleries = window.galleries || {}; window.galleries["MD003"] = ["assets/magdeburg/photos/MD003.jpg"];</script>
             <div class="candidate-body">
                 <div class="candidate-header">
                     <span class="candidate-id">MD003</span>
-                    <span class="candidate-score ">8/10</span>
+                    
+                    <span class="candidate-score low">5/10</span>
                 </div>
                 <h3 class="candidate-title">Naturnah und städtisch verbunden - MFH 384m²</h3>
                 <p class="candidate-location">📍 39122 Magdeburg</p>
@@ -100,8 +130,8 @@
                 <div class="candidate-meta"><span>384 m²</span><span>14 Zimmer</span><span>10 Schlafzimmer</span></div>
                 <p class="candidate-description">Gepflegtes Mehrfamilienhaus mit insgesamt 7 Wohneinheiten.</p>
                 <div class="candidate-pros-cons">
-                    <div class="pros"><h4>Vorteile</h4><ul><li>384m² - huge!</li><li>14 rooms</li><li>Already multi-unit</li><li>Near nature</li></ul></div>
-                    <div class="cons"><h4>Nachteile</h4><ul><li>7 units may be too much</li><li>Currently rented?</li></ul></div>
+                    <div class="pros"><h4>Vorteile</h4><ul><li>Excellent size for 2 families</li><li>Plenty of bedrooms</li><li>Excellent price per m²</li><li>Good transport links</li></ul></div>
+                    <div class="cons"><h4>Nachteile</h4><ul><li>No outdoor space mentioned</li></ul></div>
                 </div>
                 <div class="candidate-info-grid">
                     <div class="info-box">
@@ -117,14 +147,16 @@
             </div>
         </div>
 
-        <div class="candidate-card">
-            <div class="candidate-image">
-                <a href="assets/magdeburg/photos/MD004.jpg" target="_blank"><img src="assets/magdeburg/photos/MD004.jpg" alt="MD004" onerror="this.parentElement.innerHTML='🏠'"></a>
-            </div>
+        <div class="candidate-card" data-type="buy" data-score="3" data-price="399560" data-size="119" data-id="MD004">
+            <div class="candidate-image" onclick="openGallery('MD004')">
+            <img src="assets/magdeburg/photos/MD004.jpg" alt="MD004" onerror="this.parentElement.innerHTML='🏠'">
+            
+        </div><script>window.galleries = window.galleries || {}; window.galleries["MD004"] = ["assets/magdeburg/photos/MD004.jpg"];</script>
             <div class="candidate-body">
                 <div class="candidate-header">
                     <span class="candidate-id">MD004</span>
-                    <span class="candidate-score low">5/10</span>
+                    
+                    <span class="candidate-score low">3/10</span>
                 </div>
                 <h3 class="candidate-title">Moderne Neubau Doppelhaushälfte Lemsdorf</h3>
                 <p class="candidate-location">📍 39118 Magdeburg (Lemsdorf)</p>
@@ -132,8 +164,8 @@
                 <div class="candidate-meta"><span>119 m²</span><span>4 Zimmer</span><span>3 Schlafzimmer</span></div>
                 <p class="candidate-description">Moderne Doppelhaushälfte in Magdeburg-Lemsdorf.</p>
                 <div class="candidate-pros-cons">
-                    <div class="pros"><h4>Vorteile</h4><ul><li>New construction</li><li>Includes land</li><li>Modern</li></ul></div>
-                    <div class="cons"><h4>Nachteile</h4><ul><li>119m² too small for 2 families</li></ul></div>
+                    <div class="pros"><h4>Vorteile</h4><ul><li>Excellent price per m²</li><li>Excellent public transport</li></ul></div>
+                    <div class="cons"><h4>Nachteile</h4><ul><li>Might feel cramped for 2 families</li><li>Limited bedroom options</li><li>No outdoor space mentioned</li></ul></div>
                 </div>
                 <div class="candidate-info-grid">
                     <div class="info-box">
@@ -149,14 +181,16 @@
             </div>
         </div>
 
-        <div class="candidate-card">
-            <div class="candidate-image">
-                <a href="assets/magdeburg/photos/MD005.jpg" target="_blank"><img src="assets/magdeburg/photos/MD005.jpg" alt="MD005" onerror="this.parentElement.innerHTML='🏠'"></a>
-            </div>
+        <div class="candidate-card" data-type="buy" data-score="2" data-price="120000" data-size="95" data-id="MD005">
+            <div class="candidate-image" onclick="openGallery('MD005')">
+            <img src="assets/magdeburg/photos/MD005.jpg" alt="MD005" onerror="this.parentElement.innerHTML='🏠'">
+            
+        </div><script>window.galleries = window.galleries || {}; window.galleries["MD005"] = ["assets/magdeburg/photos/MD005.jpg"];</script>
             <div class="candidate-body">
                 <div class="candidate-header">
                     <span class="candidate-id">MD005</span>
-                    <span class="candidate-score low">4/10</span>
+                    
+                    <span class="candidate-score low">2/10</span>
                 </div>
                 <h3 class="candidate-title">Freistehender Bungalow Zipkeleben</h3>
                 <p class="candidate-location">📍 39114 Magdeburg (Zipkeleben)</p>
@@ -164,8 +198,8 @@
                 <div class="candidate-meta"><span>95 m²</span><span>4 Zimmer</span><span>3 Schlafzimmer</span></div>
                 <p class="candidate-description">Freistehender Bungalow in Zipkeleben bei Magdeburg.</p>
                 <div class="candidate-pros-cons">
-                    <div class="pros"><h4>Vorteile</h4><ul><li>Extremely affordable</li><li>Detached</li></ul></div>
-                    <div class="cons"><h4>Nachteile</h4><ul><li>Only 95m² - far too small</li><li>Would need major expansion</li></ul></div>
+                    <div class="pros"><h4>Vorteile</h4><ul><li>Excellent price per m²</li><li>Good transport links</li></ul></div>
+                    <div class="cons"><h4>Nachteile</h4><ul><li>Might feel cramped for 2 families</li><li>Limited bedroom options</li><li>No outdoor space mentioned</li></ul></div>
                 </div>
                 <div class="candidate-info-grid">
                     <div class="info-box">
@@ -181,14 +215,16 @@
             </div>
         </div>
 
-        <div class="candidate-card">
-            <div class="candidate-image">
-                <a href="assets/magdeburg/photos/MD006.jpg" target="_blank"><img src="assets/magdeburg/photos/MD006.jpg" alt="MD006" onerror="this.parentElement.innerHTML='🏠'"></a>
-            </div>
+        <div class="candidate-card" data-type="buy" data-score="4" data-price="249000" data-size="110" data-id="MD006">
+            <div class="candidate-image" onclick="openGallery('MD006')">
+            <img src="assets/magdeburg/photos/MD006.jpg" alt="MD006" onerror="this.parentElement.innerHTML='🏠'">
+            
+        </div><script>window.galleries = window.galleries || {}; window.galleries["MD006"] = ["assets/magdeburg/photos/MD006.jpg"];</script>
             <div class="candidate-body">
                 <div class="candidate-header">
                     <span class="candidate-id">MD006</span>
-                    <span class="candidate-score low">5/10</span>
+                    
+                    <span class="candidate-score low">4/10</span>
                 </div>
                 <h3 class="candidate-title">Charmantes Reihenhaus Wellen bei Magdeburg</h3>
                 <p class="candidate-location">📍 39167 Wellen (5km from Magdeburg)</p>
@@ -196,8 +232,8 @@
                 <div class="candidate-meta"><span>110 m²</span><span>4 Zimmer</span><span>3 Schlafzimmer</span></div>
                 <p class="candidate-description">Charmantes Reihenhaus in ruhiger Lage von Wellen bei Magdeburg.</p>
                 <div class="candidate-pros-cons">
-                    <div class="pros"><h4>Vorteile</h4><ul><li>Affordable</li><li>Quiet location</li></ul></div>
-                    <div class="cons"><h4>Nachteile</h4><ul><li>110m² too small</li><li>Reihenhaus</li></ul></div>
+                    <div class="pros"><h4>Vorteile</h4><ul><li>Excellent price per m²</li><li>Excellent public transport</li></ul></div>
+                    <div class="cons"><h4>Nachteile</h4><ul><li>Might feel cramped for 2 families</li><li>Limited bedroom options</li><li>No outdoor space mentioned</li></ul></div>
                 </div>
                 <div class="candidate-info-grid">
                     <div class="info-box">
@@ -213,14 +249,16 @@
             </div>
         </div>
 
-        <div class="candidate-card">
-            <div class="candidate-image">
-                <a href="assets/magdeburg/photos/MD007.jpg" target="_blank"><img src="assets/magdeburg/photos/MD007.jpg" alt="MD007" onerror="this.parentElement.innerHTML='🏠'"></a>
-            </div>
+        <div class="candidate-card" data-type="buy" data-score="6" data-price="870000" data-size="218.06" data-id="MD007">
+            <div class="candidate-image" onclick="openGallery('MD007')">
+            <img src="assets/magdeburg/photos/MD007.jpg" alt="MD007" onerror="this.parentElement.innerHTML='🏠'">
+            
+        </div><script>window.galleries = window.galleries || {}; window.galleries["MD007"] = ["assets/magdeburg/photos/MD007.jpg"];</script>
             <div class="candidate-body">
                 <div class="candidate-header">
                     <span class="candidate-id">MD007</span>
-                    <span class="candidate-score ">9/10</span>
+                    
+                    <span class="candidate-score medium">6/10</span>
                 </div>
                 <h3 class="candidate-title">Moderne Stadtvilla mit 2 Wohneinheiten</h3>
                 <p class="candidate-location">📍 39130 Magdeburg</p>
@@ -228,8 +266,8 @@
                 <div class="candidate-meta"><span>218.06 m²</span><span>8 Zimmer</span><span>5 Schlafzimmer</span></div>
                 <p class="candidate-description">High-End-Stadtvilla mit zwei Wohneinheiten und purem Luxusgefühl.</p>
                 <div class="candidate-pros-cons">
-                    <div class="pros"><h4>Vorteile</h4><ul><li>Already 2 units!</li><li>218m²</li><li>High-end quality</li><li>8 rooms</li></ul></div>
-                    <div class="cons"><h4>Nachteile</h4><ul><li>Higher price</li></ul></div>
+                    <div class="pros"><h4>Vorteile</h4><ul><li>Excellent size for 2 families</li><li>Plenty of bedrooms</li><li>Excellent price per m²</li><li>Excellent public transport</li></ul></div>
+                    <div class="cons"><h4>Nachteile</h4><ul><li>No outdoor space mentioned</li></ul></div>
                 </div>
                 <div class="candidate-info-grid">
                     <div class="info-box">
@@ -245,14 +283,13 @@
             </div>
         </div>
 
-        <div class="candidate-card">
-            <div class="candidate-image">
-                <div class="image-placeholder">🏠</div>
-            </div>
+        <div class="candidate-card" data-type="buy" data-score="8" data-price="495000" data-size="195" data-id="MD008">
+            <div class="candidate-image"><div class="image-placeholder">🏠</div></div>
             <div class="candidate-body">
                 <div class="candidate-header">
                     <span class="candidate-id">MD008</span>
-                    <span class="candidate-score ">10/10</span>
+                    
+                    <span class="candidate-score ">8/10</span>
                 </div>
                 <h3 class="candidate-title">Großzügiges ZFH Stadtfeld Ost</h3>
                 <p class="candidate-location">📍 39108 Magdeburg-Stadtfeld Ost</p>
@@ -260,8 +297,8 @@
                 <div class="candidate-meta"><span>195 m²</span><span>8 Zimmer</span><span>5 Schlafzimmer</span><span class="highlight">🌳 Garten/Outdoor</span></div>
                 <p class="candidate-description">Geräumiges Zweifamilienhaus in beliebtem Stadtfeld Ost.</p>
                 <div class="candidate-pros-cons">
-                    <div class="pros"><h4>Vorteile</h4><ul><li>Already ZFH</li><li>195m²</li><li>8 rooms</li><li>Premium location</li></ul></div>
-                    <div class="cons"><h4>Nachteile</h4><ul><li>Price moderate</li></ul></div>
+                    <div class="pros"><h4>Vorteile</h4><ul><li>Excellent size for 2 families</li><li>Plenty of bedrooms</li><li>Garden for children/relaxation</li><li>Excellent price per m²</li></ul></div>
+                    
                 </div>
                 <div class="candidate-info-grid">
                     <div class="info-box">
@@ -277,13 +314,12 @@
             </div>
         </div>
 
-        <div class="candidate-card">
-            <div class="candidate-image">
-                <div class="image-placeholder">🏠</div>
-            </div>
+        <div class="candidate-card" data-type="buy" data-score="9" data-price="425000" data-size="180" data-id="MD009">
+            <div class="candidate-image"><div class="image-placeholder">🏠</div></div>
             <div class="candidate-body">
                 <div class="candidate-header">
                     <span class="candidate-id">MD009</span>
+                    
                     <span class="candidate-score ">9/10</span>
                 </div>
                 <h3 class="candidate-title">Familienhaus mit Einliegerwohnung Cracau</h3>
@@ -292,8 +328,8 @@
                 <div class="candidate-meta"><span>180 m²</span><span>7 Zimmer</span><span>5 Schlafzimmer</span><span class="highlight">🌳 Garten/Outdoor</span></div>
                 <p class="candidate-description">Geräumiges Familienhaus mit Einliegerwohnung nahe der Elbe in Cracau.</p>
                 <div class="candidate-pros-cons">
-                    <div class="pros"><h4>Vorteile</h4><ul><li>Has Einliegerwohnung</li><li>180m²</li><li>Near Elbe river</li><li>Good price</li></ul></div>
-                    <div class="cons"><h4>Nachteile</h4><ul><li>May need some updates</li></ul></div>
+                    <div class="pros"><h4>Vorteile</h4><ul><li>Excellent size for 2 families</li><li>Plenty of bedrooms</li><li>Garden for children/relaxation</li><li>Excellent price per m²</li></ul></div>
+                    
                 </div>
                 <div class="candidate-info-grid">
                     <div class="info-box">
@@ -309,14 +345,13 @@
             </div>
         </div>
 
-        <div class="candidate-card">
-            <div class="candidate-image">
-                <div class="image-placeholder">🏠</div>
-            </div>
+        <div class="candidate-card" data-type="buy" data-score="6" data-price="385000" data-size="200" data-id="MD010">
+            <div class="candidate-image"><div class="image-placeholder">🏠</div></div>
             <div class="candidate-body">
                 <div class="candidate-header">
                     <span class="candidate-id">MD010</span>
-                    <span class="candidate-score ">9/10</span>
+                    
+                    <span class="candidate-score medium">6/10</span>
                 </div>
                 <h3 class="candidate-title">Großes Wohnhaus Sudenburg - 2 Etagen</h3>
                 <p class="candidate-location">📍 39112 Magdeburg-Sudenburg</p>
@@ -324,8 +359,8 @@
                 <div class="candidate-meta"><span>200 m²</span><span>8 Zimmer</span><span>5 Schlafzimmer</span></div>
                 <p class="candidate-description">Großzügiges Wohnhaus auf 2 Etagen in Sudenburg. Gut teilbar für 2 Familien.</p>
                 <div class="candidate-pros-cons">
-                    <div class="pros"><h4>Vorteile</h4><ul><li>200m²</li><li>8 rooms</li><li>Well divisible</li><li>Good price</li></ul></div>
-                    <div class="cons"><h4>Nachteile</h4><ul><li>Sudenburg is working-class area</li></ul></div>
+                    <div class="pros"><h4>Vorteile</h4><ul><li>Excellent size for 2 families</li><li>Plenty of bedrooms</li><li>Excellent price per m²</li><li>Excellent public transport</li></ul></div>
+                    <div class="cons"><h4>Nachteile</h4><ul><li>No outdoor space mentioned</li></ul></div>
                 </div>
                 <div class="candidate-info-grid">
                     <div class="info-box">
@@ -341,10 +376,16 @@
             </div>
         </div>
         </div>
+        <div class="no-results" id="noResults" style="display: none;">
+            <p>Keine Immobilien gefunden, die den Filterkriterien entsprechen.</p>
+        </div>
     </div>
 
     <footer class="page-footer">
-        <p>Generiert am 2026-02-21 22:55 • Daten aus candidates_enriched.json</p>
+        <p>Generiert am 2026-02-23 13:09 • Daten aus candidates_enriched.json</p>
     </footer>
+    
+    <script src="js/filters.js"></script>
+    <script src="js/gallery.js"></script>
 </body>
 </html>

@@ -10,25 +10,47 @@
     <header>
         <div class="breadcrumb"><a href="index.html">← Zurück zur Übersicht</a></div>
         <h1>🏰 Augsburg - 10 Kandidaten</h1>
-        <p class="header-meta">7 mit Foto • 3 ohne Foto</p>
+        <p class="header-meta">7 mit Foto • 3 ohne Foto • 10 Kauf • 0 Miete</p>
     </header>
 
     <div class="container">
         
-        <div class="top-banner">
-            <h3>🌟 Top-Empfehlungen für Augsburg</h3>
-            <p><strong>AU001</strong> - Wohnhaus mit 2 Einheiten und großem… (€649,000) | <strong>AU002</strong> - Zweifamilienhaus 305m² - Rohdiamant mit… (€650,000) | <strong>AU008</strong> - Großzügiges MFH mit 3 Einheiten… (€795,000)</p>
+        
+    <div class="filter-bar" id="filterBar">
+        <div class="filter-group">
+            <label>Typ:</label>
+            <button class="filter-btn active" data-filter="all">Alle (10)</button>
+            <button class="filter-btn" data-filter="buy">Kauf (10)</button>
+            <button class="filter-btn" data-filter="rent">Miete (0)</button>
         </div>
-        <div class="candidates-grid">
+        <div class="filter-group">
+            <label>Sortieren:</label>
+            <select class="sort-select" id="sortSelect">
+                <option value="score">Bewertung (hoch → niedrig)</option>
+                <option value="price-asc">Preis (niedrig → hoch)</option>
+                <option value="price-desc">Preis (hoch → niedrig)</option>
+                <option value="size">Größe (groß → klein)</option>
+                <option value="id">ID (A → Z)</option>
+            </select>
+        </div>
+        <div class="filter-group search-group">
+            <label>Suche:</label>
+            <input type="text" class="search-input" id="searchInput" placeholder="Titel oder Ort...">
+            <button class="clear-btn" id="clearSearch">✕</button>
+        </div>
+    </div>
+        <div class="candidates-grid" id="candidatesGrid">
             
-        <div class="candidate-card">
-            <div class="candidate-image">
-                <a href="assets/augsburg/photos/AU001.jpg" target="_blank"><img src="assets/augsburg/photos/AU001.jpg" alt="AU001" onerror="this.parentElement.innerHTML='🏠'"></a>
-            </div>
+        <div class="candidate-card" data-type="buy" data-score="3" data-price="649000" data-size="170" data-id="AU001">
+            <div class="candidate-image" onclick="openGallery('AU001')">
+            <img src="assets/augsburg/photos/AU001.jpg" alt="AU001" onerror="this.parentElement.innerHTML='🏠'">
+            
+        </div><script>window.galleries = window.galleries || {}; window.galleries["AU001"] = ["assets/augsburg/photos/AU001.jpg"];</script>
             <div class="candidate-body">
                 <div class="candidate-header">
                     <span class="candidate-id">AU001</span>
-                    <span class="candidate-score ">9/10</span>
+                    
+                    <span class="candidate-score low">3/10</span>
                 </div>
                 <h3 class="candidate-title">Wohnhaus mit 2 Einheiten und großem Grundstück</h3>
                 <p class="candidate-location">📍 86494 Emersacker (20km NW of Augsburg)</p>
@@ -36,8 +58,8 @@
                 <div class="candidate-meta"><span>170 m²</span><span>6 Zimmer</span><span>4 Schlafzimmer</span></div>
                 <p class="candidate-description">Gepflegtes ZFH mit nahezu neuwertiger Zentralheizung (Nov.2024). Zwei Wohneinheiten, großes Grundstück.</p>
                 <div class="candidate-pros-cons">
-                    <div class="pros"><h4>Vorteile</h4><ul><li>Already 2 units</li><li>New heating system</li><li>Large plot</li><li>Good price</li></ul></div>
-                    <div class="cons"><h4>Nachteile</h4><ul><li>20km from Augsburg center</li><li>Rural location</li></ul></div>
+                    <div class="pros"><h4>Vorteile</h4><ul><li>Good size for shared living</li><li>Adequate bedroom count</li><li>Excellent price per m²</li></ul></div>
+                    <div class="cons"><h4>Nachteile</h4><ul><li>No outdoor space mentioned</li><li>Long commute to center</li></ul></div>
                 </div>
                 <div class="candidate-info-grid">
                     <div class="info-box">
@@ -53,14 +75,16 @@
             </div>
         </div>
 
-        <div class="candidate-card">
-            <div class="candidate-image">
-                <a href="assets/augsburg/photos/AU002.jpg" target="_blank"><img src="assets/augsburg/photos/AU002.jpg" alt="AU002" onerror="this.parentElement.innerHTML='🏠'"></a>
-            </div>
+        <div class="candidate-card" data-type="buy" data-score="5" data-price="650000" data-size="305" data-id="AU002">
+            <div class="candidate-image" onclick="openGallery('AU002')">
+            <img src="assets/augsburg/photos/AU002.jpg" alt="AU002" onerror="this.parentElement.innerHTML='🏠'">
+            
+        </div><script>window.galleries = window.galleries || {}; window.galleries["AU002"] = ["assets/augsburg/photos/AU002.jpg"];</script>
             <div class="candidate-body">
                 <div class="candidate-header">
                     <span class="candidate-id">AU002</span>
-                    <span class="candidate-score ">10/10</span>
+                    
+                    <span class="candidate-score low">5/10</span>
                 </div>
                 <h3 class="candidate-title">Zweifamilienhaus 305m² - Rohdiamant mit Potenzial</h3>
                 <p class="candidate-location">📍 86405 Meitingen (20km N of Augsburg)</p>
@@ -68,8 +92,8 @@
                 <div class="candidate-meta"><span>305 m²</span><span>11 Zimmer</span><span>7 Schlafzimmer</span></div>
                 <p class="candidate-description">Renovierungsbedürftiges Zweifamilienhaus in Meitingen-Herbertshofen. Viel Platz und Potenzial.</p>
                 <div class="candidate-pros-cons">
-                    <div class="pros"><h4>Vorteile</h4><ul><li>Very large (305m²)</li><li>11 rooms - plenty of space</li><li>Already two-family</li><li>Best price-size ratio</li></ul></div>
-                    <div class="cons"><h4>Nachteile</h4><ul><li>Needs renovation</li><li>20km from center</li></ul></div>
+                    <div class="pros"><h4>Vorteile</h4><ul><li>Excellent size for 2 families</li><li>Plenty of bedrooms</li><li>Excellent price per m²</li><li>Good transport links</li></ul></div>
+                    <div class="cons"><h4>Nachteile</h4><ul><li>No outdoor space mentioned</li><li>May need renovation work</li></ul></div>
                 </div>
                 <div class="candidate-info-grid">
                     <div class="info-box">
@@ -85,14 +109,16 @@
             </div>
         </div>
 
-        <div class="candidate-card">
-            <div class="candidate-image">
-                <a href="assets/augsburg/photos/AU003.jpg" target="_blank"><img src="assets/augsburg/photos/AU003.jpg" alt="AU003" onerror="this.parentElement.innerHTML='🏠'"></a>
-            </div>
+        <div class="candidate-card" data-type="buy" data-score="3" data-price="589000" data-size="125" data-id="AU003">
+            <div class="candidate-image" onclick="openGallery('AU003')">
+            <img src="assets/augsburg/photos/AU003.jpg" alt="AU003" onerror="this.parentElement.innerHTML='🏠'">
+            
+        </div><script>window.galleries = window.galleries || {}; window.galleries["AU003"] = ["assets/augsburg/photos/AU003.jpg"];</script>
             <div class="candidate-body">
                 <div class="candidate-header">
                     <span class="candidate-id">AU003</span>
-                    <span class="candidate-score medium">7/10</span>
+                    
+                    <span class="candidate-score low">3/10</span>
                 </div>
                 <h3 class="candidate-title">Modernisiertes EFH mit 2 Wohneinheiten</h3>
                 <p class="candidate-location">📍 86456 Gablingen (15km N of Augsburg)</p>
@@ -100,8 +126,8 @@
                 <div class="candidate-meta"><span>125 m²</span><span>6 Zimmer</span><span>4 Schlafzimmer</span></div>
                 <p class="candidate-description">1961 solide erbautes, zweistöckiges EFH mit 2 Wohneinheiten auf ca. 611m² Grundstücksfläche.</p>
                 <div class="candidate-pros-cons">
-                    <div class="pros"><h4>Vorteile</h4><ul><li>Already 2 units</li><li>Modernized</li><li>Large plot (611m²)</li></ul></div>
-                    <div class="cons"><h4>Nachteile</h4><ul><li>125m² may be compact for 2 families</li></ul></div>
+                    <div class="pros"><h4>Vorteile</h4><ul><li>Adequate bedroom count</li><li>Good value for money</li><li>Good transport links</li></ul></div>
+                    <div class="cons"><h4>Nachteile</h4><ul><li>Might feel cramped for 2 families</li><li>No outdoor space mentioned</li></ul></div>
                 </div>
                 <div class="candidate-info-grid">
                     <div class="info-box">
@@ -117,14 +143,16 @@
             </div>
         </div>
 
-        <div class="candidate-card">
-            <div class="candidate-image">
-                <a href="assets/augsburg/photos/AU004.jpg" target="_blank"><img src="assets/augsburg/photos/AU004.jpg" alt="AU004" onerror="this.parentElement.innerHTML='🏠'"></a>
-            </div>
+        <div class="candidate-card" data-type="buy" data-score="4" data-price="853410" data-size="125" data-id="AU004">
+            <div class="candidate-image" onclick="openGallery('AU004')">
+            <img src="assets/augsburg/photos/AU004.jpg" alt="AU004" onerror="this.parentElement.innerHTML='🏠'">
+            
+        </div><script>window.galleries = window.galleries || {}; window.galleries["AU004"] = ["assets/augsburg/photos/AU004.jpg"];</script>
             <div class="candidate-body">
                 <div class="candidate-header">
                     <span class="candidate-id">AU004</span>
-                    <span class="candidate-score medium">6/10</span>
+                    
+                    <span class="candidate-score low">4/10</span>
                 </div>
                 <h3 class="candidate-title">Schlüsselfertige Doppelhaushälfte Augsburg Bärenkeller</h3>
                 <p class="candidate-location">📍 86156 Augsburg (Bärenkeller)</p>
@@ -132,8 +160,8 @@
                 <div class="candidate-meta"><span>125 m²</span><span>5 Zimmer</span><span>4 Schlafzimmer</span></div>
                 <p class="candidate-description">Modernes schlüsselfertiges Traumhaus in Augsburg. Neubau.</p>
                 <div class="candidate-pros-cons">
-                    <div class="pros"><h4>Vorteile</h4><ul><li>New construction</li><li>Turnkey ready</li><li>In Augsburg city</li><li>Good tram connection</li></ul></div>
-                    <div class="cons"><h4>Nachteile</h4><ul><li>Only 125m² - tight for 2 families</li><li>Higher price</li></ul></div>
+                    <div class="pros"><h4>Vorteile</h4><ul><li>Adequate bedroom count</li><li>Excellent public transport</li></ul></div>
+                    <div class="cons"><h4>Nachteile</h4><ul><li>Might feel cramped for 2 families</li><li>No outdoor space mentioned</li><li>High price per m²</li></ul></div>
                 </div>
                 <div class="candidate-info-grid">
                     <div class="info-box">
@@ -149,14 +177,16 @@
             </div>
         </div>
 
-        <div class="candidate-card">
-            <div class="candidate-image">
-                <a href="assets/augsburg/photos/AU005.jpg" target="_blank"><img src="assets/augsburg/photos/AU005.jpg" alt="AU005" onerror="this.parentElement.innerHTML='🏠'"></a>
-            </div>
+        <div class="candidate-card" data-type="buy" data-score="4" data-price="709000" data-size="140" data-id="AU005">
+            <div class="candidate-image" onclick="openGallery('AU005')">
+            <img src="assets/augsburg/photos/AU005.jpg" alt="AU005" onerror="this.parentElement.innerHTML='🏠'">
+            
+        </div><script>window.galleries = window.galleries || {}; window.galleries["AU005"] = ["assets/augsburg/photos/AU005.jpg"];</script>
             <div class="candidate-body">
                 <div class="candidate-header">
                     <span class="candidate-id">AU005</span>
-                    <span class="candidate-score ">8/10</span>
+                    
+                    <span class="candidate-score low">4/10</span>
                 </div>
                 <h3 class="candidate-title">Exklusive Doppelhaushälfte Augsburg Hammerschmiede</h3>
                 <p class="candidate-location">📍 86169 Augsburg (Hammerschmiede)</p>
@@ -164,8 +194,8 @@
                 <div class="candidate-meta"><span>140 m²</span><span>8 Zimmer</span><span>5 Schlafzimmer</span></div>
                 <p class="candidate-description">Ansprechende Doppelhaushälfte mit 8 Zimmern in Augsburg Hammerschmiede.</p>
                 <div class="candidate-pros-cons">
-                    <div class="pros"><h4>Vorteile</h4><ul><li>8 rooms - good distribution</li><li>In Augsburg city</li><li>5 bedrooms</li></ul></div>
-                    <div class="cons"><h4>Nachteile</h4><ul><li>140m² could be tighter</li><li>Doppelhaus</li></ul></div>
+                    <div class="pros"><h4>Vorteile</h4><ul><li>Plenty of bedrooms</li><li>Excellent public transport</li></ul></div>
+                    <div class="cons"><h4>Nachteile</h4><ul><li>No outdoor space mentioned</li></ul></div>
                 </div>
                 <div class="candidate-info-grid">
                     <div class="info-box">
@@ -181,14 +211,16 @@
             </div>
         </div>
 
-        <div class="candidate-card">
-            <div class="candidate-image">
-                <a href="assets/augsburg/photos/AU006.jpg" target="_blank"><img src="assets/augsburg/photos/AU006.jpg" alt="AU006" onerror="this.parentElement.innerHTML='🏠'"></a>
-            </div>
+        <div class="candidate-card" data-type="buy" data-score="5" data-price="549000" data-size="122" data-id="AU006">
+            <div class="candidate-image" onclick="openGallery('AU006')">
+            <img src="assets/augsburg/photos/AU006.jpg" alt="AU006" onerror="this.parentElement.innerHTML='🏠'">
+            
+        </div><script>window.galleries = window.galleries || {}; window.galleries["AU006"] = ["assets/augsburg/photos/AU006.jpg"];</script>
             <div class="candidate-body">
                 <div class="candidate-header">
                     <span class="candidate-id">AU006</span>
-                    <span class="candidate-score medium">6/10</span>
+                    
+                    <span class="candidate-score low">5/10</span>
                 </div>
                 <h3 class="candidate-title">Charmante Doppelhaushälfte mit Garten Lechhausen</h3>
                 <p class="candidate-location">📍 86167 Augsburg (Lechhausen)</p>
@@ -196,8 +228,8 @@
                 <div class="candidate-meta"><span>122 m²</span><span>5 Zimmer</span><span>4 Schlafzimmer</span><span class="highlight">🌳 Garten/Outdoor</span></div>
                 <p class="candidate-description">Doppelhaushälfte in gewachsener Wohnlage von Augsburg-Lechhausen mit Garten.</p>
                 <div class="candidate-pros-cons">
-                    <div class="pros"><h4>Vorteile</h4><ul><li>Has garden</li><li>Good price</li><li>Central location</li></ul></div>
-                    <div class="cons"><h4>Nachteile</h4><ul><li>122m² compact for 2 families</li></ul></div>
+                    <div class="pros"><h4>Vorteile</h4><ul><li>Adequate bedroom count</li><li>Garden for children/relaxation</li><li>Good value for money</li><li>Excellent public transport</li></ul></div>
+                    <div class="cons"><h4>Nachteile</h4><ul><li>Might feel cramped for 2 families</li></ul></div>
                 </div>
                 <div class="candidate-info-grid">
                     <div class="info-box">
@@ -213,14 +245,16 @@
             </div>
         </div>
 
-        <div class="candidate-card">
-            <div class="candidate-image">
-                <a href="assets/augsburg/photos/AU007.jpg" target="_blank"><img src="assets/augsburg/photos/AU007.jpg" alt="AU007" onerror="this.parentElement.innerHTML='🏠'"></a>
-            </div>
+        <div class="candidate-card" data-type="buy" data-score="4" data-price="555000" data-size="126" data-id="AU007">
+            <div class="candidate-image" onclick="openGallery('AU007')">
+            <img src="assets/augsburg/photos/AU007.jpg" alt="AU007" onerror="this.parentElement.innerHTML='🏠'">
+            
+        </div><script>window.galleries = window.galleries || {}; window.galleries["AU007"] = ["assets/augsburg/photos/AU007.jpg"];</script>
             <div class="candidate-body">
                 <div class="candidate-header">
                     <span class="candidate-id">AU007</span>
-                    <span class="candidate-score ">8/10</span>
+                    
+                    <span class="candidate-score low">4/10</span>
                 </div>
                 <h3 class="candidate-title">Charmantes Doppelhaus ideal für zwei Wohneinheiten</h3>
                 <p class="candidate-location">📍 86165 Augsburg (Ost)</p>
@@ -228,8 +262,8 @@
                 <div class="candidate-meta"><span>126 m²</span><span>6 Zimmer</span><span>4 Schlafzimmer</span></div>
                 <p class="candidate-description">Gepflegtes Doppelhaus, ideal für Familien, zwei Wohneinheiten möglich.</p>
                 <div class="candidate-pros-cons">
-                    <div class="pros"><h4>Vorteile</h4><ul><li>Two units possible</li><li>Bright and friendly</li><li>Good location</li><li>Reasonable price</li></ul></div>
-                    <div class="cons"><h4>Nachteile</h4><ul><li>126m² on smaller side</li></ul></div>
+                    <div class="pros"><h4>Vorteile</h4><ul><li>Adequate bedroom count</li><li>Good value for money</li><li>Excellent public transport</li></ul></div>
+                    <div class="cons"><h4>Nachteile</h4><ul><li>Might feel cramped for 2 families</li><li>No outdoor space mentioned</li></ul></div>
                 </div>
                 <div class="candidate-info-grid">
                     <div class="info-box">
@@ -245,14 +279,13 @@
             </div>
         </div>
 
-        <div class="candidate-card">
-            <div class="candidate-image">
-                <div class="image-placeholder">🏠</div>
-            </div>
+        <div class="candidate-card" data-type="buy" data-score="7" data-price="795000" data-size="260" data-id="AU008">
+            <div class="candidate-image"><div class="image-placeholder">🏠</div></div>
             <div class="candidate-body">
                 <div class="candidate-header">
                     <span class="candidate-id">AU008</span>
-                    <span class="candidate-score ">9/10</span>
+                    
+                    <span class="candidate-score medium">7/10</span>
                 </div>
                 <h3 class="candidate-title">Großzügiges MFH mit 3 Einheiten Kriegshaber</h3>
                 <p class="candidate-location">📍 86156 Augsburg (Kriegshaber)</p>
@@ -260,8 +293,8 @@
                 <div class="candidate-meta"><span>260 m²</span><span>10 Zimmer</span><span>6 Schlafzimmer</span></div>
                 <p class="candidate-description">Mehrfamilienhaus mit 3 Wohneinheiten in Kriegshaber. Ideal für Eigennutz + Vermietung.</p>
                 <div class="candidate-pros-cons">
-                    <div class="pros"><h4>Vorteile</h4><ul><li>3 units - flexible</li><li>260m² total</li><li>Good rental potential</li><li>Urban location</li></ul></div>
-                    <div class="cons"><h4>Nachteile</h4><ul><li>Higher price</li></ul></div>
+                    <div class="pros"><h4>Vorteile</h4><ul><li>Excellent size for 2 families</li><li>Plenty of bedrooms</li><li>Excellent price per m²</li><li>Excellent public transport</li></ul></div>
+                    <div class="cons"><h4>Nachteile</h4><ul><li>No outdoor space mentioned</li></ul></div>
                 </div>
                 <div class="candidate-info-grid">
                     <div class="info-box">
@@ -277,14 +310,13 @@
             </div>
         </div>
 
-        <div class="candidate-card">
-            <div class="candidate-image">
-                <div class="image-placeholder">🏠</div>
-            </div>
+        <div class="candidate-card" data-type="buy" data-score="8" data-price="720000" data-size="185" data-id="AU009">
+            <div class="candidate-image"><div class="image-placeholder">🏠</div></div>
             <div class="candidate-body">
                 <div class="candidate-header">
                     <span class="candidate-id">AU009</span>
-                    <span class="candidate-score ">9/10</span>
+                    
+                    <span class="candidate-score ">8/10</span>
                 </div>
                 <h3 class="candidate-title">Stadthaus mit Einliegerwohnung Göggingen</h3>
                 <p class="candidate-location">📍 86199 Augsburg (Göggingen)</p>
@@ -292,8 +324,8 @@
                 <div class="candidate-meta"><span>185 m²</span><span>7 Zimmer</span><span>5 Schlafzimmer</span><span class="highlight">🌳 Garten/Outdoor</span></div>
                 <p class="candidate-description">Geräumiges Stadthaus mit separater Einliegerwohnung in beliebtem Göggingen.</p>
                 <div class="candidate-pros-cons">
-                    <div class="pros"><h4>Vorteile</h4><ul><li>Has Einliegerwohnung</li><li>Good size (185m²)</li><li>Garden + garage</li><li>Popular area</li></ul></div>
-                    <div class="cons"><h4>Nachteile</h4><ul><li>Price slightly higher</li></ul></div>
+                    <div class="pros"><h4>Vorteile</h4><ul><li>Excellent size for 2 families</li><li>Plenty of bedrooms</li><li>Garden for children/relaxation</li><li>Excellent price per m²</li></ul></div>
+                    
                 </div>
                 <div class="candidate-info-grid">
                     <div class="info-box">
@@ -309,14 +341,13 @@
             </div>
         </div>
 
-        <div class="candidate-card">
-            <div class="candidate-image">
-                <div class="image-placeholder">🏠</div>
-            </div>
+        <div class="candidate-card" data-type="buy" data-score="6" data-price="665000" data-size="175" data-id="AU010">
+            <div class="candidate-image"><div class="image-placeholder">🏠</div></div>
             <div class="candidate-body">
                 <div class="candidate-header">
                     <span class="candidate-id">AU010</span>
-                    <span class="candidate-score ">10/10</span>
+                    
+                    <span class="candidate-score medium">6/10</span>
                 </div>
                 <h3 class="candidate-title">Familienfreundliches ZFH mit Garten Haunstetten</h3>
                 <p class="candidate-location">📍 86179 Augsburg (Haunstetten)</p>
@@ -324,8 +355,8 @@
                 <div class="candidate-meta"><span>175 m²</span><span>7 Zimmer</span><span>5 Schlafzimmer</span><span class="highlight">🌳 Garten/Outdoor</span></div>
                 <p class="candidate-description">Gepflegtes Zweifamilienhaus in familienfreundlicher Lage in Haunstetten.</p>
                 <div class="candidate-pros-cons">
-                    <div class="pros"><h4>Vorteile</h4><ul><li>Already ZFH</li><li>Good size 175m²</li><li>Garden</li><li>Family-friendly area</li></ul></div>
-                    <div class="cons"><h4>Nachteile</h4><ul><li>May need some updates</li></ul></div>
+                    <div class="pros"><h4>Vorteile</h4><ul><li>Good size for shared living</li><li>Plenty of bedrooms</li><li>Garden for children/relaxation</li><li>Excellent price per m²</li></ul></div>
+                    
                 </div>
                 <div class="candidate-info-grid">
                     <div class="info-box">
@@ -341,10 +372,16 @@
             </div>
         </div>
         </div>
+        <div class="no-results" id="noResults" style="display: none;">
+            <p>Keine Immobilien gefunden, die den Filterkriterien entsprechen.</p>
+        </div>
     </div>
 
     <footer class="page-footer">
-        <p>Generiert am 2026-02-21 22:55 • Daten aus candidates_enriched.json</p>
+        <p>Generiert am 2026-02-23 13:09 • Daten aus candidates_enriched.json</p>
     </footer>
+    
+    <script src="js/filters.js"></script>
+    <script src="js/gallery.js"></script>
 </body>
 </html>
