@@ -36,14 +36,17 @@ class ImmoweltScraper(BaseScraper):
         listings = []
         
         try:
-            # Get max results per type
-            max_per_type = self.config.get('scraper', {}).get('max_results_per_type', 15)
-            
             # Search both transaction types: buy and rent
             transaction_types = ['buy', 'rent']
             
             for transaction_type in transaction_types:
                 try:
+                    # Get max results per transaction type
+                    if transaction_type == 'buy':
+                        max_per_type = self.config.get('scraper', {}).get('max_results_per_buy', 15)
+                    else:  # rent
+                        max_per_type = self.config.get('scraper', {}).get('max_results_per_rent', 10)
+                        
                     # Build search URL for this city and transaction type
                     search_url = self._build_search_url(city, transaction_type=transaction_type, **kwargs)
                     logger.info(f"Searching Immowelt for {city} ({transaction_type}): {search_url}")
@@ -227,6 +230,38 @@ class ImmoweltScraper(BaseScraper):
                     listing['url'] = urljoin(self.source_config['base_url'], detail_link.get('href', ''))
                     
             if 'title' not in listing:
+                return None
+                
+            # Apply same property filtering as kleinanzeigen
+            title_lower = listing['title'].lower()
+            
+            # STRICT filter: Skip building materials, doors, windows, etc.
+            skip_keywords = [
+                'haustür', 'tür', 'türen', 'fenster', 'dach', 'heizung', 'sanitär', 
+                'boiler', 'wärmepumpe', 'solar', 'kinderspiel', 'spiel', 'garten möbel', 
+                'möbel', 'fliesen', 'parkett', 'laminat', 'kamin', 'ofen', 'garage tor',
+                'rollladen', 'rolladen', 'markise', 'sonnenschutz', 'carport', 
+                'gartenhäuser', 'gartenhaus', 'terrassendach', 'vordach', 'balkon',
+                'schiebetür', 'glastür', 'wintergarten kit', 'bausatz', 'baustoff',
+                'isolierung', 'dämmung', 'ziegel', 'holz verkauf', 'brennholz'
+            ]
+            
+            # If title contains skip keywords, skip
+            if any(keyword in title_lower for keyword in skip_keywords):
+                logger.debug(f"Skipping building material/component listing: {title_lower[:50]}")
+                return None
+                
+            # POSITIVE filter: Only include listings that clearly mention properties
+            property_keywords = [
+                'haus ', 'villa', 'bungalow', 'einfamilienhaus', 'zweifamilienhaus', 
+                'reihenhaus', 'doppelhaushälfte', 'wohnung', 'eigenheim', 'immobilie',
+                'zimmer wohnung', 'zimmer haus', 'etage', 'stockwerk', 'anwesen',
+                'landhaus', 'stadthaus', 'ferienhaus', 'mehrfamilienhaus'
+            ]
+            
+            # Must match at least one property keyword
+            if not any(keyword in title_lower for keyword in property_keywords):
+                logger.debug(f"No property keywords found, skipping: {title_lower[:50]}")
                 return None
                 
             # Extract price

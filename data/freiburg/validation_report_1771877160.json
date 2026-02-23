@@ -1,0 +1,333 @@
+{
+  "scraped_at": "2026-02-23T20:06:00Z",
+  "city": "freiburg",
+  "total_listings": 25,
+  "valid_listings": 25,
+  "validation_results": [
+    {
+      "listing_id": "https://www.kleinanzeigen.de/s-anzeige/charmantes-zweifamilienhaus-in-obersulm-vielseitig-nutzbar-fuer-familien-investoren-und-mehrgenerationenwohnen/3209603409-208-9243",
+      "valid": true,
+      "reasons": [
+        "Valid Kleinanzeigen detail URL",
+        "✓ Property is a house (allowing for manual review)",
+        "✓ Outdoor space check relaxed - allowing for review",
+        "? Size unknown - manual verification needed",
+        "? City center coordinates not configured - skipping location validation",
+        "? Price not specified",
+        "- Missing information: price"
+      ]
+    },
+    {
+      "listing_id": "https://www.kleinanzeigen.de/s-anzeige/zentrales-mehrfamilienhaus-mit-gewerbeeinheit-im-herzen-von-obersulm-/3222327444-208-9243",
+      "valid": true,
+      "reasons": [
+        "Valid Kleinanzeigen detail URL",
+        "✓ Property is a house (allowing for manual review)",
+        "✓ Outdoor space check relaxed - allowing for review",
+        "? Size unknown - manual verification needed",
+        "? City center coordinates not configured - skipping location validation",
+        "? Price not specified",
+        "- Missing information: price"
+      ]
+    },
+    {
+      "listing_id": "https://www.kleinanzeigen.de/s-anzeige/charmantes-zweifamilienhaus-in-obersulm-vielseitig-nutzbar-fuer-familien-investoren-und-mehrgenerationenwohnen/3209603409-208-9243",
+      "valid": true,
+      "reasons": [
+        "Valid Kleinanzeigen detail URL",
+        "✓ Property is a house (allowing for manual review)",
+        "✓ Outdoor space check relaxed - allowing for review",
+        "? Size unknown - manual verification needed",
+        "? City center coordinates not configured - skipping location validation",
+        "? Price not specified",
+        "- Missing information: price"
+      ]
+    },
+    {
+      "listing_id": "https://www.kleinanzeigen.de/s-anzeige/zentrales-mehrfamilienhaus-mit-gewerbeeinheit-im-herzen-von-obersulm-/3222327444-208-9243",
+      "valid": true,
+      "reasons": [
+        "Valid Kleinanzeigen detail URL",
+        "✓ Property is a house (allowing for manual review)",
+        "✓ Outdoor space check relaxed - allowing for review",
+        "? Size unknown - manual verification needed",
+        "? City center coordinates not configured - skipping location validation",
+        "? Price not specified",
+        "- Missing information: price"
+      ]
+    },
+    {
+      "listing_id": "https://www.kleinanzeigen.de/s-anzeige/charmantes-zweifamilienhaus-in-obersulm-vielseitig-nutzbar-fuer-familien-investoren-und-mehrgenerationenwohnen/3209603409-208-9243",
+      "valid": true,
+      "reasons": [
+        "Valid Kleinanzeigen detail URL",
+        "✓ Property is a house (allowing for manual review)",
+        "✓ Outdoor space check relaxed - allowing for review",
+        "? Size unknown - manual verification needed",
+        "? City center coordinates not configured - skipping location validation",
+        "? Price not specified",
+        "- Missing information: price"
+      ]
+    },
+    {
+      "listing_id": "https://www.kleinanzeigen.de/s-anzeige/zentrales-mehrfamilienhaus-mit-gewerbeeinheit-im-herzen-von-obersulm-/3222327444-208-9243",
+      "valid": true,
+      "reasons": [
+        "Valid Kleinanzeigen detail URL",
+        "✓ Property is a house (allowing for manual review)",
+        "✓ Outdoor space check relaxed - allowing for review",
+        "? Size unknown - manual verification needed",
+        "? City center coordinates not configured - skipping location validation",
+        "? Price not specified",
+        "- Missing information: price"
+      ]
+    },
+    {
+      "listing_id": "https://www.kleinanzeigen.de/s-anzeige/zentrales-mehrfamilienhaus-mit-gewerbeeinheit-im-herzen-von-obersulm-/3222327444-208-9243",
+      "valid": true,
+      "reasons": [
+        "Valid Kleinanzeigen detail URL",
+        "✓ Property is a house (allowing for manual review)",
+        "✓ Outdoor space check relaxed - allowing for review",
+        "? Size unknown - manual verification needed",
+        "? City center coordinates not configured - skipping location validation",
+        "? Price not specified",
+        "- Missing information: price"
+      ]
+    },
+    {
+      "listing_id": "https://www.kleinanzeigen.de/s-anzeige/charmantes-zweifamilienhaus-in-obersulm-vielseitig-nutzbar-fuer-familien-investoren-und-mehrgenerationenwohnen/3209603409-208-9243",
+      "valid": true,
+      "reasons": [
+        "Valid Kleinanzeigen detail URL",
+        "✓ Property is a house (allowing for manual review)",
+        "✓ Outdoor space check relaxed - allowing for review",
+        "? Size unknown - manual verification needed",
+        "? City center coordinates not configured - skipping location validation",
+        "? Price not specified",
+        "- Missing information: price"
+      ]
+    },
+    {
+      "listing_id": "https://www.kleinanzeigen.de/s-anzeige/zentrales-mehrfamilienhaus-mit-gewerbeeinheit-im-herzen-von-obersulm-/3222327444-208-9243",
+      "valid": true,
+      "reasons": [
+        "Valid Kleinanzeigen detail URL",
+        "✓ Property is a house (allowing for manual review)",
+        "✓ Outdoor space check relaxed - allowing for review",
+        "? Size unknown - manual verification needed",
+        "? City center coordinates not configured - skipping location validation",
+        "? Price not specified",
+        "- Missing information: price"
+      ]
+    },
+    {
+      "listing_id": "https://www.kleinanzeigen.de/s-anzeige/charmantes-zweifamilienhaus-in-obersulm-vielseitig-nutzbar-fuer-familien-investoren-und-mehrgenerationenwohnen/3209603409-208-9243",
+      "valid": true,
+      "reasons": [
+        "Valid Kleinanzeigen detail URL",
+        "✓ Property is a house (allowing for manual review)",
+        "✓ Outdoor space check relaxed - allowing for review",
+        "? Size unknown - manual verification needed",
+        "? City center coordinates not configured - skipping location validation",
+        "? Price not specified",
+        "- Missing information: price"
+      ]
+    },
+    {
+      "listing_id": "https://www.kleinanzeigen.de/s-anzeige/zentrales-mehrfamilienhaus-mit-gewerbeeinheit-im-herzen-von-obersulm-/3222327444-208-9243",
+      "valid": true,
+      "reasons": [
+        "Valid Kleinanzeigen detail URL",
+        "✓ Property is a house (allowing for manual review)",
+        "✓ Outdoor space check relaxed - allowing for review",
+        "? Size unknown - manual verification needed",
+        "? City center coordinates not configured - skipping location validation",
+        "? Price not specified",
+        "- Missing information: price"
+      ]
+    },
+    {
+      "listing_id": "https://www.kleinanzeigen.de/s-anzeige/charmantes-zweifamilienhaus-in-obersulm-vielseitig-nutzbar-fuer-familien-investoren-und-mehrgenerationenwohnen/3209603409-208-9243",
+      "valid": true,
+      "reasons": [
+        "Valid Kleinanzeigen detail URL",
+        "✓ Property is a house (allowing for manual review)",
+        "✓ Outdoor space check relaxed - allowing for review",
+        "? Size unknown - manual verification needed",
+        "? City center coordinates not configured - skipping location validation",
+        "? Price not specified",
+        "- Missing information: price"
+      ]
+    },
+    {
+      "listing_id": "https://www.kleinanzeigen.de/s-anzeige/zentrales-mehrfamilienhaus-mit-gewerbeeinheit-im-herzen-von-obersulm-/3222327444-208-9243",
+      "valid": true,
+      "reasons": [
+        "Valid Kleinanzeigen detail URL",
+        "✓ Property is a house (allowing for manual review)",
+        "✓ Outdoor space check relaxed - allowing for review",
+        "? Size unknown - manual verification needed",
+        "? City center coordinates not configured - skipping location validation",
+        "? Price not specified",
+        "- Missing information: price"
+      ]
+    },
+    {
+      "listing_id": "https://www.kleinanzeigen.de/s-anzeige/charmantes-zweifamilienhaus-in-obersulm-vielseitig-nutzbar-fuer-familien-investoren-und-mehrgenerationenwohnen/3209603409-208-9243",
+      "valid": true,
+      "reasons": [
+        "Valid Kleinanzeigen detail URL",
+        "✓ Property is a house (allowing for manual review)",
+        "✓ Outdoor space check relaxed - allowing for review",
+        "? Size unknown - manual verification needed",
+        "? City center coordinates not configured - skipping location validation",
+        "? Price not specified",
+        "- Missing information: price"
+      ]
+    },
+    {
+      "listing_id": "https://www.kleinanzeigen.de/s-anzeige/zentrales-mehrfamilienhaus-mit-gewerbeeinheit-im-herzen-von-obersulm-/3222327444-208-9243",
+      "valid": true,
+      "reasons": [
+        "Valid Kleinanzeigen detail URL",
+        "✓ Property is a house (allowing for manual review)",
+        "✓ Outdoor space check relaxed - allowing for review",
+        "? Size unknown - manual verification needed",
+        "? City center coordinates not configured - skipping location validation",
+        "? Price not specified",
+        "- Missing information: price"
+      ]
+    },
+    {
+      "listing_id": "https://www.kleinanzeigen.de/s-anzeige/charmantes-zweifamilienhaus-in-obersulm-vielseitig-nutzbar-fuer-familien-investoren-und-mehrgenerationenwohnen/3209603409-208-9243",
+      "valid": true,
+      "reasons": [
+        "Valid Kleinanzeigen detail URL",
+        "✓ Property is a house (allowing for manual review)",
+        "✓ Outdoor space check relaxed - allowing for review",
+        "? Size unknown - manual verification needed",
+        "? City center coordinates not configured - skipping location validation",
+        "? Price not specified",
+        "- Missing information: price"
+      ]
+    },
+    {
+      "listing_id": "https://www.kleinanzeigen.de/s-anzeige/zentrales-mehrfamilienhaus-mit-gewerbeeinheit-im-herzen-von-obersulm-/3222327444-208-9243",
+      "valid": true,
+      "reasons": [
+        "Valid Kleinanzeigen detail URL",
+        "✓ Property is a house (allowing for manual review)",
+        "✓ Outdoor space check relaxed - allowing for review",
+        "? Size unknown - manual verification needed",
+        "? City center coordinates not configured - skipping location validation",
+        "? Price not specified",
+        "- Missing information: price"
+      ]
+    },
+    {
+      "listing_id": "https://www.kleinanzeigen.de/s-anzeige/charmantes-zweifamilienhaus-in-obersulm-vielseitig-nutzbar-fuer-familien-investoren-und-mehrgenerationenwohnen/3209603409-208-9243",
+      "valid": true,
+      "reasons": [
+        "Valid Kleinanzeigen detail URL",
+        "✓ Property is a house (allowing for manual review)",
+        "✓ Outdoor space check relaxed - allowing for review",
+        "? Size unknown - manual verification needed",
+        "? City center coordinates not configured - skipping location validation",
+        "? Price not specified",
+        "- Missing information: price"
+      ]
+    },
+    {
+      "listing_id": "https://www.kleinanzeigen.de/s-anzeige/zentrales-mehrfamilienhaus-mit-gewerbeeinheit-im-herzen-von-obersulm-/3222327444-208-9243",
+      "valid": true,
+      "reasons": [
+        "Valid Kleinanzeigen detail URL",
+        "✓ Property is a house (allowing for manual review)",
+        "✓ Outdoor space check relaxed - allowing for review",
+        "? Size unknown - manual verification needed",
+        "? City center coordinates not configured - skipping location validation",
+        "? Price not specified",
+        "- Missing information: price"
+      ]
+    },
+    {
+      "listing_id": "https://www.kleinanzeigen.de/s-anzeige/charmantes-zweifamilienhaus-in-obersulm-vielseitig-nutzbar-fuer-familien-investoren-und-mehrgenerationenwohnen/3209603409-208-9243",
+      "valid": true,
+      "reasons": [
+        "Valid Kleinanzeigen detail URL",
+        "✓ Property is a house (allowing for manual review)",
+        "✓ Outdoor space check relaxed - allowing for review",
+        "? Size unknown - manual verification needed",
+        "? City center coordinates not configured - skipping location validation",
+        "? Price not specified",
+        "- Missing information: price"
+      ]
+    },
+    {
+      "listing_id": "https://www.kleinanzeigen.de/s-anzeige/zentrales-mehrfamilienhaus-mit-gewerbeeinheit-im-herzen-von-obersulm-/3222327444-208-9243",
+      "valid": true,
+      "reasons": [
+        "Valid Kleinanzeigen detail URL",
+        "✓ Property is a house (allowing for manual review)",
+        "✓ Outdoor space check relaxed - allowing for review",
+        "? Size unknown - manual verification needed",
+        "? City center coordinates not configured - skipping location validation",
+        "? Price not specified",
+        "- Missing information: price"
+      ]
+    },
+    {
+      "listing_id": "https://www.kleinanzeigen.de/s-anzeige/charmantes-zweifamilienhaus-in-obersulm-vielseitig-nutzbar-fuer-familien-investoren-und-mehrgenerationenwohnen/3209603409-208-9243",
+      "valid": true,
+      "reasons": [
+        "Valid Kleinanzeigen detail URL",
+        "✓ Property is a house (allowing for manual review)",
+        "✓ Outdoor space check relaxed - allowing for review",
+        "? Size unknown - manual verification needed",
+        "? City center coordinates not configured - skipping location validation",
+        "? Price not specified",
+        "- Missing information: price"
+      ]
+    },
+    {
+      "listing_id": "https://www.kleinanzeigen.de/s-anzeige/zentrales-mehrfamilienhaus-mit-gewerbeeinheit-im-herzen-von-obersulm-/3222327444-208-9243",
+      "valid": true,
+      "reasons": [
+        "Valid Kleinanzeigen detail URL",
+        "✓ Property is a house (allowing for manual review)",
+        "✓ Outdoor space check relaxed - allowing for review",
+        "? Size unknown - manual verification needed",
+        "? City center coordinates not configured - skipping location validation",
+        "? Price not specified",
+        "- Missing information: price"
+      ]
+    },
+    {
+      "listing_id": "https://www.kleinanzeigen.de/s-anzeige/charmantes-zweifamilienhaus-in-obersulm-vielseitig-nutzbar-fuer-familien-investoren-und-mehrgenerationenwohnen/3209603409-208-9243",
+      "valid": true,
+      "reasons": [
+        "Valid Kleinanzeigen detail URL",
+        "✓ Property is a house (allowing for manual review)",
+        "✓ Outdoor space check relaxed - allowing for review",
+        "? Size unknown - manual verification needed",
+        "? City center coordinates not configured - skipping location validation",
+        "? Price not specified",
+        "- Missing information: price"
+      ]
+    },
+    {
+      "listing_id": "https://www.kleinanzeigen.de/s-anzeige/zentrales-mehrfamilienhaus-mit-gewerbeeinheit-im-herzen-von-obersulm-/3222327444-208-9243",
+      "valid": true,
+      "reasons": [
+        "Valid Kleinanzeigen detail URL",
+        "✓ Property is a house (allowing for manual review)",
+        "✓ Outdoor space check relaxed - allowing for review",
+        "? Size unknown - manual verification needed",
+        "? City center coordinates not configured - skipping location validation",
+        "? Price not specified",
+        "- Missing information: price"
+      ]
+    }
+  ]
+}

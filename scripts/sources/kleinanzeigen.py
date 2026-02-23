@@ -54,21 +54,24 @@ class KleinanzeigenScraper(BaseScraper):
                 
             location_id = location_mapping[city]
             
-            # Get max results per type
-            max_per_type = self.config.get('scraper', {}).get('max_results_per_type', 15)
-            
             # Search both transaction types: buy and rent
             transaction_types = ['buy', 'rent']
             
             for transaction_type in transaction_types:
                 try:
+                    # Get max results per transaction type
+                    if transaction_type == 'buy':
+                        max_per_type = self.config.get('scraper', {}).get('max_results_per_buy', 15)
+                    else:  # rent
+                        max_per_type = self.config.get('scraper', {}).get('max_results_per_rent', 10)
+                        
                     # Build search URL for this transaction type
                     search_url = self._build_search_url(location_id, transaction_type=transaction_type, **kwargs)
                     logger.info(f"Searching Kleinanzeigen for {city} ({transaction_type}): {search_url}")
                     
                     # Fetch and parse search results
                     page = 1
-                    max_pages = 5  # Limit to avoid too many requests
+                    max_pages = 10  # Increased to find more listings
                     type_listings = []
                     
                     while page <= max_pages and len(type_listings) < max_per_type:
@@ -196,6 +199,14 @@ class KleinanzeigenScraper(BaseScraper):
             # Extract title and URL - look for direct property links
             title_link = None
             
+            # DEBUG: Log all links in element
+            all_links = element.find_all('a')
+            logger.debug(f"Found {len(all_links)} links in element")
+            for i, link in enumerate(all_links[:3]):  # Show first 3
+                href = link.get('href', '')
+                text = link.get_text(strip=True)[:50]
+                logger.debug(f"  Link {i}: href='{href}' text='{text}'")
+            
             # First try to find the main property link
             title_link = element.find('a', class_='ellipsis')
             if not title_link:
@@ -205,38 +216,111 @@ class KleinanzeigenScraper(BaseScraper):
                 title_link = element.find('a', href=re.compile(r'/s-anzeige/'))
                 
             if not title_link:
+                logger.debug(f"No title link found, skipping element")
                 return None
                 
             listing['title'] = title_link.get_text(strip=True)
             
             # Extract the proper detail URL
             raw_href = title_link.get('href', '')
+            logger.debug(f"Title link href: '{raw_href}'")
+            
             if raw_href.startswith('/s-anzeige/'):
                 # This is a direct property detail URL
                 listing['url'] = urljoin(self.source_config['base_url'], raw_href)
+                logger.debug(f"Found direct detail URL: {listing['url']}")
             else:
                 # If it's not a direct link, try to find it within the element
                 detail_link = element.find('a', href=re.compile(r'/s-anzeige/'))
                 if detail_link:
                     listing['url'] = urljoin(self.source_config['base_url'], detail_link.get('href', ''))
+                    logger.debug(f"Found detail URL via search: {listing['url']}")
                 else:
                     # Fallback to whatever we have
                     listing['url'] = urljoin(self.source_config['base_url'], raw_href)
+                    logger.debug(f"Using fallback URL (might be wrong): {listing['url']}")
             
-            # Filter out non-house listings early
+            # Filter out non-property listings early with more specific criteria
             title_lower = listing['title'].lower()
-            # Skip door listings and other non-property items
-            skip_keywords = ['haustür', 'tür', 'fenster', 'dach', 'heizung', 'sanitär', 'boiler', 
-                           'wärmepumpe', 'solar', 'kinderspiel', 'spiel', 'garten möbel', 'möbel']
+            
+            # Apply VERY strict property filtering
+            title_lower = listing['title'].lower()
+            
+            # STRICT filter: Skip ALL non-property listings
+            skip_keywords = [
+                # Vehicles
+                'aprilia', 'audi', 'bmw', 'mercedes', 'volkswagen', 'opel', 'ford', 'toyota',
+                'motorrad', 'auto', 'pkw', 'lkw', 'anhänger', 'wohnmobil', 'wohnwagen',
+                'fahrrad', 'e-bike', 'roller', 'moped', 'quad',
+                # Building materials/components
+                'haustür', 'tür', 'türen', 'fenster', 'dach', 'heizung', 'sanitär', 
+                'boiler', 'wärmepumpe', 'solar', 'fliesen', 'parkett', 'laminat', 
+                'kamin', 'ofen', 'garage tor', 'rollladen', 'rolladen', 'markise', 
+                'sonnenschutz', 'carport', 'schiebetür', 'glastür', 'wintergarten kit', 
+                'bausatz', 'baustoff', 'isolierung', 'dämmung', 'ziegel', 'brennholz',
+                # Furniture and household items
+                'möbel', 'sessel', 'sofa', 'stuhl', 'tisch', 'bett', 'schrank',
+                'kühlschrank', 'waschmaschine', 'spülmaschine', 'herd', 'backofen',
+                'wanduhr', 'lampe', 'leuchte', 'teppich', 'vorhang', 'gardine',
+                'geschirr', 'teller', 'glas', 'besteck', 'topf', 'pfanne',
+                'küche', 'einbauküche', 'küchenzeile', 'küchenmöbel',
+                # Electronics and gadgets
+                'handy', 'smartphone', 'tablet', 'laptop', 'computer', 'fernseher',
+                'stereo', 'lautsprecher', 'kopfhörer', 'kamera', 'spielkonsole',
+                # Clothing and fashion
+                'jeans', 't-shirt', 'pullover', 'jacke', 'mantel', 'kleid', 'rock',
+                'schuhe', 'stiefel', 'sandalen', 'handschuhe', 'mütze', 'hut',
+                # Toys and games
+                'spielzeug', 'puppe', 'teddy', 'bär', 'lego', 'playmobil', 
+                'einhorn', 'hüpftier', 'ball', 'puzzle', 'spiel',
+                # Garden and outdoor (but not property)
+                'rasenmäher', 'gartenschere', 'gießkanne', 'blumentopf', 'dünger',
+                'samen', 'pflanze kirschlorbeer', 'hecke', 'baum verkauf',
+                # Jobs and services
+                'verkäufer', 'job', 'stelle', 'arbeit', 'minijob', 'stellenangebot',
+                'nachhilfe', 'unterricht', 'kurs', 'training',
+                # Tools and equipment
+                'werkzeug', 'bohrer', 'säge', 'hammer', 'schraubenzieher', 'zange',
+                'schraubenschlüssel', 'maulschlüssel', 'doppelmaulschlüssel',
+                # Animals and pets
+                'hund', 'katze', 'kaninchen', 'hamster', 'vogel', 'fisch', 'pferd',
+                # Other miscellaneous
+                'zu verschenken', 'dampflok', 'tender', 'lok', 'eisenbahn', 'modell'
+            ]
+            
+            # Check if title contains any skip keywords
             if any(keyword in title_lower for keyword in skip_keywords):
+                logger.debug(f"Skipping non-property listing: {title_lower[:60]}")
                 return None
                 
-            # Only include listings that mention house-related terms
-            house_keywords = ['haus', 'villa', 'bungalow', 'einfamilienhaus', 'zweifamilienhaus', 
-                            'reihenhaus', 'doppelhaushälfte', 'wohnung', 'eigenheim', 'immobilie',
-                            'zimmer', 'schlafzimmer', 'wohnzimmer', 'etage']
-            if not any(keyword in title_lower for keyword in house_keywords):
-                return None
+            # POSITIVE filter: Must contain strong property indicators
+            strong_property_keywords = [
+                'einfamilienhaus', 'zweifamilienhaus', 'mehrfamilienhaus',
+                'reihenhaus', 'doppelhaushälfte', 'villa', 'bungalow',
+                'landhaus', 'stadthaus', 'ferienhaus', 'eigenheim',
+                'immobilie', 'anwesen', 'wohnhaus'
+            ]
+            
+            # Check for strong property keywords first
+            has_strong_property = any(keyword in title_lower for keyword in strong_property_keywords)
+            
+            if has_strong_property:
+                logger.debug(f"Strong property keyword found: {title_lower[:60]}")
+                # Allow this listing
+            else:
+                # Check for weaker property indicators with size/room information
+                weak_property_keywords = ['haus ', 'wohnung']
+                size_indicators = ['m²', 'qm', 'quadratmeter', 'zi.', 'zimmer']
+                
+                has_weak_property = any(keyword in title_lower for keyword in weak_property_keywords)
+                has_size_info = any(keyword in title_lower for keyword in size_indicators)
+                
+                if has_weak_property and has_size_info:
+                    logger.debug(f"Weak property with size info found: {title_lower[:60]}")
+                    # Allow this listing
+                else:
+                    logger.debug(f"No strong property indicators found: {title_lower[:60]}")
+                    return None
             
             # Extract price
             price_elem = element.find('strong', class_='aditem-main--middle--price-shipping--price')

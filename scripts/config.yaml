@@ -82,7 +82,8 @@ scraper:
     - "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36"
   respect_robots_txt: true
   max_pages_per_source: 5
-  max_results_per_type: 15  # 15 buy + 15 rent = 30 total per city
+  max_results_per_buy: 15   # 15 buy properties per city
+  max_results_per_rent: 10  # 10 rent properties per city
 
 # Sources (enable/disable)
 sources:
