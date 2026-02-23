@@ -1,17 +1,21 @@
 # PRJ010 — Wohngemeinschaft Property Search
 
-## Objective
-Find suitable properties (rent or buy) for two families seeking shared living arrangements in German cities:
-- **Freiburg** and surrounding area (~30km)
-- **Augsburg** and surrounding area (~30km)
-- **Halle** and surrounding area (~30km)
-- **Leipzig** and surrounding area (~30km)
-- **Magdeburg** and surrounding area (~30km)
+## 🏠 Overview
+Automated property search system for two families seeking shared living arrangements in German cities.
+
+**Live Site:** https://jacksbox-cassandra.github.io/prj010-wohngemeinschaft-site/
+
+## Target Cities (30km radius each)
+- **Freiburg** 🏔️
+- **Augsburg** 🏰
+- **Halle (Saale)** 🏛️
+- **Leipzig** 🎵
+- **Magdeburg** 🌊
 
 ## Requirements
 
 ### Must-haves
-- Minimum 2 bedrooms per family (4+ bedrooms total)
+- Minimum 4+ bedrooms (2 per family)
 - Private quiet space for each family
 - Shared communal space OR large outdoor area (garden/yard)
 - Public transport connection to city center
@@ -23,44 +27,99 @@ Find suitable properties (rent or buy) for two families seeking shared living ar
 - Storage space
 - Parking
 
-## Deliverables
-1. **Per-candidate reports**: Description, suitability assessment, price, pros/cons, link, 1+ image
-2. **Consolidated report**: Summary per city with top recommendations
-3. **Static website**: Hosted results for easy browsing (GitHub Pages)
+## 🤖 Automation System
 
-## Data Sources
-- Immobilienscout24
+### Automated Scraping (every 2 days)
+```bash
+./scripts/run_search.sh
+```
+
+### Components
+- **Scraper** (`scripts/scraper.py`) - Multi-source property collection
+- **Enrichment** (`scripts/enrich.py`) - URL verification, images, transport times, scoring
+- **Validation** (`scripts/validate.py`) - Filter by criteria
+- **Deduplication** (`scripts/dedup.py`) - Cross-source duplicate detection
+- **Website Generator** (`update_html_v3.py`) - Static site generation
+
+### Sources
+- ImmobilienScout24
 - Immowelt
-- Immonet
-- eBay Kleinanzeigen
-- Regional portals
-- Local real estate agencies (Makler)
-- Facebook groups (city-specific)
-- Municipal housing portals
-- University housing boards
-- Community noticeboards
+- Kleinanzeigen (eBay)
+- (More sources in `scripts/config.yaml`)
+
+### Configuration
+Edit `scripts/config.yaml` to:
+- Enable/disable sources
+- Adjust search criteria
+- Change rate limiting
+- Modify scoring weights
 
 ## Project Structure
 ```
 PRJ010-wohngemeinschaft/
-├── README.md          # This file
-├── PLAN.md            # Execution plan
-├── TASKS.md           # Task breakdown
-├── data/              # Raw JSON data per source/city
-├── report/            # Markdown reports per city
-└── site/              # Static site for GitHub Pages
+├── README.md                  # This file
+├── PLAN.md                    # Original execution plan
+├── PLAN-AUTOMATION.md         # Automation system plan
+├── CRON-property-search.md    # Cron job specification
+├── scripts/
+│   ├── config.yaml           # Central configuration
+│   ├── scraper.py            # Main scraper
+│   ├── enrich.py             # Enrichment pipeline
+│   ├── validate.py           # Validation
+│   ├── dedup.py              # Deduplication
+│   ├── run_search.sh         # Cron wrapper script
+│   └── sources/              # Source handlers
+├── data/                      # JSON data per city
+├── docs/                      # Static website (GitHub Pages)
+│   ├── index.html
+│   ├── {city}.html
+│   ├── js/                   # Client-side filtering
+│   └── assets/               # Images & CSS
+├── report/                    # Generated reports
+└── logs/                      # Run logs
 ```
 
-## Status
-🟢 **Initial Gathering Complete** — 36 candidates across 5 cities
+## 📊 Current Status
 
-### Progress
-- ✅ Project structure created
-- ✅ Source list compiled (20+ sources)
-- ✅ Property searches completed (all 5 cities)
-- ✅ Initial reports generated
-- 🔄 Enrichment in progress
-- 🔲 Static site pending
+**🟢 FULLY AUTOMATED**
+
+| Milestone | Status |
+|-----------|--------|
+| Initial data collection | ✅ 50 candidates |
+| Enrichment pipeline | ✅ Built |
+| Website with filters | ✅ Live |
+| Automated scraping | ✅ Cron job active |
+| GitHub Pages | ✅ Auto-deploys |
+| Email notifications | ✅ Configured |
+
+### Cron Schedule
+- **Frequency:** Every 2 days at midnight (Europe/Berlin)
+- **Agent:** worker
+- **Notification:** jacksbot@jacksbox.de
+
+## 🚀 Manual Execution
+
+```bash
+# Full run
+cd /Users/jacksbot/projects/PRJ010-wohngemeinschaft
+./scripts/run_search.sh
+
+# Individual commands
+python3 scripts/scraper.py --cities freiburg --dry-run
+python3 scripts/enrich.py --city freiburg
+python3 update_html_v3.py
+```
+
+## 📈 Website Features
+- Filter by property type (buy/rent)
+- Sort by price, size, score
+- Search by title/location
+- Status badges (New, Updated, Inactive)
+- Image gallery with lightbox
+- Mobile responsive
 
 ## Owner
-Mario (requester) — Coordinator agent orchestrating
+Mario (requester)
+
+---
+*Last updated: 2026-02-23 | Automation by OpenClaw*
