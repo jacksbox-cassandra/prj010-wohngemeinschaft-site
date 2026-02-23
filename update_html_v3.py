@@ -238,6 +238,43 @@ def format_price(price: float, price_type: str = "buy") -> str:
         return formatted
 
 
+def render_description_with_toggle(description: str, listing_id: str) -> str:
+    """
+    Render description with "Read more" toggle for long descriptions
+    
+    Args:
+        description: The description text
+        listing_id: Unique ID for the listing (for DOM element IDs)
+        
+    Returns:
+        HTML string with description and optional toggle
+    """
+    if not description:
+        return ""
+        
+    # Clean description
+    desc = escape(description)
+    
+    # If description is short (<=200 chars), show it normally
+    if len(desc) <= 200:
+        return f'<p class="candidate-description">{desc}</p>'
+    
+    # For long descriptions, create a toggle
+    short_desc = desc[:200] + "..."
+    
+    return f'''
+    <div class="candidate-description-container">
+        <p class="candidate-description candidate-description-short" id="desc-short-{listing_id}">
+            {short_desc}
+            <button class="read-more-btn" onclick="toggleDescription('{listing_id}')">Mehr lesen</button>
+        </p>
+        <p class="candidate-description candidate-description-full" id="desc-full-{listing_id}" style="display: none;">
+            {desc}
+            <button class="read-more-btn" onclick="toggleDescription('{listing_id}')">Weniger anzeigen</button>
+        </p>
+    </div>'''
+
+
 def truncate_text(text: str, max_len: int = 150) -> str:
     """Truncate text with ellipsis."""
     if not text:
@@ -347,7 +384,7 @@ def render_candidate_card(candidate: dict, city: str, enriched_date: str) -> str
                 <p class="candidate-location">📍 {location}</p>
                 <p class="candidate-price">{format_price(price, price_type)}</p>
                 <div class="candidate-meta">{meta_html}</div>
-                {f'<p class="candidate-description">{description}</p>' if description else ''}
+                {render_description_with_toggle(description, cid) if description else ''}
                 <div class="candidate-pros-cons">
                     {pros_html}
                     {cons_html}
@@ -484,6 +521,44 @@ def generate_city_page(city: str, data: dict, missing_fields: dict) -> str:
     
     <script src="js/filters.js"></script>
     <script src="js/gallery.js"></script>
+    
+    <script>
+    // Description toggle functionality
+    function toggleDescription(listingId) {{
+        const shortDesc = document.getElementById(`desc-short-${{listingId}}`);
+        const fullDesc = document.getElementById(`desc-full-${{listingId}}`);
+        
+        if (shortDesc.style.display !== 'none') {{
+            shortDesc.style.display = 'none';
+            fullDesc.style.display = 'block';
+        }} else {{
+            shortDesc.style.display = 'block';
+            fullDesc.style.display = 'none';
+        }}
+    }}
+    </script>
+    
+    <style>
+    .read-more-btn {{
+        background: none;
+        border: none;
+        color: #0066cc;
+        cursor: pointer;
+        font-size: inherit;
+        text-decoration: underline;
+        margin-left: 5px;
+        padding: 0;
+    }}
+    
+    .read-more-btn:hover {{
+        color: #004499;
+    }}
+    
+    .candidate-description-container {{
+        margin-bottom: 10px;
+    }}
+    </style>
+    
 </body>
 </html>'''
 

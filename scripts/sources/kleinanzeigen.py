@@ -54,32 +54,57 @@ class KleinanzeigenScraper(BaseScraper):
                 
             location_id = location_mapping[city]
             
-            # Build search URL
-            search_url = self._build_search_url(location_id, **kwargs)
-            logger.info(f"Searching Kleinanzeigen for {city}: {search_url}")
+            # Get max results per type
+            max_per_type = self.config.get('scraper', {}).get('max_results_per_type', 15)
             
-            # Fetch and parse search results
-            page = 1
-            max_pages = 5  # Limit to avoid too many requests
+            # Search both transaction types: buy and rent
+            transaction_types = ['buy', 'rent']
             
-            while page <= max_pages:
-                page_url = f"{search_url}&page={page}" if page > 1 else search_url
-                
+            for transaction_type in transaction_types:
                 try:
-                    response = self._make_request(page_url)
-                    page_listings = self._parse_search_page(response.text, city)
+                    # Build search URL for this transaction type
+                    search_url = self._build_search_url(location_id, transaction_type=transaction_type, **kwargs)
+                    logger.info(f"Searching Kleinanzeigen for {city} ({transaction_type}): {search_url}")
                     
-                    if not page_listings:
-                        logger.info(f"No more listings found on page {page}")
-                        break
+                    # Fetch and parse search results
+                    page = 1
+                    max_pages = 5  # Limit to avoid too many requests
+                    type_listings = []
+                    
+                    while page <= max_pages and len(type_listings) < max_per_type:
+                        page_url = f"{search_url}&page={page}" if page > 1 else search_url
                         
-                    listings.extend(page_listings)
-                    logger.info(f"Found {len(page_listings)} listings on page {page}")
-                    page += 1
+                        try:
+                            response = self._make_request(page_url)
+                            page_listings = self._parse_search_page(response.text, city)
+                            
+                            if not page_listings:
+                                logger.info(f"No more listings found on page {page} for {transaction_type}")
+                                break
+                                
+                            # Add transaction type to each listing
+                            for listing in page_listings:
+                                listing['transaction_type'] = transaction_type
+                                
+                            type_listings.extend(page_listings)
+                            logger.info(f"Found {len(page_listings)} listings on page {page} for {transaction_type}")
+                            page += 1
+                            
+                            # Stop if we have enough listings
+                            if len(type_listings) >= max_per_type:
+                                type_listings = type_listings[:max_per_type]
+                                break
+                                
+                        except ScraperError as e:
+                            logger.error(f"Error scraping page {page} for {transaction_type}: {e}")
+                            break
                     
-                except ScraperError as e:
-                    logger.error(f"Error scraping page {page}: {e}")
-                    break
+                    listings.extend(type_listings)
+                    logger.info(f"Found {len(type_listings)} {transaction_type} listings for {city}")
+                    
+                except Exception as e:
+                    logger.error(f"Error searching {transaction_type} listings for {city}: {e}")
+                    continue
                     
         except Exception as e:
             logger.error(f"Error searching Kleinanzeigen for {city}: {e}")
@@ -88,30 +113,35 @@ class KleinanzeigenScraper(BaseScraper):
         logger.info(f"Found {len(listings)} total listings for {city}")
         return listings
     
-    def _build_search_url(self, location_id: str, **kwargs) -> str:
+    def _build_search_url(self, location_id: str, transaction_type: str = 'buy', **kwargs) -> str:
         """Build search URL with parameters"""
         base_url = self.source_config['base_url']
         
-        # Build URL for house listings (using immobilien category for broader results)
-        search_url = f"{base_url}/s-immobilien/l{location_id}"
+        # Build URL based on transaction type - use more specific categories
+        if transaction_type == 'buy':
+            # For buying houses - use the house category with location 
+            search_url = f"{base_url}/s-haus-kaufen/l{location_id}"
+        else:  # rent
+            # For renting houses 
+            search_url = f"{base_url}/s-haus-mieten/l{location_id}"
         
         # Add parameters
         params = []
         
-        # Filter for houses/properties
-        params.append("price-type=FIXED")  # Purchase, not rent
+        # Get search configuration
+        search_config = self.config.get('search', {})
+        search_params = self.config.get('search_params', {})
         
         # Price range if specified
-        search_config = self.config.get('search', {})
-        max_price = kwargs.get('max_price_buy', search_config.get('max_price_buy'))
-        if max_price:
-            params.append(f"maxPrice={max_price}")
+        if transaction_type == 'buy':
+            max_price = kwargs.get('max_price_buy', search_params.get('max_price_buy'))
+            if max_price:
+                params.append(f"priceMax={max_price}")
+        else:  # rent
+            max_price = kwargs.get('max_price_rent', search_params.get('max_price_rent', 2000))
+            if max_price:
+                params.append(f"priceMax={max_price}")
                 
-        # Minimum rooms
-        min_rooms = kwargs.get('min_rooms', search_config.get('min_rooms', search_config.get('min_bedrooms', 4)))
-        if min_rooms:
-            params.append(f"minRooms={min_rooms}")
-            
         # Add parameters to URL
         if params:
             search_url += "?" + "&".join(params)
@@ -174,6 +204,21 @@ class KleinanzeigenScraper(BaseScraper):
             listing['title'] = title_link.get_text(strip=True)
             listing['url'] = urljoin(self.source_config['base_url'], title_link.get('href', ''))
             
+            # Filter out non-house listings early
+            title_lower = listing['title'].lower()
+            # Skip door listings and other non-property items
+            skip_keywords = ['haustür', 'tür', 'fenster', 'dach', 'heizung', 'sanitär', 'boiler', 
+                           'wärmepumpe', 'solar', 'kinderspiel', 'spiel', 'garten möbel', 'möbel']
+            if any(keyword in title_lower for keyword in skip_keywords):
+                return None
+                
+            # Only include listings that mention house-related terms
+            house_keywords = ['haus', 'villa', 'bungalow', 'einfamilienhaus', 'zweifamilienhaus', 
+                            'reihenhaus', 'doppelhaushälfte', 'wohnung', 'eigenheim', 'immobilie',
+                            'zimmer', 'schlafzimmer', 'wohnzimmer', 'etage']
+            if not any(keyword in title_lower for keyword in house_keywords):
+                return None
+            
             # Extract price
             price_elem = element.find('strong', class_='aditem-main--middle--price-shipping--price')
             if not price_elem:
@@ -192,9 +237,45 @@ class KleinanzeigenScraper(BaseScraper):
                 listing['address'] = location_text
                 
             # Extract description/features from title and any additional text
+            desc_parts = []
+            
+            # Add title
+            desc_parts.append(listing['title'])
+            
+            # Extract description from dedicated description element
             desc_elem = element.find('p', class_='aditem-main--middle--description')
             if desc_elem:
-                listing['description'] = desc_elem.get_text(strip=True)
+                desc_text = desc_elem.get_text(strip=True)
+                if desc_text and desc_text != listing['title']:
+                    desc_parts.append(desc_text)
+            
+            # Look for additional feature text in various locations
+            feature_selectors = [
+                'div.aditem-details',
+                'div.aditem-features',
+                'span.aditem-feature',
+                'div.ad-detail-description'
+            ]
+            
+            for selector in feature_selectors:
+                elements = element.select(selector)
+                for elem in elements:
+                    feature_text = elem.get_text(strip=True)
+                    if feature_text and feature_text not in desc_parts:
+                        desc_parts.append(feature_text)
+            
+            # Look for bullet point features
+            feature_list = element.find('ul', class_='features') or element.find('div', class_='feature-list')
+            if feature_list:
+                features = feature_list.find_all('li')
+                for feature in features:
+                    feature_text = feature.get_text(strip=True)
+                    if feature_text:
+                        desc_parts.append(f"• {feature_text}")
+            
+            # Combine all description parts
+            if desc_parts:
+                listing['description'] = ' | '.join(desc_parts)
             else:
                 listing['description'] = listing['title']
                 
@@ -218,33 +299,81 @@ class KleinanzeigenScraper(BaseScraper):
     def _extract_property_details(self, listing: Dict[str, Any]):
         """Extract rooms, bedrooms, and size from text"""
         text = f"{listing.get('title', '')} {listing.get('description', '')}"
-        text = text.lower()
+        text_lower = text.lower()
         
-        # Extract number of rooms
-        rooms_match = re.search(r'(\d+)[.,]?\d*\s*zimmer', text)
-        if rooms_match:
-            listing['rooms'] = float(rooms_match.group(1))
+        # Extract number of rooms with more flexible patterns
+        rooms_patterns = [
+            r'(\d+)[.,](\d+)\s*[-\s]*zimmer',  # 3.5-Zimmer or 3,5 -Zimmer
+            r'(\d+)[.,](\d+)\s*zimmer',        # 3.5zimmer
+            r'(\d+)\s*zimmer',                 # 4 zimmer
+            r'(\d+)[.,](\d+)[-\s]*zi',         # 3.5-zi
+            r'(\d+)\s*zi\b'                    # 4 zi
+        ]
+        
+        for pattern in rooms_patterns:
+            rooms_match = re.search(pattern, text_lower)
+            if rooms_match:
+                if len(rooms_match.groups()) == 2:  # Decimal number
+                    rooms = float(f"{rooms_match.group(1)}.{rooms_match.group(2)}")
+                else:  # Whole number
+                    rooms = float(rooms_match.group(1))
+                listing['rooms'] = rooms
+                break
             
         # Extract bedrooms
-        bedroom_match = re.search(r'(\d+)\s*schlafzimmer', text)
-        if bedroom_match:
-            listing['bedrooms'] = int(bedroom_match.group(1))
+        bedroom_patterns = [
+            r'(\d+)\s*schlafzimmer',
+            r'(\d+)\s*sz\b'
+        ]
+        
+        for pattern in bedroom_patterns:
+            bedroom_match = re.search(pattern, text_lower)
+            if bedroom_match:
+                listing['bedrooms'] = int(bedroom_match.group(1))
+                break
             
-        # Extract size in square meters
+        # Extract size in square meters with more flexible patterns
         size_patterns = [
             r'(\d+)[.,]?\d*\s*m[²2]',
             r'(\d+)[.,]?\d*\s*qm',
-            r'(\d+)[.,]?\d*\s*quadratmeter'
+            r'(\d+)[.,]?\d*\s*quadratmeter',
+            r'(\d+)\s*m²',
+            r'wohnfläche[:\s]*(\d+)',
         ]
         
         for pattern in size_patterns:
-            size_match = re.search(pattern, text)
+            size_match = re.search(pattern, text_lower)
             if size_match:
                 listing['size_sqm'] = int(size_match.group(1))
                 break
                 
         # Extract features that might indicate suitability
         features = []
+        
+        # Outdoor features
+        outdoor_keywords = ['garten', 'garden', 'terrasse', 'balkon', 'outdoor', 'grundstück']
+        for keyword in outdoor_keywords:
+            if keyword in text_lower:
+                features.append(keyword)
+                
+        # Other property features
+        feature_keywords = {
+            'garage': ['garage', 'stellplatz', 'parkplatz'],
+            'keller': ['keller', 'kellerraum'],
+            'dachboden': ['dachboden', 'dachgeschoss'],
+            'einbauküche': ['einbauküche', 'ebk'],
+            'bad': ['bad', 'badezimmer'],
+            'gäste-wc': ['gäste-wc', 'gästewc'],
+        }
+        
+        for feature, keywords in feature_keywords.items():
+            for keyword in keywords:
+                if keyword in text_lower:
+                    features.append(feature)
+                    break
+        
+        if features:
+            listing['features'] = list(set(features))  # Remove duplicates
         
         feature_keywords = [
             'garten', 'terrasse', 'balkon', 'hof', 'garage', 'keller', 

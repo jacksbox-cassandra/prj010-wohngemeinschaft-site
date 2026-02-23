@@ -36,32 +36,57 @@ class ImmoweltScraper(BaseScraper):
         listings = []
         
         try:
-            # Build search URL for this city
-            search_url = self._build_search_url(city, **kwargs)
-            logger.info(f"Searching Immowelt for {city}: {search_url}")
+            # Get max results per type
+            max_per_type = self.config.get('scraper', {}).get('max_results_per_type', 15)
             
-            # Fetch and parse search results
-            page = 1
-            max_pages = 5  # Limit to avoid too many requests
+            # Search both transaction types: buy and rent
+            transaction_types = ['buy', 'rent']
             
-            while page <= max_pages:
-                page_url = f"{search_url}?page={page}" if page > 1 else search_url
-                
+            for transaction_type in transaction_types:
                 try:
-                    response = self._make_request(page_url)
-                    page_listings = self._parse_search_page(response.text, city)
+                    # Build search URL for this city and transaction type
+                    search_url = self._build_search_url(city, transaction_type=transaction_type, **kwargs)
+                    logger.info(f"Searching Immowelt for {city} ({transaction_type}): {search_url}")
                     
-                    if not page_listings:
-                        logger.info(f"No more listings found on page {page}")
-                        break
+                    # Fetch and parse search results
+                    page = 1
+                    max_pages = 5  # Limit to avoid too many requests
+                    type_listings = []
+                    
+                    while page <= max_pages and len(type_listings) < max_per_type:
+                        page_url = f"{search_url}?page={page}" if page > 1 else search_url
                         
-                    listings.extend(page_listings)
-                    logger.info(f"Found {len(page_listings)} listings on page {page}")
-                    page += 1
+                        try:
+                            response = self._make_request(page_url)
+                            page_listings = self._parse_search_page(response.text, city)
+                            
+                            if not page_listings:
+                                logger.info(f"No more listings found on page {page} for {transaction_type}")
+                                break
+                                
+                            # Add transaction type to each listing
+                            for listing in page_listings:
+                                listing['transaction_type'] = transaction_type
+                                
+                            type_listings.extend(page_listings)
+                            logger.info(f"Found {len(page_listings)} listings on page {page} for {transaction_type}")
+                            page += 1
+                            
+                            # Stop if we have enough listings
+                            if len(type_listings) >= max_per_type:
+                                type_listings = type_listings[:max_per_type]
+                                break
+                                
+                        except ScraperError as e:
+                            logger.error(f"Error scraping page {page} for {transaction_type}: {e}")
+                            break
                     
-                except ScraperError as e:
-                    logger.error(f"Error scraping page {page}: {e}")
-                    break
+                    listings.extend(type_listings)
+                    logger.info(f"Found {len(type_listings)} {transaction_type} listings for {city}")
+                    
+                except Exception as e:
+                    logger.error(f"Error searching {transaction_type} listings for {city}: {e}")
+                    continue
                     
         except Exception as e:
             logger.error(f"Error searching Immowelt for {city}: {e}")
@@ -70,7 +95,7 @@ class ImmoweltScraper(BaseScraper):
         logger.info(f"Found {len(listings)} total listings for {city}")
         return listings
     
-    def _build_search_url(self, city: str, **kwargs) -> str:
+    def _build_search_url(self, city: str, transaction_type: str = 'buy', **kwargs) -> str:
         """Build search URL with parameters"""
         base_url = self.source_config['base_url']
         city_config = self.config['cities'][city]
@@ -78,8 +103,11 @@ class ImmoweltScraper(BaseScraper):
         # URL encode city name
         city_name = quote(city_config['name'].lower().replace(' ', '-'))
         
-        # Build URL for house purchase listings
-        search_url = f"{base_url}/liste/{city_name}/haeuser/kaufen"
+        # Build URL based on transaction type
+        if transaction_type == 'buy':
+            search_url = f"{base_url}/liste/{city_name}/haeuser/kaufen"
+        else:  # rent
+            search_url = f"{base_url}/liste/{city_name}/haeuser/mieten"
         
         # Add parameters
         params = []
@@ -88,13 +116,19 @@ class ImmoweltScraper(BaseScraper):
         params.append("objektarten=haus")
         
         # Price range if specified
-        search_params = self.config['search_params']
-        max_price = kwargs.get('max_price_buy', search_params.get('max_price_buy'))
-        if max_price:
-            params.append(f"preis-bis={max_price}")
+        search_params = self.config.get('search_params', {})
+        if transaction_type == 'buy':
+            max_price = kwargs.get('max_price_buy', search_params.get('max_price_buy'))
+            if max_price:
+                params.append(f"preis-bis={max_price}")
+        else:  # rent
+            max_price = kwargs.get('max_price_rent', search_params.get('max_price_rent', 2000))
+            if max_price:
+                params.append(f"preis-bis={max_price}")
             
         # Minimum rooms
-        min_rooms = kwargs.get('min_rooms', search_params.get('min_bedrooms', 4))
+        search_config = self.config.get('search', {})
+        min_rooms = kwargs.get('min_rooms', search_config.get('min_rooms', search_params.get('min_bedrooms', 4)))
         if min_rooms:
             params.append(f"zimmer-ab={min_rooms}")
             
@@ -206,14 +240,46 @@ class ImmoweltScraper(BaseScraper):
             # Extract features and description
             description_parts = []
             
-            # Look for property features
-            feature_elem = element.find('div', class_='features')
-            if feature_elem:
-                description_parts.append(feature_elem.get_text(strip=True))
-                
+            # Add title
+            description_parts.append(listing.get('title', ''))
+            
+            # Look for property features in various locations
+            feature_selectors = [
+                'div.features',
+                'div.property-features', 
+                'div.expose-details',
+                'ul.feature-list li',
+                'div.ausstattung'
+            ]
+            
+            for selector in feature_selectors:
+                elements = element.select(selector)
+                for elem in elements:
+                    feature_text = elem.get_text(strip=True)
+                    if feature_text and feature_text not in description_parts and len(feature_text) > 3:
+                        description_parts.append(feature_text)
+            
+            # Look for detailed description
+            desc_selectors = [
+                'div.property-description',
+                'div.expose-description',
+                'div.description-text',
+                'p.description'
+            ]
+            
+            for selector in desc_selectors:
+                desc_elem = element.select_one(selector)
+                if desc_elem:
+                    desc_text = desc_elem.get_text(strip=True)
+                    if desc_text and len(desc_text) > 10:
+                        description_parts.append(desc_text)
+                        break  # Take the first good description
+            
             # Combine description
-            if description_parts:
-                listing['description'] = ' '.join(description_parts)
+            if len(description_parts) > 1:
+                listing['description'] = ' | '.join(description_parts)
+            elif description_parts:
+                listing['description'] = description_parts[0]
             else:
                 listing['description'] = listing.get('title', '')
                 

@@ -382,10 +382,48 @@
     </div>
 
     <footer class="page-footer">
-        <p>Generiert am 2026-02-23 13:09 • Daten aus candidates_enriched.json</p>
+        <p>Generiert am 2026-02-23 14:10 • Daten aus candidates_enriched.json</p>
     </footer>
     
     <script src="js/filters.js"></script>
     <script src="js/gallery.js"></script>
+    
+    <script>
+    // Description toggle functionality
+    function toggleDescription(listingId) {
+        const shortDesc = document.getElementById(`desc-short-${listingId}`);
+        const fullDesc = document.getElementById(`desc-full-${listingId}`);
+        
+        if (shortDesc.style.display !== 'none') {
+            shortDesc.style.display = 'none';
+            fullDesc.style.display = 'block';
+        } else {
+            shortDesc.style.display = 'block';
+            fullDesc.style.display = 'none';
+        }
+    }
+    </script>
+    
+    <style>
+    .read-more-btn {
+        background: none;
+        border: none;
+        color: #0066cc;
+        cursor: pointer;
+        font-size: inherit;
+        text-decoration: underline;
+        margin-left: 5px;
+        padding: 0;
+    }
+    
+    .read-more-btn:hover {
+        color: #004499;
+    }
+    
+    .candidate-description-container {
+        margin-bottom: 10px;
+    }
+    </style>
+    
 </body>
 </html>

@@ -29,6 +29,19 @@ cities:
     lon: 11.6276
     radius_km: 30
 
+# Location mapping for sources that need it
+location_mapping:
+  freiburg:
+    immoscout_state: "baden-wuerttemberg"
+  augsburg:
+    immoscout_state: "bayern"  
+  halle:
+    immoscout_state: "sachsen-anhalt"
+  leipzig:
+    immoscout_state: "sachsen"
+  magdeburg:
+    immoscout_state: "sachsen-anhalt"
+
 # Search criteria
 search:
   min_rooms: 4
@@ -44,6 +57,20 @@ search:
   features_required:
     - outdoor  # garden, terrace, or balcony
 
+# Backward compatibility for sources
+search_params:
+  min_rooms: 4
+  min_bedrooms: 4
+  min_size_sqm: 120
+  max_price_buy: 800000
+  outdoor_keywords:
+    - "garten"
+    - "garden"
+    - "terrasse"
+    - "balkon"
+    - "outdoor"
+    - "grundstück"
+
 # Scraper settings
 scraper:
   rate_limit_seconds: 3
@@ -55,6 +82,7 @@ scraper:
     - "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36"
   respect_robots_txt: true
   max_pages_per_source: 5
+  max_results_per_type: 15  # 15 buy + 15 rent = 30 total per city
 
 # Sources (enable/disable)
 sources:
