@@ -193,16 +193,35 @@ class KleinanzeigenScraper(BaseScraper):
         try:
             listing = {}
             
-            # Extract title and URL
+            # Extract title and URL - look for direct property links
+            title_link = None
+            
+            # First try to find the main property link
             title_link = element.find('a', class_='ellipsis')
             if not title_link:
                 title_link = element.find('h2').find('a') if element.find('h2') else None
+            if not title_link:
+                # Try alternative selectors for the main listing link
+                title_link = element.find('a', href=re.compile(r'/s-anzeige/'))
                 
             if not title_link:
                 return None
                 
             listing['title'] = title_link.get_text(strip=True)
-            listing['url'] = urljoin(self.source_config['base_url'], title_link.get('href', ''))
+            
+            # Extract the proper detail URL
+            raw_href = title_link.get('href', '')
+            if raw_href.startswith('/s-anzeige/'):
+                # This is a direct property detail URL
+                listing['url'] = urljoin(self.source_config['base_url'], raw_href)
+            else:
+                # If it's not a direct link, try to find it within the element
+                detail_link = element.find('a', href=re.compile(r'/s-anzeige/'))
+                if detail_link:
+                    listing['url'] = urljoin(self.source_config['base_url'], detail_link.get('href', ''))
+                else:
+                    # Fallback to whatever we have
+                    listing['url'] = urljoin(self.source_config['base_url'], raw_href)
             
             # Filter out non-house listings early
             title_lower = listing['title'].lower()
@@ -244,24 +263,33 @@ class KleinanzeigenScraper(BaseScraper):
             
             # Extract description from dedicated description element
             desc_elem = element.find('p', class_='aditem-main--middle--description')
+            if not desc_elem:
+                # Try alternative selectors for description
+                desc_elem = element.find('div', class_='ad-description')
+                if not desc_elem:
+                    desc_elem = element.find('span', class_='text-module-begin')
+            
             if desc_elem:
                 desc_text = desc_elem.get_text(strip=True)
-                if desc_text and desc_text != listing['title']:
+                if desc_text and desc_text != listing['title'] and len(desc_text) > 10:
                     desc_parts.append(desc_text)
             
             # Look for additional feature text in various locations
             feature_selectors = [
                 'div.aditem-details',
-                'div.aditem-features',
+                'div.aditem-features', 
                 'span.aditem-feature',
-                'div.ad-detail-description'
+                'div.ad-detail-description',
+                'div.aditem-main--middle--description--text',
+                'div.text-module-text',
+                'div.ad-keyfacts'
             ]
             
             for selector in feature_selectors:
                 elements = element.select(selector)
                 for elem in elements:
                     feature_text = elem.get_text(strip=True)
-                    if feature_text and feature_text not in desc_parts:
+                    if feature_text and feature_text not in desc_parts and len(feature_text) > 5:
                         desc_parts.append(feature_text)
             
             # Look for bullet point features
@@ -270,14 +298,32 @@ class KleinanzeigenScraper(BaseScraper):
                 features = feature_list.find_all('li')
                 for feature in features:
                     feature_text = feature.get_text(strip=True)
-                    if feature_text:
+                    if feature_text and len(feature_text) > 3:
                         desc_parts.append(f"• {feature_text}")
             
-            # Combine all description parts
-            if desc_parts:
+            # Look for key facts or attributes
+            keyfacts = element.find_all(['span', 'div'], class_=re.compile(r'.*keyfact.*|.*attribute.*'))
+            for fact in keyfacts:
+                fact_text = fact.get_text(strip=True)
+                if fact_text and len(fact_text) > 3 and fact_text not in desc_parts:
+                    desc_parts.append(fact_text)
+            
+            # Combine all description parts with separator
+            if len(desc_parts) > 1:
                 listing['description'] = ' | '.join(desc_parts)
+            elif desc_parts:
+                listing['description'] = desc_parts[0]
             else:
                 listing['description'] = listing['title']
+                
+            # Ensure minimum description length by looking harder
+            if len(listing['description']) < 100:
+                # Try to extract more text from the entire element
+                all_text = element.get_text(separator=' ', strip=True)
+                # Remove title to avoid duplication
+                clean_text = all_text.replace(listing['title'], '').strip()
+                if len(clean_text) > 50:
+                    listing['description'] = f"{listing['title']} | {clean_text[:300]}..."
                 
             # Extract image URL
             img_elem = element.find('img')

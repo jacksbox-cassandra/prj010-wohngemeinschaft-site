@@ -343,7 +343,22 @@ class PropertyScraper:
             city_dir = Path(data_dir) / city
             city_dir.mkdir(parents=True, exist_ok=True)
             
-            # Save raw candidates (for this scrape session)
+            # Save listings.json (main output file for website generation)
+            listings_path = city_dir / 'listings.json'
+            
+            listings_data = {
+                'scraped_at': time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime()),
+                'city': city,
+                'count': len(listings),
+                'listings': listings
+            }
+            
+            with open(listings_path, 'w', encoding='utf-8') as f:
+                json.dump(listings_data, f, indent=2, ensure_ascii=False)
+                
+            logger.info(f"Saved listings: {listings_path}")
+            
+            # Also save raw candidates (for backward compatibility)
             raw_filename = output_config.get('raw_filename', 'candidates_raw.json')
             raw_path = city_dir / raw_filename
             

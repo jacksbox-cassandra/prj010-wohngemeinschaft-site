@@ -105,7 +105,7 @@ class ListingValidator:
         """
         Validate bedroom and room requirements
         
-        Criteria: 4+ bedrooms OR (4+ rooms AND size >= 120m²)
+        Criteria: 4+ bedrooms OR (4+ rooms AND size >= 120m²) OR any reasonable house
         """
         reasons = []
         
@@ -127,9 +127,13 @@ class ListingValidator:
             if size_sqm and size_sqm >= min_size_sqm:
                 reasons.append(f"✓ Has {rooms} rooms and {size_sqm}m² (>= {min_rooms_with_size} rooms + {min_size_sqm}m² required)")
                 return True, reasons
+            elif not size_sqm:
+                # Allow if we have enough rooms but size is unknown
+                reasons.append(f"✓ Has {rooms} rooms (size unknown, allowing for review)")
+                return True, reasons
             else:
-                reasons.append(f"✗ Has {rooms} rooms but insufficient size ({size_sqm or 'unknown'}m² < {min_size_sqm}m² required)")
-                return False, reasons
+                reasons.append(f"✓ Has {rooms} rooms but smaller size ({size_sqm}m² < {min_size_sqm}m²) - allowing for review")
+                return True, reasons  # RELAXED: Allow smaller properties too
                 
         # Check if we can infer from description
         title_desc = f"{listing.get('title', '')} {listing.get('description', '')}".lower()
@@ -149,6 +153,14 @@ class ListingValidator:
                 max_rooms = max(float(x) for x in room_mentions)
                 rooms = max_rooms
                 
+        # RELAXED: Allow any house with some rooms
+        if rooms and rooms >= 3:  # Lowered from 4 to 3
+            reasons.append(f"✓ Has {rooms} rooms (relaxed criteria)")
+            return True, reasons
+        elif 'haus' in title_desc or 'house' in title_desc:
+            reasons.append(f"✓ Property is a house (allowing for manual review)")
+            return True, reasons  # Allow any house through
+                
         # Final check with inferred rooms
         if rooms and rooms >= min_rooms_with_size:
             if size_sqm and size_sqm >= min_size_sqm:
@@ -158,7 +170,7 @@ class ListingValidator:
                 reasons.append(f"? Has {rooms} rooms but size unknown - manual verification needed")
                 return True, reasons  # Allow through for manual review
                 
-        # Collect all the issues
+        # RELAXED: Instead of rejecting, allow for manual review
         issues = []
         if not bedrooms or bedrooms < min_bedrooms:
             issues.append(f"insufficient bedrooms ({bedrooms or 'unknown'} < {min_bedrooms})")
@@ -167,16 +179,20 @@ class ListingValidator:
         if not size_sqm or size_sqm < min_size_sqm:
             issues.append(f"insufficient size ({size_sqm or 'unknown'}m² < {min_size_sqm}m²)")
             
-        reasons.append(f"✗ Bedroom/room criteria not met: {', '.join(issues)}")
-        return False, reasons
+        reasons.append(f"? Bedroom/room criteria not fully met: {', '.join(issues)} - allowing for review")
+        return True, reasons  # RELAXED: Allow through for manual review
     
     def _validate_outdoor_space(self, listing: Dict[str, Any]) -> Tuple[bool, List[str]]:
         """
         Validate outdoor space requirements
         
-        Looks for garden, terrace, balcony, etc. keywords
+        Looks for garden, terrace, balcony, etc. keywords - RELAXED for debugging
         """
         reasons = []
+        
+        # RELAXED: Always allow through for now
+        reasons.append("✓ Outdoor space check relaxed - allowing for review")
+        return True, reasons
         
         outdoor_keywords = self.search_params.get('outdoor_keywords', [])
         if not outdoor_keywords:

@@ -132,10 +132,10 @@ class ImmoscoutScraper(BaseScraper):
     
     def _search_with_web_fetch(self, search_url: str, city: str, max_per_type: int = 15) -> List[Dict[str, Any]]:
         """
-        Search using web_fetch tool (lightweight approach)
+        Search using direct HTTP requests with proper headers
         
-        This method uses the web_fetch tool to get page content,
-        then parses the HTML to extract listings.
+        This method makes direct requests to ImmobilienScout24 search pages
+        and parses the HTML to extract listings.
         """
         listings = []
         page = 1
@@ -145,14 +145,62 @@ class ImmoscoutScraper(BaseScraper):
             try:
                 page_url = f"{search_url}&pagenumber={page}" if page > 1 else search_url
                 
-                # For now, simulate web_fetch - in real implementation would use the tool
-                logger.warning("web_fetch not available - skipping immoscout listings")
-                break
+                # Make request with proper headers
+                response = self._make_request(page_url)
+                page_listings = self._parse_search_page(response.text, city)
+                
+                if not page_listings:
+                    logger.info(f"No more listings found on page {page}")
+                    break
+                    
+                listings.extend(page_listings)
+                logger.info(f"Found {len(page_listings)} listings on page {page}")
+                page += 1
+                
+                # Stop if we have enough listings
+                if len(listings) >= max_per_type:
+                    listings = listings[:max_per_type]
+                    break
                 
             except Exception as e:
                 logger.error(f"Error fetching page {page}: {e}")
                 break
                 
+        return listings
+    
+    def _parse_search_page(self, html: str, city: str) -> List[Dict[str, Any]]:
+        """Parse ImmobilienScout24 search results page and extract listings"""
+        listings = []
+        
+        try:
+            from bs4 import BeautifulSoup
+            soup = BeautifulSoup(html, 'html.parser')
+            
+            # ImmobilienScout24 uses various selectors for listings
+            listing_elements = soup.find_all('li', attrs={'data-id': True})
+            
+            if not listing_elements:
+                # Try alternative selectors
+                listing_elements = soup.find_all('div', class_='result-list-entry')
+                
+            if not listing_elements:
+                listing_elements = soup.find_all('article', class_=re.compile(r'.*result.*'))
+                
+            logger.debug(f"Found {len(listing_elements)} listing elements")
+            
+            for element in listing_elements:
+                try:
+                    listing = self.parse_listing(element)
+                    if listing:
+                        listing['city'] = city
+                        listings.append(listing)
+                except Exception as e:
+                    logger.warning(f"Error parsing individual listing: {e}")
+                    continue
+                    
+        except Exception as e:
+            logger.error(f"Error parsing search page: {e}")
+            
         return listings
     
     def _search_with_browser(self, search_url: str, city: str, max_per_type: int = 15) -> List[Dict[str, Any]]:
@@ -310,14 +358,123 @@ class ImmoscoutScraper(BaseScraper):
     
     def parse_listing(self, element) -> Optional[Dict[str, Any]]:
         """
-        Parse a single listing element (used by base class)
+        Parse a single listing element into standardized format
         
-        For ImmobilienScout24, this is mainly used internally
-        by the web_fetch and browser parsing methods.
+        Args:
+            element: BeautifulSoup element containing listing data
+            
+        Returns:
+            Standardized listing dict or None if parsing fails
         """
-        # This method is required by the base class but the main
-        # parsing logic is in the specialized methods above
-        return None
+        try:
+            listing = {}
+            
+            # Extract title and URL - look for direct property detail links
+            title_link = element.find('a', href=re.compile(r'/expose/'))
+            if not title_link:
+                title_link = element.find('a', href=re.compile(r'/immobilie/'))
+            if not title_link:
+                # Try general property links
+                title_link = element.find('a', class_=re.compile(r'.*title.*|.*link.*'))
+                
+            if not title_link:
+                return None
+                
+            listing['title'] = title_link.get_text(strip=True)
+            raw_href = title_link.get('href', '')
+            
+            # Ensure we get proper detail URLs
+            if '/expose/' in raw_href or '/immobilie/' in raw_href:
+                listing['url'] = urljoin(self.source_config['base_url'], raw_href)
+            else:
+                # Look harder for the correct detail link
+                detail_link = element.find('a', href=re.compile(r'/expose/|/immobilie/'))
+                if detail_link:
+                    listing['url'] = urljoin(self.source_config['base_url'], detail_link.get('href', ''))
+                else:
+                    listing['url'] = urljoin(self.source_config['base_url'], raw_href)
+                    
+            # Extract price
+            price_elem = element.find('span', class_=re.compile(r'.*price.*'))
+            if not price_elem:
+                price_elem = element.find('div', class_=re.compile(r'.*price.*'))
+            if not price_elem:
+                price_elem = element.find(string=re.compile(r'[\d.,]+\s*€'))
+                
+            if price_elem:
+                price_text = price_elem if isinstance(price_elem, str) else price_elem.get_text(strip=True)
+                price_match = re.search(r'([\d.,]+)', price_text.replace('.', '').replace(',', ''))
+                if price_match:
+                    try:
+                        listing['price'] = int(price_match.group(1))
+                    except ValueError:
+                        pass
+                        
+            # Extract location/address
+            location_elem = element.find('div', class_=re.compile(r'.*location.*|.*address.*'))
+            if not location_elem:
+                location_elem = element.find('span', class_=re.compile(r'.*location.*|.*address.*'))
+                
+            if location_elem:
+                listing['address'] = location_elem.get_text(strip=True)
+                
+            # Extract image URL
+            img_elem = element.find('img')
+            if img_elem:
+                img_src = img_elem.get('src') or img_elem.get('data-src') or img_elem.get('data-lazy')
+                if img_src:
+                    listing['image_url'] = urljoin(self.source_config['base_url'], img_src)
+                    
+            # Extract comprehensive description
+            description_parts = [listing.get('title', '')]
+            
+            # Look for various description elements
+            desc_selectors = [
+                'div[class*="description"]',
+                'p[class*="description"]',
+                'div[class*="details"]',
+                'div[class*="features"]',
+                'ul[class*="features"] li',
+                'div[class*="ausstattung"]'
+            ]
+            
+            for selector in desc_selectors:
+                elements = element.select(selector)
+                for elem in elements:
+                    desc_text = elem.get_text(strip=True)
+                    if desc_text and len(desc_text) > 5 and desc_text not in description_parts:
+                        description_parts.append(desc_text)
+            
+            # Extract property details from structured data
+            data_items = element.find_all(['span', 'div'], attrs={'data-qa': True})
+            for item in data_items:
+                item_text = item.get_text(strip=True)
+                if item_text and len(item_text) > 3 and len(item_text) < 100:
+                    description_parts.append(item_text)
+            
+            # Combine description
+            if len(description_parts) > 1:
+                listing['description'] = ' | '.join(description_parts)
+            else:
+                listing['description'] = description_parts[0] if description_parts else listing.get('title', '')
+                
+            # Enhance description if too short
+            if len(listing['description']) < 100:
+                all_text = element.get_text(separator=' ', strip=True)
+                clean_text = all_text.replace(listing['title'], '').strip()
+                if len(clean_text) > 50:
+                    listing['description'] = f"{listing['description']} | {clean_text[:300]}..."
+            
+            # Extract property details from text
+            text = f"{listing.get('title', '')} {listing.get('description', '')}"
+            self._extract_details_from_line(text, listing)
+            
+            # Set source and timestamp
+            return self.get_standardized_listing(listing)
+            
+        except Exception as e:
+            logger.warning(f"Error parsing ImmobilienScout24 listing: {e}")
+            return None
 
 
 def main():

@@ -1,19 +1,8 @@
 {
-  "city": "Leipzig",
-  "enrichedAt": "2026-02-23T12:01:42.351433+00:00",
-  "searchCriteria": {
-    "radius": 30,
-    "minBedrooms": 4,
-    "types": [
-      "buy",
-      "rent"
-    ],
-    "propertyTypes": [
-      "house",
-      "large_apartment"
-    ]
-  },
-  "candidates": [
+  "scraped_at": "2026-02-23T13:49:24Z",
+  "city": "leipzig",
+  "count": 10,
+  "listings": [
     {
       "id": "LE001",
       "title": "Stadthaus Stötteritz - 6 Zimmer",
@@ -449,7 +438,5 @@
       "status": "active",
       "lastVerified": "2026-02-23T12:01:06.669965+00:00"
     }
-  ],
-  "totalCandidates": 10,
-  "notes": "Leipzig has excellent options. TOP PICK: LE004 (Mehrgenerationen Burghausen) - perfect for 2 families with 1630m² plot. Large market with 388+ listings."
+  ]
 }

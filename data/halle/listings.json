@@ -1,19 +1,8 @@
 {
-  "city": "Halle (Saale)",
-  "enrichedAt": "2026-02-23T12:00:48.306189+00:00",
-  "searchCriteria": {
-    "radius": 30,
-    "minBedrooms": 4,
-    "types": [
-      "buy",
-      "rent"
-    ],
-    "propertyTypes": [
-      "house",
-      "large_apartment"
-    ]
-  },
-  "candidates": [
+  "scraped_at": "2026-02-23T13:49:24Z",
+  "city": "halle",
+  "count": 10,
+  "listings": [
     {
       "id": "HA001",
       "title": "Traum-Einfamilienhaus individuell und hochwertig",
@@ -435,7 +424,5 @@
       "status": "check",
       "lastVerified": "2026-02-23T12:00:47.684104+00:00"
     }
-  ],
-  "totalCandidates": 10,
-  "notes": "Halle (Saale) has very affordable options. TOP PICKS: HA003 (Villa ZFH 280m²), HA005 (MFH 303m²), HA007 (ZFH Ammendorf). Eastern Germany significantly cheaper than west."
+  ]
 }

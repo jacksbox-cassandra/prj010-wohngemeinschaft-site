@@ -1,19 +1,8 @@
 {
-  "city": "Augsburg",
-  "enrichedAt": "2026-02-23T12:00:29.461369+00:00",
-  "searchCriteria": {
-    "radius": 30,
-    "minBedrooms": 4,
-    "types": [
-      "buy",
-      "rent"
-    ],
-    "propertyTypes": [
-      "house",
-      "large_apartment"
-    ]
-  },
-  "candidates": [
+  "scraped_at": "2026-02-23T13:49:24Z",
+  "city": "augsburg",
+  "count": 10,
+  "listings": [
     {
       "id": "AU001",
       "title": "Wohnhaus mit 2 Einheiten und großem Grundstück",
@@ -437,7 +426,5 @@
       "status": "check",
       "lastVerified": "2026-02-23T12:00:28.828213+00:00"
     }
-  ],
-  "totalCandidates": 10,
-  "notes": "Enriched with transport and school data. Top picks: AU002 (305m² ZFH), AU010 (ZFH Haunstetten), AU009 (with Einliegerwohnung)."
+  ]
 }

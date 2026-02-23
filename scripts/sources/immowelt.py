@@ -186,20 +186,45 @@ class ImmoweltScraper(BaseScraper):
         try:
             listing = {}
             
-            # Extract title and URL
+            # Extract title and URL - look for direct property detail links
             title_link = element.find('h2')
             if title_link:
                 link_elem = title_link.find('a')
                 if link_elem:
                     listing['title'] = link_elem.get_text(strip=True)
-                    listing['url'] = urljoin(self.source_config['base_url'], link_elem.get('href', ''))
+                    raw_href = link_elem.get('href', '')
+                    # Ensure we get a detail page URL, not search URL
+                    if '/expose/' in raw_href or '/immobilie/' in raw_href:
+                        listing['url'] = urljoin(self.source_config['base_url'], raw_href)
+                    else:
+                        # Look for the correct detail link within the element
+                        detail_link = element.find('a', href=re.compile(r'/expose/|/immobilie/'))
+                        if detail_link:
+                            listing['url'] = urljoin(self.source_config['base_url'], detail_link.get('href', ''))
+                        else:
+                            listing['url'] = urljoin(self.source_config['base_url'], raw_href)
                     
-            # Alternative title extraction
+            # Alternative title extraction for different layouts
             if 'title' not in listing:
                 title_elem = element.find('a', class_='property-title')
                 if title_elem:
                     listing['title'] = title_elem.get_text(strip=True)
-                    listing['url'] = urljoin(self.source_config['base_url'], title_elem.get('href', ''))
+                    raw_href = title_elem.get('href', '')
+                    if '/expose/' in raw_href or '/immobilie/' in raw_href:
+                        listing['url'] = urljoin(self.source_config['base_url'], raw_href)
+                    else:
+                        detail_link = element.find('a', href=re.compile(r'/expose/|/immobilie/'))
+                        if detail_link:
+                            listing['url'] = urljoin(self.source_config['base_url'], detail_link.get('href', ''))
+                        else:
+                            listing['url'] = urljoin(self.source_config['base_url'], raw_href)
+            
+            # Final attempt - find any direct property link
+            if 'title' not in listing:
+                detail_link = element.find('a', href=re.compile(r'/expose/|/immobilie/'))
+                if detail_link:
+                    listing['title'] = detail_link.get_text(strip=True) or "Property Listing"
+                    listing['url'] = urljoin(self.source_config['base_url'], detail_link.get('href', ''))
                     
             if 'title' not in listing:
                 return None
@@ -237,7 +262,7 @@ class ImmoweltScraper(BaseScraper):
                 if img_src:
                     listing['image_url'] = urljoin(self.source_config['base_url'], img_src)
                     
-            # Extract features and description
+            # Extract features and description with enhanced extraction
             description_parts = []
             
             # Add title
@@ -249,39 +274,62 @@ class ImmoweltScraper(BaseScraper):
                 'div.property-features', 
                 'div.expose-details',
                 'ul.feature-list li',
-                'div.ausstattung'
+                'div.ausstattung',
+                'div.property-data',
+                'div.expose-attributes',
+                'div.property-description-text'
             ]
             
             for selector in feature_selectors:
                 elements = element.select(selector)
                 for elem in elements:
                     feature_text = elem.get_text(strip=True)
-                    if feature_text and feature_text not in description_parts and len(feature_text) > 3:
+                    if feature_text and feature_text not in description_parts and len(feature_text) > 5:
                         description_parts.append(feature_text)
             
-            # Look for detailed description
+            # Look for detailed description with priority
             desc_selectors = [
                 'div.property-description',
                 'div.expose-description',
                 'div.description-text',
-                'p.description'
+                'p.description',
+                'div.objektbeschreibung',
+                'div.freitext',
+                'div.expose-text'
             ]
             
             for selector in desc_selectors:
                 desc_elem = element.select_one(selector)
                 if desc_elem:
                     desc_text = desc_elem.get_text(strip=True)
-                    if desc_text and len(desc_text) > 10:
+                    if desc_text and len(desc_text) > 20:
                         description_parts.append(desc_text)
                         break  # Take the first good description
             
-            # Combine description
+            # Look for structured data like key facts
+            data_items = element.find_all(['div', 'span'], class_=re.compile(r'.*fact.*|.*data.*|.*key.*'))
+            for item in data_items:
+                item_text = item.get_text(strip=True)
+                if item_text and len(item_text) > 3 and len(item_text) < 100:
+                    description_parts.append(item_text)
+            
+            # Combine description and ensure minimum length
             if len(description_parts) > 1:
                 listing['description'] = ' | '.join(description_parts)
             elif description_parts:
                 listing['description'] = description_parts[0]
             else:
                 listing['description'] = listing.get('title', '')
+                
+            # Ensure description is comprehensive
+            if len(listing['description']) < 100:
+                # Extract more comprehensive text
+                all_text = element.get_text(separator=' ', strip=True)
+                # Clean up and limit
+                clean_text = all_text.replace(listing['title'], '').strip()
+                if len(clean_text) > 50:
+                    # Combine with existing description
+                    listing['description'] = f"{listing['description']} | {clean_text[:400]}..."
                 
             # Extract additional details from text
             self._extract_property_details_from_text(listing)

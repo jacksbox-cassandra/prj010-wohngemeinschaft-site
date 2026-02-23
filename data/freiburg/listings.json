@@ -1,19 +1,8 @@
 {
-  "city": "Freiburg",
-  "enrichedAt": "2026-02-23T12:00:10.805555+00:00",
-  "searchCriteria": {
-    "radius": 30,
-    "minBedrooms": 4,
-    "types": [
-      "buy",
-      "rent"
-    ],
-    "propertyTypes": [
-      "house",
-      "large_apartment"
-    ]
-  },
-  "candidates": [
+  "scraped_at": "2026-02-23T13:49:24Z",
+  "city": "freiburg",
+  "count": 10,
+  "listings": [
     {
       "id": "FR001",
       "title": "Gepflegtes Reihenmittelhaus mit Charme und Potenzial",
@@ -469,7 +458,5 @@
       "status": "active",
       "lastVerified": "2026-02-23T12:00:10.155220+00:00"
     }
-  ],
-  "totalCandidates": 10,
-  "notes": "Enriched with ImmoScout24 browser data. Screenshots captured for IS24 listings. Transport and school data estimated based on location."
+  ]
 }
